@@ -7,4 +7,6 @@
     import_tasks: tasks/oh-my-zsh.yml
   - name: Install bashcfg
     import_tasks: tasks/bashcfg.yml
+  - name: Install vimrc
+    import_tasks: tasks/vimrc.yml
 

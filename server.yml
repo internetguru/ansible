@@ -3,6 +3,11 @@
 
 - hosts: all
   become: yes
+  vars:
+    swap_file_size_mb: '2048'
+    swap_file_path: '/root/swapfile'
+  roles:
+  - geerlingguy.swap
   tasks:
   - name: Install motd
     import_tasks: tasks/motd.yml

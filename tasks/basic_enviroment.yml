@@ -5,6 +5,7 @@
 
   - name: Install essential packages
     apt:
+      state: latest
       pkg:
       - vim
       - curl

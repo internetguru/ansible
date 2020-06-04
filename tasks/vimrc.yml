@@ -1,0 +1,39 @@
+
+ # Dependency
+
+  - name: Install dependencies
+    apt:
+      pkg:
+      - curl
+      - vim
+
+ # Checks
+ 
+  - name: Check if ~/vimrc exists
+    stat:
+      path: '{{ ansible_env.HOME }}/vimrc'
+    register: vimrc
+ 
+ # Commands
+
+  - name: Clone vimrc repo
+    git:
+     repo: 'https://github.com/petrzpav/vimrc'
+     dest: '{{ ansible_env.HOME }}/vimrc'
+
+  - name: Add global vimrc link
+    file:
+      src: '{{ ansible_env.HOME }}/vimrc/vimrc'
+      dest: '/etc/vim/vimrc'
+      state: link
+      force: yes
+    when: not vimrc.stat.exists
+
+  - name: Add global vimrc.local link
+    file:
+      src: '{{ ansible_env.HOME }}/vimrc/vimrc.local'
+      dest: '/etc/vim/vimrc.local'
+      state: link
+      force: yes
+    when: not vimrc.stat.exists
+
