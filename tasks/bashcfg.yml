@@ -1,0 +1,32 @@
+- hosts: 127.0.0.1
+  connection: local
+  become: yes
+  tasks:
+
+  - name: Install dependencies
+    apt:
+      pkg:
+      - git
+
+ # Checks
+ 
+  - name: Check if /usr/local/share/bashcfg exists
+    stat:
+      path: '/usr/local/share/bashcfg'
+    register: bashcfg
+
+ # Commands
+
+  - name: Clone bashcfg
+    git:
+     repo: 'https://bitbucket.org/igwr/bashcfg'
+     dest: '/usr/local/share/bashcfg'
+ 
+  - name: Add settings into .zshrc.local
+    shell: '{{ item }}'
+    with_items:
+    - "echo 'echo \"IG bashcfg, version $(< /usr/local/share/bashcfg/VERSION)\"' >> {{ ansible_env.HOME }}/.zshrc.local"
+    - "echo 'source /usr/local/share/bashcfg/common' >> {{ ansible_env.HOME }}/.zshrc.local"
+    - "echo 'source /usr/local/share/bashcfg/git_functions' >> {{ ansible_env.HOME }}/.zshrc.local"
+    #when: not bashcfg.stat.exists
+
