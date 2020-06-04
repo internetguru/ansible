@@ -1,0 +1,9 @@
+
+- import_playbook: fresh_env.yml
+
+- hosts: all
+  become: yes
+  tasks:
+  - name: Install motd
+    import_tasks: tasks/motd.yml
+

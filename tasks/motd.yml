@@ -1,0 +1,26 @@
+
+ # Dependency
+
+  - name: Install dependencies
+    apt:
+      pkg:
+      - figlet
+      - ruby
+
+ # Checks
+
+ # Commands
+
+  - name: Remove default message
+    file:
+      path: '/etc/motd'
+      state: absent
+ 
+  - name: Install lolcat
+    shell: 'gem install lolcat'
+  
+  - name: Create custom message
+    copy:
+      src: '../res/20-ig'
+      dest: '/etc/update-motd.d/20-ig'
+      mode: u+rwx,g+rx,o+rx
