@@ -1,0 +1,10 @@
+- hosts: all
+  become: yes
+  tasks:
+  - name: Install basic enviroment
+    import_tasks: tasks/basic_enviroment.yml
+  - name: Install oh-my-zsh
+    import_tasks: tasks/oh-my-zsh.yml
+  - name: Install bashcfg
+    import_tasks: tasks/bashcfg.yml
+

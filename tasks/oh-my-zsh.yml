@@ -1,7 +1,5 @@
-- hosts: 127.0.0.1
-  connection: local
-  become: yes
-  tasks:
+
+ # Dependency
 
   - name: Install dependencies
     apt:
@@ -12,11 +10,6 @@
 
  # Checks
  
-  - name: Check if ~/.oh-my-zsh exists
-    stat:
-      path: '{{ ansible_env.HOME }}/.oh-my-zsh'
-    register: ohmyzsh
-
   - name: Check if /usr/local/share/.oh-my-zsh exists
     stat:
       path: '/usr/local/share/.oh-my-zsh'
@@ -40,25 +33,23 @@
       shell: /bin/zsh
 
   - name: Install oh-my-zsh
-    shell: sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+    shell: 'ZSH=/usr/local/share/.oh-my-zsh sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"'
+    changed_when: False
     when:
-    - not ohmyzsh.stat.exists
     - not ohmyzsh_share.stat.exists
 
-  - name: remove default config
+  - name: Remove default config
     file:
       path: '{{ ansible_env.HOME }}/.zshrc'
       state: absent
+    when:
+    - not ohmyzsh_share.stat.exists
 
   - name: Clone zshrc repo
     git:
      repo: 'https://github.com/InternetGuru/zshrc'
      dest: '{{ ansible_env.HOME }}/zshrc'
   
-  - name: Move .oh-my-zsh to /usr/local/share
-    shell: mv '{{ ansible_env.HOME }}/.oh-my-zsh' /usr/local/share
-    when: not ohmyzsh_share.stat.exists
-
   - name: Add babun.zsh-theme into oh-my-zsh
     file:
       src: '{{ ansible_env.HOME }}/zshrc/babun.zsh-theme'

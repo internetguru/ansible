@@ -1,8 +1,6 @@
-- hosts: 127.0.0.1
-  connection: local
-  become: yes
-  tasks:
-
+ 
+ # Dependency
+ 
   - name: Install dependencies
     apt:
       pkg:
@@ -24,6 +22,7 @@
  
   - name: Add settings into .zshrc.local
     shell: '{{ item }}'
+    changed_when: False
     with_items:
     - "echo 'echo \"IG bashcfg, version $(< /usr/local/share/bashcfg/VERSION)\"' >> {{ ansible_env.HOME }}/.zshrc.local"
     - "echo 'source /usr/local/share/bashcfg/common' >> {{ ansible_env.HOME }}/.zshrc.local"
