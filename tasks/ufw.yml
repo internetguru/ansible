@@ -1,0 +1,67 @@
+
+ # Dependency
+
+  - name: Install dependencies
+    apt:
+      pkg:
+      - ufw
+
+ # Commands
+
+  - name: Deny all and enable UFW
+    ufw:
+      state: enabled
+      policy: deny
+  
+  - name: Rate limiting ssh connection (6 or more in the last 30 sec)
+    ufw:
+      rule: limit
+      port: ssh
+      proto: tcp
+  
+  - name: Default tcp allow in
+    ufw:
+      rule: allow
+      proto: tcp
+      direction: in
+      port: '{{ item }}'
+    loop:
+    - '22'
+    - '80'
+    - '443'
+    - '5000:5100'
+    - '445'
+    - '139'
+    - '5900'
+  
+  - name: Default allow in
+    ufw:
+      rule: allow
+      direction: in
+      port: '{{ item }}'
+    loop:
+    - '35729'
+    - '7890'
+  
+  - name: Default tcp allow out
+    ufw:
+      rule: allow
+      proto: tcp
+      direction: out
+      port: '{{ item }}'
+    loop:
+    - '22'
+    - '80'
+    - '443'
+    - '873'
+  
+  - name: Default allow out
+    ufw:
+      rule: allow
+      direction: out
+      port: '{{ item }}'
+    loop:
+    - '53'
+    - '25'
+    - '995'
+  

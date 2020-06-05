@@ -11,4 +11,6 @@
   tasks:
   - name: Install motd
     import_tasks: tasks/motd.yml
+  - name: Set firewall
+    import_tasks: tasks/ufw.yml
 
