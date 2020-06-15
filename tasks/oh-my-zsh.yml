@@ -29,7 +29,7 @@
 
   - name: Set ZSH as default shell
     user:
-      name: '{{ username }}'
+      name: '{{ username.stdout }}'
       shell: /bin/zsh
 
   - name: Install oh-my-zsh
