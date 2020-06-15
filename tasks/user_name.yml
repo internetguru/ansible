@@ -1,0 +1,6 @@
+ - name: Register current user name
+   become: false
+   local_action: command whoami
+   register: username
+
+

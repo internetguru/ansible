@@ -29,7 +29,7 @@
 
   - name: Set ZSH as default shell
     user:
-      name: '{{ ansible_user_id }}'
+      name: '{{ username }}'
       shell: /bin/zsh
 
   - name: Install oh-my-zsh

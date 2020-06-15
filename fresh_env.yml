@@ -1,6 +1,8 @@
 - hosts: all
   become: yes
   tasks:
+  - name: Register current user name
+    import_tasks: tasks/user_name.yml
   - name: Install basic enviroment
     import_tasks: tasks/basic_enviroment.yml
   - name: Install oh-my-zsh
