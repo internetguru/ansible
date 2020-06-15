@@ -11,4 +11,6 @@
       - curl
       - htop
       - git
+      - mc
+      - build-essential
 
