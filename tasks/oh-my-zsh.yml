@@ -22,7 +22,7 @@
  
   - name: Check if ~/zshrc exists
     stat:
-      path: '{{ ansible_env.HOME }}/.zshrc'
+      path: '/home/{{ username.stdout }}/.zshrc'
     register: zshrc
 
  # Commands
@@ -40,7 +40,7 @@
 
   - name: Remove default config
     file:
-      path: '{{ ansible_env.HOME }}/.zshrc'
+      path: '/home/{{ username.stdout }}/.zshrc'
       state: absent
     when:
     - not ohmyzsh_share.stat.exists
@@ -48,19 +48,19 @@
   - name: Clone zshrc repo
     git:
      repo: 'https://github.com/InternetGuru/zshrc'
-     dest: '{{ ansible_env.HOME }}/zshrc'
+     dest: '/home/{{ username.stdout }}/zshrc'
   
   - name: Add babun.zsh-theme into oh-my-zsh
     file:
-      src: '{{ ansible_env.HOME }}/zshrc/babun.zsh-theme'
+      src: '/home/{{ username.stdout }}/zshrc/babun.zsh-theme'
       dest: '/usr/local/share/.oh-my-zsh/themes/babun.zsh-theme'
       state: link
     when: not theme.stat.exists
 
   - name: Set .zshrc
     file:
-      src: '{{ ansible_env.HOME }}/zshrc/.zshrc'
-      dest: '{{ ansible_env.HOME }}/.zshrc'
+      src: '/home/{{ username.stdout }}/zshrc/.zshrc'
+      dest: '/home/{{ username.stdout }}/.zshrc'
       state: link
     when: not zshrc.stat.exists
 

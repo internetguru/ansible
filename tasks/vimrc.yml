@@ -11,7 +11,7 @@
  
   - name: Check if ~/vimrc exists
     stat:
-      path: '{{ ansible_env.HOME }}/vimrc'
+      path: '/home/{{ username.stdout }}/vimrc'
     register: vimrc
  
  # Commands
@@ -19,11 +19,11 @@
   - name: Clone vimrc repo
     git:
      repo: 'https://github.com/petrzpav/vimrc'
-     dest: '{{ ansible_env.HOME }}/vimrc'
+     dest: '/home/{{ username.stdout }}/vimrc'
 
   - name: Add global vimrc link
     file:
-      src: '{{ ansible_env.HOME }}/vimrc/vimrc'
+      src: '/home/{{ username.stdout }}/vimrc/vimrc'
       dest: '/etc/vim/vimrc'
       state: link
       force: yes
@@ -31,7 +31,7 @@
 
   - name: Add global vimrc.local link
     file:
-      src: '{{ ansible_env.HOME }}/vimrc/vimrc.local'
+      src: '/home/{{ username.stdout }}/vimrc/vimrc.local'
       dest: '/etc/vim/vimrc.local'
       state: link
       force: yes

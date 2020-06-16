@@ -1,0 +1,47 @@
+- hosts: all
+  become: yes
+  pre_tasks:
+  - name: Register current user name
+    import_tasks: tasks/user_name.yml
+  roles:
+  - cmprescott.chrome
+  - role: PeterMosmans.customize-gnome
+    vars:
+      gnome_user: '{{ username.stdout }}'
+      gnome_extensions:
+        - url: https://extensions.gnome.org/extension-data/disable-screenshield%40lgpasquale.com.v7.shell-extension.zip
+          name: 'disable-screenshield@lgpasquale.com'
+        - url: https://extensions.gnome.org/extension-data/clock-overridegnomeshell.kryogenix.org.v12.shell-extension.zip
+          name: 'clock-override@gnomeshell.kryogenix.org'
+  - role: gantsign.visual-studio-code
+    users:
+      - username: '{{ username.stdout }}'
+        visual_studio_code_extensions:
+          - Shan.code-settings-sync
+        visual_studio_code_settings_overwrite: yes
+        visual_studio_code_settings: {
+          "sync.autoDownload": true,
+          "sync.autoUpload": false,
+          "sync.gist": 'fd6f4ed38d22d4611e6f8a9e0c9e2801',
+          "sync.quietSync": true
+        }
+  tasks:
+  - name: Install requirements
+    apt:
+      pkg:
+      - gnome-shell-extension-dash-to-panel
+      - gnome-screensaver 
+      - gnome-session
+      - gnome-settings-daemon
+      - gnome-tweaks
+  - name: Clone settings
+    git: 
+     repo: 'https://github.com/jiripavelka/ubuntucfg.git'
+     dest: '/home/{{ username.stdout }}/ubuntucfg'
+  - name: Load settings
+    command: ./filter dirs < settings.dconf | dconf load /
+    args:
+      chdir: '/home/{{ username.stdout }}/ubuntucfg'
+  - name: Show lang switch
+    command: gsettings set org.gnome.desktop.input-sources show-all-sources true
+

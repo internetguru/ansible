@@ -24,8 +24,8 @@
     shell: '{{ item }}'
     changed_when: False
     with_items:
-    - "echo 'echo \"IG bashcfg, version $(< /usr/local/share/bashcfg/VERSION)\"' >> {{ ansible_env.HOME }}/.zshrc.local"
-    - "echo 'source /usr/local/share/bashcfg/common' >> {{ ansible_env.HOME }}/.zshrc.local"
-    - "echo 'source /usr/local/share/bashcfg/git_functions' >> {{ ansible_env.HOME }}/.zshrc.local"
+    - "echo 'echo \"IG bashcfg, version $(< /usr/local/share/bashcfg/VERSION)\"' >> /home/{{ username.stdout }}/.zshrc.local"
+    - "echo 'source /usr/local/share/bashcfg/common' >> /home/{{ username.stdout }}/.zshrc.local"
+    - "echo 'source /usr/local/share/bashcfg/git_functions' >> /home/{{ username.stdout }}/.zshrc.local"
     when: not bashcfg.stat.exists
 

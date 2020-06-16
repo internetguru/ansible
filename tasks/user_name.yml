@@ -3,4 +3,3 @@
    local_action: command whoami
    register: username
 
-
