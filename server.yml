@@ -1,6 +1,3 @@
-
-- import_playbook: fresh_env.yml
-
 - hosts: all
   become: yes
   vars:
