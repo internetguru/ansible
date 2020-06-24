@@ -1,6 +1,6 @@
 # IG Ansible
 
-> Handy ansible playbooks for multiple kinds of linux enviroment.
+> Handy ansible playbooks for multiple enviroments.
 
 ## Requirements
 
