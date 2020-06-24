@@ -5,6 +5,7 @@
     import_tasks: tasks/user_name.yml
   roles:
   - cmprescott.chrome
+  - avnes.ansible-role-slack
   - role: PeterMosmans.customize-gnome
     vars:
       gnome_user: '{{ username.stdout }}'
@@ -29,15 +30,22 @@
   - name: Install requirements
     apt:
       pkg:
-      - gnome-shell-extension-dash-to-panel
       - gnome-screensaver 
       - gnome-session
       - gnome-settings-daemon
       - gnome-tweaks
+  - name: Clone dash-to-panel
+    git:
+      repo: 'https://github.com/home-sweet-gnome/dash-to-panel.git'
+      dest: '/usr/local/share/dash-to-panel'
+  - name: Install dash-to-panel
+    command: make install
+    args:
+      chdir: '/usr/local/share/dash-to-panel'
   - name: Clone settings
     git: 
-     repo: 'https://github.com/jiripavelka/ubuntucfg.git'
-     dest: '/home/{{ username.stdout }}/ubuntucfg'
+      repo: 'https://github.com/jiripavelka/ubuntucfg.git'
+      dest: '/home/{{ username.stdout }}/ubuntucfg'
   - name: Load settings
     command: ./filter dirs < settings.dconf | dconf load /
     args:
