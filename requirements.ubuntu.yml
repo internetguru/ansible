@@ -2,3 +2,4 @@
 - src: PeterMosmans.customize-gnome
 - src: gantsign.visual-studio-code
 - src: avnes.ansible-role-slack
+- src: wtanaka.teamviewer
