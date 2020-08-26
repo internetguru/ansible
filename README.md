@@ -29,7 +29,7 @@ sudo apt install git
 git clone https://github.com/InternetGuru/ansible.git
 ```
 
-3. Run ansible
+4. Run ansible
 ```
 cd ansible
 ansible-playbook --connection=local --inventory 127.0.0.1, --ask-become-pass fresh_env.yml
