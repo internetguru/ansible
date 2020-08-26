@@ -37,6 +37,7 @@ sudo reboot
 ```
 ```
 cd ansible
+sodu vim README.md # Install global plugins and exit (:q)
 ansible-galaxy install -r requirements.ubuntu.yml
 ansible-playbook --connection=local --inventory 127.0.0.1, --ask-become-pass ubuntu.yml
 sudo reboot
