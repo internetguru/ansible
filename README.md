@@ -23,7 +23,7 @@ sudo apt install ansible
   - [bashcfg](https://bitbucket.org/igwr/bashcfg)
   - [vimrc](https://github.com/petrzpav/vimrc)
 - `server.yml`
-  - creates 2 Gb swapfile in `/root/swapfile`
+  - creates 2 GB swapfile in `/root/swapfile`
   - [Internet Guru motd](https://github.com/InternetGuru/ansible/blob/master/res/20-ig)
   - ufw with basic rules
 - `ubuntu.yml`
