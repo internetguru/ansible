@@ -9,6 +9,37 @@
 sudo apt install ansible
 ```
 
+## Content
+
+- `fresh-env.yml`
+  - vim
+  - curl
+  - htop
+  - git
+  - mc
+  - build-essential
+  - zsh
+  - [oh-my-zsh](https://github.com/ohmyzsh/ohmyzsh)
+  - [bashcfg](https://bitbucket.org/igwr/bashcfg)
+  - [vimrc](https://github.com/petrzpav/vimrc)
+- `server.yml`
+  - creates 2 Gb swapfile in `/root/swapfile`
+  - [Internet Guru motd](https://github.com/InternetGuru/ansible/blob/master/res/20-ig)
+  - ufw with basic rules
+- `ubuntu.yml`
+  - gnome disable-screenshield
+  - gnome clock-override
+  - gnome dash-to-panel
+  - gnome-screensaver
+  - gnome-session
+  - gnome-settings-daemon
+  - gnome-tweaks
+  - chrome
+  - slack
+  - teamviewer
+  - visual-studio-code with shared settings
+  - [system configuration](https://github.com/jiripavelka/ubuntucfg.git)
+
 ## Complete Ubuntu Installation with Ansible
 
 1. Install updates
