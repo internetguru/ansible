@@ -64,11 +64,11 @@ git clone https://github.com/InternetGuru/ansible.git
 ```
 cd ansible
 ansible-playbook --connection=local --inventory 127.0.0.1, --ask-become-pass fresh_env.yml
+sudo vim # Install global vim plugins and exit (:q)
 sudo reboot
 ```
 ```
 cd ansible
-sudo vim # Install global vim plugins and exit (:q)
 ansible-galaxy install -r requirements.ubuntu.yml
 ansible-playbook --connection=local --inventory 127.0.0.1, --ask-become-pass ubuntu.yml
 sudo reboot
