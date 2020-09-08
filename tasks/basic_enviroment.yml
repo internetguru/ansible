@@ -13,4 +13,5 @@
       - git
       - mc
       - build-essential
+      - net-tools
 
