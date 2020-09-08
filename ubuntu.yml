@@ -34,14 +34,7 @@
       - gnome-session
       - gnome-settings-daemon
       - gnome-tweaks
-  - name: Clone dash-to-panel
-    git:
-      repo: 'https://github.com/home-sweet-gnome/dash-to-panel.git'
-      dest: '/usr/local/share/dash-to-panel'
-  - name: Install dash-to-panel
-    command: make install
-    args:
-      chdir: '/usr/local/share/dash-to-panel'
+      - gnome-shell-extension-dash-to-panel
   - name: Clone settings
     git: 
       repo: 'https://github.com/jiripavelka/ubuntucfg.git'
