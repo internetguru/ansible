@@ -6,7 +6,6 @@
   roles:
   - cmprescott.chrome
   - avnes.ansible-role-slack
-  - wtanaka.teamviewer
   - role: PeterMosmans.customize-gnome
     vars:
       gnome_user: '{{ username.stdout }}'
