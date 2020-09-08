@@ -43,6 +43,8 @@
     command: ./filter dirs < settings.dconf | dconf load /
     args:
       chdir: '/home/{{ username.stdout }}/ubuntucfg'
+    become: yes
+    become_user: '{{ username.stdout }}'
   - name: Show lang switch
     command: gsettings set org.gnome.desktop.input-sources show-all-sources true
 
