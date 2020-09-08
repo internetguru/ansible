@@ -14,4 +14,5 @@
       - mc
       - build-essential
       - net-tools
+      - gettext
 
