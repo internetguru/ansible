@@ -35,6 +35,7 @@
       - gnome-settings-daemon
       - gnome-tweaks
       - gnome-shell-extension-dash-to-panel
+      - python3-pip
   - name: Install rtorrent
     apt:
       pkg:
