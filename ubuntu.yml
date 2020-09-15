@@ -35,6 +35,15 @@
       - gnome-settings-daemon
       - gnome-tweaks
       - gnome-shell-extension-dash-to-panel
+  - name: Install rtorrent
+    apt:
+      pkg:
+      - rtorrent
+  - name: Install we-get
+    pip:
+      name:
+      - prompt_toolkit==1.0.14
+      - git+https://github.com/rachmadaniHaryono/we-get
   - name: Clone settings
     git: 
       repo: 'https://github.com/jiripavelka/ubuntucfg.git'
