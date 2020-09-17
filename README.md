@@ -128,9 +128,8 @@ sudo reboot
 - [rtorrent cheet sheet](https://devhints.io/rtorrent)
 - [we-get readme](https://github.com/rachmadaniHaryono/we-get)
 
-## TODO
+## Suggestions
 
-- [ ] Check do not wake by mouse move
-- [ ] Turn off the screen with no lock, no suspend shortcut
-- [ ] Ulauncher to `win` and `win+s`
-- [ ] Extend `server.yml`
+- [ ] Shortcut to turn off the screen with no lock and no suspend.
+- [ ] Ulauncher to `win` and `win+s`.
+- [ ] Do nothing when lid is closed.
