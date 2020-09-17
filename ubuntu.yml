@@ -46,9 +46,12 @@
   - name: Show lang switch
     command: gsettings set org.gnome.desktop.input-sources show-all-sources true
   - name: Add Ulauncher APT repository
-    command: add-apt-repository -y ppa:agornostal/ulauncher
+    apt_repository:
+      repo: 'ppa:agornostal/ulauncher'
   - name: Install Ulauncher
     apt:
       pkg:
       - ulauncher
       update_cache: yes
+  - name: Set lid close behaviour to ignore
+    shell: sed -i 's/^HandleLidSwitch.*/HandleLidSwitch=ignore/' /etc/systemd/logind.conf

@@ -132,4 +132,4 @@ sudo reboot
 
 - [ ] Shortcut to turn off the screen with no lock and no suspend.
 - [ ] Ulauncher to `win` and `win+s`.
-- [ ] Do nothing when lid is closed.
+- [x] Do nothing when lid is closed.
