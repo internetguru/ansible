@@ -36,12 +36,13 @@
     git: 
       repo: 'https://github.com/jiripavelka/ubuntucfg.git'
       dest: '/home/{{ username.stdout }}/ubuntucfg'
-  - name: Load settings
-    command: ./filter dirs < settings.dconf | dconf load /
-    args:
-      chdir: '/home/{{ username.stdout }}/ubuntucfg'
-    become: yes
-    become_user: '{{ username.stdout }}'
+  # TODO fix loading settings
+  # - name: Load settings
+  #   command: ./filter dirs < settings.dconf | dconf load /
+  #   args:
+  #     chdir: '/home/{{ username.stdout }}/ubuntucfg'
+  #   become: yes
+  #   become_user: '{{ username.stdout }}'
   - name: Show lang switch
     command: gsettings set org.gnome.desktop.input-sources show-all-sources true
   - name: Set idle to 15 min

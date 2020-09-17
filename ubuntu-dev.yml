@@ -19,7 +19,6 @@
           "sync.quietSync": true
         }
   tasks:
-  
   - name: Install docker
     import_tasks: tasks/docker.yml
   - name: Install PHP
