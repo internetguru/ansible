@@ -81,7 +81,7 @@ sudo apt install git
 git clone https://github.com/InternetGuru/ansible.git
 ```
 
-4. Run ansible
+4. Apply ansible
 ```
 cd ansible
 
@@ -94,7 +94,7 @@ sudo vim
 # install ubuntu.yml
 ansible-galaxy install -r requirements.ubuntu.yml
 ansible-playbook --connection=local --inventory 127.0.0.1, --ask-become-pass ubuntu.yml
-# for now you must load ubuntucfg manually
+# load ubuntucfg manually, see Known Bugs (below)
 cd ~/ubuntucfg
 ./filter dirs < settings.dconf | dconf load /
 
@@ -109,20 +109,21 @@ sudo reboot
 
 ## Known Bugs
 
-- VSC shared settings first load
-  > `ctr+shift+p` => type `sync download` => sign in to GitHub
-- VSC `F6` not working without workspace
-  > Add folder to workspace to create untitled workspace, `F6` should work now
-- `dconf load` not working inside ansible task
+- Unable to load VSC shared settings from ansible.
+  > Open VSC, hit `ctr+shift+p`, type `sync download`, sign in to GitHub.
+- VSC toggle spellcheck (`F6`) not working without a workspace.
+  > Open VSC, hit File / Add Folder to Workspace… and select a folder.
+- Unable to load `ubuntucfg` from ansible.
+  > Load `ubuntucfg` manually, see Appy ansible (above).
 
-## Typical Issues
+## Typical Issues and Howtos
 
 - [Change swap size](https://bogdancornianu.com/change-swap-size-in-ubuntu/)
 - [Move home to external partition](https://www.tecmint.com/move-home-directory-to-new-partition-disk-in-linux/)
 - [Set default audio device](https://askubuntu.com/questions/1038490/how-do-you-set-a-default-audio-output-device-in-ubuntu-18-04)
 - [Make login screen appear in external display](https://askubuntu.com/questions/1043337/is-there-to-make-the-login-screen-appear-on-the-external-display-in-18-04)
 - [Transfer audio from PC to iPhone](https://www.groovypost.com/howto/howto/sync-your-iphone-or-ipod-touch-in-ubuntu/)
-- [Install ssh server](https://linuxize.com/post/how-to-enable-ssh-on-ubuntu-18-04/)
+- [Enable ssh server](https://linuxize.com/post/how-to-enable-ssh-on-ubuntu-18-04/)
 - [Compose key cheet sheet](https://tuttle.github.io/python-useful/compose-key-cheat-sheet.html)
 - [rtorrent cheet sheet](https://devhints.io/rtorrent)
 - [we-get readme](https://github.com/rachmadaniHaryono/we-get)
