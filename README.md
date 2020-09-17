@@ -50,7 +50,7 @@ sudo apt install ansible
 - rhythmbox
 - vlc
 - chrome
-- [system configuration](https://github.com/jiripavelka/ubuntucfg.git)
+- [ubuntucfg](https://github.com/jiripavelka/ubuntucfg.git)
 
 ### `ubuntu-dev.yml`
 
