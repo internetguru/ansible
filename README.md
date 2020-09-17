@@ -49,10 +49,6 @@ sudo apt install ansible
 - vlc
 - chrome
 - [system configuration](https://github.com/jiripavelka/ubuntucfg.git)
-- Additional settings:
-  - Show language switch
-  - Set idle time to 15 min
-  - Disable overlay-key (win)
 
 ### `ubuntu-dev.yml`
 

@@ -45,10 +45,6 @@
   #   become_user: '{{ username.stdout }}'
   - name: Show lang switch
     command: gsettings set org.gnome.desktop.input-sources show-all-sources true
-  - name: Set idle to 15 min
-    command: gsettings set org.gnome.desktop.session idle-delay 900
-  - name: Disable Super as overlay-key
-    command: gsettings set org.gnome.mutter overlay-key ""
   - name: Add Ulauncher APT repository
     command: add-apt-repository -y ppa:agornostal/ulauncher
   - name: Install Ulauncher
