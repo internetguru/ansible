@@ -5,7 +5,7 @@
 ## Requirements
 
 - Ubuntu 20.04.1 LTS
-  - [download](https://releases.ubuntu.com/20.04/ubuntu-20.04.1-desktop-amd64.iso)
+  - [download iso](https://releases.ubuntu.com/20.04/ubuntu-20.04.1-desktop-amd64.iso)
   - [create a bootable USB stick on Ubuntu](https://ubuntu.com/tutorials/create-a-usb-stick-on-ubuntu#1-overview)
 - ansible
 ```
