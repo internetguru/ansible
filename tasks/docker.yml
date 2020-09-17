@@ -14,11 +14,28 @@
 
  # Commands
 
+  - name: Register lsb_release
+    become: false
+    local_action: command lsb_release -cs
+    register: lsb_release
+  - name: Register uname_s
+    become: false
+    local_action: command uname -s
+    register: uname_s
+  - name: Register uname_m
+    become: false
+    local_action: command uname -m
+    register: uname_m
+
+
   - name: Add docker gpg key
-    command: curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+    apt_key:
+      url: https://download.docker.com/linux/ubuntu/gpg
+      state: present
 
   - name: Add the Docker APT repository
-    command: add-apt-repository -y "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
+    apt_repository:
+      repo: deb [arch=amd64] https://download.docker.com/linux/ubuntu {{ lsb_release.stdout  }} stable
 
   - name: Install docker
     apt:
@@ -29,7 +46,7 @@
       update_cache: yes
 
   - name: Install docker-compose
-    command: curl -L "https://github.com/docker/compose/releases/download/1.27.3/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+    command: curl -L "https://github.com/docker/compose/releases/download/1.27.3/docker-compose-{{ uname_s.stdout }}-{{ uname_m.stdout  }}" -o /usr/local/bin/docker-compose
   
   - name: Set docker-compose permissions
     command: chmod +x /usr/local/bin/docker-compose

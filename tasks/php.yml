@@ -11,7 +11,8 @@
  # Commands
 
   - name: Add the PHP APT repository
-    command: add-apt-repository -y ppa:ondrej/php
+    apt_repository:
+      repo: 'ppa:ondrej/php'
 
   - name: Install PHP 7.4
     apt:
