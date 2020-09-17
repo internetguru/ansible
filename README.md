@@ -42,8 +42,8 @@ sudo apt install ansible
 - gnome-shell-extension-dash-to-panel
 - python3-pip
 - pinta (alternative to mspaint)
-- rtorrent, [cheet sheet](https://devhints.io/rtorrent)
-- [we-get](https://github.com/rachmadaniHaryono/we-get)
+- rtorrent
+- we-get
 - rhythmbox
 - vlc
 - chrome
@@ -57,7 +57,7 @@ sudo apt install ansible
 
 - slack
 - visual-studio-code with shared settings
-- [ulauncher](https://ulauncher.io/)
+- ulauncher
 - java
 - docker
 - php 7.4
@@ -122,8 +122,10 @@ sudo reboot
 - [Move home to external partition](https://www.tecmint.com/move-home-directory-to-new-partition-disk-in-linux/)
 - [Set default audio device](https://askubuntu.com/questions/1038490/how-do-you-set-a-default-audio-output-device-in-ubuntu-18-04)
 - [Make login screen appear in external display](https://askubuntu.com/questions/1043337/is-there-to-make-the-login-screen-appear-on-the-external-display-in-18-04)
-- [Compose key cheet sheet](https://tuttle.github.io/python-useful/compose-key-cheat-sheet.html)
 - [Transfer audio from PC to iPhone](https://www.groovypost.com/howto/howto/sync-your-iphone-or-ipod-touch-in-ubuntu/)
+- [Compose key cheet sheet](https://tuttle.github.io/python-useful/compose-key-cheat-sheet.html)
+- [rtorrent cheet sheet](https://devhints.io/rtorrent)
+- [we-get readme](https://github.com/rachmadaniHaryono/we-get)
 
 ## TODO
 
