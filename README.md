@@ -41,6 +41,7 @@ sudo apt install ansible
 - gnome-tweaks
 - gnome-shell-extension-dash-to-panel
 - python3-pip
+- ulauncher
 - pinta (alternative to mspaint)
 - rtorrent
 - we-get
@@ -55,11 +56,10 @@ sudo apt install ansible
 
 ### `ubuntu-dev.yml`
 
+- docker
 - slack
 - visual-studio-code with shared settings
-- ulauncher
 - java
-- docker
 - php 7.4
 
 ## Complete Ubuntu Installation with Ansible
