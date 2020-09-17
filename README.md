@@ -128,3 +128,4 @@ sudo reboot
 - [ ] Check do not wake by mouse move
 - [ ] Turn off the screen with no lock, no suspend shortcut
 - [ ] Ulauncher to `win` and `win+s`
+- [ ] Extend `server.yml`
