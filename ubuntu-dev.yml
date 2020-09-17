@@ -1,0 +1,26 @@
+- hosts: all
+  become: yes
+  pre_tasks:
+  - name: Register current user name
+    import_tasks: tasks/user_name.yml
+  roles:
+  - avnes.ansible-role-slack
+  - geerlingguy.java
+  - role: gantsign.visual-studio-code
+    users:
+      - username: '{{ username.stdout }}'
+        visual_studio_code_extensions:
+          - Shan.code-settings-sync
+        visual_studio_code_settings_overwrite: yes
+        visual_studio_code_settings: {
+          "sync.autoDownload": true,
+          "sync.autoUpload": false,
+          "sync.gist": 'fd6f4ed38d22d4611e6f8a9e0c9e2801',
+          "sync.quietSync": true
+        }
+  tasks:
+  
+  - name: Install docker
+    import_tasks: tasks/docker.yml
+  - name: Install PHP
+    import_tasks: tasks/php.yml

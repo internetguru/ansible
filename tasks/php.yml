@@ -1,0 +1,20 @@
+
+ # Dependency
+
+  - name: Install dependencies
+    apt:
+      pkg:
+      - software-properties-common
+
+ # Checks
+
+ # Commands
+
+  - name: Add the PHP APT repository
+    command: add-apt-repository -y ppa:ondrej/php
+
+  - name: Install PHP 7.4
+    apt:
+      pkg:
+      - php7.4
+      update_cache: yes

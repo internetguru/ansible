@@ -5,7 +5,6 @@
     import_tasks: tasks/user_name.yml
   roles:
   - cmprescott.chrome
-  - avnes.ansible-role-slack
   - role: PeterMosmans.customize-gnome
     vars:
       gnome_user: '{{ username.stdout }}'
@@ -14,20 +13,8 @@
           name: 'disable-screenshield@lgpasquale.com'
         - url: https://extensions.gnome.org/extension-data/clock-overridegnomeshell.kryogenix.org.v12.shell-extension.zip
           name: 'clock-override@gnomeshell.kryogenix.org'
-  - role: gantsign.visual-studio-code
-    users:
-      - username: '{{ username.stdout }}'
-        visual_studio_code_extensions:
-          - Shan.code-settings-sync
-        visual_studio_code_settings_overwrite: yes
-        visual_studio_code_settings: {
-          "sync.autoDownload": true,
-          "sync.autoUpload": false,
-          "sync.gist": 'fd6f4ed38d22d4611e6f8a9e0c9e2801',
-          "sync.quietSync": true
-        }
   tasks:
-  - name: Install requirements
+  - name: Install packages
     apt:
       pkg:
       - gnome-screensaver 
@@ -36,10 +23,10 @@
       - gnome-tweaks
       - gnome-shell-extension-dash-to-panel
       - python3-pip
-  - name: Install rtorrent
-    apt:
-      pkg:
+      - pinta
       - rtorrent
+      - rhythmbox
+      - vlc
   - name: Install we-get
     pip:
       name:
@@ -57,4 +44,14 @@
     become_user: '{{ username.stdout }}'
   - name: Show lang switch
     command: gsettings set org.gnome.desktop.input-sources show-all-sources true
-
+  - name: Set idle to 15 min
+    command: gsettings set org.gnome.desktop.session idle-delay 900
+  - name: Disable Super as overlay-key
+    command: gsettings set org.gnome.mutter overlay-key ""
+  - name: Add Ulauncher APT repository
+    command: add-apt-repository -y ppa:agornostal/ulauncher
+  - name: Install Ulauncher
+    apt:
+      pkg:
+      - ulauncher
+      update_cache: yes
