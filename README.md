@@ -83,7 +83,7 @@ git clone https://github.com/InternetGuru/ansible.git
 
 4. Apply ansible
 ```
-cd ansible
+cd ~/ansible
 
 # install fres-env.yml
 ansible-playbook --connection=local --inventory 127.0.0.1, --ask-become-pass fresh_env.yml
@@ -100,7 +100,7 @@ cd ~/ubuntucfg
 ./filter dirs < settings.dconf | dconf load /
 
 # install ubuntu-dev.yml
-cd ansible
+cd ~/ansible
 ansible-galaxy install -r requirements.ubuntu-dev.yml
 ansible-playbook --connection=local --inventory 127.0.0.1, --ask-become-pass ubuntu-dev.yml
 
