@@ -94,6 +94,7 @@ sudo vim
 # install ubuntu.yml
 ansible-galaxy install -r requirements.ubuntu.yml
 ansible-playbook --connection=local --inventory 127.0.0.1, --ask-become-pass ubuntu.yml
+
 # load ubuntucfg manually, see Known Bugs (below)
 cd ~/ubuntucfg
 ./filter dirs < settings.dconf | dconf load /
