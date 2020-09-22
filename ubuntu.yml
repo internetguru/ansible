@@ -14,6 +14,8 @@
         - url: https://extensions.gnome.org/extension-data/clock-overridegnomeshell.kryogenix.org.v12.shell-extension.zip
           name: 'clock-override@gnomeshell.kryogenix.org'
   tasks:
+  - name: Set default browser
+    shell: xdg-settings set default-web-browser google-chrome.desktop
   - name: Install packages
     apt:
       pkg:
