@@ -108,7 +108,7 @@ ansible-playbook --connection=local --inventory 127.0.0.1, --ask-become-pass ubu
 sudo reboot
 ```
 
-## Known Bugs
+## Known Issues
 
 - Unable to load VSC shared settings from ansible.
   > Open VSC, hit `ctr+shift+p`, type `sync download`, sign in to GitHub.
@@ -117,7 +117,7 @@ sudo reboot
 - Unable to load `ubuntucfg` from ansible.
   > Load `ubuntucfg` manually, see Appy ansible (above).
 
-## Typical Issues and Howtos
+## Howtos
 
 - [How to use manual partitioning during installation](https://askubuntu.com/questions/343268/how-to-use-manual-partitioning-during-installation)
 - [Change swap size](https://bogdancornianu.com/change-swap-size-in-ubuntu/)
