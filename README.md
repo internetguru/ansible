@@ -55,6 +55,7 @@ sudo apt install ansible
 
 ### `ubuntu-dev.yml`
 
+- virtualbox
 - docker
 - slack
 - visual-studio-code with shared settings
