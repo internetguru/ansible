@@ -4,7 +4,6 @@
   - name: Install dependencies
     apt:
       pkg:
-      - gawk
       - git
       - python-docutils
 
@@ -12,20 +11,21 @@
  
  # Commands
 
-  - name: Clone omgf
+  - name: Clone butt
     git:
-     repo: 'git clone https://github.com/InternetGuru/omgf.git'
-     dest: '/home/{{ username.stdout }}/omgf'
+     repo: 'git clone https://github.com/InternetGuru/butt.git'
+     dest: '/home/{{ username.stdout }}/butt'
   
   - name: Change ownership
     file:
-      path: '/home/{{ username.stdout }}/omgf'
+      path: '/home/{{ username.stdout }}/butt'
       owner: '{{ username.stdout }}'
       group: '{{ username.stdout }}'
       state: directory
       recurse: yes
   
-  - name: Make and install omgf
+  - name: Make and install butt
     shell: ./configure && make && sudo compiled/install
     args:
-      chdir: '/home/{{ username.stdout }}/omgf'
+      chdir: '/home/{{ username.stdout }}/butt'
+
