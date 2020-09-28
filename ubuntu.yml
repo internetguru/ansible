@@ -67,3 +67,5 @@
     apt:
       deb: https://zoom.us/client/latest/zoom_amd64.deb
     ignore_errors: yes
+  - name: Load ubuntu settings
+    import_tasks: tasks/ubuntucfg.yml

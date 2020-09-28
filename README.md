@@ -94,9 +94,6 @@ sudo vim
 # install ubuntu.yml
 ansible-galaxy install -r requirements.ubuntu.yml
 ansible-playbook --connection=local --inventory 127.0.0.1, --ask-become-pass ubuntu.yml
-# load ubuntucfg manually, see Suggestions (below)
-cd ~/ubuntucfg
-./filter dirs < settings.dconf | dconf load /
 
 # install ubuntu-dev.yml
 cd ~/ansible
@@ -132,5 +129,4 @@ sudo reboot
 
 - [x] Shortcut to turn off the screen with no lock and no suspend.
 - [x] Ulauncher to `win+s`.
-- [ ] Load [ubuntucfg](https://github.com/jiripavelka/ubuntucfg.git)
 - [x] Do nothing when lid is closed.

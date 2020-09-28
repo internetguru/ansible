@@ -1,0 +1,390 @@
+
+
+  - name: Automatic timezone
+    community.general.dconf:
+      key: 'org/gnome/desktop/datetime/automatic-timezone'
+      value: 'true'
+
+  - name: Set en, cz input sources
+    community.general.dconf:
+      key: 'org/gnome/desktop/input-sources/sources'
+      value: '[('xkb', 'us'), ('xkb', 'cz')]'
+
+  - name: Set compose key to menu and pause buttons
+    community.general.dconf:
+      key: 'org/gnome/desktop/input-sources/xkb-options'
+      value: '['compose:paus', 'compose:menu']'
+
+  - name: Keyboard dely
+    community.general.dconf:
+      key: 'org/gnome/desktop/peripherals/keyboard/delay'
+      value: 'uint32 190'
+
+  - name: Activate numlock
+    community.general.dconf:
+      key: 'org/gnome/desktop/peripherals/keyboard/numlock-state'
+      value: 'true'
+
+  - name: Keboard repeat interval
+    community.general.dconf:
+      key: 'org/gnome/desktop/peripherals/keyboard/repeat-interval'
+      value: 'uint32 33'
+
+  - name: Lock screen after 15 min
+    community.general.dconf:
+      key: 'org/gnome/desktop/session/idle-delay'
+      value: 'uint32 900'
+
+  - name: Disable switch app
+    community.general.dconf:
+      key: 'org/gnome/desktop/wm/keybindings/switch-applications'
+      value: '@as []'
+
+  - name: Disable switch app backward
+    community.general.dconf:
+      key: 'org/gnome/desktop/wm/keybindings/switch-applications-backward'
+      value: '@as []'
+
+  - name: Switch windows
+    community.general.dconf:
+      key: 'org/gnome/desktop/wm/keybindings/switch-windows'
+      value: '['<Alt>Tab']'
+
+  - name: Switch windows backward
+    community.general.dconf:
+      key: 'org/gnome/desktop/wm/keybindings/switch-windows-backward'
+      value: '['<Shift><Alt>Tab']'
+
+  - name: Disable dynamic workspaces
+    community.general.dconf:
+      key: 'org/gnome/mutter/dynamic-workspaces'
+      value: 'false'
+
+  - name: Disable super key
+    community.general.dconf:
+      key: 'org/gnome/mutter/overlay-key'
+      value: ''
+
+  - name: Enable numlock
+    community.general.dconf:
+      key: 'org/gnome/settings-daemon/peripherals/keyboard/numlock-state'
+      value: 'on'
+
+  - name: Enable night-light
+    community.general.dconf:
+      key: 'org/gnome/settings-daemon/plugins/color/night-light-enabled'
+      value: 'true'
+
+  - name: Enable night-light automatic shedule
+    community.general.dconf:
+      key: 'org/gnome/settings-daemon/plugins/color/night-light-schedule-automatic'
+      value: 'true'
+
+  - name: Set night-light temperature
+    community.general.dconf:
+      key: 'org/gnome/settings-daemon/plugins/color/night-light-temperature'
+      value: 'uint32 2700'
+
+  - name: Predefine slots for custom bindings
+    community.general.dconf:
+      key: 'org/gnome/settings-daemon/plugins/media-keys/custom-keybindings'
+      value: '['/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/', '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1/', '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom2/', '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom3/', '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom4/', '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom5/']'
+
+  - name: Volume down shortcut
+    community.general.dconf:
+      key: 'org/gnome/settings-daemon/plugins/media-keys/volume-down'
+      value: '['<Primary><Shift>Page_Down']'
+
+  - name: Mute shortcut
+    community.general.dconf:
+      key: 'org/gnome/settings-daemon/plugins/media-keys/volume-mute'
+      value: '['<Primary><Shift>Delete']'
+
+  - name: Volume up shortcut
+    community.general.dconf:
+      key: 'org/gnome/settings-daemon/plugins/media-keys/volume-up'
+      value: '['<Primary><Shift>Page_Up']'
+
+  - name: Night-light shortcut
+    community.general.dconf:
+      key: 'org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/binding'
+      value: '<Primary><Alt>l'
+
+  - name: Night-light shortcut command
+    community.general.dconf:
+      key: 'org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/command'
+      value: 'bash -c "if [[ $(gsettings get org.gnome.settings-daemon.plugins.color night-light-enabled) == "true" ]]; then gsettings set org.gnome.settings-daemon.plugins.color night-light-enabled false; else gsettings set org.gnome.settings-daemon.plugins.color night-light-enabled true; fi"'
+
+  - name: Night-light shortcut name
+    community.general.dconf:
+      key: 'org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/name'
+      value: 'Nightlight'
+
+  - name: Lock and sleep shortcut
+    community.general.dconf:
+      key: 'org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1/binding'
+      value: '<Primary><Alt>s'
+
+  - name: Lock and sleep shortcut command
+    community.general.dconf:
+      key: 'org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1/command'
+      value: 'bash -c "gnome-screensaver-command -l && systemctl suspend || notify-send "missing command gnome-screensaver or systemctl""'
+
+  - name: Lock and sleep shortcut name
+    community.general.dconf:
+      key: 'org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1/name'
+      value: 'Suspend'
+
+  - name: Shutdown menu shortcut
+    community.general.dconf:
+      key: 'org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom2/binding'
+      value: '<Primary><Alt>End'
+
+  - name: Shutdown menu shortcut command
+    community.general.dconf:
+      key: 'org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom2/command'
+      value: 'bash -c "gnome-session-quit --power-off || notify-send "missing command gnome-session""'
+
+  - name: Shutdown menu shortcut name
+    community.general.dconf:
+      key: 'org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom2/name'
+      value: 'Power off'
+
+  - name: Calculator shortcut
+    community.general.dconf:
+      key: 'org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom3/binding'
+      value: '<Super>c'
+
+  - name: Calculator shortcut command
+    community.general.dconf:
+      key: 'org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom3/command'
+      value: 'bash -c "wmctrl -a Calculator || gnome-calculator"'
+
+  - name: Calculator shortcut name
+    community.general.dconf:
+      key: 'org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom3/name'
+      value: 'Calculator'
+
+  - name: Disable screen shortcut
+    community.general.dconf:
+      key: 'org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom4/binding'
+      value: '<Primary><Alt>f'
+
+  - name: Disable screen shortcut command
+    community.general.dconf:
+      key: 'org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom4/command'
+      value: 'gnome-screensaver-command -a && xset dpms force off'
+
+  - name: Disable screen shortcut name
+    community.general.dconf:
+      key: 'org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom4/name'
+      value: 'screen off'
+
+  - name: Ulauncher shortcut
+    community.general.dconf:
+      key: 'org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom5/binding'
+      value: '<Super>s'
+
+  - name: Ulauncher shortcut command
+    community.general.dconf:
+      key: 'org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom5/command'
+      value: 'ulauncher-toggle && ulauncher-toggle && wmctrl -a "Ulauncher - Application Launcher"'
+
+  - name: Ulauncher shortcut name
+    community.general.dconf:
+      key: 'org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom5/name'
+      value: 'ulauncher'
+
+  - name: Disable screen dim
+    community.general.dconf:
+      key: 'org/gnome/settings-daemon/plugins/power/idle-dim'
+      value: 'false'
+
+  - name: Disable automatic sleep
+    community.general.dconf:
+      key: 'org/gnome/settings-daemon/plugins/power/sleep-inactive-ac-type'
+      value: 'nothing'
+
+  - name: Disable shell menu
+    community.general.dconf:
+      key: 'org/gnome/settings-daemon/plugins/xsettings/overrides'
+      value: '{'Gtk/ShellShowsAppMenu': <1>}'
+
+  - name: Enable extensions
+    community.general.dconf:
+      key: 'org/gnome/shell/enabled-extensions'
+      value: '['disable-screenshield@lgpasquale.com', 'dash-to-panel@jderose9.github.com', 'clock-override@gnomeshell.kryogenix.org']'
+
+  - name: Set favorite apps
+    community.general.dconf:
+      key: 'org/gnome/shell/favorite-apps'
+      value: '['google-chrome.desktop', 'org.gnome.Nautilus.desktop', 'org.gnome.Terminal.desktop', 'code.desktop', 'slack.desktop', 'virtualbox.desktop']'
+
+  - name: Clock override format
+    community.general.dconf:
+      key: 'org/gnome/shell/extensions/clock_override/override-string'
+      value: '%A, %B %d, %Y  %;cf %H:%M'
+
+
+  - name: Dash-to-panel settings
+    community.general.dconf:
+      key: 'org/gnome/shell/extensions/dash-to-panel/animate-app-switch'
+      value: 'false'
+  - name: Dash-to-panel settings
+    community.general.dconf:
+      key: 'org/gnome/shell/extensions/dash-to-panel/animate-window-launch'
+      value: 'false'
+  - name: Dash-to-panel settings
+    community.general.dconf:
+      key: 'org/gnome/shell/extensions/dash-to-panel/check-update'
+      value: 'true'
+  - name: Dash-to-panel settings
+    community.general.dconf:
+      key: 'org/gnome/shell/extensions/dash-to-panel/dot-color-1'
+      value: '#5294e2'
+  - name: Dash-to-panel settings
+    community.general.dconf:
+      key: 'org/gnome/shell/extensions/dash-to-panel/dot-color-2'
+      value: '#5294e2'
+  - name: Dash-to-panel settings
+    community.general.dconf:
+      key: 'org/gnome/shell/extensions/dash-to-panel/dot-color-3'
+      value: '#5294e2'
+  - name: Dash-to-panel settings
+    community.general.dconf:
+      key: 'org/gnome/shell/extensions/dash-to-panel/dot-color-4'
+      value: '#5294e2'
+  - name: Dash-to-panel settings
+    community.general.dconf:
+      key: 'org/gnome/shell/extensions/dash-to-panel/dot-color-unfocused-1'
+      value: '#5294e2'
+  - name: Dash-to-panel settings
+    community.general.dconf:
+      key: 'org/gnome/shell/extensions/dash-to-panel/dot-color-unfocused-2'
+      value: '#5294e2'
+  - name: Dash-to-panel settings
+    community.general.dconf:
+      key: 'org/gnome/shell/extensions/dash-to-panel/dot-color-unfocused-3'
+      value: '#5294e2'
+  - name: Dash-to-panel settings
+    community.general.dconf:
+      key: 'org/gnome/shell/extensions/dash-to-panel/dot-color-unfocused-4'
+      value: '#5294e2'
+  - name: Dash-to-panel settings
+    community.general.dconf:
+      key: 'org/gnome/shell/extensions/dash-to-panel/dot-size'
+      value: '5'
+  - name: Dash-to-panel settings
+    community.general.dconf:
+      key: 'org/gnome/shell/extensions/dash-to-panel/dot-style-focused'
+      value: 'METRO'
+  - name: Dash-to-panel settings
+    community.general.dconf:
+      key: 'org/gnome/shell/extensions/dash-to-panel/dot-style-unfocused'
+      value: 'DOTS'
+  - name: Dash-to-panel settings
+    community.general.dconf:
+      key: 'org/gnome/shell/extensions/dash-to-panel/focus-highlight-color'
+      value: '#eeeeee'
+  - name: Dash-to-panel settings
+    community.general.dconf:
+      key: 'org/gnome/shell/extensions/dash-to-panel/force-check-update'
+      value: 'false'
+  - name: Dash-to-panel settings
+    community.general.dconf:
+      key: 'org/gnome/shell/extensions/dash-to-panel/group-apps'
+      value: 'true'
+  - name: Dash-to-panel settings
+    community.general.dconf:
+      key: 'org/gnome/shell/extensions/dash-to-panel/hot-keys'
+      value: 'true'
+  - name: Dash-to-panel settings
+    community.general.dconf:
+      key: 'org/gnome/shell/extensions/dash-to-panel/hotkeys-overlay-combo'
+      value: 'TEMPORARILY'
+  - name: Dash-to-panel settings
+    community.general.dconf:
+      key: 'org/gnome/shell/extensions/dash-to-panel/intellihide'
+      value: 'false'
+  - name: Dash-to-panel settings
+    community.general.dconf:
+      key: 'org/gnome/shell/extensions/dash-to-panel/leftbox-padding'
+      value: '-1'
+  - name: Dash-to-panel settings
+    community.general.dconf:
+      key: 'org/gnome/shell/extensions/dash-to-panel/multi-monitors'
+      value: 'false'
+  - name: Dash-to-panel settings
+    community.general.dconf:
+      key: 'org/gnome/shell/extensions/dash-to-panel/show-activities-button'
+      value: 'false'
+  - name: Dash-to-panel settings
+    community.general.dconf:
+      key: 'org/gnome/shell/extensions/dash-to-panel/show-appmenu'
+      value: 'true'
+  - name: Dash-to-panel settings
+    community.general.dconf:
+      key: 'org/gnome/shell/extensions/dash-to-panel/show-apps-icon-file'
+      value: ''
+  - name: Dash-to-panel settings
+    community.general.dconf:
+      key: 'org/gnome/shell/extensions/dash-to-panel/show-favorites'
+      value: 'true'
+  - name: Dash-to-panel settings
+    community.general.dconf:
+      key: 'org/gnome/shell/extensions/dash-to-panel/show-show-apps-button'
+      value: 'false'
+  - name: Dash-to-panel settings
+    community.general.dconf:
+      key: 'org/gnome/shell/extensions/dash-to-panel/show-showdesktop-button'
+      value: 'true'
+  - name: Dash-to-panel settings
+    community.general.dconf:
+      key: 'org/gnome/shell/extensions/dash-to-panel/show-window-previews'
+      value: 'false'
+  - name: Dash-to-panel settings
+    community.general.dconf:
+      key: 'org/gnome/shell/extensions/dash-to-panel/status-icon-padding'
+      value: '-1'
+  - name: Dash-to-panel settings
+    community.general.dconf:
+      key: 'org/gnome/shell/extensions/dash-to-panel/taskbar-locked'
+      value: 'false'
+  - name: Dash-to-panel settings
+    community.general.dconf:
+      key: 'org/gnome/shell/extensions/dash-to-panel/trans-panel-opacity'
+      value: '0.25'
+  - name: Dash-to-panel settings
+    community.general.dconf:
+      key: 'org/gnome/shell/extensions/dash-to-panel/trans-use-custom-bg'
+      value: 'false'
+  - name: Dash-to-panel settings
+    community.general.dconf:
+      key: 'org/gnome/shell/extensions/dash-to-panel/trans-use-custom-gradient'
+      value: 'true'
+  - name: Dash-to-panel settings
+    community.general.dconf:
+      key: 'org/gnome/shell/extensions/dash-to-panel/trans-use-custom-opacity'
+      value: 'true'
+  - name: Dash-to-panel settings
+    community.general.dconf:
+      key: 'org/gnome/shell/extensions/dash-to-panel/tray-padding'
+      value: '-1'
+  - name: Dash-to-panel settings
+    community.general.dconf:
+      key: 'org/gnome/shell/extensions/dash-to-panel/window-preview-title-font-color'
+      value: '#dddddd'
+  
+  - name: Disable toggle overview shortcut
+    community.general.dconf:
+      key: 'org/gnome/shell/keybindings/toggle-overview'
+      value: '@as []'
+
+  - name: Set filechooser sort
+    community.general.dconf:
+      key: 'org/gtk/settings/file-chooser/sort-column'
+      value: ''modified''
+  - name: Set filechooser sort
+    community.general.dconf:
+      key: 'org/gtk/settings/file-chooser/sort-order'
+      value: 'descending'
