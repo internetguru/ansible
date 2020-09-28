@@ -24,3 +24,5 @@
     import_tasks: tasks/docker.yml
   - name: Install PHP
     import_tasks: tasks/php.yml
+  - name: Install omgf
+    import_tasks: tasks/omgf.yml

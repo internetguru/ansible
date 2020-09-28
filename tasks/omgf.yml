@@ -1,0 +1,29 @@
+
+ # Dependency
+
+  - name: Install dependencies
+    apt:
+      pkg:
+      - gawk
+      - git
+      - python-docutils
+
+ # Checks
+ 
+ # Commands
+
+  - name: Clone omgf
+    git:
+     repo: 'git clone https://github.com/InternetGuru/omgf.git'
+     dest: '/home/{{ username.stdout }}/omgf'
+  
+  - name: Change ownership
+    file:
+      path: '/home/{{ username.stdout }}/omgf'
+      owner: '{{ username.stdout }}'
+      group: '{{ username.stdout }}'
+      state: directory
+      recurse: yes
+  
+  - name: Make and install omgf
+    shell: ./configure && make && sudo compiled/install
