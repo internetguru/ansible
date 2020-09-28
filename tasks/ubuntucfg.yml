@@ -208,7 +208,7 @@
   - name: Disable shell menu
     community.general.dconf:
       key: 'org/gnome/settings-daemon/plugins/xsettings/overrides'
-      value: '{'Gtk/ShellShowsAppMenu': <1>}'
+      value: "'{'Gtk/ShellShowsAppMenu': <1>}"
 
   - name: Enable extensions
     community.general.dconf:
