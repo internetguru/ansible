@@ -1,0 +1,144 @@
+  - name: Set compose key to menu and pause buttons
+    community.general.dconf:
+      key: '/org/gnome/desktop/input-sources/xkb-options'
+      value: "['compose:paus', 'compose:menu']"
+
+  - name: Disable switch app
+    community.general.dconf:
+      key: '/org/gnome/desktop/wm/keybindings/switch-applications'
+      value: '@as []'
+
+  - name: Disable switch app backward
+    community.general.dconf:
+      key: '/org/gnome/desktop/wm/keybindings/switch-applications-backward'
+      value: '@as []'
+
+  - name: Switch windows (instead of applications)
+    community.general.dconf:
+      key: '/org/gnome/desktop/wm/keybindings/switch-windows'
+      value: "['<Alt>Tab']"
+
+  - name: Switch windows backward (instead of applications)
+    community.general.dconf:
+      key: '/org/gnome/desktop/wm/keybindings/switch-windows-backward'
+      value: "['<Shift><Alt>Tab']"
+
+  - name: Disable super key
+    community.general.dconf:
+      key: '/org/gnome/mutter/overlay-key'
+      value: "''"
+
+  - name: Predefine slots for custom bindings
+    community.general.dconf:
+      key: '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings'
+      value: "['/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/', '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1/', '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom2/', '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom3/', '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom4/', '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom5/']"
+
+  - name: Volume down shortcut
+    community.general.dconf:
+      key: '/org/gnome/settings-daemon/plugins/media-keys/volume-down'
+      value: "['<Primary><Shift>Page_Down']"
+
+  - name: Mute shortcut
+    community.general.dconf:
+      key: '/org/gnome/settings-daemon/plugins/media-keys/volume-mute'
+      value: "['<Primary><Shift>Delete']"
+
+  - name: Volume up shortcut
+    community.general.dconf:
+      key: '/org/gnome/settings-daemon/plugins/media-keys/volume-up'
+      value: "['<Primary><Shift>Page_Up']"
+
+  - name: Night-light shortcut
+    community.general.dconf:
+      key: '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/binding'
+      value: "'<Primary><Alt>l'"
+
+  - name: Night-light shortcut command
+    community.general.dconf:
+      key: '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/command'
+      value: "'night-light'"
+
+  - name: Night-light shortcut name
+    community.general.dconf:
+      key: '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/name'
+      value: "'Nightlight'"
+
+  - name: Lock and sleep shortcut
+    community.general.dconf:
+      key: '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1/binding'
+      value: "'<Primary><Alt>s'"
+
+  - name: Lock and sleep shortcut command
+    community.general.dconf:
+      key: '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1/command'
+      value: "'bash -c \"gnome-screensaver-command -l && systemctl suspend || notify-send \"missing command gnome-screensaver or systemctl\"\"'"
+
+  - name: Lock and sleep shortcut name
+    community.general.dconf:
+      key: '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1/name'
+      value: "'Suspend'"
+
+  - name: Shutdown menu shortcut
+    community.general.dconf:
+      key: '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom2/binding'
+      value: "'<Primary><Alt>End'"
+
+  - name: Shutdown menu shortcut command
+    community.general.dconf:
+      key: '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom2/command'
+      value: "'bash -c \"gnome-session-quit --power-off || notify-send \"missing command gnome-session\"\"'"
+
+  - name: Shutdown menu shortcut name
+    community.general.dconf:
+      key: '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom2/name'
+      value: "'Power off'"
+
+  - name: Calculator shortcut
+    community.general.dconf:
+      key: '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom3/binding'
+      value: "'<Super>c'"
+
+  - name: Calculator shortcut command
+    community.general.dconf:
+      key: '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom3/command'
+      value: "'bash -c \"wmctrl -a Calculator || gnome-calculator\"'"
+
+  - name: Calculator shortcut name
+    community.general.dconf:
+      key: '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom3/name'
+      value: "'Calculator'"
+
+  - name: Disable screen shortcut
+    community.general.dconf:
+      key: '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom4/binding'
+      value: "'<Primary><Alt>f'"
+
+  - name: Disable screen shortcut command
+    community.general.dconf:
+      key: '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom4/command'
+      value: "'gnome-screensaver-command -a && xset dpms force off'"
+
+  - name: Disable screen shortcut name
+    community.general.dconf:
+      key: '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom4/name'
+      value: "'screen off'"
+
+  - name: Ulauncher shortcut
+    community.general.dconf:
+      key: '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom5/binding'
+      value: "'<Super>s'"
+
+  - name: Ulauncher shortcut command
+    community.general.dconf:
+      key: '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom5/command'
+      value: "'ulauncher-toggle && ulauncher-toggle && wmctrl -a \"Ulauncher - Application Launcher\"'"
+
+  - name: Ulauncher shortcut name
+    community.general.dconf:
+      key: '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom5/name'
+      value: "'ulauncher'"
+
+  - name: Disable toggle overview shortcut
+    community.general.dconf:
+      key: '/org/gnome/shell/keybindings/toggle-overview'
+      value: '@as []'

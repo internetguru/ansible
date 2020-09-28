@@ -67,3 +67,7 @@
     import_tasks: tasks/ubuntucfg.yml
     become: yes
     become_user: '{{ username.stdout }}'
+  - name: Load ubuntu shortcuts
+    import_tasks: tasks/ubuntukeys.yml
+    become: yes
+    become_user: '{{ username.stdout }}'
