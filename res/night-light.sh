@@ -4,7 +4,7 @@ if [[ $(gsettings get org.gnome.settings-daemon.plugins.color night-light-enable
     notify-send "Night light enabled"
     gsettings set org.gnome.settings-daemon.plugins.color night-light-schedule-automatic false
     gsettings set org.gnome.settings-daemon.plugins.color night-light-schedule-from 0
-    gsettings set org.gnome.settings-daemon.plugins.color night-light-schedule-to 1
+    gsettings set org.gnome.settings-daemon.plugins.color night-light-schedule-to 0
   else
     notify-send "Night light disabled"
     gsettings set org.gnome.settings-daemon.plugins.color night-light-enabled false
