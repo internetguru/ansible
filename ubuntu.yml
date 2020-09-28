@@ -38,7 +38,6 @@
     git: 
       repo: 'https://github.com/jiripavelka/ubuntucfg.git'
       dest: '/home/{{ username.stdout }}/ubuntucfg'
-
   - name: Change ownership
     file:
       path: '/home/{{ username.stdout }}/ubuntucfg'
@@ -62,3 +61,9 @@
       dest: '~/.config/autostart/'
   - name: Set lid close behaviour to ignore
     shell: sed -i 's/^HandleLidSwitch.*/HandleLidSwitch=ignore/' /etc/systemd/logind.conf
+  - name: crate ~/.ssh to suppress ssh-agent warning
+    file:
+      path: /home/{{ username.stdout }}/.ssh
+      owner: '{{ username.stdout }}'
+      group: '{{ username.stdout }}'
+      state: directory
