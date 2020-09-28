@@ -6,7 +6,8 @@
   roles:
   - avnes.ansible-role-slack
   - geerlingguy.java
-  - wtanaka.virtualbox
+  - role: azavea.virtualbox
+    virtualbox_version: 6.0
   - role: gantsign.visual-studio-code
     users:
       - username: '{{ username.stdout }}'
