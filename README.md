@@ -93,6 +93,7 @@ sudo vim
 
 # install ubuntu.yml
 ansible-galaxy install -r requirements.ubuntu.yml
+ansible-galaxy collection install community.general
 ansible-playbook --connection=local --inventory 127.0.0.1, --ask-become-pass ubuntu.yml
 
 # install ubuntu-dev.yml
