@@ -51,7 +51,7 @@ sudo apt install ansible
 - rhythmbox
 - vlc
 - chrome
-- [ubuntucfg](https://github.com/jiripavelka/ubuntucfg.git)
+- [system configuration](https://github.com/InternetGuru/ansible/blob/master/tasks/ubuntucfg.yml)
 
 ### `ubuntu-dev.yml`
 
@@ -96,7 +96,7 @@ ansible-galaxy install -r requirements.ubuntu.yml
 ansible-galaxy collection install community.general
 ansible-playbook --connection=local --inventory 127.0.0.1, --ask-become-pass ubuntu.yml
 
-# install ubuntu-dev.yml
+# install ubuntu-dev.yml (optional)
 cd ~/ansible
 ansible-galaxy install -r requirements.ubuntu-dev.yml
 ansible-playbook --connection=local --inventory 127.0.0.1, --ask-become-pass ubuntu-dev.yml
