@@ -29,6 +29,7 @@
       - rtorrent
       - rhythmbox
       - vlc
+      - wmctrl
   - name: Install we-get and psutil
     pip:
       name:
