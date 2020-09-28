@@ -124,6 +124,7 @@ sudo reboot
 - [Transfer audio from PC to iPhone](https://www.groovypost.com/howto/howto/sync-your-iphone-or-ipod-touch-in-ubuntu/)
 - [Enable ssh server](https://linuxize.com/post/how-to-enable-ssh-on-ubuntu-18-04/)
 - [Compose key cheet sheet](https://tuttle.github.io/python-useful/compose-key-cheat-sheet.html)
+- [Change compose key](https://askubuntu.com/questions/70784/how-can-i-enable-compose-key)
 - [rtorrent cheet sheet](https://devhints.io/rtorrent)
 - [we-get readme](https://github.com/rachmadaniHaryono/we-get)
 
