@@ -21,6 +21,14 @@
      repo: 'https://github.com/petrzpav/vimrc'
      dest: '/home/{{ username.stdout }}/vimrc'
 
+  - name: Change ownership
+    file:
+      path: '/home/{{ username.stdout }}/vimrc'
+      owner: '{{ username.stdout }}'
+      group: '{{ username.stdout }}'
+      state: directory
+      recurse: yes
+
   - name: Add global vimrc link
     file:
       src: '/home/{{ username.stdout }}/vimrc/vimrc'

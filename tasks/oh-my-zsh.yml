@@ -50,6 +50,14 @@
      repo: 'https://github.com/InternetGuru/zshrc'
      dest: '/home/{{ username.stdout }}/zshrc'
   
+  - name: Change ownership
+    file:
+      path: '/home/{{ username.stdout }}/zshrc'
+      owner: '{{ username.stdout }}'
+      group: '{{ username.stdout }}'
+      state: directory
+      recurse: yes
+  
   - name: Add babun.zsh-theme into oh-my-zsh
     file:
       src: '/home/{{ username.stdout }}/zshrc/babun.zsh-theme'

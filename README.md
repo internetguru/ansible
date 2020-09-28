@@ -94,7 +94,7 @@ sudo vim
 # install ubuntu.yml
 ansible-galaxy install -r requirements.ubuntu.yml
 ansible-playbook --connection=local --inventory 127.0.0.1, --ask-become-pass ubuntu.yml
-# load ubuntucfg manually, see Known Bugs (below)
+# load ubuntucfg manually, see Suggestions (below)
 cd ~/ubuntucfg
 ./filter dirs < settings.dconf | dconf load /
 
@@ -113,8 +113,6 @@ sudo reboot
   > Open VSC, hit `ctr+shift+p`, type `sync download`, sign in to GitHub.
 - VSC toggle spellcheck (`F6`) not working without a workspace.
   > Open VSC, hit File / Add Folder to Workspace… and select a folder.
-- Unable to load `ubuntucfg` from ansible.
-  > Load `ubuntucfg` manually, see Appy ansible (above).
 
 ## Typical Issues and Howtos
 
@@ -132,4 +130,5 @@ sudo reboot
 
 - [x] Shortcut to turn off the screen with no lock and no suspend.
 - [ ] Ulauncher to `win` and `win+s`.
+- [ ] Load [ubuntucfg](https://github.com/jiripavelka/ubuntucfg.git)
 - [x] Do nothing when lid is closed.

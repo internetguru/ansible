@@ -38,13 +38,14 @@
     git: 
       repo: 'https://github.com/jiripavelka/ubuntucfg.git'
       dest: '/home/{{ username.stdout }}/ubuntucfg'
-  # TODO fix loading settings
-  # - name: Load settings
-  #   command: ./filter dirs < settings.dconf | dconf load /
-  #   args:
-  #     chdir: '/home/{{ username.stdout }}/ubuntucfg'
-  #   become: yes
-  #   become_user: '{{ username.stdout }}'
+
+  - name: Change ownership
+    file:
+      path: '/home/{{ username.stdout }}/ubuntucfg'
+      owner: '{{ username.stdout }}'
+      group: '{{ username.stdout }}'
+      state: directory
+      recurse: yes
   - name: Show lang switch
     command: gsettings set org.gnome.desktop.input-sources show-all-sources true
   - name: Add Ulauncher APT repository
