@@ -113,7 +113,7 @@
   - name: Night-light shortcut command
     community.general.dconf:
       key: 'org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/command'
-      value: 'bash -c "if [[ $(gsettings get org.gnome.settings-daemon.plugins.color night-light-enabled) == "true" ]]; then gsettings set org.gnome.settings-daemon.plugins.color night-light-enabled false; else gsettings set org.gnome.settings-daemon.plugins.color night-light-enabled true; fi"'
+      value: 'night-light'
 
   - name: Night-light shortcut name
     community.general.dconf:
