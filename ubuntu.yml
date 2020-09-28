@@ -34,17 +34,6 @@
       name:
       - prompt_toolkit==1.0.14
       - git+https://github.com/rachmadaniHaryono/we-get
-  - name: Clone settings
-    git: 
-      repo: 'https://github.com/jiripavelka/ubuntucfg.git'
-      dest: '/home/{{ username.stdout }}/ubuntucfg'
-  - name: Change ownership
-    file:
-      path: '/home/{{ username.stdout }}/ubuntucfg'
-      owner: '{{ username.stdout }}'
-      group: '{{ username.stdout }}'
-      state: directory
-      recurse: yes
   - name: Show lang switch
     command: gsettings set org.gnome.desktop.input-sources show-all-sources true
   - name: Add Ulauncher APT repository
