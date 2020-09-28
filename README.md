@@ -52,6 +52,7 @@ sudo apt install ansible
 - vlc
 - chrome
 - [system configuration](https://github.com/InternetGuru/ansible/blob/master/tasks/ubuntucfg.yml)
+- [system keyboard shortcuts](https://github.com/InternetGuru/ansible/blob/master/tasks/ubuntukeys.yml)
 
 ### `ubuntu-dev.yml`
 
@@ -62,9 +63,9 @@ sudo apt install ansible
 - java
 - php 7.4
 
-## Complete Ubuntu Installation with Ansible
+## Complete Ubuntu Setup with Ansible
 
-1. Install updates
+1. Install updates or existing packages
 ```
 sudo apt update
 sudo apt upgrade
@@ -77,14 +78,14 @@ sudo apt install ansible
 sudo apt install git
 ```
 
-3. Download ansible project
+3. Clone or update ansible project
 ```
-git clone https://github.com/InternetGuru/ansible.git
+git clone https://github.com/InternetGuru/ansible.git || git -C ansible pull
 ```
 
 4. Apply ansible
 ```
-cd ~/ansible
+cd ansible
 
 # install fres-env.yml
 ansible-playbook --connection=local --inventory 127.0.0.1, --ask-become-pass fresh_env.yml
@@ -98,7 +99,6 @@ ansible-galaxy collection install community.general
 ansible-playbook --connection=local --inventory 127.0.0.1, --ask-become-pass ubuntu.yml
 
 # install ubuntu-dev.yml (optional)
-cd ~/ansible
 ansible-galaxy install -r requirements.ubuntu-dev.yml
 ansible-playbook --connection=local --inventory 127.0.0.1, --ask-become-pass ubuntu-dev.yml
 
@@ -132,3 +132,4 @@ sudo reboot
 - [x] Shortcut to turn off the screen with no lock and no suspend.
 - [x] Ulauncher to `win+s`.
 - [x] Do nothing when lid is closed.
+- [ ] Use Ulauncher instead of Appmenu (left ico button)
