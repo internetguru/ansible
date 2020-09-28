@@ -29,11 +29,12 @@
       - rtorrent
       - rhythmbox
       - vlc
-  - name: Install we-get
+  - name: Install we-get and psutil
     pip:
       name:
       - prompt_toolkit==1.0.14
       - git+https://github.com/rachmadaniHaryono/we-get
+      - psutil
   - name: Show lang switch
     command: gsettings set org.gnome.desktop.input-sources show-all-sources true
   - name: Add Ulauncher APT repository
