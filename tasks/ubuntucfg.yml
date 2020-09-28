@@ -383,7 +383,7 @@
   - name: Set filechooser sort
     community.general.dconf:
       key: 'org/gtk/settings/file-chooser/sort-column'
-      value: ''modified''
+      value: 'modified'
   - name: Set filechooser sort
     community.general.dconf:
       key: 'org/gtk/settings/file-chooser/sort-order'
