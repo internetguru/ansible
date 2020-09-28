@@ -8,12 +8,12 @@
   - name: Set en, cz input sources
     community.general.dconf:
       key: 'org/gnome/desktop/input-sources/sources'
-      value: '[('xkb', 'us'), ('xkb', 'cz')]'
+      value: "[('xkb', 'us'), ('xkb', 'cz')]"
 
   - name: Set compose key to menu and pause buttons
     community.general.dconf:
       key: 'org/gnome/desktop/input-sources/xkb-options'
-      value: '['compose:paus', 'compose:menu']'
+      value: "['compose:paus', 'compose:menu']"
 
   - name: Keyboard dely
     community.general.dconf:
@@ -48,12 +48,12 @@
   - name: Switch windows
     community.general.dconf:
       key: 'org/gnome/desktop/wm/keybindings/switch-windows'
-      value: '['<Alt>Tab']'
+      value: "['<Alt>Tab']"
 
   - name: Switch windows backward
     community.general.dconf:
       key: 'org/gnome/desktop/wm/keybindings/switch-windows-backward'
-      value: '['<Shift><Alt>Tab']'
+      value: "['<Shift><Alt>Tab']"
 
   - name: Disable dynamic workspaces
     community.general.dconf:
@@ -88,22 +88,22 @@
   - name: Predefine slots for custom bindings
     community.general.dconf:
       key: 'org/gnome/settings-daemon/plugins/media-keys/custom-keybindings'
-      value: '['/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/', '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1/', '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom2/', '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom3/', '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom4/', '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom5/']'
+      value: "['/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/', '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1/', '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom2/', '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom3/', '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom4/', '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom5/']"
 
   - name: Volume down shortcut
     community.general.dconf:
       key: 'org/gnome/settings-daemon/plugins/media-keys/volume-down'
-      value: '['<Primary><Shift>Page_Down']'
+      value: "['<Primary><Shift>Page_Down']"
 
   - name: Mute shortcut
     community.general.dconf:
       key: 'org/gnome/settings-daemon/plugins/media-keys/volume-mute'
-      value: '['<Primary><Shift>Delete']'
+      value: "['<Primary><Shift>Delete']"
 
   - name: Volume up shortcut
     community.general.dconf:
       key: 'org/gnome/settings-daemon/plugins/media-keys/volume-up'
-      value: '['<Primary><Shift>Page_Up']'
+      value: "['<Primary><Shift>Page_Up']"
 
   - name: Night-light shortcut
     community.general.dconf:
@@ -213,12 +213,12 @@
   - name: Enable extensions
     community.general.dconf:
       key: 'org/gnome/shell/enabled-extensions'
-      value: '['disable-screenshield@lgpasquale.com', 'dash-to-panel@jderose9.github.com', 'clock-override@gnomeshell.kryogenix.org']'
+      value: "['disable-screenshield@lgpasquale.com', 'dash-to-panel@jderose9.github.com', 'clock-override@gnomeshell.kryogenix.org']"
 
   - name: Set favorite apps
     community.general.dconf:
       key: 'org/gnome/shell/favorite-apps'
-      value: '['google-chrome.desktop', 'org.gnome.Nautilus.desktop', 'org.gnome.Terminal.desktop', 'code.desktop', 'slack.desktop', 'virtualbox.desktop']'
+      value: "['google-chrome.desktop', 'org.gnome.Nautilus.desktop', 'org.gnome.Terminal.desktop', 'code.desktop', 'slack.desktop', 'virtualbox.desktop']"
 
   - name: Clock override format
     community.general.dconf:
