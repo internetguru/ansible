@@ -62,6 +62,8 @@
     file:
       src: '/home/{{ username.stdout }}/zshrc/babun.zsh-theme'
       dest: '/usr/local/share/.oh-my-zsh/themes/babun.zsh-theme'
+      owner: '{{ username.stdout }}'
+      group: '{{ username.stdout }}'
       state: link
     when: not theme.stat.exists
 
@@ -69,6 +71,8 @@
     file:
       src: '/home/{{ username.stdout }}/zshrc/.zshrc'
       dest: '/home/{{ username.stdout }}/.zshrc'
+      owner: '{{ username.stdout }}'
+      group: '{{ username.stdout }}'
       state: link
     when: not zshrc.stat.exists
 
