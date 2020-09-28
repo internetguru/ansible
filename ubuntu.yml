@@ -64,3 +64,5 @@
       mode: '0777'
   - name: Load ubuntu settings
     import_tasks: tasks/ubuntucfg.yml
+    become: yes
+    become_user: '{{ username.stdout }}'
