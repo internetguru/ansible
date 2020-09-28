@@ -70,7 +70,7 @@
   - name: Install night-light control script
     copy:
       src: './res/night-light.sh'
-      dest: '/usr/local/share/bin/night-light'
+      dest: '/usr/local/bin/night-light'
       mode: '0777'
   - name: Load ubuntu settings
     import_tasks: tasks/ubuntucfg.yml
