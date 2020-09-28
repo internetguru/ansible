@@ -83,7 +83,7 @@ git clone https://github.com/InternetGuru/ansible.git
 
 4. Apply ansible
 ```
-cd ansible
+cd ~/ansible
 
 # install fres-env.yml
 ansible-playbook --connection=local --inventory 127.0.0.1, --ask-become-pass fresh_env.yml
@@ -99,7 +99,7 @@ cd ~/ubuntucfg
 ./filter dirs < settings.dconf | dconf load /
 
 # install ubuntu-dev.yml
-cd ansible
+cd ~/ansible
 ansible-galaxy install -r requirements.ubuntu-dev.yml
 ansible-playbook --connection=local --inventory 127.0.0.1, --ask-become-pass ubuntu-dev.yml
 
@@ -107,15 +107,16 @@ ansible-playbook --connection=local --inventory 127.0.0.1, --ask-become-pass ubu
 sudo reboot
 ```
 
-## Known Bugs
+## Known Issues
 
 - Unable to load VSC shared settings from ansible.
   > Open VSC, hit `ctr+shift+p`, type `sync download`, sign in to GitHub.
 - VSC toggle spellcheck (`F6`) not working without a workspace.
   > Open VSC, hit File / Add Folder to Workspace… and select a folder.
 
-## Typical Issues and Howtos
+## Howtos
 
+- [How to use manual partitioning during installation](https://askubuntu.com/questions/343268/how-to-use-manual-partitioning-during-installation)
 - [Change swap size](https://bogdancornianu.com/change-swap-size-in-ubuntu/)
 - [Move home to external partition](https://www.tecmint.com/move-home-directory-to-new-partition-disk-in-linux/)
 - [Set default audio device](https://askubuntu.com/questions/1038490/how-do-you-set-a-default-audio-output-device-in-ubuntu-18-04)
@@ -129,6 +130,6 @@ sudo reboot
 ## Suggestions
 
 - [x] Shortcut to turn off the screen with no lock and no suspend.
-- [ ] Ulauncher to `win` and `win+s`.
+- [x] Ulauncher to `win+s`.
 - [ ] Load [ubuntucfg](https://github.com/jiripavelka/ubuntucfg.git)
 - [x] Do nothing when lid is closed.
