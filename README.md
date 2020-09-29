@@ -45,7 +45,6 @@ sudo apt install ansible
 - gnome-shell-extension-dash-to-panel
 - python3-pip
 - [ulauncher](https://ulauncher.io/)
-  - [Google Chrome bookmarks](https://ext.ulauncher.io/-/github-nortmas-chrome-bookmarks)
   - [English dictionary extension](https://ext.ulauncher.io/-/github-katacarbix-ulauncher-dict-en)
   - [Gnome Settings](https://ext.ulauncher.io/-/github-friday-ulauncher-gnome-settings)
   - [Zoom - Join a meeting](https://ext.ulauncher.io/-/github-skeletonkey-ulauncher-zoom-join-meeting)
