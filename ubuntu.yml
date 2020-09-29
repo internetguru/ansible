@@ -77,3 +77,5 @@
     import_tasks: tasks/ubuntukeys.yml
     become: yes
     become_user: '{{ username.stdout }}'
+  - name: Auto install drivers
+    shell: 'ubuntu-drivers autoinstall'

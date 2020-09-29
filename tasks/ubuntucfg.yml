@@ -71,12 +71,12 @@
   - name: Set favorite apps
     community.general.dconf:
       key: '/org/gnome/shell/favorite-apps'
-      value: "['google-chrome.desktop', 'org.gnome.Nautilus.desktop', 'org.gnome.Terminal.desktop', 'code.desktop', 'slack.desktop', 'virtualbox.desktop']"
+      value: "['google-chrome.desktop', 'org.gnome.Nautilus.desktop', 'org.gnome.Terminal.desktop', 'code.desktop', 'slack.desktop']"
 
   - name: Clock override format
     community.general.dconf:
       key: '/org/gnome/shell/extensions/clock_override/override-string'
-      value: "'%A, %B %d, %Y  %;cf %H:%M'"
+      value: "'%a %e. %b %H:%M'"
 
   - name: Dash-to-panel settings
     community.general.dconf:
