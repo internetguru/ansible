@@ -37,6 +37,12 @@
       dest: '/usr/bin/pip'
       state: link
       force: yes
+  - name: Symbolic link python3 to python
+    file:
+      src: '/usr/bin/python3'
+      dest: '/usr/bin/python'
+      state: link
+      force: yes
   - name: Install we-get and psutil
     pip:
       name:
