@@ -30,6 +30,7 @@
       - rhythmbox
       - vlc
       - wmctrl
+    update_cache: yes
   - name: Symbolic link pip3 to pip
     file:
       src: '/usr/bin/pip3'
