@@ -5,10 +5,13 @@
     import_tasks: tasks/user_name.yml
   - name: Install basic enviroment
     import_tasks: tasks/basic_enviroment.yml
+  - name: Copy mc settings
+    copy:
+      src: './res/mc-ini'
+      dest: '/home/{{ username.stdout }}/.config/mc/ini'
   - name: Install oh-my-zsh
     import_tasks: tasks/oh-my-zsh.yml
   - name: Install bashcfg
     import_tasks: tasks/bashcfg.yml
   - name: Install vimrc
     import_tasks: tasks/vimrc.yml
-
