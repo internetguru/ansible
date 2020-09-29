@@ -44,24 +44,28 @@ sudo apt install ansible
 - gnome-tweaks
 - gnome-shell-extension-dash-to-panel
 - python3-pip
-- ulauncher
-- pinta (alternative to mspaint)
-- rtorrent
-- we-get
-- rhythmbox
-- vlc
-- chrome
+- [ulauncher](https://ulauncher.io/)
+  - [Google Chrome bookmarks](https://ext.ulauncher.io/-/github-nortmas-chrome-bookmarks)
+  - [English dictionary extension](https://ext.ulauncher.io/-/github-katacarbix-ulauncher-dict-en)
+  - [Gnome Settings](https://ext.ulauncher.io/-/github-friday-ulauncher-gnome-settings)
+  - [Zoom - Join a meeting](https://ext.ulauncher.io/-/github-skeletonkey-ulauncher-zoom-join-meeting)
+- [pinta](https://www.pinta-project.com/) (alternative to MS Paint)
+- [rtorrent](https://github.com/rakshasa/rtorrent/wiki) ([cheet sheet](https://devhints.io/rtorrent))
+- [we-get](https://github.com/rachmadaniHaryono/we-get)
+- [rhythmbox](https://wiki.gnome.org/Apps/Rhythmbox)
+- [vlc](https://www.videolan.org/vlc/index.html)
+- [chrome](https://www.google.com/chrome/)
 - [system configuration](https://github.com/InternetGuru/ansible/blob/master/tasks/ubuntucfg.yml)
 - [system keyboard shortcuts](https://github.com/InternetGuru/ansible/blob/master/tasks/ubuntukeys.yml)
 
 ### `ubuntu-dev.yml`
 
-- virtualbox
-- docker
-- slack
-- visual-studio-code with shared settings
 - java
 - php 7.4
+- [virtualbox](https://www.virtualbox.org/)
+- [docker](https://www.docker.com/products/docker-app)
+- [slack](https://slack.com/)
+- [visual-studio-code](https://code.visualstudio.com/) with [shared settings](https://gist.github.com/petrzpav/fd6f4ed38d22d4611e6f8a9e0c9e2801)
 
 ## Complete Ubuntu Setup with Ansible
 
@@ -87,7 +91,7 @@ git clone https://github.com/InternetGuru/ansible.git || git -C ansible pull
 ```
 cd ansible
 
-# install fres-env.yml
+# install fresh-env.yml
 ansible-playbook --connection=local --inventory 127.0.0.1, --ask-become-pass fresh_env.yml
 
 # install global vim plugins and exit (:q)
@@ -124,8 +128,6 @@ sudo reboot
 - [Enable ssh server](https://linuxize.com/post/how-to-enable-ssh-on-ubuntu-18-04/)
 - [Compose key cheet sheet](https://tuttle.github.io/python-useful/compose-key-cheat-sheet.html)
 - [Change compose key](https://askubuntu.com/questions/70784/how-can-i-enable-compose-key)
-- [rtorrent cheet sheet](https://devhints.io/rtorrent)
-- [we-get readme](https://github.com/rachmadaniHaryono/we-get)
 
 ## Suggestions
 
