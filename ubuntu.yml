@@ -66,6 +66,10 @@
     copy:
       src: './res/ulauncher.desktop'
       dest: '/home/{{ username.stdout }}/.config/autostart/'
+  - name: Add ulauncher to aplications
+    copy:
+      src: './res/ulauncher2.desktop'
+      dest: '/usr/share/applications'
   - name: Copy ulauncher settings
     copy:
       src: './res/ulauncher-settings/'
