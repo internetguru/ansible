@@ -123,21 +123,6 @@
       key: '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom4/name'
       value: "'screen off'"
 
-  - name: Ulauncher shortcut
-    community.general.dconf:
-      key: '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom5/binding'
-      value: "'<Super>s'"
-
-  - name: Ulauncher shortcut command
-    community.general.dconf:
-      key: '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom5/command'
-      value: "'ulauncher-toggle && ulauncher-toggle && wmctrl -a \"Ulauncher - Application Launcher\"'"
-
-  - name: Ulauncher shortcut name
-    community.general.dconf:
-      key: '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom5/name'
-      value: "'ulauncher'"
-
   - name: Disable toggle overview shortcut
     community.general.dconf:
       key: '/org/gnome/shell/keybindings/toggle-overview'
