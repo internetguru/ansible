@@ -55,7 +55,11 @@
   - name: Add ulauncher to startupp aplications
     copy:
       src: './res/ulauncher.desktop'
-      dest: '~/.config/autostart/'
+      dest: '/home/{{ username.stdout }}/.config/autostart/'
+  - name: Copy ulauncher settings
+    copy:
+      src: './res/ulauncher-settings/'
+      dest: '/home/{{ username.stdout }}/.config/ulauncher/'
   - name: Set lid close behaviour to ignore
     shell: sed -i 's/^HandleLidSwitch.*/HandleLidSwitch=ignore/' /etc/systemd/logind.conf
   - name: crate ~/.ssh to suppress ssh-agent warning
