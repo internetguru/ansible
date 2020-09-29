@@ -14,7 +14,7 @@
 
   - name: Clone omgf
     git:
-     repo: 'git clone https://github.com/InternetGuru/omgf.git'
+     repo: 'https://github.com/InternetGuru/omgf.git'
      dest: '/home/{{ username.stdout }}/omgf'
   
   - name: Change ownership
@@ -26,6 +26,6 @@
       recurse: yes
   
   - name: Make and install omgf
-    shell: ./configure && make && sudo compiled/install
+    shell: ./configure && make && compiled/install
     args:
       chdir: '/home/{{ username.stdout }}/omgf'

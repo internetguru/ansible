@@ -13,7 +13,7 @@
 
   - name: Clone butt
     git:
-     repo: 'git clone https://github.com/InternetGuru/butt.git'
+     repo: 'https://github.com/InternetGuru/butt.git'
      dest: '/home/{{ username.stdout }}/butt'
   
   - name: Change ownership
@@ -25,7 +25,7 @@
       recurse: yes
   
   - name: Make and install butt
-    shell: ./configure && make && sudo compiled/install
+    shell: ./configure && make && compiled/install
     args:
       chdir: '/home/{{ username.stdout }}/butt'
 
