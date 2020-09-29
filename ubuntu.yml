@@ -30,6 +30,12 @@
       - rhythmbox
       - vlc
       - wmctrl
+  - name: Symbolic link pip3 to pip
+    file:
+      src: '/usr/bin/pip3'
+      dest: '/usr/bin/pip'
+      state: link
+      force: yes
   - name: Install we-get and psutil
     pip:
       name:
