@@ -15,7 +15,7 @@ sudo apt install ansible
 
 ## Content
 
-### `fresh-env.yml`
+### <tt>fresh-env.yml</tt>
 
  - vim
  - curl
@@ -30,13 +30,13 @@ sudo apt install ansible
  - <a href="https://bitbucket.org/igwr/bashcfg">bashcfg</a>
  - <a href="https://github.com/petrzpav/vimrc">vimrc</a>
 
-### `server.yml`
+### <tt>server.yml</tt>
 
  - 2 GB swapfile in <tt>/root/swapfile</tt>
  - <a href="https://github.com/InternetGuru/ansible/blob/master/res/20-ig">Internet Guru motd</a>
  - ufw with basic rules
 
-### `ubuntu.yml`
+### <tt>ubuntu.yml</tt>
 
  - gnome-screensaver 
  - gnome-session
@@ -57,7 +57,7 @@ sudo apt install ansible
  - <a href="https://github.com/InternetGuru/ansible/blob/master/tasks/ubuntucfg.yml">system configuration</a>
  - <a href="https://github.com/InternetGuru/ansible/blob/master/tasks/ubuntukeys.yml">system keyboard shortcuts</a>
 
-### `ubuntu-dev.yml`
+### <tt>ubuntu-dev.yml</tt>
 
  - java
  - php 7.4
