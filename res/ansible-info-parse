@@ -1,0 +1,5 @@
+#!/bin/bash
+
+sed -n '/^## Default Shortcuts/,/^## Suggestions/p' "$1" \
+  | grep -v "^## Suggestions" \
+  | sed 's/^## \(.*\)/<big><b>\1<\/b><\/big>/g'
