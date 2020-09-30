@@ -15,7 +15,7 @@
     become: yes
     become_user: '{{ username.stdout }}'
 
-  - name: Install user-dialog
+  - name: Install ansible-user-dialog
     copy:
       src: '../res/ansible-user-dialog'
       dest: '/usr/local/bin/'
