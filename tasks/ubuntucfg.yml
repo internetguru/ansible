@@ -71,7 +71,7 @@
   - name: Set favorite apps
     community.general.dconf:
       key: '/org/gnome/shell/favorite-apps'
-      value: "['ulauncher2.desktop', 'google-chrome.desktop', 'org.gnome.Nautilus.desktop', 'org.gnome.Terminal.desktop', 'code.desktop', 'slack.desktop']"
+      value: "['google-chrome.desktop', 'org.gnome.Nautilus.desktop', 'org.gnome.Terminal.desktop', 'code.desktop', 'slack.desktop']"
 
   - name: Clock override format
     community.general.dconf:
@@ -89,7 +89,7 @@
   - name: Dash-to-panel settings
     community.general.dconf:
       key: '/org/gnome/shell/extensions/dash-to-panel/check-update'
-      value: 'true'
+      value: 'false'
   - name: Dash-to-panel settings
     community.general.dconf:
       key: '/org/gnome/shell/extensions/dash-to-panel/dot-color-1'
@@ -185,7 +185,7 @@
   - name: Dash-to-panel settings
     community.general.dconf:
       key: '/org/gnome/shell/extensions/dash-to-panel/show-show-apps-button'
-      value: 'false'
+      value: 'true'
   - name: Dash-to-panel settings
     community.general.dconf:
       key: '/org/gnome/shell/extensions/dash-to-panel/show-showdesktop-button'

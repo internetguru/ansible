@@ -122,8 +122,3 @@
     community.general.dconf:
       key: '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom4/name'
       value: "'screen off'"
-
-  - name: Disable toggle overview shortcut
-    community.general.dconf:
-      key: '/org/gnome/shell/keybindings/toggle-overview'
-      value: '@as []'
