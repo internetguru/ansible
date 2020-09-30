@@ -8,9 +8,11 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 ### Added
  - Set default `mc` settings
 
-[Unreleased]: https://github.com/InternetGuru/ansible/compare/master...dev
-
 ### Changed
  - Remove ulauncher from favorites
  - Show Applications icon
  - Do not disable toggle-overview shortcut `[<Super>s]`
+
+
+[Unreleased]: https://github.com/InternetGuru/ansible/compare/master...dev
+
