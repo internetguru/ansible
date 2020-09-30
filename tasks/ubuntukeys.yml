@@ -123,6 +123,21 @@
       key: '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom4/name'
       value: "'screen off'"
 
+  - name: Ansible info shortcut
+    community.general.dconf:
+      key: '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom5/binding'
+      value: "'<Primary><Alt>h'"
+
+  - name: Ansible info shortcut command
+    community.general.dconf:
+      key: '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom5/command'
+      value: "'bash -c \"zenity --question --width=\"700\" --icon-name \"starred\" --title=\"IG Ansible Configuration\" --text=\"$(< \"/home/$(id -un)/.ansible-info\")\"\"'"
+
+  - name: Ansible info shortcut name
+    community.general.dconf:
+      key: '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom5/name'
+      value: "'ansible info'"
+
   - name: Disable toggle overview shortcut
     community.general.dconf:
       key: '/org/gnome/shell/keybindings/toggle-overview'

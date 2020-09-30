@@ -10,7 +10,5 @@ zenity \
   --width="700" \
   --icon-name "starred" \
   --title="IG Ansible Configuration" \
-  --text="$(< "$home/.ansible-info")"
-
-[[ $? == 0 ]] \
+  --text="$(< "$home/.ansible-info")" \
   || touch "$home/.ansible-info-hide"
