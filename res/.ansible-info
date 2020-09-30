@@ -1,0 +1,34 @@
+
+<big><b>Ansible Info</b></big>
+
+­ –  version: <tt>%s</tt>
+­ –  local repository: <tt>%s</tt>
+ –  remote repository: <tt>%s</tt>
+
+<big><b>Basic Shortcuts</b></big>
+
+ –  <tt>Ctrl + Alt + h</tt> \t\t(this) help dialog
+ –  <tt>Ctrl + Alt + s</tt> \t\tlock and sleep (suspend)
+ –  <tt>Ctrl + Alt + f</tt> \t\tscreen off
+ –  <tt>Ctrl + Alt + l</tt> \t\ttoggle night-light (on / off / auto)
+ –  <tt>Ctrl + Alt + End</tt> \tpower off dialog
+
+ –  <tt>Ctrl + Shift + PgUp</tt> \tvolume up
+ –  <tt>Ctrl + Shift + PgDown</tt> \tvolume up
+ –  <tt>Ctrl + Shift + Del</tt> \t\tmute volume
+
+ –  <tt>Win + s</tt> \tapplication overview
+ –  <tt>Win + f</tt> \tUlauncher (quick open apps)
+ –  <tt>Win + c</tt> \tcalculator
+
+ –  <tt>Pause, Menu</tt> \tcompose keys
+
+<big><b>Cheat Sheets</b></big>
+
+ –  <a href="https://tuttle.github.io/python-useful/compose-key-cheat-sheet.html">compose keys</a>
+ –  <a href="https://devhints.io/rtorrent">rtorrent</a>
+ –  <a href="https://github.com/rachmadaniHaryono/we-get#3basic-usage">we-get</a>
+
+
+
+<big><b>Show again on next startup?</b></big>

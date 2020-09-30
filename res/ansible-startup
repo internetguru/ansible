@@ -1,0 +1,16 @@
+#!/bin/bash
+
+home="/home/$(id -un)"
+
+[[ -f "$home/.ansible-info-hide" ]] \
+  && exit
+
+zenity \
+  --question \
+  --width="700" \
+  --icon-name "starred" \
+  --title="IG Ansible Configuration" \
+  --text="$(< "$home/.ansible-info")"
+
+[[ $? == 0 ]] \
+  || touch "$home/.ansible-info-hide"

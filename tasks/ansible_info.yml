@@ -1,0 +1,21 @@
+
+ # Dependency
+
+  - name: Install dependencies
+    apt:
+      pkg:
+      - zenity
+
+ # Checks
+
+ # Commands
+
+  - name: Generate .ansible-info file
+    shell: 'printf "$(< "../res/.ansible-info")" "$(<../VERSION)" "{{ playbook_dir }}" "$(git -C .. remote get-url origin)" > /home/{{ username.stdout }}/.ansible-info'
+    become: yes
+    become_user: '{{ username.stdout }}'
+
+  - name: Run info script on startup
+    copy:
+      src: '../res/ansible-startup'
+      dest: '/etc/init.d/'
