@@ -11,7 +11,7 @@
  # Commands
 
   - name: Generate .ansible-info file
-    shell: 'printf "$(< "../res/.ansible-info")" "$(<../VERSION)-$(git rev-parse --abbrev-ref HEAD)" "{{ playbook_dir }}" "$(git -C .. remote get-url origin)" > /home/{{ username.stdout }}/.ansible-info'
+    shell: 'printf "$(< "../res/.ansible-info")" "$(<../VERSION)-$(git -C .. rev-parse --abbrev-ref HEAD)" "{{ playbook_dir }}" "$(git -C .. remote get-url origin)" > /home/{{ username.stdout }}/.ansible-info'
     become: yes
     become_user: '{{ username.stdout }}'
 
