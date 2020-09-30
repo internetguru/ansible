@@ -131,7 +131,7 @@
   - name: Ansible info shortcut command
     community.general.dconf:
       key: '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom5/command'
-      value: "'bash -c \"zenity --info --width=\"700\" --icon-name \"starred\" --title=\"IG Ansible Configuration\" --text=\"$(head -n-2 \"/home/$(id -un)/.ansible-info\")\"\"'"
+      value: 'user-dialog --info "$(</home/$(id -un)/.ansible-info)"'
 
   - name: Ansible info shortcut name
     community.general.dconf:

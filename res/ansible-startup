@@ -5,10 +5,5 @@ home="/home/$(id -un)"
 [[ -f "$home/.ansible-info-hide" ]] \
   && exit
 
-zenity \
-  --question \
-  --width="700" \
-  --icon-name "starred" \
-  --title="IG Ansible Configuration" \
-  --text="$(< "$home/.ansible-info")" \
+user-dialog --question "$(</home/$(id -un)/.ansible-info)\n\n<big><b>Show again on next startup?</b></big>" \
   || touch "$home/.ansible-info-hide"

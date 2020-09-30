@@ -15,6 +15,11 @@
     become: yes
     become_user: '{{ username.stdout }}'
 
+  - name: Install user-dialog
+    copy:
+      src: '../res/user-dialog'
+      dest: '/usr/local/bin/'
+
   - name: Run info script on startup
     copy:
       src: '../res/ansible-startup'
