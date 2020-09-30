@@ -5,5 +5,5 @@ home="/home/$(id -un)"
 [[ -f "$home/.ansible-info-hide" ]] \
   && exit
 
-user-dialog --question "$(</home/$(id -un)/.ansible-info)\n\n<big><b>Show again on next startup?</b></big>" \
+user-dialog "$(</home/$(id -un)/.ansible-info)\n\n<big><b>Show again on next startup?</b></big>" --question \
   || touch "$home/.ansible-info-hide"

@@ -131,7 +131,7 @@
   - name: Ansible info shortcut command
     community.general.dconf:
       key: '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom5/command'
-      value: 'user-dialog --info "$(</home/$(id -un)/.ansible-info)"'
+      value: 'user-dialog "$(</home/$(id -un)/.ansible-info)"'
 
   - name: Ansible info shortcut name
     community.general.dconf:
