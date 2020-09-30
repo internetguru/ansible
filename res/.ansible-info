@@ -1,8 +1,8 @@
 
 <big><b>Ansible Info</b></big>
 
-­ –  version: <tt>%s</tt>
-­ –  local repository: <tt>%s</tt>
+ –  version: <tt>%s</tt>
+ –  local repository: <tt>%s</tt>
  –  remote repository: <tt>%s</tt>
 
 <big><b>Basic Shortcuts</b></big>
