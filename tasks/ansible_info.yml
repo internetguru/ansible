@@ -17,7 +17,7 @@
 
   - name: Install user-dialog
     copy:
-      src: '../res/user-dialog'
+      src: '../res/ansible-user-dialog'
       dest: '/usr/local/bin/'
 
   - name: Run info script on startup
