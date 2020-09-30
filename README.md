@@ -111,13 +111,13 @@ sudo reboot
 
 ## Default Shortcuts
 
- - <tt>Ctrl+Alt+h</tt> &#9;&#9;Display help dialog
+ - <tt>Ctrl+Alt+h</tt> &#9;&#9;display help dialog
  - <tt>Ctrl+Alt+s</tt> &#9;&#9;lock and sleep (suspend)
  - <tt>Ctrl+Alt+f</tt> &#9;&#9;screen off
  - <tt>Ctrl+Alt+l</tt> &#9;&#9;toggle night-light (on/off/auto)
  - <tt>Ctrl+Alt+End</tt> &#9;power off dialog
 
- - <tt>Ctrl+Shift+PgUp</tt> &#9;volume up
+ - <tt>Ctrl+Shift+PgUp</tt> &#9;&#9;volume up
  - <tt>Ctrl+Shift+PgDown</tt> &#9;volume down
  - <tt>Ctrl+Shift+Del</tt> &#9;&#9;mute volume
 

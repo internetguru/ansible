@@ -11,7 +11,7 @@
  # Commands
 
   - name: Generate .ansible-info file
-    shell: 'printf "$(< "../res/.ansible-info")" "$(<../VERSION)-$(git -C .. rev-parse --abbrev-ref HEAD)" "{{ playbook_dir }}" "$(../res/ansible-info-parse) \"{{ playbook_dir }}/README.md\"" > /home/{{ username.stdout }}/.ansible-info'
+    shell: '../res/ansible-info-generate "{{ playbook_dir }}" "{{ username.stdout }}"'
     become: yes
     become_user: '{{ username.stdout }}'
 
