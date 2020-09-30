@@ -1,8 +1,12 @@
 #!/bin/bash
 
+text="$(</dev/stdin)"
+[[ -n "$2" ]] \
+  && text="$text\n\n<big><b>$2</b></big>"
+   
 zenity \
---text="${1:-n/a}" \
-${2:---info} \
+--text="$text" \
+--"${1:-info}" \
 --title="Internet Guru Ubuntu Ansible" \
 --icon-name "starred" \
 --width="700"
