@@ -1,6 +1,6 @@
 # Internet Guru Ansible
 
-> This project contains handy ansible playbooks for multiple environments. *Fresh environment* sets up essential commands and CLI environment for Debian/Ubuntu. Similarly *server environment* sets server essentials. Ubuntu specific environments set many practical and bonus programs and configurations for Ubuntu 20 including e.g. handy [keyboard shortcuts](#defaul-shortcuts).
+> This project contains handy ansible playbooks for multiple environments. *Fresh environment* sets up essential commands and CLI environment for Debian/Ubuntu. Similarly *server environment* sets server essentials. *Ubuntu specific environments* set Windows-like panel and installs many practical and bonus programs for users and developers respectively including e.g. [handy keyboard shortcuts](#default-shortcuts).
 
 ## Requirements
 
@@ -153,6 +153,6 @@ sudo reboot
 ## Suggestions
 
  - [x] Shortcut to turn off the screen with no lock and no suspend.
- - [x] Ulauncher to <tt>win+s</tt>.
+ - [x] Ulauncher to <tt>win+f</tt>.
  - [x] Do nothing when lid is closed.
- - [x] Use Ulauncher instead of Appmenu (left ico button)
+ - [ ] Display README info after system startup.
