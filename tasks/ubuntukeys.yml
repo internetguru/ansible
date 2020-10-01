@@ -131,7 +131,7 @@
   - name: Ansible info shortcut command
     community.general.dconf:
       key: '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom5/command'
-      value: '/home/{{ username.stdout }}/ansible-info'
+      value: "'/home/{{ username.stdout }}/ansible-info'"
 
   - name: Ansible info shortcut name
     community.general.dconf:
