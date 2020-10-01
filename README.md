@@ -1,16 +1,17 @@
 # Internet Guru Ansible
 
-> This project contains handy ansible playbooks for multiple environments. *Fresh environment* sets up essential commands and CLI environment for Debian/Ubuntu. Similarly *server environment* sets server essentials. *Ubuntu specific environments* set Windows-like panel and installs many practical and bonus programs for users and developers respectively including e.g. [handy keyboard shortcuts](#default-shortcuts).
+> This project contains handy ansible playbooks for multiple environments. *Fresh environment* sets up essential commands and CLI environment for Debian/Ubuntu. Similarly *server environment* sets server essentials. *Ubuntu specific environments* set Windows-like panel and install many practical and bonus programs for users and developers respectively including minor adjustments e.g. [handy keyboard shortcuts](#default-shortcuts).
 
 ## Requirements
 
- - Ubuntu 20.04.1 LTS
-  > <a href="https://releases.ubuntu.com/20.04/ubuntu-20.04.1-desktop-amd64.iso">download iso</a>
+ - Ubuntu 20.04+ (minimal installation)
+  > tested on 20.04.1 LTS (<a href="https://releases.ubuntu.com/20.04/ubuntu-20.04.1-desktop-amd64.iso">download iso</a>)
   
   > <a href="https://ubuntu.com/tutorials/create-a-usb-stick-on-ubuntu#1-overview">create a bootable USB stick on Ubuntu</a>
- - ansible
+ - ansible and git
 ```
 sudo apt install ansible
+sudo apt install git
 ```
 
 ## Content
@@ -75,18 +76,12 @@ sudo apt upgrade
 sudo reboot
 ```
 
-2. Install git and ansible
-```
-sudo apt install ansible
-sudo apt install git
-```
-
-3. Clone or update ansible project
+2. Clone or update ansible project
 ```
 git clone https://github.com/InternetGuru/ansible.git || git -C ansible pull
 ```
 
-4. Apply ansible
+3. Apply ansible
 ```
 cd ansible
 
