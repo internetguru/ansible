@@ -18,13 +18,3 @@
       force: yes
     become: yes
     become_user: '{{ username.stdout }}'
-
-  - name: Run info script on startup
-    copy:
-      src: '../res/ansible-startup'
-      dest: '/etc/init.d/'
-      mode: '0777'
-
-  - name: Register startup script
-    shell: 'update-rc.d ansible-startup defaults'
-
