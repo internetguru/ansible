@@ -56,22 +56,6 @@
   - name: Install google remote desktop
     apt:
       deb: https://dl.google.com/linux/direct/chrome-remote-desktop_current_amd64.deb
-  - name: Add Ulauncher APT repository
-    apt_repository:
-      repo: 'ppa:agornostal/ulauncher'
-  - name: Install Ulauncher
-    apt:
-      pkg:
-      - ulauncher
-      update_cache: yes
-  - name: Add ulauncher to startupp aplications
-    copy:
-      src: './res/ulauncher.desktop'
-      dest: '/home/{{ username.stdout }}/.config/autostart/'
-  - name: Copy ulauncher settings
-    copy:
-      src: './res/ulauncher-settings/'
-      dest: '/home/{{ username.stdout }}/.config/ulauncher/'
   - name: Set lid close behaviour to ignore
     shell: sed -i 's/^HandleLidSwitch.*/HandleLidSwitch=ignore/' /etc/systemd/logind.conf
   - name: crate ~/.ssh to suppress ssh-agent warning

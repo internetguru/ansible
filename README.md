@@ -52,10 +52,6 @@ sudo apt install git
  - gnome-tweaks
  - gnome-shell-extension-dash-to-panel
  - python3-pip
- - [ulauncher](https://ulauncher.io/)
-   - [English dictionary extension](https://ext.ulauncher.io/-/github-katacarbix-ulauncher-dict-en)
-   - [Gnome Settings](https://ext.ulauncher.io/-/github-friday-ulauncher-gnome-settings)
-   - [Zoom - Join a meeting](https://ext.ulauncher.io/-/github-skeletonkey-ulauncher-zoom-join-meeting)
  - [pinta](https://www.pinta-project.com/) (alternative to MS Paint)
  - [rtorrent](https://github.com/rakshasa/rtorrent/wiki) ([cheet sheet](https://devhints.io/rtorrent))
  - [we-get](https://github.com/rachmadaniHaryono/we-get)
@@ -124,7 +120,6 @@ sudo reboot
  - `Ctrl+Shift+Del` mute volume
 
  - `Win+s` application overview
- - `Win+f` Ulauncher (quick open apps)
  - `Win+c` calculator
 
  - `Pause`, `Menu` compose keys
@@ -156,6 +151,5 @@ sudo reboot
 ## Suggestions
 
  - [x] Shortcut to turn off the screen with no lock and no suspend.
- - [x] Ulauncher to `win+f`.
  - [x] Do nothing when lid is closed.
  - [ ] Display README info after system startup.
