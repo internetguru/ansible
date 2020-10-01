@@ -49,14 +49,8 @@
     git:
      repo: 'https://github.com/InternetGuru/zshrc'
      dest: '/home/{{ username.stdout }}/zshrc'
-  
-  - name: Change ownership
-    file:
-      path: '/home/{{ username.stdout }}/zshrc'
-      owner: '{{ username.stdout }}'
-      group: '{{ username.stdout }}'
-      state: directory
-      recurse: yes
+    become: yes
+    become_user: '{{ username.stdout }}'
   
   - name: Add babun.zsh-theme into oh-my-zsh
     file:
@@ -75,6 +69,8 @@
       group: '{{ username.stdout }}'
       state: link
     when: not zshrc.stat.exists
+    become: yes
+    become_user: '{{ username.stdout }}'
 
   - name: Add syntax higlight
     git:

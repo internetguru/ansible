@@ -9,10 +9,14 @@
     file:
       path: '/home/{{ username.stdout }}/.config/mc'
       state: directory
+    become: yes
+    become_user: '{{ username.stdout }}'
   - name: Copy mc settings
     copy:
       src: './res/mc-ini'
       dest: '/home/{{ username.stdout }}/.config/mc/ini'
+    become: yes
+    become_user: '{{ username.stdout }}'
   - name: Install oh-my-zsh
     import_tasks: tasks/oh-my-zsh.yml
   - name: Install bashcfg
