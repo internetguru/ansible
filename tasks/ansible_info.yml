@@ -23,3 +23,5 @@
     copy:
       src: '../res/ansible-startup'
       dest: '/etc/init.d/'
+      mode: '0777'
+
