@@ -232,7 +232,7 @@
       key: '/org/gtk/settings/file-chooser/sort-column'
       value: "'modified'"
 
-  - name: Set filechooser sort
+  - name: Disable system sounds
     community.general.dconf:
       key: '/org/gnome/desktop/sound/event-sounds'
       value: 'false'
