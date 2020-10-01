@@ -1,24 +1,23 @@
 
  # Dependency
 
-  - name: Install dependencies
-    apt:
-      pkg:
-      - zenity
-
  # Checks
 
  # Commands
 
-  - name: Generate .ansible-info file
+  - name: Generate ansible-info file
     shell: '../res/ansible-info-generate "{{ playbook_dir }}" "{{ username.stdout }}"'
     become: yes
     become_user: '{{ username.stdout }}'
 
-  - name: Install ansible-user-dialog
+  - name: Create ansible-info link to Desktop
     copy:
-      src: '../res/ansible-user-dialog'
-      dest: '/usr/local/bin/'
+      src: '/home/{{ username.stdout }}/ansible-info'
+      dest: '/home/{{ username.stdout }}/Desktop/'
+      state: link
+      force: yes
+    become: yes
+    become_user: '{{ username.stdout }}'
 
   - name: Run info script on startup
     copy:

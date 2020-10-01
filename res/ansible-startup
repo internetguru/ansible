@@ -1,9 +1,8 @@
 #!/bin/bash
 
-home="/home/$(id -un)"
+infoFile="/home/$(id -un)/ansible-info"
 
-[[ -f "$home/.ansible-info-hide" ]] \
-  && exit
+[[ -f "$infoFile" ]] \
+  || exit
 
-ansible-user-dialog question "Show again on next startup?" </home/"$(id -un)"/.ansible-info \
-  || touch "$home/.ansible-info-hide"
+$infoFile

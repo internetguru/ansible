@@ -1,9 +1,11 @@
 #!/bin/bash
 
-rootPwd="$1"
-version="$(<$rootPwd/VERSION)-$(git -C "$rootPwd" rev-parse --abbrev-ref HEAD)"
-readme="$(sed -n '/^## Default Shortcuts/,/^## Suggestions/p' "$rootPwd/README.md" \
-  | grep -v "^## Suggestions" \
-  | sed 's/^## \(.*\)/<big><b>\1<\/b><\/big>/g')"
+commit="$(git -C "$1" rev-parse HEAD)"
+dest="/home/$2/ansible-info"
 
-printf "$(< "$rootPwd/res/.ansible-info")" "$version" "$rootPwd" "$readme" > "/home/$2/.ansible-info"
+printf "%s\n%s\n" \
+  "#!/bin/bash" \
+  "google-chrome --app=\"https://github.com/InternetGuru/ansible/blob/$commit/README.md\"" \
+  > "$dest"
+
+chmod +x "$dest"
