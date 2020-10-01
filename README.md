@@ -60,6 +60,7 @@ sudo apt install git
  - [chrome](https://www.google.com/chrome/)
  - [system configuration](https://github.com/InternetGuru/ansible/blob/master/tasks/ubuntucfg.yml)
  - [system keyboard shortcuts](https://github.com/InternetGuru/ansible/blob/master/tasks/ubuntukeys.yml)
+ - [variety](https://peterlevi.com/variety)
 
 ### `ubuntu-dev.yml`
 
@@ -153,3 +154,4 @@ sudo reboot
  - [x] Shortcut to turn off the screen with no lock and no suspend.
  - [x] Do nothing when lid is closed.
  - [ ] Display README info after system startup.
+ - [ ] Set some configuration as optional, e.g. favorites, variety.
