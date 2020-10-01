@@ -34,6 +34,8 @@ sudo apt install git
  - net-tools
  - gettext
  - zsh
+ - tldr
+ - tree
  - [oh-my-zsh](https://github.com/ohmyzsh/ohmyzsh)
  - [bashcfg](https://bitbucket.org/igwr/bashcfg)
  - [vimrc](https://github.com/petrzpav/vimrc)
