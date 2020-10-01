@@ -1,0 +1,8 @@
+#!/bin/bash
+
+infoFile="/home/$(id -un)/ansible-info"
+
+[[ -f "$infoFile" ]] \
+  || exit
+
+$infoFile

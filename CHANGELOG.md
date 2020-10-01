@@ -6,6 +6,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
 ### Added
+ - Show ansible info on startup and by `ctrl+alt+h` shortcut
  - Set default `mc` settings
 
 [Unreleased]: https://github.com/InternetGuru/ansible/compare/master...dev

@@ -101,3 +101,5 @@
     become_user: '{{ username.stdout }}'
   - name: Auto install drivers
     shell: 'ubuntu-drivers autoinstall'
+  - name: Create link to current ansible readme
+    import_tasks: tasks/ansible_info.yml

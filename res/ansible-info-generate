@@ -1,0 +1,11 @@
+#!/bin/bash
+
+commit="$(git -C "$1" rev-parse HEAD)"
+dest="/home/$2/ansible-info"
+
+printf "%s\n%s\n" \
+  "#!/bin/bash" \
+  "google-chrome --app=\"https://github.com/InternetGuru/ansible/blob/$commit/README.md\"" \
+  > "$dest"
+
+chmod +x "$dest"
