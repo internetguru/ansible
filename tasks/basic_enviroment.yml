@@ -15,3 +15,4 @@
       - build-essential
       - net-tools
       - gettext
+      - tree
