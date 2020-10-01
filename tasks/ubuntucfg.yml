@@ -11,7 +11,7 @@
   - name: Keyboard dely
     community.general.dconf:
       key: '/org/gnome/desktop/peripherals/keyboard/delay'
-      value: 'uint32 190'
+      value: 'uint32 263'
 
   - name: Activate numlock
     community.general.dconf:
@@ -21,7 +21,7 @@
   - name: Keboard repeat interval
     community.general.dconf:
       key: '/org/gnome/desktop/peripherals/keyboard/repeat-interval'
-      value: 'uint32 33'
+      value: 'uint32 34'
 
   - name: Lock screen after 15 min
     community.general.dconf:
