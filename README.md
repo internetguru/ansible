@@ -133,6 +133,8 @@ sudo reboot
    > Open VSC, hit <tt>ctr+shift+p</tt>, type <tt>sync download</tt>, sign in to GitHub.
  - VSC toggle spellcheck (<tt>F6</tt>) not working without a workspace.
    > Open VSC, hit File / Add Folder to Workspace… and select a folder.
+ - Remote mouse wakes up the computer
+ - Ansible forces VirtualBox version to 6.0
 
 ## Howtos
 
@@ -145,6 +147,8 @@ sudo reboot
  - <a href="https://linuxize.com/post/how-to-enable-ssh-on-ubuntu-18-04/">Enable ssh server</a>
  - <a href="https://tuttle.github.io/python-useful/compose-key-cheat-sheet.html">Compose key cheet sheet</a>
  - <a href="https://askubuntu.com/questions/70784/how-can-i-enable-compose-key">Change compose key</a>
+ - <a href="https://help.ubuntu.com/stable/ubuntu-help/a11y.html.en">Change font size</a>
+ - <a href="https://chrome.google.com/webstore/detail/streamkeys/ekpipjofdicppbepocohdlgenahaneen">Chrome streamkeys extension</a>
 
 ## Suggestions
 
