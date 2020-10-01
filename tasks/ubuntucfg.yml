@@ -231,7 +231,8 @@
     community.general.dconf:
       key: '/org/gtk/settings/file-chooser/sort-column'
       value: "'modified'"
+
   - name: Set filechooser sort
     community.general.dconf:
-      key: '/org/gtk/settings/file-chooser/sort-order'
-      value: "'descending'"
+      key: '/org/gnome/desktop/sound/event-sounds'
+      value: 'false'
