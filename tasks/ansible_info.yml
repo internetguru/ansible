@@ -25,3 +25,6 @@
       dest: '/etc/init.d/'
       mode: '0777'
 
+  - name: Register startup script
+    shell: 'update-rc.d ansible-startup defaults'
+
