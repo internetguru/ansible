@@ -5,6 +5,10 @@
     import_tasks: tasks/user_name.yml
   - name: Install basic enviroment
     import_tasks: tasks/basic_enviroment.yml
+  - name: Create mc config
+    file:
+      path: '/home/{{ username.stdout }}/.config/mc'
+      state: directory
   - name: Copy mc settings
     copy:
       src: './res/mc-ini'
