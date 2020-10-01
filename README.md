@@ -1,6 +1,6 @@
 # Internet Guru Ansible
 
-> Handy ansible playbooks for multiple enviroments.
+> This project contains handy ansible playbooks for multiple environments. *Fresh environment* sets up essential commands and CLI environment for Debian/Ubuntu. Similarly *server environment* sets server essentials. Ubuntu specific environments set many practical and bonus programs and configurations for Ubuntu 20 including e.g. handy [keyboard shortcuts](#defaul-shortcuts).
 
 ## Requirements
 
