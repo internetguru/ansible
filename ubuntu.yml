@@ -16,6 +16,8 @@
   tasks:
   - name: Set default browser
     shell: xdg-settings set default-web-browser google-chrome.desktop
+    become: yes
+    become_user: '{{ username.stdout }}'
   - name: Install packages
     apt:
       pkg:
