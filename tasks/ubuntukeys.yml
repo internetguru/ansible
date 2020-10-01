@@ -137,8 +137,3 @@
     community.general.dconf:
       key: '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom5/name'
       value: "'ansible info'"
-
-  - name: Disable toggle overview shortcut
-    community.general.dconf:
-      key: '/org/gnome/shell/keybindings/toggle-overview'
-      value: '@as []'
