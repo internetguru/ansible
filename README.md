@@ -2,6 +2,14 @@
 
 > This project contains handy ansible playbooks for multiple environments. *Fresh environment* sets up essential commands and CLI environment for Debian/Ubuntu. Similarly *server environment* sets server essentials. *Ubuntu specific environments* set Windows-like panel and install many practical and bonus programs for users and developers respectively including minor adjustments e.g. [handy keyboard shortcuts](#default-shortcuts).
 
+ - [Requirements](#requirements)
+ - [Environments](#environments)
+ - [Complete Ubuntu Setup with Ansible](#complete-ubuntu-setup-with-ansible)
+ - [Default Shortcuts](#default-shortcuts)
+ - [Known Issues](#known-issues)
+ - [Howtos](#howtos)
+ - [Suggestions](#suggestions)
+
 ## Requirements
 
  - Ubuntu 20.04+ (minimal installation)
@@ -13,7 +21,7 @@ sudo apt install ansible
 sudo apt install git
 ```
 
-## Content
+## Environments
 
 ### `fresh-env.yml`
 
