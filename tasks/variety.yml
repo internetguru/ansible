@@ -32,5 +32,5 @@
     when: not varietycfg.stat.exists
 
   - name: Create variety autostart iff not exists
-    shell: 'printf "$(cat "{{ playbook_dir }}/res/variety.desktop")" "{{ username.stdout }}" > "/home/{{ username.stdout }}/.config/autostart/variety.desktop"''
+    shell: 'printf "$(cat "{{ playbook_dir }}/res/variety.desktop")" "{{ username.stdout }}" > "/home/{{ username.stdout }}/.config/autostart/variety.desktop"'
     when: not varietyautostart.stat.exists
