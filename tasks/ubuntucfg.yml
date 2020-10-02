@@ -205,7 +205,7 @@
   - name: Dash-to-panel settings
     community.general.dconf:
       key: '/org/gnome/shell/extensions/dash-to-panel/trans-panel-opacity'
-      value: '0.25'
+      value: '0.4'
   - name: Dash-to-panel settings
     community.general.dconf:
       key: '/org/gnome/shell/extensions/dash-to-panel/trans-use-custom-bg'
