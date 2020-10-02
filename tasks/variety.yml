@@ -1,10 +1,6 @@
 
  # Dependency
 
-  - name: Install dependencies
-    apt:
-      pkg:
-      - variety
 
  # Checks
  
