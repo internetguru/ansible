@@ -15,15 +15,9 @@
     git:
      repo: 'https://github.com/InternetGuru/butt.git'
      dest: '/home/{{ username.stdout }}/butt'
-  
-  - name: Change ownership
-    file:
-      path: '/home/{{ username.stdout }}/butt'
-      owner: '{{ username.stdout }}'
-      group: '{{ username.stdout }}'
-      state: directory
-      recurse: yes
-  
+    become: yes
+    become_user: '{{ username.stdout }}'
+
   - name: Make and install butt
     shell: ./configure && make && compiled/install
     args:
