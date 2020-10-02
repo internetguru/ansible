@@ -83,3 +83,7 @@
     shell: 'ubuntu-drivers autoinstall'
   - name: Create link to current ansible readme
     import_tasks: tasks/ansible_info.yml
+  - name: Variety settings
+    import_tasks: tasks/variety.yml
+    become: yes
+    become_user: '{{ username.stdout }}'
