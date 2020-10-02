@@ -236,3 +236,8 @@
     community.general.dconf:
       key: '/org/gnome/desktop/sound/event-sounds'
       value: 'false'
+
+- name: Calculator keyboard mode as default
+  community.general.dconf:
+    key: '/org/gnome/calculator/button-mode'
+    value: "'keyboard'"
