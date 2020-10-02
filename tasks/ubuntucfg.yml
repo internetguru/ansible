@@ -237,7 +237,17 @@
       key: '/org/gnome/desktop/sound/event-sounds'
       value: 'false'
 
-- name: Calculator keyboard mode as default
-  community.general.dconf:
-    key: '/org/gnome/calculator/button-mode'
-    value: "'keyboard'"
+  - name: Calculator keyboard mode as default
+    community.general.dconf:
+      key: '/org/gnome/calculator/button-mode'
+      value: "'keyboard'"
+
+  - name: Terminal hide menubar
+    community.general.dconf:
+      key: '/org/gnome/terminal/legacy/default-show-menubar'
+      value: 'false'
+
+  - name: Terminal hide scrollbar
+    community.general.dconf:
+      key: '/org/gnome/terminal/legacy/profiles:/:b1dcc9dd-5262-4d8d-a863-c897e6d979b9/scrollbar-policy'
+      value: "'never'"
