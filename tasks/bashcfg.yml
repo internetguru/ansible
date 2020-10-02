@@ -19,15 +19,9 @@
     git:
      repo: 'https://bitbucket.org/igwr/bashcfg'
      dest: '/usr/local/share/bashcfg'
+    become: yes
+    become_user: '{{ username.stdout }}'
 
-  - name: Change ownership
-    file:
-      path: '/usr/local/share/bashcfg'
-      owner: '{{ username.stdout }}'
-      group: '{{ username.stdout }}'
-      state: directory
-      recurse: yes
- 
   - name: Add settings into .zshrc.local
     shell: '{{ item }}'
     changed_when: False
