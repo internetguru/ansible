@@ -27,10 +27,10 @@
 
   - name: Copy variety settings iff not exists
     copy:
-      src: '../res/variety'
-      dest: '/home/{{ username.stdout }}/.config/variety'
+      src: '../res/variety/'
+      dest: '/home/{{ username.stdout }}/.config/variety/'
     when: not varietycfg.stat.exists
 
   - name: Create variety autostart iff not exists
-    shell: 'printf "$(<../res/variety.desktop)" "{{ username.stdout }}" > /home/{{ username.stdout }}/.config/autostart/variety.desktop'
+    shell: 'printf "$(<{{ playbook_dir }}/res/variety.desktop)" "{{ username.stdout }}" > /home/{{ username.stdout }}/.config/autostart/variety.desktop'
     when: not varietyautostart.stat.exists
