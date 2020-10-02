@@ -6,7 +6,7 @@
   - name: Set en, cz input sources
     community.general.dconf:
       key: '/org/gnome/desktop/input-sources/sources'
-      value: "[('xkb', 'us'), ('xkb', 'cz')]"
+      value: "[('xkb', 'cz'), ('xkb', 'us')]"
 
   - name: Keyboard dely
     community.general.dconf:
