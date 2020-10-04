@@ -60,9 +60,11 @@ sudo apt install git
  - [rhythmbox](https://wiki.gnome.org/Apps/Rhythmbox)
  - [vlc](https://www.videolan.org/vlc/index.html)
  - [chrome](https://www.google.com/chrome/)
+ - [google remote desktop](https://remotedesktop.google.com/support/)
+ - [variety](https://peterlevi.com/variety)
+ - [zoom](https://zoom.us/)
  - [system configuration](https://github.com/InternetGuru/ansible/blob/master/tasks/ubuntucfg.yml)
  - [system keyboard shortcuts](https://github.com/InternetGuru/ansible/blob/master/tasks/ubuntukeys.yml)
- - [variety](https://peterlevi.com/variety)
 
 ### `ubuntu-dev.yml`
 
@@ -72,6 +74,8 @@ sudo apt install git
  - [docker](https://www.docker.com/products/docker-app)
  - [slack](https://slack.com/)
  - [visual-studio-code](https://code.visualstudio.com/) with [shared settings](https://gist.github.com/petrzpav/fd6f4ed38d22d4611e6f8a9e0c9e2801)
+ - [omgf](https://github.com/InternetGuru/omgf)
+ - [butt](https://github.com/InternetGuru/butt)
 
 ## Complete Ubuntu Setup with Ansible
 
