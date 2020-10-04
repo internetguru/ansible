@@ -8,11 +8,6 @@
 
  # Checks
  
-  - name: Check if /usr/local/share/bashcfg exists
-    stat:
-      path: '/usr/local/share/bashcfg'
-    register: bashcfg
-
   - name: Check if ~/.zshrc.local exists
     stat:
       path: '/home/{{ username.stdout }}/.zshrc.local'
