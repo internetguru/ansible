@@ -68,7 +68,9 @@ sudo apt install git
  - [rtorrent](https://github.com/rakshasa/rtorrent/wiki) ([cheet sheet](https://devhints.io/rtorrent))
  - [variety](https://peterlevi.com/variety)
  - [vlc](https://www.videolan.org/vlc/index.html)
+ - [we-get](https://github.com/rachmadaniHaryono/we-get)
  - [zoom](https://zoom.us/)
+<!-- break -->
  - [system configuration](https://github.com/InternetGuru/ansible/blob/master/tasks/ubuntucfg.yml)
  - [system keyboard shortcuts](https://github.com/InternetGuru/ansible/blob/master/tasks/ubuntukeys.yml)
 
