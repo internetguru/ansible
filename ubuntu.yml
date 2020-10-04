@@ -18,6 +18,18 @@
     shell: xdg-settings set default-web-browser google-chrome.desktop
     become: yes
     become_user: '{{ username.stdout }}'
+  - name: Create ~/.config/google-chrome/
+    file:
+      path: '/home/{{ username.stdout }}/.config/google-chrome/'
+      state: directory
+    become: yes
+    become_user: '{{ username.stdout }}'
+  - name: Touch google-chrome first run file
+    file:
+      path: '/home/{{ username.stdout }}/.config/google-chrome/First Run'
+      state: touch
+    become: yes
+    become_user: '{{ username.stdout }}'
   - name: Install packages
     apt:
       pkg:

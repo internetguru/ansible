@@ -13,14 +13,17 @@
       path: '/usr/local/share/bashcfg'
     register: bashcfg
 
+  - name: Check if ~/.zshrc.local exists
+    stat:
+      path: '/home/{{ username.stdout }}/.zshrc.local'
+    register: zshrclocal
+
  # Commands
 
   - name: Clone bashcfg
     git:
      repo: 'https://bitbucket.org/igwr/bashcfg'
      dest: '/usr/local/share/bashcfg'
-    become: yes
-    become_user: '{{ username.stdout }}'
 
   - name: Add settings into .zshrc.local
     shell: '{{ item }}'
@@ -29,5 +32,7 @@
     - "echo 'echo \"IG bashcfg, version $(< /usr/local/share/bashcfg/VERSION)\"' >> /home/{{ username.stdout }}/.zshrc.local"
     - "echo 'source /usr/local/share/bashcfg/common' >> /home/{{ username.stdout }}/.zshrc.local"
     - "echo 'source /usr/local/share/bashcfg/git_functions' >> /home/{{ username.stdout }}/.zshrc.local"
-    when: not bashcfg.stat.exists
+    when: not zshrclocal.stat.exists
+    become: yes
+    become_user: '{{ username.stdout }}'
 
