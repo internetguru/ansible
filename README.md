@@ -38,7 +38,7 @@ sudo apt install git
  - zsh
  - tldr
  - tree
-
+<!-- break -->
  - [oh-my-zsh](https://github.com/ohmyzsh/ohmyzsh)
  - [bashcfg](https://bitbucket.org/igwr/bashcfg)
  - [vimrc](https://github.com/petrzpav/vimrc)
@@ -60,7 +60,7 @@ sudo apt install git
  - gnome-settings-daemon
  - gnome-tweaks
  - gnome-shell-extension-dash-to-panel
-
+<!-- break -->
  - [google-chrome](https://www.google.com/chrome/)
    - chrome-remote-desktop
  - [pinta](https://www.pinta-project.com/) (alternative to MS Paint)
@@ -78,7 +78,7 @@ sudo apt install git
 
  - java
  - php 7.4
-
+<!-- break -->
  - [butt](https://github.com/InternetGuru/butt)
  - [docker](https://www.docker.com/products/docker-app)
  - [omgf](https://github.com/InternetGuru/omgf)
@@ -134,14 +134,14 @@ sudo reboot
  - `Ctrl+Alt+f` screen off
  - `Ctrl+Alt+l` toggle night-light (on/off/auto)
  - `Ctrl+Alt+End` power off dialog
-
+<!-- break -->
  - `Ctrl+Shift+PgUp` volume up
  - `Ctrl+Shift+PgDown` volume down
  - `Ctrl+Shift+Del` mute volume
-
+<!-- break -->
  - `Win+s` application overview
  - `Win+c` calculator
-
+<!-- break -->
  - `Pause`, `Menu` compose keys
 
 ## Known Issues
