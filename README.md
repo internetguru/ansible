@@ -1,6 +1,6 @@
 # Internet Guru Ansible
 
-> This project contains handy ansible playbooks for multiple environments. *Fresh environment* sets up essential commands and CLI environment for Debian/Ubuntu. Similarly *server environment* sets server essentials. *Ubuntu specific environments* set Windows-like panel and install many practical and bonus programs for users and developers respectively including minor adjustments e.g. [handy keyboard shortcuts](#default-shortcuts).
+> This project contains handy ansible playbooks divided into several environments. To Install selected environments, simply follow instructions below. Same for any additional account. Make sure, each account has `sudo` permissions (see [Howtos](#howtos) section).
 
  - [Requirements](#requirements)
  - [Environments](#environments)
@@ -25,6 +25,8 @@ sudo apt install git
 
 ### `fresh-env.yml`
 
+> Installs essential commands and CLI environment for Debian/Ubuntu.
+
  - vim
  - curl
  - htop
@@ -36,28 +38,37 @@ sudo apt install git
  - zsh
  - tldr
  - tree
+
  - [oh-my-zsh](https://github.com/ohmyzsh/ohmyzsh)
  - [bashcfg](https://bitbucket.org/igwr/bashcfg)
  - [vimrc](https://github.com/petrzpav/vimrc)
 
 ### `server.yml`
 
+> Sets up Internet Guru server environment.
+
  - 2 GB swapfile in `/root/swapfile`
- - [Internet Guru motd](https://github.com/InternetGuru/ansible/blob/master/res/20-ig)
+ - [Internet Guru MOTD](https://github.com/InternetGuru/ansible/blob/master/res/20-ig)
  - ufw with basic rules
 
 ### `ubuntu.yml`
+
+> Enables Windows-like panel and adds practical programs, scripts and adjustments for *Ubuntu*.
 
  - gnome-screensaver 
  - gnome-session
  - gnome-settings-daemon
  - gnome-tweaks
  - gnome-shell-extension-dash-to-panel
- - python3-pip
+
+ - [google-chrome](https://www.google.com/chrome/)
+   - chrome-remote-desktop
  - [pinta](https://www.pinta-project.com/) (alternative to MS Paint)
- - [rtorrent](https://github.com/rakshasa/rtorrent/wiki) ([cheet sheet](https://devhints.io/rtorrent))
- - [we-get](https://github.com/rachmadaniHaryono/we-get)
+ - psutil
+ - python3-pip
  - [rhythmbox](https://wiki.gnome.org/Apps/Rhythmbox)
+ - [rtorrent](https://github.com/rakshasa/rtorrent/wiki) ([cheet sheet](https://devhints.io/rtorrent))
+ - [variety](https://peterlevi.com/variety)
  - [vlc](https://www.videolan.org/vlc/index.html)
  - [chrome](https://www.google.com/chrome/)
  - [google remote desktop](https://remotedesktop.google.com/support/)
@@ -68,16 +79,20 @@ sudo apt install git
 
 ### `ubuntu-dev.yml`
 
+> Installs developer environment *for Ubuntu*.
+
  - java
  - php 7.4
- - [virtualbox](https://www.virtualbox.org/)
  - [docker](https://www.docker.com/products/docker-app)
  - [slack](https://slack.com/)
+ - [virtualbox](https://www.virtualbox.org/)
  - [visual-studio-code](https://code.visualstudio.com/) with [shared settings](https://gist.github.com/petrzpav/fd6f4ed38d22d4611e6f8a9e0c9e2801)
  - [omgf](https://github.com/InternetGuru/omgf)
  - [butt](https://github.com/InternetGuru/butt)
 
 ## Complete Ubuntu Setup with Ansible
+
+> This is a complete simple use-case on how to install basic environments on a fresh *Ubuntu* installation, optionally including developer environment. To update, repeat the very same process on an updated repository.
 
 1. Install updates or existing packages
 ```
@@ -98,7 +113,9 @@ cd ansible
 # install fresh-env.yml
 ansible-playbook --connection=local --inventory 127.0.0.1, --ask-become-pass fresh_env.yml
 
-# install global vim plugins and exit (:q)
+# install global vim plugins
+# hit enter as many times as requested until plugins are installed
+# exit vim using :q (maybe two times)
 sudo vim
 
 # install ubuntu.yml
@@ -143,22 +160,22 @@ sudo reboot
 
 ## Howtos
 
- - [How to use manual partitioning during installation](https://askubuntu.com/questions/343268/how-to-use-manual-partitioning-during-installation)
+ - [Manual partitioning during Ubuntu installation](https://askubuntu.com/questions/343268/how-to-use-manual-partitioning-during-installation)
  - [Change swap size](https://bogdancornianu.com/change-swap-size-in-ubuntu/)
  - [Move home to external partition](https://www.tecmint.com/move-home-directory-to-new-partition-disk-in-linux/)
  - [Set default audio device](https://askubuntu.com/questions/1038490/how-do-you-set-a-default-audio-output-device-in-ubuntu-18-04)
  - [Make login screen appear in external display](https://askubuntu.com/questions/1043337/is-there-to-make-the-login-screen-appear-on-the-external-display-in-18-04)
  - [Transfer audio from PC to iPhone](https://www.groovypost.com/howto/howto/sync-your-iphone-or-ipod-touch-in-ubuntu/)
- - [Enable ssh server](https://linuxize.com/post/how-to-enable-ssh-on-ubuntu-18-04/)
+ - [Enable SSH server](https://linuxize.com/post/how-to-enable-ssh-on-ubuntu-18-04/)
  - [Compose key cheet sheet](https://tuttle.github.io/python-useful/compose-key-cheat-sheet.html)
  - [Change compose key](https://askubuntu.com/questions/70784/how-can-i-enable-compose-key)
  - [Change font size](https://help.ubuntu.com/stable/ubuntu-help/a11y.html.en)
  - [Chrome streamkeys extension](https://chrome.google.com/webstore/detail/streamkeys/ekpipjofdicppbepocohdlgenahaneen)
- - [Add/remove user from sudo group](https://ostechnix.com/how-to-grant-and-remove-sudo-privileges-to-users-on-ubuntu/)
+ - [Grant And Remove Sudo Privileges](https://ostechnix.com/how-to-grant-and-remove-sudo-privileges-to-users-on-ubuntu/)
 
 ## Suggestions
 
  - [x] Shortcut to turn off the screen with no lock and no suspend.
  - [x] Do nothing when lid is closed.
  - [ ] Display README info after system startup.
- - [ ] Set some configuration as optional, e.g. favorites, variety.
+ - [ ] Set configuration override as optional, e.g. favorites, variety.
