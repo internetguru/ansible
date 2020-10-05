@@ -6,12 +6,12 @@
   - name: Set en, cz input sources
     community.general.dconf:
       key: '/org/gnome/desktop/input-sources/sources'
-      value: "[('xkb', 'us'), ('xkb', 'cz')]"
+      value: "[('xkb', 'cz'), ('xkb', 'us')]"
 
   - name: Keyboard dely
     community.general.dconf:
       key: '/org/gnome/desktop/peripherals/keyboard/delay'
-      value: 'uint32 190'
+      value: 'uint32 263'
 
   - name: Activate numlock
     community.general.dconf:
@@ -21,12 +21,22 @@
   - name: Keboard repeat interval
     community.general.dconf:
       key: '/org/gnome/desktop/peripherals/keyboard/repeat-interval'
-      value: 'uint32 33'
+      value: 'uint32 34'
 
   - name: Lock screen after 15 min
     community.general.dconf:
       key: '/org/gnome/desktop/session/idle-delay'
       value: 'uint32 900'
+  
+  - name: Disable lock screen notifications
+    community.general.dconf:
+      key: '/org/gnome/desktop/notifications/show-in-lock-screen'
+      value: 'false'
+
+  - name: Disable screen lock
+    community.general.dconf:
+      key: '/org/gnome/desktop/screensaver/lock-enabled'
+      value: 'false'
 
   - name: Disable dynamic workspaces
     community.general.dconf:
@@ -71,7 +81,7 @@
   - name: Set favorite apps
     community.general.dconf:
       key: '/org/gnome/shell/favorite-apps'
-      value: "['ulauncher2.desktop', 'google-chrome.desktop', 'org.gnome.Nautilus.desktop', 'org.gnome.Terminal.desktop', 'code.desktop', 'slack.desktop']"
+      value: "['google-chrome.desktop', 'org.gnome.Nautilus.desktop', 'org.gnome.Terminal.desktop', 'code.desktop', 'slack.desktop']"
 
   - name: Clock override format
     community.general.dconf:
@@ -89,7 +99,7 @@
   - name: Dash-to-panel settings
     community.general.dconf:
       key: '/org/gnome/shell/extensions/dash-to-panel/check-update'
-      value: 'true'
+      value: 'false'
   - name: Dash-to-panel settings
     community.general.dconf:
       key: '/org/gnome/shell/extensions/dash-to-panel/dot-color-1'
@@ -185,7 +195,7 @@
   - name: Dash-to-panel settings
     community.general.dconf:
       key: '/org/gnome/shell/extensions/dash-to-panel/show-show-apps-button'
-      value: 'false'
+      value: 'true'
   - name: Dash-to-panel settings
     community.general.dconf:
       key: '/org/gnome/shell/extensions/dash-to-panel/show-showdesktop-button'
@@ -205,7 +215,7 @@
   - name: Dash-to-panel settings
     community.general.dconf:
       key: '/org/gnome/shell/extensions/dash-to-panel/trans-panel-opacity'
-      value: '0.25'
+      value: '0.4'
   - name: Dash-to-panel settings
     community.general.dconf:
       key: '/org/gnome/shell/extensions/dash-to-panel/trans-use-custom-bg'
@@ -231,7 +241,23 @@
     community.general.dconf:
       key: '/org/gtk/settings/file-chooser/sort-column'
       value: "'modified'"
-  - name: Set filechooser sort
+
+  - name: Disable system sounds
     community.general.dconf:
-      key: '/org/gtk/settings/file-chooser/sort-order'
-      value: "'descending'"
+      key: '/org/gnome/desktop/sound/event-sounds'
+      value: 'false'
+
+  - name: Calculator keyboard mode as default
+    community.general.dconf:
+      key: '/org/gnome/calculator/button-mode'
+      value: "'keyboard'"
+
+  - name: Terminal hide menubar
+    community.general.dconf:
+      key: '/org/gnome/terminal/legacy/default-show-menubar'
+      value: 'false'
+
+  - name: Terminal hide scrollbar
+    community.general.dconf:
+      key: '/org/gnome/terminal/legacy/profiles:/:b1dcc9dd-5262-4d8d-a863-c897e6d979b9/scrollbar-policy'
+      value: "'never'"

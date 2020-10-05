@@ -16,6 +16,20 @@
   tasks:
   - name: Set default browser
     shell: xdg-settings set default-web-browser google-chrome.desktop
+    become: yes
+    become_user: '{{ username.stdout }}'
+  - name: Create ~/.config/google-chrome/
+    file:
+      path: '/home/{{ username.stdout }}/.config/google-chrome/'
+      state: directory
+    become: yes
+    become_user: '{{ username.stdout }}'
+  - name: Touch google-chrome first run file
+    file:
+      path: '/home/{{ username.stdout }}/.config/google-chrome/First Run'
+      state: touch
+    become: yes
+    become_user: '{{ username.stdout }}'
   - name: Install packages
     apt:
       pkg:
@@ -30,6 +44,7 @@
       - rhythmbox
       - vlc
       - wmctrl
+      - variety
       update_cache: yes
   - name: Symbolic link pip3 to pip
     file:
@@ -49,31 +64,9 @@
       - prompt_toolkit==1.0.14
       - git+https://github.com/rachmadaniHaryono/we-get
       - psutil
-  - name: Show lang switch
-    command: gsettings set org.gnome.desktop.input-sources show-all-sources true
   - name: Install google remote desktop
     apt:
       deb: https://dl.google.com/linux/direct/chrome-remote-desktop_current_amd64.deb
-  - name: Add Ulauncher APT repository
-    apt_repository:
-      repo: 'ppa:agornostal/ulauncher'
-  - name: Install Ulauncher
-    apt:
-      pkg:
-      - ulauncher
-      update_cache: yes
-  - name: Add ulauncher to startupp aplications
-    copy:
-      src: './res/ulauncher.desktop'
-      dest: '/home/{{ username.stdout }}/.config/autostart/'
-  - name: Add ulauncher to aplications
-    copy:
-      src: './res/ulauncher2.desktop'
-      dest: '/usr/share/applications'
-  - name: Copy ulauncher settings
-    copy:
-      src: './res/ulauncher-settings/'
-      dest: '/home/{{ username.stdout }}/.config/ulauncher/'
   - name: Set lid close behaviour to ignore
     shell: sed -i 's/^HandleLidSwitch.*/HandleLidSwitch=ignore/' /etc/systemd/logind.conf
   - name: crate ~/.ssh to suppress ssh-agent warning
@@ -101,3 +94,9 @@
     become_user: '{{ username.stdout }}'
   - name: Auto install drivers
     shell: 'ubuntu-drivers autoinstall'
+  - name: Create link to current ansible readme
+    import_tasks: tasks/ansible_info.yml
+  - name: Install variety
+    import_tasks: tasks/variety.yml
+    become: yes
+    become_user: '{{ username.stdout }}'

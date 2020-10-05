@@ -1,8 +1,0 @@
-[Desktop Entry]
-Name=Ulauncher
-Comment=Application launcher for Linux
-Categories=GNOME;Utility;
-Exec=env GDK_BACKEND=x11 /usr/bin/ulauncher-toggle && /usr/bin/wmctrl -a "Ulauncher - Application Launcher"
-Icon=ulauncher
-Terminal=false
-Type=Application

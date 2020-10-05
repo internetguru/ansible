@@ -16,15 +16,9 @@
     git:
      repo: 'https://github.com/InternetGuru/omgf.git'
      dest: '/home/{{ username.stdout }}/omgf'
-  
-  - name: Change ownership
-    file:
-      path: '/home/{{ username.stdout }}/omgf'
-      owner: '{{ username.stdout }}'
-      group: '{{ username.stdout }}'
-      state: directory
-      recurse: yes
-  
+    become: yes
+    become_user: '{{ username.stdout }}'
+
   - name: Make and install omgf
     shell: ./configure && make && compiled/install
     args:

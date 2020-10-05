@@ -15,3 +15,5 @@
       - build-essential
       - net-tools
       - gettext
+      - tree
+      - tldr

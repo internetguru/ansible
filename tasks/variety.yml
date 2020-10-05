@@ -1,0 +1,32 @@
+
+ # Dependency
+
+
+ # Checks
+ 
+  - name: Check if ~/.config/variety exists
+    stat:
+      path: '/home/{{ username.stdout }}/.config/variety'
+    register: varietycfg
+
+  - name: Check if ~/.config/autostart/variety.desktop exists
+    stat:
+      path: '/home/{{ username.stdout }}/.config/autostart/variety.desktop'
+    register: varietyautostart
+ 
+ # Commands
+
+  - name: Create /home/{{ username.stdout }}/.config/autostart
+    file:
+      path: '/home/{{ username.stdout }}/.config/autostart'
+      state: directory
+
+  - name: Copy variety settings iff not exists
+    copy:
+      src: '../res/variety/'
+      dest: '/home/{{ username.stdout }}/.config/variety/'
+    when: not varietycfg.stat.exists
+
+  - name: Create variety autostart iff not exists
+    shell: 'printf "$(cat "{{ playbook_dir }}/res/variety.desktop")" "{{ username.stdout }}" > "/home/{{ username.stdout }}/.config/autostart/variety.desktop"'
+    when: not varietyautostart.stat.exists

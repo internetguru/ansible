@@ -8,10 +8,10 @@
 
  # Checks
  
-  - name: Check if /usr/local/share/bashcfg exists
+  - name: Check if ~/.zshrc.local exists
     stat:
-      path: '/usr/local/share/bashcfg'
-    register: bashcfg
+      path: '/home/{{ username.stdout }}/.zshrc.local'
+    register: zshrclocal
 
  # Commands
 
@@ -20,14 +20,6 @@
      repo: 'https://bitbucket.org/igwr/bashcfg'
      dest: '/usr/local/share/bashcfg'
 
-  - name: Change ownership
-    file:
-      path: '/usr/local/share/bashcfg'
-      owner: '{{ username.stdout }}'
-      group: '{{ username.stdout }}'
-      state: directory
-      recurse: yes
- 
   - name: Add settings into .zshrc.local
     shell: '{{ item }}'
     changed_when: False
@@ -35,5 +27,7 @@
     - "echo 'echo \"IG bashcfg, version $(< /usr/local/share/bashcfg/VERSION)\"' >> /home/{{ username.stdout }}/.zshrc.local"
     - "echo 'source /usr/local/share/bashcfg/common' >> /home/{{ username.stdout }}/.zshrc.local"
     - "echo 'source /usr/local/share/bashcfg/git_functions' >> /home/{{ username.stdout }}/.zshrc.local"
-    when: not bashcfg.stat.exists
+    when: not zshrclocal.stat.exists
+    become: yes
+    become_user: '{{ username.stdout }}'
 
