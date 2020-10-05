@@ -27,6 +27,16 @@
     community.general.dconf:
       key: '/org/gnome/desktop/session/idle-delay'
       value: 'uint32 900'
+  
+  - name: Disable lock screen notifications
+    community.general.dconf:
+      key: '/org/gnome/desktop/notifications/show-in-lock-screen'
+      value: 'false'
+
+  - name: Disable screen lock
+    community.general.dconf:
+      key: '/org/gnome/desktop/screensaver/lock-enabled'
+      value: 'false'
 
   - name: Disable dynamic workspaces
     community.general.dconf:
