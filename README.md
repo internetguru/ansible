@@ -170,6 +170,7 @@ sudo reboot
  - [Change font size](https://help.ubuntu.com/stable/ubuntu-help/a11y.html.en)
  - [Chrome streamkeys extension](https://chrome.google.com/webstore/detail/streamkeys/ekpipjofdicppbepocohdlgenahaneen)
  - [Grant And Remove Sudo Privileges](https://ostechnix.com/how-to-grant-and-remove-sudo-privileges-to-users-on-ubuntu/)
+ - [Internal Microphone Not Working](https://askubuntu.com/questions/6993/internal-microphone-not-working)
 
 ## Suggestions
 
