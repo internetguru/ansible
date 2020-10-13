@@ -17,3 +17,4 @@
       - gettext
       - tree
       - tldr
+      - avahi-daemon
