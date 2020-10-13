@@ -9,3 +9,6 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 ### Added
  - Add `avahi-daemon` to `basic_enviroment.yml`
 [Unreleased]: https://github.com/InternetGuru/ansible/compare/master...dev
+
+### Fixed
+ - Ansible forces VirtualBox version to 6.0
