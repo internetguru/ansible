@@ -68,9 +68,10 @@
     apt:
       deb: https://dl.google.com/linux/direct/chrome-remote-desktop_current_amd64.deb
   - name: Set lid close behavior to ignore
-    shell: |
-      sed -i 's/^HandleLidSwitch=*/#\0/' /etc/systemd/logind.conf
-      echo 'HandleLidSwitch=ignore' >> /etc/systemd/logind.conf
+    lineinfile:
+      path: /etc/systemd/logind.conf
+      regexp: '^HandleLidSwitch='
+      line: HandleLidSwitch=ignore
   - name: crate ~/.ssh to suppress ssh-agent warning
     file:
       path: '/home/{{ username.stdout }}/.ssh'
