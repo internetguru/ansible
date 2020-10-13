@@ -154,7 +154,6 @@ sudo reboot
  - VSC toggle spellcheck (`F6`) not working without a workspace.
    > Open VSC, hit File / Add Folder to Workspace… and select a folder.
  - Remote mouse wakes up the computer
- - Ansible forces VirtualBox version to 6.0
  - Favorites are replaced with defaults
 
 ## Howtos
