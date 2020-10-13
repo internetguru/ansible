@@ -38,6 +38,7 @@ sudo apt install git
  - zsh
  - tldr
  - tree
+ - avahi-daemon
 <!-- break -->
  - [oh-my-zsh](https://github.com/ohmyzsh/ohmyzsh)
  - [bashcfg](https://bitbucket.org/igwr/bashcfg)
