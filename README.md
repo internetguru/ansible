@@ -38,6 +38,7 @@ sudo apt install git
  - zsh
  - tldr
  - tree
+ - avahi-daemon
 <!-- break -->
  - [oh-my-zsh](https://github.com/ohmyzsh/ohmyzsh)
  - [bashcfg](https://bitbucket.org/igwr/bashcfg)
@@ -153,7 +154,6 @@ sudo reboot
  - VSC toggle spellcheck (`F6`) not working without a workspace.
    > Open VSC, hit File / Add Folder to Workspace… and select a folder.
  - Remote mouse wakes up the computer
- - Ansible forces VirtualBox version to 6.0
  - Favorites are replaced with defaults
 
 ## Howtos
@@ -170,6 +170,7 @@ sudo reboot
  - [Change font size](https://help.ubuntu.com/stable/ubuntu-help/a11y.html.en)
  - [Chrome streamkeys extension](https://chrome.google.com/webstore/detail/streamkeys/ekpipjofdicppbepocohdlgenahaneen)
  - [Grant And Remove Sudo Privileges](https://ostechnix.com/how-to-grant-and-remove-sudo-privileges-to-users-on-ubuntu/)
+ - [Internal Microphone Not Working](https://askubuntu.com/questions/6993/internal-microphone-not-working)
 
 ## Suggestions
 
