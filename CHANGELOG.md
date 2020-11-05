@@ -18,5 +18,5 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 ### Fixed
  - Ansible forces VirtualBox version to 6.0
 
-[Unreleased]: https://github.com/InternetGuru/igcms/compare/master...dev
+[Unreleased]: https://github.com/InternetGuru/ansible/compare/master...dev
 [1.1.0]: https://github.com/InternetGuru/ansible/compare/v1.0.0...v1.1.0
