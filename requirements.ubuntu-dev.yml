@@ -1,2 +1,3 @@
 - src: avnes.ansible-role-slack
 - src: geerlingguy.java
+- src: gantsign.intellij

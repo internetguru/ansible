@@ -6,6 +6,8 @@
   roles:
   - avnes.ansible-role-slack
   - geerlingguy.java
+  - gantsign.intellij
+    intellij_edition: 'ultimate'
   tasks:
   - name: Install virtualbox
     apt:
