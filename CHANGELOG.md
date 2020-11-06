@@ -6,10 +6,15 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
 ### Added
+ - Intellij Idea ultimate
+ - Sublime Text 3 with synced settings
  - How to restore Variety default configuration
 
 ### Changed
  - Variety default configuration
+
+### Removed
+ - Visual Studio Code
 
 ## [1.1.0] - 2020-10-15
 ### Added
