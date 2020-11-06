@@ -30,6 +30,10 @@
       path: "/home/{{ username.stdout }}/.config/sublime-text-3/Packages/User/Package Control.sublime-settings"
       insertbefore: '"Package Control"'
       line: '"Sync Settings",'
+    become: yes
+    become_user: '{{ username.stdout }}'
 
   - name: Add sync settings gist_id
     shell: 'echo "{ \"gist_id\": \"abf3fa8890a04fd5dedb0dd20711f042\" }" > "/home/{{ username.stdout }}/.config/sublime-text-3/Packages/User/SyncSettings.sublime-setting"'
+    become: yes
+    become_user: '{{ username.stdout }}'
