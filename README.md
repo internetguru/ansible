@@ -149,6 +149,11 @@ sudo reboot
 
 ## Known Issues
 
+ - Sublime Text not downloading shared settings after installation
+   1. Open Sublime Text
+   1. Run `ctrl+shift+p`, type `ip`, press enter
+   1. Close and open Sublime Text, wait until Sync Settings plugin is installed
+   1. Run `ctrl+shift+p`, type `down`, press enter
  - Remote mouse wakes up the computer
  - Favorites are replaced with defaults
 
