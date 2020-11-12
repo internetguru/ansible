@@ -6,6 +6,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
 ### Added
+ - Starship prompt
+ - Fish shell
  - Sublime Text editor with shared settings
  - How to restore Variety default configuration
 
@@ -13,6 +15,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
  - Variety default configuration
 
 ### Removed
+ - Zsh shell and oh-my-zsh
  - Remove Visual Studio Code
 
 ## [1.1.0] - 2020-10-15
