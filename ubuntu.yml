@@ -33,7 +33,7 @@
   - name: Install packages
     apt:
       pkg:
-      - gnome-screensaver 
+      - gnome-screensaver
       - gnome-session
       - gnome-settings-daemon
       - gnome-tweaks
@@ -72,12 +72,6 @@
       path: /etc/systemd/logind.conf
       regexp: '^HandleLidSwitch='
       line: HandleLidSwitch=ignore
-  - name: crate ~/.ssh to suppress ssh-agent warning
-    file:
-      path: '/home/{{ username.stdout }}/.ssh'
-      owner: '{{ username.stdout }}'
-      group: '{{ username.stdout }}'
-      state: directory
   - name: Install zoom
     apt:
       deb: https://zoom.us/client/latest/zoom_amd64.deb

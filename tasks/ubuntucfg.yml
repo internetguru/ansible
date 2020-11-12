@@ -252,6 +252,11 @@
       key: '/org/gnome/calculator/button-mode'
       value: "'keyboard'"
 
+  - name: Terminal disable F10
+    community.general.dconf:
+      key: '/org/gnome/terminal/legacy/menu-accelerator-enabled'
+      value: 'false'
+
   - name: Terminal hide menubar
     community.general.dconf:
       key: '/org/gnome/terminal/legacy/default-show-menubar'

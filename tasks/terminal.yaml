@@ -1,0 +1,54 @@
+
+ # Dependency
+
+  - name: Install dependencies
+    apt:
+      pkg:
+      - fish
+      - curl
+      - fonts-firacode
+
+ # Checks
+
+  - name: Check if starship is already in config.fish
+    lineinfile:
+      state: absent
+      path: '/home/{{ username.stdout }}/.config/fish/config.fish'
+      regexp: '^starship init'
+    check_mode: true
+    changed_when: false
+    register: checkstarship
+
+ # Commands
+
+  - name: Set Fish as default shell
+    user:
+      name: '{{ username.stdout }}'
+      shell: /usr/bin/fish
+
+  - name: Install starship prompt
+    shell: curl -fsSL https://starship.rs/install.sh | bash
+    when: checkstarship.found == 0
+
+  - name: Set starship prompt as default
+    lineinfile:
+      path: '/home/{{ username.stdout }}/.config/fish/config.fish'
+      line: 'starship init fish | source'
+      create: yes
+    when: checkstarship.found == 0
+    become: yes
+    become_user: '{{ username.stdout }}'
+
+  - name: Set terminal font to firacode
+    community.general.dconf:
+      key: '/org/gnome/terminal/legacy/profiles:/:b1dcc9dd-5262-4d8d-a863-c897e6d979b9/font'
+      value: "'Fira Code weight=453 12'"
+    become: yes
+    become_user: '{{ username.stdout }}'
+
+  - name: Set terminal font to firacode
+    community.general.dconf:
+      key: '/org/gnome/terminal/legacy/profiles:/:b1dcc9dd-5262-4d8d-a863-c897e6d979b9/use-system'
+      value: 'false'
+    become: yes
+    become_user: '{{ username.stdout }}'
