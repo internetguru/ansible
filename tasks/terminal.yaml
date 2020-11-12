@@ -17,7 +17,16 @@
       regexp: '^starship init'
     check_mode: true
     changed_when: false
-    register: checkstarship
+    register: starship
+
+  - name: Check if fish greeting is already in config.fish
+    lineinfile:
+      state: absent
+      path: '/home/{{ username.stdout }}/.config/fish/config.fish'
+      regexp: '^set fish_greeting'
+    check_mode: true
+    changed_when: false
+    register: fishgreeting
 
  # Commands
 
@@ -26,16 +35,25 @@
       name: '{{ username.stdout }}'
       shell: /usr/bin/fish
 
+  - name: Disable fish greeting
+    lineinfile:
+      path: '/home/{{ username.stdout }}/.config/fish/config.fish'
+      line: 'set fish_greeting'
+      create: yes
+    when: fishgreeting.found == 0
+    become: yes
+    become_user: '{{ username.stdout }}'
+
   - name: Install starship prompt
     shell: curl -fsSL https://starship.rs/install.sh | bash
-    when: checkstarship.found == 0
+    when: starship.found == 0
 
   - name: Set starship prompt as default
     lineinfile:
       path: '/home/{{ username.stdout }}/.config/fish/config.fish'
       line: 'starship init fish | source'
       create: yes
-    when: checkstarship.found == 0
+    when: starship.found == 0
     become: yes
     become_user: '{{ username.stdout }}'
 
