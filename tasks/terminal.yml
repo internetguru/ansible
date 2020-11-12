@@ -7,26 +7,9 @@
       - fish
       - curl
       - fonts-firacode
+      - python-psutil
 
  # Checks
-
-  - name: Check if starship is already in config.fish
-    lineinfile:
-      state: absent
-      path: '/home/{{ username.stdout }}/.config/fish/config.fish'
-      regexp: '^starship init'
-    check_mode: true
-    changed_when: false
-    register: starship
-
-  - name: Check if fish greeting is already in config.fish
-    lineinfile:
-      state: absent
-      path: '/home/{{ username.stdout }}/.config/fish/config.fish'
-      regexp: '^set fish_greeting'
-    check_mode: true
-    changed_when: false
-    register: fishgreeting
 
  # Commands
 
@@ -40,20 +23,19 @@
       path: '/home/{{ username.stdout }}/.config/fish/config.fish'
       line: 'set fish_greeting'
       create: yes
-    when: fishgreeting.found == 0
+      state: present
     become: yes
     become_user: '{{ username.stdout }}'
 
   - name: Install starship prompt
-    shell: curl -fsSL https://starship.rs/install.sh | bash
-    when: starship.found == 0
+    shell: curl -fsSL https://starship.rs/install.sh | bash -s -- --yes
 
   - name: Set starship prompt as default
     lineinfile:
       path: '/home/{{ username.stdout }}/.config/fish/config.fish'
       line: 'starship init fish | source'
       create: yes
-    when: starship.found == 0
+      state: present
     become: yes
     become_user: '{{ username.stdout }}'
 
