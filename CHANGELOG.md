@@ -6,10 +6,14 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
 ### Added
+ - Sublime Text editor with shared settings
  - How to restore Variety default configuration
 
 ### Changed
  - Variety default configuration
+
+### Removed
+ - Remove Visual Studio Code
 
 ## [1.1.0] - 2020-10-15
 ### Added

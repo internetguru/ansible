@@ -56,7 +56,7 @@ sudo apt install git
 
 > Enables Windows-like panel and adds practical programs, scripts and adjustments for *Ubuntu*.
 
- - gnome-screensaver 
+ - gnome-screensaver
  - gnome-session
  - gnome-settings-daemon
  - gnome-tweaks
@@ -87,7 +87,7 @@ sudo apt install git
  - [omgf](https://github.com/InternetGuru/omgf)
  - [slack](https://slack.com/)
  - [virtualbox](https://www.virtualbox.org/)
- - [visual-studio-code](https://code.visualstudio.com/) with [shared settings](https://gist.github.com/petrzpav/fd6f4ed38d22d4611e6f8a9e0c9e2801)
+ - [sublime-text](https://www.sublimetext.com/3) with [shared settings](https://gist.github.com/petrzpav/abf3fa8890a04fd5dedb0dd20711f042)
 
 ## Complete Ubuntu Setup with Ansible
 
@@ -149,10 +149,11 @@ sudo reboot
 
 ## Known Issues
 
- - Unable to load VSC shared settings from ansible.
-   > Open VSC, hit `ctr+shift+p`, type `sync download`, sign in to GitHub.
- - VSC toggle spellcheck (`F6`) not working without a workspace.
-   > Open VSC, hit File / Add Folder to Workspace… and select a folder.
+ - Sublime Text not downloading shared settings after installation
+   1. Open Sublime Text
+   1. Run `ctrl+shift+p`, type `ip`, press enter
+   1. Close and open Sublime Text, wait until Sync Settings plugin is installed
+   1. Run `ctrl+shift+p`, type `down`, press enter
  - Remote mouse wakes up the computer
  - Favorites are replaced with defaults
 
@@ -171,7 +172,8 @@ sudo reboot
  - [Chrome streamkeys extension](https://chrome.google.com/webstore/detail/streamkeys/ekpipjofdicppbepocohdlgenahaneen)
  - [Grant And Remove Sudo Privileges](https://ostechnix.com/how-to-grant-and-remove-sudo-privileges-to-users-on-ubuntu/)
  - [Internal Microphone Not Working](https://askubuntu.com/questions/6993/internal-microphone-not-working)
- - Restore Ansible default Variety configuration<br />`cp ~/ansible/res/variety/variety.conf ~/.config/variety/`
+ - Restore Ansible default Variety configuration<br />
+   `cp ~/ansible/res/variety/variety.conf ~/.config/variety/`
 
 ## Suggestions
 
