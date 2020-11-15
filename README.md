@@ -111,7 +111,6 @@ git clone https://github.com/InternetGuru/ansible.git || git -C ansible pull
 cd ansible
 
 # install fresh-env.yml
-ansible-galaxy collection install community.general
 ansible-playbook --connection=local --inventory 127.0.0.1, --ask-become-pass fresh_env.yml
 
 # install global vim plugins
@@ -120,6 +119,7 @@ ansible-playbook --connection=local --inventory 127.0.0.1, --ask-become-pass fre
 sudo vim
 
 # install ubuntu.yml
+ansible-galaxy collection install community.general
 ansible-galaxy install -r requirements.ubuntu.yml
 ansible-playbook --connection=local --inventory 127.0.0.1, --ask-become-pass ubuntu.yml
 
