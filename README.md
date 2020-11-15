@@ -27,21 +27,22 @@ sudo apt install git
 
 > Installs essential commands and CLI environment for Debian/Ubuntu.
 
- - vim
- - curl
- - htop
- - git
- - mc
+ - avahi-daemon
  - build-essential
- - net-tools
+ - curl
  - gettext
- - zsh
+ - git
+ - htop
+ - mc
+ - net-tools
  - tldr
  - tree
- - avahi-daemon
+ - vim
 <!-- break -->
- - [oh-my-zsh](https://github.com/ohmyzsh/ohmyzsh)
  - [bashcfg](https://bitbucket.org/igwr/bashcfg)
+ - [fish shell](https://fishshell.com/)
+ - [fonts-firacode](https://github.com/tonsky/FiraCode)
+ - [starship prompt](https://starship.rs/)
  - [vimrc](https://github.com/petrzpav/vimrc)
 
 ### `server.yml`
@@ -59,8 +60,8 @@ sudo apt install git
  - gnome-screensaver
  - gnome-session
  - gnome-settings-daemon
- - gnome-tweaks
  - gnome-shell-extension-dash-to-panel
+ - gnome-tweaks
 <!-- break -->
  - [google-chrome](https://www.google.com/chrome/)
    - chrome-remote-desktop
@@ -86,8 +87,8 @@ sudo apt install git
  - [docker](https://www.docker.com/products/docker-app)
  - [omgf](https://github.com/InternetGuru/omgf)
  - [slack](https://slack.com/)
- - [virtualbox](https://www.virtualbox.org/)
  - [sublime-text](https://www.sublimetext.com/3) with [shared settings](https://gist.github.com/petrzpav/abf3fa8890a04fd5dedb0dd20711f042)
+ - [virtualbox](https://www.virtualbox.org/)
 
 ## Complete Ubuntu Setup with Ansible
 
@@ -118,8 +119,8 @@ ansible-playbook --connection=local --inventory 127.0.0.1, --ask-become-pass fre
 sudo vim
 
 # install ubuntu.yml
-ansible-galaxy install -r requirements.ubuntu.yml
 ansible-galaxy collection install community.general
+ansible-galaxy install -r requirements.ubuntu.yml
 ansible-playbook --connection=local --inventory 127.0.0.1, --ask-become-pass ubuntu.yml
 
 # install ubuntu-dev.yml (optional)
