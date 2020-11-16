@@ -110,6 +110,9 @@ git clone https://github.com/InternetGuru/ansible.git || git -C ansible pull
 ```
 cd ansible
 
+# optionally you can clear enviroment from unused files
+ansible-playbook --connection=local --inventory 127.0.0.1, --ask-become-pass clear_env.yml
+
 # install fresh-env.yml
 ansible-playbook --connection=local --inventory 127.0.0.1, --ask-become-pass fresh_env.yml
 

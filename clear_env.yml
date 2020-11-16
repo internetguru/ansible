@@ -1,0 +1,21 @@
+- hosts: all
+  become: yes
+  pre_tasks:
+  - name: Register current user name
+    import_tasks: tasks/user_name.yml
+  tasks:
+  - name: Remove old home config files
+    file:
+      path: '/home/{{ username.stdout }}/{{ item }}'
+      state: absent
+    with_items:
+    - '.zshrc.local'
+    - '.zshrc'
+    - 'zshrc'
+
+  - name: Remove old global config
+    file:
+      path: '{{ item }}'
+      state: absent
+    with_items:
+    - '/usr/local/share/.oh-my-zsh'
