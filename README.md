@@ -127,7 +127,7 @@ ansible-playbook --connection=local --inventory 127.0.0.1, --ask-become-pass ubu
 ansible-galaxy install -r requirements.ubuntu-dev.yml
 ansible-playbook --connection=local --inventory 127.0.0.1, --ask-become-pass ubuntu-dev.yml
 
-# optionally you can clear enviroment from unused files
+# clear unused files from previous versions (optional)
 ansible-playbook --connection=local --inventory 127.0.0.1, --ask-become-pass clear_env.yml
 
 # restart
