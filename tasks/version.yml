@@ -1,5 +1,5 @@
  - name: Get installed version
-   shell: "{{ playbook_dir }}/res/ansible-get-version '/home/{{ username.stdout }}/.ansible-version'"
+   shell: "{{ playbook_dir }}/res/ansible-get-version '/usr/local/share/.ansible-version'"
    register: installedversion
 
  - name: Get current version
@@ -16,9 +16,7 @@
 
  - name: Update global version
    lineinfile:
-     path: /home/{{ username.stdout }}/.ansible-version
+     path: /usr/local/share/.ansible-version
      regexp: ^\d
      line: "{{ currentversion }}"
      create: yes
-   become: yes
-   become_user: '{{ username.stdout }}'
