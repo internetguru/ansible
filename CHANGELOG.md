@@ -6,6 +6,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
 ### Added
+ - Check installed version to prevent downgrade
  - Starship prompt
  - Fish shell
  - Sublime Text editor with shared settings
