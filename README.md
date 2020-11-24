@@ -110,6 +110,9 @@ git clone https://github.com/InternetGuru/ansible.git || git -C ansible pull
 ```
 cd ansible
 
+# note: you can run commands for all users at once by passing it as an argument into all_users.sh
+# E.g. ./all_users.sh 'ansible-playbook --connection=local --inventory 127.0.0.1, --ask-become-pass fresh_env.yml'
+
 # install fresh-env.yml
 ansible-playbook --connection=local --inventory 127.0.0.1, --ask-become-pass fresh_env.yml
 
