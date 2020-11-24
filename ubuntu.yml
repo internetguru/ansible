@@ -3,6 +3,8 @@
   pre_tasks:
   - name: Register current user name
     import_tasks: tasks/user_name.yml
+  - name: Check version
+    import_tasks: tasks/version.yml
   roles:
   - cmprescott.chrome
   - role: PeterMosmans.customize-gnome
