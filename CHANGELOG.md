@@ -6,6 +6,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
 ### Added
+ - Run commands for all users at once by `./all_users.sh 'command'`
  - Starship prompt
  - Fish shell
  - Sublime Text editor with shared settings
