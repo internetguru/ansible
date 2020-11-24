@@ -1,0 +1,8 @@
+#!/bin/bash
+
+if [[ ! -f "${1:-}" ]]; then
+  echo "0.0.0"
+  exit
+fi
+
+cat "$1"
