@@ -1,0 +1,22 @@
+ - name: Get installed version
+   shell: "{{ playbook_dir }}/res/ansible-get-version '/usr/local/share/.ansible-version'"
+   register: installedversion
+
+ - name: Get current version
+   shell: "{{ playbook_dir }}/res/ansible-get-version '{{ playbook_dir }}/VERSION'"
+   register: currentversion
+ - set_fact:
+    installedversion={{ installedversion.stdout }}
+ - set_fact:
+    currentversion={{ currentversion.stdout }}
+
+ - name: Check version
+   fail: msg="Installed version is higher then current version"
+   when: installedversion is version(currentversion, '>')
+
+ - name: Update global version
+   lineinfile:
+     path: /usr/local/share/.ansible-version
+     regexp: ^\d
+     line: "{{ currentversion }}"
+     create: yes
