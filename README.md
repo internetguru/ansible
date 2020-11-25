@@ -106,29 +106,21 @@ sudo reboot
 git clone https://github.com/InternetGuru/ansible.git || git -C ansible pull
 ```
 
-3. Apply ansible
+3. Apply ansible for all users
 ```
 cd ansible
 
-# install fresh-env.yml
-ansible-playbook --connection=local --inventory 127.0.0.1, --ask-become-pass fresh_env.yml
+# backup password file
+sudo cp /etc/shadow /etc/shadow.backup
 
-# install global vim plugins
-# hit enter as many times as requested until plugins are installed
-# exit vim using :q (maybe two times)
-sudo vim
+# remove passwords for all users
+./all_users.sh 'sudo passwd -d "$(whoami)"'
 
-# install ubuntu.yml
-ansible-galaxy collection install community.general
-ansible-galaxy install -r requirements.ubuntu.yml
-ansible-playbook --connection=local --inventory 127.0.0.1, --ask-become-pass ubuntu.yml
+# install ansible for all users
+./all_users.sh 'install_pc.sh'
 
-# install ubuntu-dev.yml (optional)
-ansible-galaxy install -r requirements.ubuntu-dev.yml
-ansible-playbook --connection=local --inventory 127.0.0.1, --ask-become-pass ubuntu-dev.yml
-
-# clear unused files from previous versions (optional)
-ansible-playbook --connection=local --inventory 127.0.0.1, --ask-become-pass clear_env.yml
+# restore password file
+sudo cp /etc/shadow.backup /etc/shadow
 
 # restart
 sudo reboot
@@ -158,6 +150,10 @@ sudo reboot
    1. Run Tools / Command Pallette… (`ctrl+shift+p`) / Install Package Control (or just type `ip` and press enter).
    1. Restart (close and run) Sublime Text, wait until Sync Settings plugin is installed.
    1. Run Tools / Command Palette… (`ctrl+shift+p`) / Sync Settings: Download (or just type `download` and press enter).
+ - Global vim plugins are not installed
+   1. `sudo vim`
+   1. Hit enter as many times as requested until plugins are installed.
+   1. Exit vim using `:q` (maybe two times).
  - Remote mouse wakes up the computer.
  - Favorites are replaced with defaults.
 

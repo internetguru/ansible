@@ -6,6 +6,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
 ### Added
+ - Run commands for all users at once by `./all_users.sh 'command'`
  - Check installed version to prevent downgrade
  - Starship prompt
  - Fish shell
