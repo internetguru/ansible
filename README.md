@@ -114,10 +114,10 @@ cd ansible
 sudo cp /etc/shadow /etc/shadow.backup
 
 # remove passwords for all users
-./all_users.sh 'sudo passwd -d "$(whoami)"'
+./all_users.sh 'sudo passwd -d "$user"'
 
 # install ansible for all users
-./all_users.sh 'install_pc.sh'
+./all_users.sh 'sudo -H -u "$user" ./install_pc.sh'
 
 # restore password file
 sudo cp /etc/shadow.backup /etc/shadow

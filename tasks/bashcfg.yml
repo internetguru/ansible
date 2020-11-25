@@ -12,7 +12,7 @@
     lineinfile:
       state: absent
       path: '/home/{{ username.stdout }}/.config/fish/config.fish'
-      regexp: '^Internet Guru config'
+      regexp: '^echo "Internet Guru config'
     check_mode: true
     changed_when: false
     register: checkigcfg

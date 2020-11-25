@@ -10,6 +10,20 @@
 
  # Checks
 
+  - name: Check if sublime config exists
+    stat:
+      path: '/home/{{ username.stdout }}/.config/sublime-text-3/Packages/User/Package Control.sublime-settings'
+    check_mode: true
+    changed_when: false
+    register: sublime_config
+
+  - name: Check if sublime sync config exists
+    stat:
+      path: '/home/{{ username.stdout }}/.config/sublime-text-3/Packages/User/SyncSettings.sublime-settings'
+    check_mode: true
+    changed_when: false
+    register: sublime_sync_config
+ 
  # Commands
 
   - name: Add Sublime gpg key
@@ -32,6 +46,7 @@
       path: '/home/{{ username.stdout }}/.config/sublime-text-3/Packages/User/Package Control.sublime-settings'
       line: '{"installed_packages": ["Package Control", "Sync Settings"]}'
       create: yes
+    when: not sublime_config.stat.exists
     become: yes
     become_user: '{{ username.stdout }}'
 
@@ -40,6 +55,7 @@
       path: '/home/{{ username.stdout }}/.config/sublime-text-3/Packages/User/SyncSettings.sublime-settings'
       line: '{ "gist_id": "abf3fa8890a04fd5dedb0dd20711f042" }'
       create: yes
+    when: not sublime_sync_config.stat.exists
     become: yes
     become_user: '{{ username.stdout }}'
 
