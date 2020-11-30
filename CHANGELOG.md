@@ -4,7 +4,7 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
-## [Unreleased]
+## [1.2.0] - 2020-11-30
 ### Added
  - Run commands for all users at once by `./all_users.sh 'command'`
  - Check installed version to prevent downgrade
@@ -27,5 +27,5 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 ### Fixed
  - Ansible forces VirtualBox version to 6.0
 
-[Unreleased]: https://github.com/InternetGuru/ansible/compare/master...dev
+[1.2.0]: https://github.com/InternetGuru/ansible/compare/v1.1.0...v1.2.0
 [1.1.0]: https://github.com/InternetGuru/ansible/compare/v1.0.0...v1.1.0
