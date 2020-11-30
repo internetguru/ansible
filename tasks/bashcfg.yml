@@ -1,17 +1,21 @@
- 
+
  # Dependency
- 
+
   - name: Install dependencies
     apt:
       pkg:
       - git
 
  # Checks
- 
-  - name: Check if ~/.zshrc.local exists
-    stat:
-      path: '/home/{{ username.stdout }}/.zshrc.local'
-    register: zshrclocal
+
+  - name: Check if IG bashcfg is already in config.fish
+    lineinfile:
+      state: absent
+      path: '/home/{{ username.stdout }}/.config/fish/config.fish'
+      regexp: '^echo "Internet Guru config'
+    check_mode: true
+    changed_when: false
+    register: checkigcfg
 
  # Commands
 
@@ -20,14 +24,13 @@
      repo: 'https://bitbucket.org/igwr/bashcfg'
      dest: '/usr/local/share/bashcfg'
 
-  - name: Add settings into .zshrc.local
-    shell: '{{ item }}'
+  - name: Add settings into config.fish
+    shell: 'echo "{{ item }}" >> /home/{{ username.stdout }}/.config/fish/config.fish'
     changed_when: False
     with_items:
-    - "echo 'echo \"IG bashcfg, version $(< /usr/local/share/bashcfg/VERSION)\"' >> /home/{{ username.stdout }}/.zshrc.local"
-    - "echo 'source /usr/local/share/bashcfg/common' >> /home/{{ username.stdout }}/.zshrc.local"
-    - "echo 'source /usr/local/share/bashcfg/git_functions' >> /home/{{ username.stdout }}/.zshrc.local"
-    when: not zshrclocal.stat.exists
+    - 'echo \"Internet Guru config, version \"(cat /usr/local/share/bashcfg/VERSION)'
+    - 'source /usr/local/share/bashcfg/common.fish'
+    - 'source /usr/local/share/bashcfg/git_functions.fish'
+    when: checkigcfg.found == 0
     become: yes
     become_user: '{{ username.stdout }}'
-

@@ -1,0 +1,39 @@
+
+ # Dependency
+
+  - name: Install dependencies
+    apt:
+      pkg:
+      - fish
+      - curl
+      - fonts-firacode
+
+ # Checks
+
+ # Commands
+
+  - name: Set Fish as default shell
+    user:
+      name: '{{ username.stdout }}'
+      shell: /usr/bin/fish
+
+  - name: Disable fish greeting
+    lineinfile:
+      path: '/home/{{ username.stdout }}/.config/fish/config.fish'
+      line: 'set fish_greeting'
+      create: yes
+      state: present
+    become: yes
+    become_user: '{{ username.stdout }}'
+
+  - name: Install starship prompt
+    shell: curl -fsSL https://starship.rs/install.sh | bash -s -- --yes
+
+  - name: Set starship prompt as default
+    lineinfile:
+      path: '/home/{{ username.stdout }}/.config/fish/config.fish'
+      line: 'starship init fish | source'
+      create: yes
+      state: present
+    become: yes
+    become_user: '{{ username.stdout }}'

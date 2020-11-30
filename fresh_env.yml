@@ -1,8 +1,11 @@
 - hosts: all
   become: yes
-  tasks:
+  pre_tasks:
   - name: Register current user name
     import_tasks: tasks/user_name.yml
+  - name: Check version
+    import_tasks: tasks/version.yml
+  tasks:
   - name: Install basic enviroment
     import_tasks: tasks/basic_enviroment.yml
   - name: Create mc config
@@ -17,8 +20,8 @@
       dest: '/home/{{ username.stdout }}/.config/mc/ini'
     become: yes
     become_user: '{{ username.stdout }}'
-  - name: Install oh-my-zsh
-    import_tasks: tasks/oh-my-zsh.yml
+  - name: Install and configure shell and prompt
+    import_tasks: tasks/terminal.yml
   - name: Install bashcfg
     import_tasks: tasks/bashcfg.yml
   - name: Install vimrc

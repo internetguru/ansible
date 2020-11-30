@@ -27,7 +27,7 @@
     community.general.dconf:
       key: '/org/gnome/desktop/session/idle-delay'
       value: 'uint32 900'
-  
+
   - name: Disable lock screen notifications
     community.general.dconf:
       key: '/org/gnome/desktop/notifications/show-in-lock-screen'
@@ -81,7 +81,7 @@
   - name: Set favorite apps
     community.general.dconf:
       key: '/org/gnome/shell/favorite-apps'
-      value: "['google-chrome.desktop', 'org.gnome.Nautilus.desktop', 'org.gnome.Terminal.desktop', 'code.desktop', 'slack.desktop']"
+      value: "['google-chrome.desktop', 'org.gnome.Nautilus.desktop', 'org.gnome.Terminal.desktop', 'sublime_text.desktop', 'slack.desktop']"
 
   - name: Clock override format
     community.general.dconf:
@@ -236,7 +236,7 @@
     community.general.dconf:
       key: '/org/gnome/shell/extensions/dash-to-panel/window-preview-title-font-color'
       value: "'#dddddd'"
-  
+
   - name: Set filechooser sort
     community.general.dconf:
       key: '/org/gtk/settings/file-chooser/sort-column'
@@ -252,6 +252,11 @@
       key: '/org/gnome/calculator/button-mode'
       value: "'keyboard'"
 
+  - name: Terminal disable F10
+    community.general.dconf:
+      key: '/org/gnome/terminal/legacy/menu-accelerator-enabled'
+      value: 'false'
+
   - name: Terminal hide menubar
     community.general.dconf:
       key: '/org/gnome/terminal/legacy/default-show-menubar'
@@ -261,3 +266,17 @@
     community.general.dconf:
       key: '/org/gnome/terminal/legacy/profiles:/:b1dcc9dd-5262-4d8d-a863-c897e6d979b9/scrollbar-policy'
       value: "'never'"
+
+  - name: Set terminal font to firacode
+    community.general.dconf:
+      key: '/org/gnome/terminal/legacy/profiles:/:b1dcc9dd-5262-4d8d-a863-c897e6d979b9/font'
+      value: "'Fira Code weight=453 12'"
+    become: yes
+    become_user: '{{ username.stdout }}'
+
+  - name: Set terminal font to firacode
+    community.general.dconf:
+      key: '/org/gnome/terminal/legacy/profiles:/:b1dcc9dd-5262-4d8d-a863-c897e6d979b9/use-system-font'
+      value: 'false'
+    become: yes
+    become_user: '{{ username.stdout }}'

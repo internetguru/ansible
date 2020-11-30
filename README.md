@@ -27,20 +27,22 @@ sudo apt install git
 
 > Installs essential commands and CLI environment for Debian/Ubuntu.
 
- - vim
- - curl
- - htop
- - git
- - mc
+ - avahi-daemon
  - build-essential
- - net-tools
+ - curl
  - gettext
- - zsh
+ - git
+ - htop
+ - mc
+ - net-tools
  - tldr
  - tree
+ - vim
 <!-- break -->
- - [oh-my-zsh](https://github.com/ohmyzsh/ohmyzsh)
  - [bashcfg](https://bitbucket.org/igwr/bashcfg)
+ - [fish shell](https://fishshell.com/)
+ - [fonts-firacode](https://github.com/tonsky/FiraCode)
+ - [starship prompt](https://starship.rs/)
  - [vimrc](https://github.com/petrzpav/vimrc)
 
 ### `server.yml`
@@ -55,11 +57,11 @@ sudo apt install git
 
 > Enables Windows-like panel and adds practical programs, scripts and adjustments for *Ubuntu*.
 
- - gnome-screensaver 
+ - gnome-screensaver
  - gnome-session
  - gnome-settings-daemon
- - gnome-tweaks
  - gnome-shell-extension-dash-to-panel
+ - gnome-tweaks
 <!-- break -->
  - [google-chrome](https://www.google.com/chrome/)
    - chrome-remote-desktop
@@ -85,8 +87,8 @@ sudo apt install git
  - [docker](https://www.docker.com/products/docker-app)
  - [omgf](https://github.com/InternetGuru/omgf)
  - [slack](https://slack.com/)
+ - [sublime-text](https://www.sublimetext.com/3) with [shared settings](https://gist.github.com/petrzpav/abf3fa8890a04fd5dedb0dd20711f042)
  - [virtualbox](https://www.virtualbox.org/)
- - [visual-studio-code](https://code.visualstudio.com/) with [shared settings](https://gist.github.com/petrzpav/fd6f4ed38d22d4611e6f8a9e0c9e2801)
 
 ## Complete Ubuntu Setup with Ansible
 
@@ -104,26 +106,21 @@ sudo reboot
 git clone https://github.com/InternetGuru/ansible.git || git -C ansible pull
 ```
 
-3. Apply ansible
+3. Apply ansible for all users
 ```
 cd ansible
 
-# install fresh-env.yml
-ansible-playbook --connection=local --inventory 127.0.0.1, --ask-become-pass fresh_env.yml
+# backup password file
+sudo cp /etc/shadow /etc/shadow.backup
 
-# install global vim plugins
-# hit enter as many times as requested until plugins are installed
-# exit vim using :q (maybe two times)
-sudo vim
+# remove passwords for all users
+./all_users.sh 'sudo passwd -d "$user"'
 
-# install ubuntu.yml
-ansible-galaxy install -r requirements.ubuntu.yml
-ansible-galaxy collection install community.general
-ansible-playbook --connection=local --inventory 127.0.0.1, --ask-become-pass ubuntu.yml
+# install ansible for all users
+./all_users.sh 'sudo -H -u "$user" ./install_pc.sh'
 
-# install ubuntu-dev.yml (optional)
-ansible-galaxy install -r requirements.ubuntu-dev.yml
-ansible-playbook --connection=local --inventory 127.0.0.1, --ask-become-pass ubuntu-dev.yml
+# restore password file
+sudo cp /etc/shadow.backup /etc/shadow
 
 # restart
 sudo reboot
@@ -148,13 +145,17 @@ sudo reboot
 
 ## Known Issues
 
- - Unable to load VSC shared settings from ansible.
-   > Open VSC, hit `ctr+shift+p`, type `sync download`, sign in to GitHub.
- - VSC toggle spellcheck (`F6`) not working without a workspace.
-   > Open VSC, hit File / Add Folder to Workspace… and select a folder.
- - Remote mouse wakes up the computer
- - Ansible forces VirtualBox version to 6.0
- - Favorites are replaced with defaults
+ - Sublime Text not downloading shared settings after installation.
+   1. Open Sublime Text.
+   1. Run Tools / Command Pallette… (`ctrl+shift+p`) / Install Package Control (or just type `ip` and press enter).
+   1. Restart (close and run) Sublime Text, wait until Sync Settings plugin is installed.
+   1. Run Tools / Command Palette… (`ctrl+shift+p`) / Sync Settings: Download (or just type `download` and press enter).
+ - Global vim plugins are not installed
+   1. `sudo vim`
+   1. Hit enter as many times as requested until plugins are installed.
+   1. Exit vim using `:q` (maybe two times).
+ - Remote mouse wakes up the computer.
+ - Favorites are replaced with defaults.
 
 ## Howtos
 
@@ -170,6 +171,9 @@ sudo reboot
  - [Change font size](https://help.ubuntu.com/stable/ubuntu-help/a11y.html.en)
  - [Chrome streamkeys extension](https://chrome.google.com/webstore/detail/streamkeys/ekpipjofdicppbepocohdlgenahaneen)
  - [Grant And Remove Sudo Privileges](https://ostechnix.com/how-to-grant-and-remove-sudo-privileges-to-users-on-ubuntu/)
+ - [Internal Microphone Not Working](https://askubuntu.com/questions/6993/internal-microphone-not-working)
+ - Restore Ansible default Variety configuration<br />
+   `cp ~/ansible/res/variety/variety.conf ~/.config/variety/`
 
 ## Suggestions
 

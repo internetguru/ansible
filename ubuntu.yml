@@ -3,6 +3,8 @@
   pre_tasks:
   - name: Register current user name
     import_tasks: tasks/user_name.yml
+  - name: Check version
+    import_tasks: tasks/version.yml
   roles:
   - cmprescott.chrome
   - role: PeterMosmans.customize-gnome
@@ -33,7 +35,7 @@
   - name: Install packages
     apt:
       pkg:
-      - gnome-screensaver 
+      - gnome-screensaver
       - gnome-session
       - gnome-settings-daemon
       - gnome-tweaks
@@ -67,14 +69,11 @@
   - name: Install google remote desktop
     apt:
       deb: https://dl.google.com/linux/direct/chrome-remote-desktop_current_amd64.deb
-  - name: Set lid close behaviour to ignore
-    shell: sed -i 's/^HandleLidSwitch.*/HandleLidSwitch=ignore/' /etc/systemd/logind.conf
-  - name: crate ~/.ssh to suppress ssh-agent warning
-    file:
-      path: '/home/{{ username.stdout }}/.ssh'
-      owner: '{{ username.stdout }}'
-      group: '{{ username.stdout }}'
-      state: directory
+  - name: Set lid close behavior to ignore
+    lineinfile:
+      path: /etc/systemd/logind.conf
+      regexp: '^HandleLidSwitch='
+      line: HandleLidSwitch=ignore
   - name: Install zoom
     apt:
       deb: https://zoom.us/client/latest/zoom_amd64.deb
