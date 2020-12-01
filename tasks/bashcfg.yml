@@ -28,7 +28,6 @@
      repo: 'https://bitbucket.org/igwr/bashcfg'
      dest: '/usr/local/share/bashcfg'
     tags:
-    - user
     - global
 
   - name: Add settings into config.fish
