@@ -6,20 +6,23 @@
       pkg:
       - git
       - python-docutils
+    tags:
+    - global
 
  # Checks
- 
+
  # Commands
 
   - name: Clone butt
     git:
      repo: 'https://github.com/InternetGuru/butt.git'
-     dest: '/home/{{ username.stdout }}/butt'
-    become: yes
-    become_user: '{{ username.stdout }}'
+     dest: '/usr/local/share/butt'
+    tags:
+    - global
 
   - name: Make and install butt
     shell: ./configure && make && compiled/install
     args:
-      chdir: '/home/{{ username.stdout }}/butt'
-
+      chdir: '/usr/local/share/butt'
+    tags:
+    - global
