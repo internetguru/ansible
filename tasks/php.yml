@@ -5,6 +5,8 @@
     apt:
       pkg:
       - software-properties-common
+    tags:
+    - global
 
  # Checks
 
@@ -13,9 +15,13 @@
   - name: Add the PHP APT repository
     apt_repository:
       repo: 'ppa:ondrej/php'
+    tags:
+    - global
 
   - name: Install PHP 7.4
     apt:
       pkg:
       - php7.4
       update_cache: yes
+    tags:
+    - global

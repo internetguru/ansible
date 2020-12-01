@@ -2,4 +2,7 @@
    become: false
    local_action: command whoami
    register: username
+   tags:
+   - global
+   - user
 

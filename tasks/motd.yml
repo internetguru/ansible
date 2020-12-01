@@ -6,6 +6,8 @@
       pkg:
       - figlet
       - ruby
+    tags:
+    - global
 
  # Checks
 
@@ -15,12 +17,18 @@
     file:
       path: '/etc/motd'
       state: absent
- 
+    tags:
+    - global
+
   - name: Install lolcat
     shell: 'gem install lolcat'
-  
+    tags:
+    - global
+
   - name: Create custom message
     copy:
       src: '../res/20-ig'
       dest: '/etc/update-motd.d/20-ig'
       mode: u+rwx,g+rx,o+rx
+    tags:
+    - global

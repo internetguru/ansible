@@ -5,6 +5,8 @@
     apt:
       pkg:
       - ufw
+    tags:
+    - global
 
  # Commands
 
@@ -12,13 +14,17 @@
     ufw:
       state: enabled
       policy: deny
-  
+    tags:
+    - global
+
   - name: Rate limiting ssh connection (6 or more in the last 30 sec)
     ufw:
       rule: limit
       port: ssh
       proto: tcp
-  
+    tags:
+    - global
+
   - name: Default tcp allow in
     ufw:
       rule: allow
@@ -33,7 +39,9 @@
     - '445'
     - '139'
     - '5900'
-  
+    tags:
+    - global
+
   - name: Default allow in
     ufw:
       rule: allow
@@ -42,7 +50,9 @@
     loop:
     - '35729'
     - '7890'
-  
+    tags:
+    - global
+
   - name: Default tcp allow out
     ufw:
       rule: allow
@@ -54,7 +64,9 @@
     - '80'
     - '443'
     - '873'
-  
+    tags:
+    - global
+
   - name: Default allow out
     ufw:
       rule: allow
@@ -64,4 +76,5 @@
     - '53'
     - '25'
     - '995'
-  
+    tags:
+    - global

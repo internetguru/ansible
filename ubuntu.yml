@@ -87,10 +87,14 @@
     import_tasks: tasks/ubuntucfg.yml
     become: yes
     become_user: '{{ username.stdout }}'
+    tags:
+      user
   - name: Load ubuntu shortcuts
     import_tasks: tasks/ubuntukeys.yml
     become: yes
     become_user: '{{ username.stdout }}'
+    tags:
+      user
   - name: Auto install drivers
     shell: 'ubuntu-drivers autoinstall'
   - name: Create link to current ansible readme
