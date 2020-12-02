@@ -30,7 +30,6 @@
     - '/usr/local/share/.oh-my-zsh'
     tags:
       - global
-      - user
 
   - name: Uninstall VSC
     apt:
@@ -38,5 +37,4 @@
       state: absent
     tags:
       - global
-      - user
 
