@@ -4,8 +4,9 @@ trash=".zsh_history .zshrc.local .zshrc zshrc vimrc bashcfg omgf butt .ansible"
 
 run_playbooks() {
   for playbook in fresh_env.yml ubuntu.yml ubuntu-dev.yml; do
-    echo "Installing [$playbook] for [$(whoami)]"
-    ansible-playbook --connection=local --inventory 127.0.0.1, --tags "$1" $playbook
+    echo "Installing $playbook [$1] as $(whoami)"
+    ansible-playbook --connection=local --inventory 127.0.0.1, --tags "$1" $playbook \
+      || exit 1
   done
 }
 FUNC=$(declare -f run_playbooks)
