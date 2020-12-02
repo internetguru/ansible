@@ -19,7 +19,7 @@
       name: '{{ username.stdout }}'
       shell: /usr/bin/fish
     tags:
-    - user
+    - skip
 
   - name: Disable fish greeting
     lineinfile:
@@ -34,6 +34,8 @@
 
   - name: Install starship prompt
     shell: curl -fsSL https://starship.rs/install.sh | bash -s -- --yes
+    tags:
+    - global
 
   - name: Set starship prompt as default
     lineinfile:

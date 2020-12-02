@@ -110,11 +110,15 @@ git clone https://github.com/InternetGuru/ansible.git || git -C ansible pull
 ```
 cd ansible
 
-# install global requirements
+# install global requirements and settings
+sudo ./install_req.sh
 sudo ./install_pc.sh "global"
 
 # install user files and settings
 ./all_users.sh 'sudo -H -u "$user" ./install_pc.sh "user"'
+
+# set default shell for all users
+sudo ./all_users.sh 'usermod -s /usr/bin/fish "$user"'
 
 # restart
 sudo reboot
