@@ -19,7 +19,6 @@
     - 'omgf'
     - 'butt'
     tags:
-      - global
       - user
 
   - name: Remove old global config
