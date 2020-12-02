@@ -18,6 +18,9 @@
     - 'bashcfg'
     - 'omgf'
     - 'butt'
+    tags:
+      - global
+      - user
 
   - name: Remove old global config
     file:
@@ -25,9 +28,15 @@
       state: absent
     with_items:
     - '/usr/local/share/.oh-my-zsh'
+    tags:
+      - global
+      - user
 
   - name: Uninstall VSC
     apt:
       pkg: code
       state: absent
+    tags:
+      - global
+      - user
 
