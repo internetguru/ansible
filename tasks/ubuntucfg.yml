@@ -1,3 +1,4 @@
+
   - name: Automatic timezone
     community.general.dconf:
       key: '/org/gnome/desktop/datetime/automatic-timezone'

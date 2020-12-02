@@ -14,6 +14,10 @@
     - '.zshrc.local'
     - '.zshrc'
     - 'zshrc'
+    - 'vimrc'
+    - 'bashcfg'
+    - 'omgf'
+    - 'butt'
 
   - name: Remove old global config
     file:
@@ -26,3 +30,4 @@
     apt:
       pkg: code
       state: absent
+

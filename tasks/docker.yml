@@ -45,7 +45,7 @@
 
   - name: Add the Docker APT repository
     apt_repository:
-      repo: deb [arch=amd64] https://download.docker.com/linux/ubuntu {{ lsb_release.stdout  }} stable
+      repo: deb [arch=amd64] https://download.docker.com/linux/ubuntu focal stable
     tags:
     - global
 
