@@ -1,17 +1,44 @@
 #!/bin/bash
 
-tags=""
-[[ -n "$1" ]] \
-  && tags="--tags $1"
+trash=".zsh_history .zshrc.local .zshrc zshrc vimrc bashcfg omgf butt .ansible"
 
-# install fresh-env.yml
-ansible-playbook --connection=local --inventory 127.0.0.1, $tags fresh_env.yml
+run_playbooks() {
+  for playbook in fresh_env.yml ubuntu.yml ubuntu-dev.yml; do
+    echo "Installing [$playbook] for [$(whoami)]"
+    ansible-playbook --connection=local --inventory 127.0.0.1, --tags "$1" $playbook
+  done
+}
+FUNC=$(declare -f run_playbooks)
 
-# install ubuntu.yml
-ansible-playbook --connection=local --inventory 127.0.0.1, $tags ubuntu.yml
+# create global cache folder
+sudo mkdir -p /tmp/facts_cache
+sudo chmod 777 /tmp/facts_cache
 
-# install ubuntu-dev.yml (optional)
-ansible-playbook --connection=local --inventory 127.0.0.1, $tags ubuntu-dev.yml
+# install ansible requirements
+sudo ansible-galaxy collection install community.general
+sudo ansible-galaxy install -r requirements.ubuntu.yml
+sudo ansible-galaxy install -r requirements.ubuntu-dev.yml
+sudo chmod -R 755 /usr/share/ansible
 
-# clear unused files from previous versions (optional)
-ansible-playbook --connection=local --inventory 127.0.0.1, $tags clear_env.yml
+# install global tasks
+sudo bash -c "$FUNC; run_playbooks global"
+
+# install user tasks for all users
+for user in $(getent passwd {1000..2000} | cut -d: -f1); do
+  # install user files and settings
+  sudo -H -u "$user" bash -c "$FUNC; run_playbooks user"
+  # set default shell
+  sudo usermod -s /usr/bin/fish "$user"
+  # remove previous mess
+  for f in $trash; do
+    sudo rm -rf "/home/$user/$f"
+  done
+done
+
+# uninstall previous apps
+sudo ansible-playbook --connection=local --inventory 127.0.0.1, clear_env.yml
+
+# remove previous mess for root
+for f in $trash; do
+  sudo rm -rf "/root/$f"
+done

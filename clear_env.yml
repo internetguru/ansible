@@ -1,42 +1,5 @@
 - hosts: all
-  pre_tasks:
-  - name: Register current user name
-    import_tasks: tasks/user_name.yml
   tasks:
-
-  - name: Remove old home config files
-    file:
-      path: '/home/{{ username.stdout }}/{{ item }}'
-      state: absent
-    with_items:
-    - '.zsh_history'
-    - '.zshrc.local'
-    - '.zshrc'
-    - 'zshrc'
-    - 'vimrc'
-    - 'bashcfg'
-    - 'omgf'
-    - 'butt'
-    - '.ansible'
-    tags:
-      - user
-
-  - name: Remove old root config files
-    file:
-      path: '/root/{{ item }}'
-      state: absent
-    with_items:
-    - '.zsh_history'
-    - '.zshrc.local'
-    - '.zshrc'
-    - 'zshrc'
-    - 'vimrc'
-    - 'bashcfg'
-    - 'omgf'
-    - 'butt'
-    - '.ansible'
-    tags:
-      - global
 
   - name: Remove old global config
     file:
@@ -44,13 +7,8 @@
       state: absent
     with_items:
     - '/usr/local/share/.oh-my-zsh'
-    tags:
-      - global
 
   - name: Uninstall VSC
     apt:
       pkg: code
       state: absent
-    tags:
-      - global
-
