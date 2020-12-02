@@ -18,8 +18,26 @@
     - 'bashcfg'
     - 'omgf'
     - 'butt'
+    - '.ansible'
     tags:
       - user
+
+  - name: Remove old root config files
+    file:
+      path: '/root/{{ item }}'
+      state: absent
+    with_items:
+    - '.zsh_history'
+    - '.zshrc.local'
+    - '.zshrc'
+    - 'zshrc'
+    - 'vimrc'
+    - 'bashcfg'
+    - 'omgf'
+    - 'butt'
+    - '.ansible'
+    tags:
+      - global
 
   - name: Remove old global config
     file:
