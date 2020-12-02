@@ -1,5 +1,4 @@
 - hosts: all
-  become: yes
   pre_tasks:
   - name: Register current user name
     import_tasks: tasks/user_name.yml

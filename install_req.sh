@@ -2,7 +2,7 @@
 
 # create global cache folder
 mkdir -p /tmp/facts_cache
-chmod 777 /tmp/facts_cache
+chmod 755 /tmp/facts_cache
 
 
 # install ansible requirements
