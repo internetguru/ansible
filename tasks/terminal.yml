@@ -12,6 +12,13 @@
 
  # Checks
 
+   - name: Check if ~/.config/starship.toml exists
+    stat:
+      path: '/home/{{ username.stdout }}/.config/starship.toml'
+    register: starshiptoml
+    tags:
+    - user
+
  # Commands
 
   - name: Set Fish as default shell
@@ -45,5 +52,13 @@
       state: present
     become: yes
     become_user: '{{ username.stdout }}'
+    tags:
+    - user
+
+  - name: Copy starship.toml iff not exists
+    copy:
+      src: '../res/starship.toml'
+      dest: '/home/{{ username.stdout }}/.config/starship.toml'
+    when: not starshiptoml.stat.exists
     tags:
     - user
