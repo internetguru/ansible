@@ -9,6 +9,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
  - Add tags to distinguish user and global installation
 
 ### Changed
+ - Show username and host in prompt
  - Apply ansible for all users process does not manipulate with passwords.
 
 ## [1.2.0] - 2020-11-30
