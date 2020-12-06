@@ -12,7 +12,7 @@
 
  # Checks
 
-   - name: Check if ~/.config/starship.toml exists
+  - name: Check if ~/.config/starship.toml exists
     stat:
       path: '/home/{{ username.stdout }}/.config/starship.toml'
     register: starshiptoml
