@@ -109,20 +109,7 @@ git clone https://github.com/InternetGuru/ansible.git || git -C ansible pull
 3. Apply ansible for all users
 ```
 cd ansible
-
-# backup password file
-sudo cp /etc/shadow /etc/shadow.backup
-
-# remove passwords for all users
-./all_users.sh 'sudo passwd -d "$user"'
-
-# install ansible for all users
-./all_users.sh 'sudo -H -u "$user" ./install_pc.sh'
-
-# restore password file
-sudo cp /etc/shadow.backup /etc/shadow
-
-# restart
+./install_pc.sh
 sudo reboot
 ```
 

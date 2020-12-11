@@ -7,8 +7,17 @@
       - fish
       - curl
       - fonts-firacode
+    tags:
+    - global
 
  # Checks
+
+  - name: Check if ~/.config/starship.toml exists
+    stat:
+      path: '/home/{{ username.stdout }}/.config/starship.toml'
+    register: starshiptoml
+    tags:
+    - user
 
  # Commands
 
@@ -16,6 +25,8 @@
     user:
       name: '{{ username.stdout }}'
       shell: /usr/bin/fish
+    tags:
+    - skip
 
   - name: Disable fish greeting
     lineinfile:
@@ -25,9 +36,13 @@
       state: present
     become: yes
     become_user: '{{ username.stdout }}'
+    tags:
+    - user
 
   - name: Install starship prompt
     shell: curl -fsSL https://starship.rs/install.sh | bash -s -- --yes
+    tags:
+    - global
 
   - name: Set starship prompt as default
     lineinfile:
@@ -37,3 +52,13 @@
       state: present
     become: yes
     become_user: '{{ username.stdout }}'
+    tags:
+    - user
+
+  - name: Copy starship.toml iff not exists
+    copy:
+      src: '../res/starship.toml'
+      dest: '/home/{{ username.stdout }}/.config/starship.toml'
+    when: not starshiptoml.stat.exists
+    tags:
+    - user

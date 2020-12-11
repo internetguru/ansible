@@ -6,36 +6,44 @@
       pkg:
       - curl
       - vim
+    tags:
+    - global
 
  # Checks
- 
+
   - name: Check if ~/vimrc exists
     stat:
-      path: '/home/{{ username.stdout }}/vimrc'
+      path: '/usr/local/src/vimrc'
     register: vimrc
- 
+    tags:      
+    - global
+
  # Commands
 
   - name: Clone vimrc repo
     git:
      repo: 'https://github.com/petrzpav/vimrc'
-     dest: '/home/{{ username.stdout }}/vimrc'
-    become: yes
-    become_user: '{{ username.stdout }}'
+     dest: '/usr/local/src/vimrc'
+    tags:
+    - global
 
   - name: Add global vimrc link
     file:
-      src: '/home/{{ username.stdout }}/vimrc/vimrc'
+      src: '/usr/local/src/vimrc/vimrc'
       dest: '/etc/vim/vimrc'
       state: link
       force: yes
     when: not vimrc.stat.exists
+    tags:
+    - global
 
   - name: Add global vimrc.local link
     file:
-      src: '/home/{{ username.stdout }}/vimrc/vimrc.local'
+      src: '/usr/local/src/vimrc/vimrc.local'
       dest: '/etc/vim/vimrc.local'
       state: link
       force: yes
     when: not vimrc.stat.exists
+    tags:
+    - global
 

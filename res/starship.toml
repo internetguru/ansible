@@ -1,0 +1,11 @@
+[directory]
+truncation_symbol = "…/"
+truncate_to_repo = false
+
+[hostname]
+ssh_only = false
+format = "[@$hostname]($style) "
+
+[username]
+show_always = true
+format = "[$user]($style)"

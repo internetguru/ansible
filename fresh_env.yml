@@ -1,5 +1,4 @@
 - hosts: all
-  become: yes
   pre_tasks:
   - name: Register current user name
     import_tasks: tasks/user_name.yml
@@ -14,12 +13,16 @@
       state: directory
     become: yes
     become_user: '{{ username.stdout }}'
+    tags:
+    - user
   - name: Copy mc settings
     copy:
       src: './res/mc-ini'
       dest: '/home/{{ username.stdout }}/.config/mc/ini'
     become: yes
     become_user: '{{ username.stdout }}'
+    tags:
+    - user
   - name: Install and configure shell and prompt
     import_tasks: tasks/terminal.yml
   - name: Install bashcfg

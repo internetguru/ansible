@@ -6,20 +6,24 @@
       pkg:
       - gawk
       - git
-      - python-docutils
+      - python3-docutils
+    tags:
+    - global
 
  # Checks
- 
+
  # Commands
 
   - name: Clone omgf
     git:
      repo: 'https://github.com/InternetGuru/omgf.git'
-     dest: '/home/{{ username.stdout }}/omgf'
-    become: yes
-    become_user: '{{ username.stdout }}'
+     dest: '/usr/local/src/omgf'
+    tags:
+    - global
 
   - name: Make and install omgf
     shell: ./configure && make && compiled/install
     args:
-      chdir: '/home/{{ username.stdout }}/omgf'
+      chdir: '/usr/local/src/omgf'
+    tags:
+    - global
