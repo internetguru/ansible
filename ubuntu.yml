@@ -53,7 +53,7 @@
       - pinta
       - rtorrent
       - rhythmbox
-      - vlc
+      - mpv
       - wmctrl
       - variety
       update_cache: yes

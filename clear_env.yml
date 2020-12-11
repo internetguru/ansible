@@ -12,3 +12,8 @@
     apt:
       pkg: code
       state: absent
+
+  - name: Uninstall VLC
+    apt:
+      pkg: vlc
+      state: absent
