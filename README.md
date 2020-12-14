@@ -166,5 +166,4 @@ sudo reboot
 
  - [x] Shortcut to turn off the screen with no lock and no suspend.
  - [x] Do nothing when lid is closed.
- - [ ] Display README info after system startup.
  - [ ] Set configuration override as optional, e.g. favorites, variety.
