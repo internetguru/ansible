@@ -61,6 +61,8 @@
 
   - name: Install docker-compose
     command: curl -L "https://github.com/docker/compose/releases/download/1.27.3/docker-compose-{{ uname_s.stdout }}-{{ uname_m.stdout  }}" -o /usr/local/bin/docker-compose
+    args:
+      warn: false
     tags:
     - global
 
