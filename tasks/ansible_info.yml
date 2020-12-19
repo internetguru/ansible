@@ -13,7 +13,7 @@
   - name: Create ansible-info link to Desktop
     file:
       src: '/home/{{ username.stdout }}/ansible-info'
-      dest: '/home/{{ username.stdout }}/Desktop/'
+      dest: '/home/{{ username.stdout }}/Desktop/ansible-info'
       state: link
     become: yes
     become_user: '{{ username.stdout }}'

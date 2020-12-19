@@ -30,7 +30,7 @@
   - name: Add global vimrc link
     file:
       src: '/usr/local/src/vimrc/vimrc'
-      dest: '/etc/vim/'
+      dest: '/etc/vim/vimrc'
       state: link
     when: not vimrc.stat.exists
     tags:
@@ -39,7 +39,7 @@
   - name: Add global vimrc.local link
     file:
       src: '/usr/local/src/vimrc/vimrc.local'
-      dest: '/etc/vim/'
+      dest: '/etc/vim/vimrc.local'
       state: link
     when: not vimrc.stat.exists
     tags:
