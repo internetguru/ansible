@@ -9,16 +9,11 @@
     shell: '{{ playbook_dir }}/res/ansible-info-generate "{{ playbook_dir }}" "{{ username.stdout }}"'
     become: yes
     become_user: '{{ username.stdout }}'
-    tags:
-    - user
 
   - name: Create ansible-info link to Desktop
     file:
       src: '/home/{{ username.stdout }}/ansible-info'
-      dest: '/home/{{ username.stdout }}/Desktop/ansible-info'
+      dest: '/home/{{ username.stdout }}/Desktop/'
       state: link
-      force: yes
     become: yes
     become_user: '{{ username.stdout }}'
-    tags:
-    - user

@@ -7,18 +7,11 @@
   tasks:
   - name: Install basic enviroment
     import_tasks: tasks/basic_enviroment.yml
-  - name: Create mc config
-    file:
-      path: '/home/{{ username.stdout }}/.config/mc'
-      state: directory
-    become: yes
-    become_user: '{{ username.stdout }}'
-    tags:
-    - user
   - name: Copy mc settings
     copy:
-      src: './res/mc-ini'
-      dest: '/home/{{ username.stdout }}/.config/mc/ini'
+      src: './res/mc/ini'
+      dest: '/home/{{ username.stdout }}/.config/mc/'
+      force: no
     become: yes
     become_user: '{{ username.stdout }}'
     tags:

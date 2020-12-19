@@ -11,11 +11,11 @@
 
  # Checks
 
-  - name: Check if ~/vimrc exists
+  - name: Check if global vimrc exists
     stat:
       path: '/usr/local/src/vimrc'
     register: vimrc
-    tags:      
+    tags:
     - global
 
  # Commands
@@ -30,9 +30,8 @@
   - name: Add global vimrc link
     file:
       src: '/usr/local/src/vimrc/vimrc'
-      dest: '/etc/vim/vimrc'
+      dest: '/etc/vim/'
       state: link
-      force: yes
     when: not vimrc.stat.exists
     tags:
     - global
@@ -40,10 +39,8 @@
   - name: Add global vimrc.local link
     file:
       src: '/usr/local/src/vimrc/vimrc.local'
-      dest: '/etc/vim/vimrc.local'
+      dest: '/etc/vim/'
       state: link
-      force: yes
     when: not vimrc.stat.exists
     tags:
     - global
-

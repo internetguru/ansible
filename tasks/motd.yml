@@ -28,7 +28,7 @@
   - name: Create custom message
     copy:
       src: '../res/20-ig'
-      dest: '/etc/update-motd.d/20-ig'
+      dest: '/etc/update-motd.d/'
       mode: u+rwx,g+rx,o+rx
     tags:
     - global
