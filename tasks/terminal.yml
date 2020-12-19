@@ -41,6 +41,8 @@
 
   - name: Install starship prompt
     shell: curl -fsSL https://starship.rs/install.sh | bash -s -- --yes
+    args:
+      warn: false
     tags:
     - global
 

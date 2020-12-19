@@ -65,11 +65,11 @@ sudo apt install git
 <!-- break -->
  - [google-chrome](https://www.google.com/chrome/)
    - chrome-remote-desktop
+ - [mpv](https://mpv.io/)
  - [pinta](https://www.pinta-project.com/) (alternative to MS Paint)
  - [rhythmbox](https://wiki.gnome.org/Apps/Rhythmbox)
  - [rtorrent](https://github.com/rakshasa/rtorrent/wiki) ([cheet sheet](https://devhints.io/rtorrent))
  - [variety](https://peterlevi.com/variety)
- - [vlc](https://www.videolan.org/vlc/index.html)
  - [we-get](https://github.com/rachmadaniHaryono/we-get)
  - [zoom](https://zoom.us/)
 <!-- break -->
@@ -159,6 +159,7 @@ sudo reboot
  - [Chrome streamkeys extension](https://chrome.google.com/webstore/detail/streamkeys/ekpipjofdicppbepocohdlgenahaneen)
  - [Grant And Remove Sudo Privileges](https://ostechnix.com/how-to-grant-and-remove-sudo-privileges-to-users-on-ubuntu/)
  - [Internal Microphone Not Working](https://askubuntu.com/questions/6993/internal-microphone-not-working)
+ - [MPV keyboard shortcuts](https://mpv.io/manual/master/#keyboard-control)
  - Restore Ansible default Variety configuration<br />
    `cp ~/ansible/res/variety/variety.conf ~/.config/variety/`
 
@@ -166,5 +167,4 @@ sudo reboot
 
  - [x] Shortcut to turn off the screen with no lock and no suspend.
  - [x] Do nothing when lid is closed.
- - [ ] Display README info after system startup.
  - [ ] Set configuration override as optional, e.g. favorites, variety.
