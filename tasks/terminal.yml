@@ -7,8 +7,7 @@
       - fish
       - curl
       - fonts-firacode
-    tags:
-    - global
+    tags: global
 
  # Checks
 
@@ -18,8 +17,7 @@
     user:
       name: '{{ username.stdout }}'
       shell: /usr/bin/fish
-    tags:
-    - skip
+    tags: skip
 
   - name: Disable fish greeting
     lineinfile:
@@ -29,15 +27,13 @@
       state: present
     become: yes
     become_user: '{{ username.stdout }}'
-    tags:
-    - user
+    tags: user
 
   - name: Install starship prompt
     shell: curl -fsSL https://starship.rs/install.sh | bash -s -- --yes
     args:
       warn: false
-    tags:
-    - global
+    tags: global
 
   - name: Set starship prompt as default
     lineinfile:
@@ -47,13 +43,11 @@
       state: present
     become: yes
     become_user: '{{ username.stdout }}'
-    tags:
-    - user
+    tags: user
 
   - name: Copy starship.toml iff not exists
     copy:
       src: '../res/starship.toml'
       dest: '/home/{{ username.stdout }}/.config/'
       force: no
-    tags:
-    - user
+    tags: user

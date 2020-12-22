@@ -4,6 +4,9 @@
     import_tasks: tasks/user_name.yml
   - name: Check version
     import_tasks: tasks/version.yml
+    tags:
+      - user
+      - global
   roles:
   - role: cmprescott.chrome
     tags:

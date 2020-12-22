@@ -6,6 +6,7 @@ exception() {
   echo "[EXCEPTION] ${1:-Unknown exception} in $(basename "${0}")" >&2
   exit ${2:-1}
 }
+EXC=$(declare -f exception)
 run_playbooks() {
   for playbook in fresh_env.yml ubuntu.yml ubuntu-dev.yml; do
     echo "Installing $playbook [$1] as $(whoami)"
@@ -13,7 +14,7 @@ run_playbooks() {
       || exception "Failed to install $playbook [$1] as $(whoami)"
   done
 }
-FUNC=$(declare -f run_playbooks)
+RUN=$(declare -f run_playbooks)
 
 # create global cache folder
 sudo mkdir -p /tmp/facts_cache
@@ -21,19 +22,22 @@ sudo chmod 777 /tmp/facts_cache
 
 # install ansible requirements
 sudo ansible-galaxy collection install community.general \
-  && sudo ansible-galaxy install -r requirements.ubuntu.yml \
-  && sudo ansible-galaxy install -r requirements.ubuntu-dev.yml \
-  && sudo chmod -R 755 /usr/share/ansible \
-  || exception "Failed to install requirements"
+  || exit 1
+sudo ansible-galaxy install -r requirements.ubuntu.yml \
+  || exit 1
+sudo ansible-galaxy install -r requirements.ubuntu-dev.yml \
+  || exit 1
+sudo chmod -R 755 /usr/share/ansible \
+  || exception "Failed to set permissions to /usr/share/ansible"
 
 # install global tasks
-sudo bash -c "$FUNC; run_playbooks global" \
+sudo bash -c "$EXC; $RUN; run_playbooks global" \
   || exit 1
 
 # install user tasks for all users
 for user in $(getent passwd {1000..2000} | cut -d: -f1); do
   # install user files and settings
-  sudo -H -u "$user" bash -c "$FUNC; run_playbooks user" \
+  sudo -H -u "$user" bash -c "$EXC; $RUN; run_playbooks user" \
     || exit 1
   # set default shell
   sudo usermod -s /usr/bin/fish "$user" \

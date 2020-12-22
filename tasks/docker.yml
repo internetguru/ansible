@@ -9,8 +9,6 @@
       - curl
       - gnupg-agent
       - software-properties-common
-    tags:
-    - global
 
  # Checks
 
@@ -20,34 +18,24 @@
     become: false
     local_action: command lsb_release -cs
     register: lsb_release
-    tags:
-    - global
   - name: Register uname_s
     become: false
     local_action: command uname -s
-    tags:
-    - global
     register: uname_s
   - name: Register uname_m
     become: false
     local_action: command uname -m
     register: uname_m
-    tags:
-    - global
 
 
   - name: Add docker gpg key
     apt_key:
       url: https://download.docker.com/linux/ubuntu/gpg
       state: present
-    tags:
-    - global
 
   - name: Add the Docker APT repository
     apt_repository:
       repo: deb [arch=amd64] https://download.docker.com/linux/ubuntu {{ lsb_release.stdout }} test
-    tags:
-    - global
 
   - name: Install docker
     apt:
@@ -56,17 +44,13 @@
       - docker-ce-cli
       - containerd.io
       update_cache: yes
-    tags:
-    - global
 
   - name: Install docker-compose
     command: curl -L "https://github.com/docker/compose/releases/download/1.27.3/docker-compose-{{ uname_s.stdout }}-{{ uname_m.stdout  }}" -o /usr/local/bin/docker-compose
     args:
       warn: false
-    tags:
-    - global
 
   - name: Set docker-compose permissions
-    command: chmod +x /usr/local/bin/docker-compose
-    tags:
-    - global
+    file:
+      dest: /usr/local/bin/docker-compose
+      mode: +x

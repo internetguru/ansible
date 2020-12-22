@@ -7,8 +7,7 @@
       - apt-transport-https
       - ca-certificates
       - php-codesniffer
-    tags:
-    - global
+    tags: global
 
  # Checks
 
@@ -18,8 +17,7 @@
     check_mode: true
     changed_when: false
     register: sublime_config
-    tags:
-    - user
+    tags: user
 
   - name: Check if sublime sync config exists
     stat:
@@ -27,8 +25,7 @@
     check_mode: true
     changed_when: false
     register: sublime_sync_config
-    tags:
-    - user
+    tags: user
 
  # Commands
 
@@ -36,22 +33,19 @@
     apt_key:
       url: https://download.sublimetext.com/sublimehq-pub.gpg
       state: present
-    tags:
-    - global
+    tags: global
 
   - name: Add the Sublime APT repository
     apt_repository:
       repo: deb https://download.sublimetext.com/ apt/stable/
-    tags:
-    - global
+    tags: global
 
   - name: Install Sublime
     apt:
       pkg:
       - sublime-text
       update_cache: yes
-    tags:
-    - global
+    tags: global
 
   - name: Add Sync Settings plugin
     lineinfile:
@@ -61,8 +55,7 @@
     when: not sublime_config.stat.exists
     become: yes
     become_user: '{{ username.stdout }}'
-    tags:
-    - user
+    tags: user
 
   - name: Add Sync Settings gist_id
     lineinfile:
@@ -72,12 +65,10 @@
     when: not sublime_sync_config.stat.exists
     become: yes
     become_user: '{{ username.stdout }}'
-    tags:
-    - user
+    tags: user
 
   - name: Install IGCMS Code Sniffer ruleset
     copy:
       src: '../res/ruleset.xml'
       dest: '/usr/share/php/PHP/CodeSniffer/src/Standards/IGCMS/'
-    tags:
-    - global
+    tags: global

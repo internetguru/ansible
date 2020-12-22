@@ -10,6 +10,13 @@
     become: yes
     become_user: '{{ username.stdout }}'
 
+  - name: Create Desktop folder
+    file:
+      dest: '/home/{{ username.stdout }}/Desktop/'
+      state: directory
+    become: yes
+    become_user: '{{ username.stdout }}'
+
   - name: Create ansible-info link to Desktop
     file:
       src: '/home/{{ username.stdout }}/ansible-info'

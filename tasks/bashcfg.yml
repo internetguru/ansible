@@ -5,8 +5,7 @@
     apt:
       pkg:
       - git
-    tags:
-    - global
+    tags: global
 
  # Checks
 
@@ -18,17 +17,15 @@
     check_mode: true
     changed_when: false
     register: checkigcfg
-    tags:
-    - user
+    tags: user
 
  # Commands
 
   - name: Clone bashcfg
     git:
      repo: 'https://bitbucket.org/igwr/bashcfg'
-     dest: '/usr/local/share/'
-    tags:
-    - global
+     dest: '/usr/local/share/bashcfg'
+    tags: global
 
   - name: Add settings into config.fish
     shell: 'echo "{{ item }}" >> /home/{{ username.stdout }}/.config/fish/config.fish'
@@ -40,5 +37,4 @@
     when: checkigcfg.found == 0
     become: yes
     become_user: '{{ username.stdout }}'
-    tags:
-    - user
+    tags: user

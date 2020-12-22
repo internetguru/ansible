@@ -1,10 +1,6 @@
-
   - name: Update cache
     apt:
       update_cache: yes
-    tags:
-    - global
-
   - name: Install essential packages
     apt:
       state: latest
@@ -20,5 +16,3 @@
       - tree
       - tldr
       - avahi-daemon
-    tags:
-    - global

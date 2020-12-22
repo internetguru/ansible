@@ -1,33 +1,18 @@
  - name: Get installed version
    shell: "{{ playbook_dir }}/res/ansible-get-version '/usr/local/share/.ansible-version'"
    register: installedversion
-   tags:
-   - user
-   - global
 
  - name: Get current version
    shell: "{{ playbook_dir }}/res/ansible-get-version '{{ playbook_dir }}/VERSION'"
    register: currentversion
-   tags:
-   - user
-   - global
  - set_fact:
     installedversion={{ installedversion.stdout }}
-   tags:
-   - user
-   - global
  - set_fact:
     currentversion={{ currentversion.stdout }}
-   tags:
-   - user
-   - global
 
  - name: Check version
    fail: msg="Installed version is higher then current version"
    when: installedversion is version(currentversion, '>')
-   tags:
-   - user
-   - global
 
  - name: Update global version
    lineinfile:
@@ -36,6 +21,3 @@
      line: "{{ currentversion }}"
      mode: '0777'
      create: yes
-   tags:
-   - user
-   - global

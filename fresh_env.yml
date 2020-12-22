@@ -4,9 +4,13 @@
     import_tasks: tasks/user_name.yml
   - name: Check version
     import_tasks: tasks/version.yml
+    tags:
+      - user
+      - global
   tasks:
   - name: Install basic enviroment
     import_tasks: tasks/basic_enviroment.yml
+    tags: global
   - name: Copy mc settings
     copy:
       src: './res/mc/ini'
@@ -14,8 +18,7 @@
       force: no
     become: yes
     become_user: '{{ username.stdout }}'
-    tags:
-    - user
+    tags: user
   - name: Install and configure shell and prompt
     import_tasks: tasks/terminal.yml
   - name: Install bashcfg
