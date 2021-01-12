@@ -32,3 +32,6 @@
   - name: Install butt
     import_tasks: tasks/butt.yml
     tags: global
+  - name: Create workspace
+    shell: "bash -c '[[ ! -d /home/{{ username.stdout }}/work ]] && mkdir /home/{{ username.stdout }}/work && touch /home/{{ username.stdout }}/work/{bash.sh,email.html,java.java,latex.tex,php.php,text.txt,data.dat,email.md,json.json,markdown.md,python.py,sample.bib,yaml.yml} && chmod +x /home/{{ username.stdout }}/work/bash.sh'"
+    tags: user
