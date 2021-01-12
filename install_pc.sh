@@ -8,7 +8,10 @@ exception() {
 }
 EXC=$(declare -f exception)
 run_playbooks() {
-  for playbook in fresh_env.yml ubuntu.yml ubuntu-dev.yml; do
+  playbooks="fresh_env.yml ubuntu.yml"
+  [[ -n "$2" ]] \
+    && playbooks="$2"
+  for playbook in $playbooks; do
     echo "Installing $playbook [$1] as $(whoami)"
     ansible-playbook --connection=local --inventory 127.0.0.1, --tags "$1" $playbook \
       || exception "Failed to install $playbook [$1] as $(whoami)"
@@ -47,6 +50,10 @@ for user in $(getent passwd {1000..2000} | cut -d: -f1); do
     sudo rm -rf "/home/$user/$f"
   done
 done
+
+# install ubuntu-dev for current user
+sudo -H -u "$(whoami)" bash -c "$EXC; $RUN; run_playbooks user ubuntu-dev.yml" \
+  || exit 1
 
 # uninstall previous apps
 sudo ansible-playbook --connection=local --inventory 127.0.0.1, clear_env.yml \
