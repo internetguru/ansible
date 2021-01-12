@@ -79,10 +79,10 @@
       key: '/org/gnome/shell/enabled-extensions'
       value: "['disable-screenshield@lgpasquale.com', 'dash-to-panel@jderose9.github.com', 'clock-override@gnomeshell.kryogenix.org']"
 
-  - name: Set favorite apps
-    community.general.dconf:
-      key: '/org/gnome/shell/favorite-apps'
-      value: "['google-chrome.desktop', 'org.gnome.Nautilus.desktop', 'org.gnome.Terminal.desktop', 'sublime_text.desktop', 'slack.desktop']"
+  # - name: Set favorite apps
+  #   community.general.dconf:
+  #     key: '/org/gnome/shell/favorite-apps'
+  #     value: "['google-chrome.desktop', 'org.gnome.Nautilus.desktop', 'org.gnome.Terminal.desktop', 'sublime_text.desktop', 'slack.desktop']"
 
   - name: Clock override format
     community.general.dconf:
