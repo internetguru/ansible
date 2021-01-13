@@ -8,9 +8,9 @@ exception() {
 }
 EXC=$(declare -f exception)
 run_playbooks() {
-  echo "Installing $2 [$1] as $(whoami)"
-  ansible-playbook --connection=local --inventory 127.0.0.1, --tags "$1" $2 \
-    || exception "Failed to install $2 [$1] as $(whoami)"
+  echo "Installing $1 [$2] as $(whoami)"
+  ansible-playbook --connection=local --inventory 127.0.0.1, --tags "$2" $1 \
+    || exception "Failed to install $1 [$2] as $(whoami)"
 }
 RUN=$(declare -f run_playbooks)
 
@@ -29,17 +29,17 @@ sudo chmod -R 755 /usr/share/ansible \
   || exception "Failed to set permissions to /usr/share/ansible"
 
 # install global tasks
-sudo bash -c "$EXC; $RUN; run_playbooks global fresh_env.yml" \
+sudo bash -c "$EXC; $RUN; run_playbooks fresh_env.yml global" \
   || exit 1
-sudo bash -c "$EXC; $RUN; run_playbooks global ubuntu.yml" \
+sudo bash -c "$EXC; $RUN; run_playbooks ubuntu.yml global" \
   || exit 1
 
 # install user tasks for all users
 for user in $(getent passwd {1000..2000} | cut -d: -f1); do
   # install user files and settings
-  sudo -H -u "$user" bash -c "$EXC; $RUN; run_playbooks user fresh_env.yml" \
+  sudo -H -u "$user" bash -c "$EXC; $RUN; run_playbooks fresh_env.yml user" \
     || exit 1
-  sudo -H -u "$user" bash -c "$EXC; $RUN; run_playbooks user ubuntu.yml" \
+  sudo -H -u "$user" bash -c "$EXC; $RUN; run_playbooks ubuntu.yml user" \
     || exit 1
   # set default shell
   sudo usermod -s /usr/bin/fish "$user" \
@@ -51,9 +51,9 @@ for user in $(getent passwd {1000..2000} | cut -d: -f1); do
 done
 
 # install ubuntu-dev for current user
-sudo -H -u "$(whoami)" bash -c "$EXC; $RUN; run_playbooks global ubuntu-dev.yml" \
+sudo -H -u "$(whoami)" bash -c "$EXC; $RUN; run_playbooks ubuntu-dev.yml global" \
   || exit 1
-sudo -H -u "$(whoami)" bash -c "$EXC; $RUN; run_playbooks user ubuntu-dev.yml" \
+sudo -H -u "$(whoami)" bash -c "$EXC; $RUN; run_playbooks ubuntu-dev.yml user" \
   || exit 1
 
 # uninstall previous apps
