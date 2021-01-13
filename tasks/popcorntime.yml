@@ -1,0 +1,40 @@
+
+ # Dependency
+
+  - name: Install dependencies
+    apt:
+      pkg:
+      - libcanberra-gtk-module
+      - libgconf-2-4
+      - libatomic1
+
+ # Checks
+
+ # Commands
+
+  - name: Create global directory
+    file:
+      path: /opt/popcorn-time
+      state: directory
+
+  - name: Download popcorntime
+    unarchive:
+      src: https://get.popcorntime.app/build/Popcorn-Time-0.4.4-linux64.zip
+      dest: /opt/popcorn-time
+      remote_src: yes
+
+  - name: Create a symbolic link
+    file:
+      src: /opt/popcorn-time/Popcorn-Time
+      dest: /usr/bin/popcorn-time
+      state: link
+
+  - name: Install popcorntime.desktop
+    ansible.builtin.copy:
+      src: ../res/popcorntime.desktop
+      dest: /usr/share/applications/
+
+  - name: Download popcorntime icon
+    get_url:
+      url: https://goo.gl/wz8ifr
+      dest: /opt/popcorn-time/popcorntime.png

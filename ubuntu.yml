@@ -135,4 +135,7 @@
     become_user: '{{ username.stdout }}'
     tags:
       - user
-
+  - name: Install popcorntime
+    import_tasks: tasks/popcorntime.yml
+    tags:
+      - global
