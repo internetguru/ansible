@@ -6,6 +6,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
 ### Added
+ - Install `ubuntu-dev` only for current user
  - Popcorn Time
 
 ### Changed
