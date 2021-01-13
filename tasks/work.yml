@@ -7,8 +7,6 @@
     stat:
       path: '/home/{{ username.stdout }}/work'
     register: work
-    tags:
-    - global
 
  # Commands
 
