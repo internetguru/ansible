@@ -10,7 +10,7 @@ EXC=$(declare -f exception)
 run_playbooks() {
   echo "Installing $2 [$1] as $(whoami)"
   ansible-playbook --connection=local --inventory 127.0.0.1, --tags "$1" $2 \
-    || exception "Failed to install $playbook [$1] as $(whoami)"
+    || exception "Failed to install $2 [$1] as $(whoami)"
 }
 RUN=$(declare -f run_playbooks)
 
