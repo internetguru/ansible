@@ -9,6 +9,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
  - Popcorn Time
 
 ### Changed
+ - Set favorite apps only if not set
  - MPV player instead of VLC
 
 ## [1.3.0] - 2020-12-11
