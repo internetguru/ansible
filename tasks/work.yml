@@ -16,7 +16,7 @@
       state: directory
 
   - name: Touch work files
-    ansible.builtin.file:
+    file:
       path: 'home/{{ username.stdout }}/work/{{ item }}'
       state: touch
     with_items:
