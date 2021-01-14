@@ -89,7 +89,7 @@
     community.general.dconf:
       key: '/org/gnome/shell/favorite-apps'
       value: "['google-chrome.desktop', 'org.gnome.Nautilus.desktop', 'org.gnome.Terminal.desktop', 'sublime_text.desktop', 'slack.desktop']"
-    when: favorites.value == ""
+    when: not favorites.value
 
   - name: Clock override format
     community.general.dconf:
