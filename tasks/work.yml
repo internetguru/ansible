@@ -21,7 +21,7 @@
       state: touch
     with_items:
     - bash.sh
-    - email.html
+    - html.html
     - java.java
     - latex.tex
     - php.php
