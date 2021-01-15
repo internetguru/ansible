@@ -1,0 +1,42 @@
+
+ # Dependency
+
+ # Checks
+
+  - name: Check if work dir exists
+    stat:
+      path: '/home/{{ username.stdout }}/work'
+    register: work
+
+ # Commands
+
+  - name: Create ~/work dir
+    file:
+      path: '/home/{{ username.stdout }}/work'
+      state: directory
+
+  - name: Touch work files
+    file:
+      path: 'home/{{ username.stdout }}/work/{{ item }}'
+      state: touch
+    with_items:
+    - bash.sh
+    - html.html
+    - java.java
+    - latex.tex
+    - php.php
+    - text.txt
+    - data.dat
+    - email.md
+    - json.json
+    - markdown.md
+    - python.py
+    - sample.bib
+    - yaml.yml
+    when: not work.stat.exists
+
+  - name: Set bash.sh exec permission
+    file:
+      path: home/{{ username.stdout }}/work/bash.sh
+      mode: u+x,g+x
+    when: not work.stat.exists
