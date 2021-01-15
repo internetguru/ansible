@@ -7,8 +7,11 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 ## [Unreleased]
 ### Added
  - Initialize `~/work` dir with sample files for current user
+ - Install `ubuntu-dev` only for current user
+ - Popcorn Time
 
 ### Changed
+ - Set favorite apps only if not set
  - MPV player instead of VLC
 
 ## [1.3.0] - 2020-12-11

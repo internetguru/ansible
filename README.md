@@ -67,6 +67,7 @@ sudo apt install git
    - chrome-remote-desktop
  - [mpv](https://mpv.io/)
  - [pinta](https://www.pinta-project.com/) (alternative to MS Paint)
+ - [popcorn time](https://popcorntime.app/)
  - [rhythmbox](https://wiki.gnome.org/Apps/Rhythmbox)
  - [rtorrent](https://github.com/rakshasa/rtorrent/wiki) ([cheet sheet](https://devhints.io/rtorrent))
  - [variety](https://peterlevi.com/variety)
