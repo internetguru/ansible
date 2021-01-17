@@ -144,6 +144,8 @@ sudo reboot
    1. Exit vim using `:q` (maybe two times).
  - Remote mouse wakes up the computer.
  - Favorites are replaced with defaults.
+ - Keyboard switching mismatch, similar to [a 18.04 bug](https://launchpad.net/bugs/1890875).
+   - Solution: Reboot or re-login or restart gnome-shell with `killall -3 gnome-shell` or `Alt+F2`, type `r` and hit `Enter`.
 
 ## Howtos
 
