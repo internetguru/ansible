@@ -10,6 +10,11 @@
 
  # Checks
 
+  - name: Check if pocorntime is installed
+    stat:
+      path: '/opt/popcorn-time'
+    register: popcorntime
+
  # Commands
 
   - name: Create global directory
@@ -17,11 +22,12 @@
       path: /opt/popcorn-time
       state: directory
 
-  - name: Download popcorntime
+  - name: Download popcorntime 0.4.4
     unarchive:
       src: https://get.popcorntime.app/build/Popcorn-Time-0.4.4-linux64.zip
       dest: /opt/popcorn-time
       remote_src: yes
+    when: not popcorntime.stat.exists
 
   - name: Create a symbolic link
     file:

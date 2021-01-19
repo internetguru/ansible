@@ -44,7 +44,6 @@
     apt:
       pkg:
       - sublime-text
-      update_cache: yes
     tags: global
 
   - name: Add Sync Settings plugin

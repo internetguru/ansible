@@ -16,7 +16,6 @@
   - name: Install virtualbox
     apt:
       name: virtualbox
-      update_cache: yes
     tags: global
   - name: Install sublime
     import_tasks: tasks/sublime.yml

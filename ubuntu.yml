@@ -59,7 +59,6 @@
       - mpv
       - wmctrl
       - variety
-      update_cache: yes
     tags:
       - global
   - name: Symbolic link pip3 to pip

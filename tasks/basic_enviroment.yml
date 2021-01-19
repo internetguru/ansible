@@ -1,6 +1,3 @@
-  - name: Update cache
-    apt:
-      update_cache: yes
   - name: Install essential packages
     apt:
       state: latest

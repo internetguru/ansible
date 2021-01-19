@@ -18,4 +18,3 @@
     apt:
       pkg:
       - php7.4
-      update_cache: yes
