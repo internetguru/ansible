@@ -14,24 +14,27 @@ run_playbooks() {
 }
 RUN=$(declare -f run_playbooks)
 
+[[ $(id -u) != 0 ]] \
+  && exception "Script must be run as root"
+
 # create global cache folder
-sudo mkdir -p /tmp/facts_cache
-sudo chmod 777 /tmp/facts_cache
+mkdir -p /tmp/facts_cache
+chmod 777 /tmp/facts_cache
 
 # install ansible requirements
-sudo ansible-galaxy collection install community.general \
+ansible-galaxy collection install community.general \
   || exit 1
-sudo ansible-galaxy install -r requirements.ubuntu.yml \
+ansible-galaxy install -r requirements.ubuntu.yml \
   || exit 1
-sudo ansible-galaxy install -r requirements.ubuntu-dev.yml \
+ansible-galaxy install -r requirements.ubuntu-dev.yml \
   || exit 1
-sudo chmod -R 755 /usr/share/ansible \
+chmod -R 755 /usr/share/ansible \
   || exception "Failed to set permissions to /usr/share/ansible"
 
 # install global tasks
-sudo bash -c "$EXC; $RUN; run_playbooks fresh_env.yml global" \
+bash -c "$EXC; $RUN; run_playbooks fresh_env.yml global" \
   || exit 1
-sudo bash -c "$EXC; $RUN; run_playbooks ubuntu.yml global" \
+bash -c "$EXC; $RUN; run_playbooks ubuntu.yml global" \
   || exit 1
 
 # install user tasks for all users
@@ -42,25 +45,25 @@ for user in $(getent passwd {1000..2000} | cut -d: -f1); do
   sudo -H -u "$user" bash -c "$EXC; $RUN; run_playbooks ubuntu.yml user" \
     || exit 1
   # set default shell
-  sudo usermod -s /usr/bin/fish "$user" \
+  usermod -s /usr/bin/fish "$user" \
     || exit 1
   # remove previous mess
   for f in $trash; do
-    sudo rm -rf "/home/$user/$f"
+    rm -rf "/home/$user/$f"
   done
 done
 
 # install ubuntu-dev for current user
-sudo -H -u "$(whoami)" bash -c "$EXC; $RUN; run_playbooks ubuntu-dev.yml global" \
+bash -c "$EXC; $RUN; run_playbooks ubuntu-dev.yml global" \
   || exit 1
-sudo -H -u "$(whoami)" bash -c "$EXC; $RUN; run_playbooks ubuntu-dev.yml user" \
+sudo -H -u "$(logname)" bash -c "$EXC; $RUN; run_playbooks ubuntu-dev.yml user" \
   || exit 1
 
 # uninstall previous apps
-sudo ansible-playbook --connection=local --inventory 127.0.0.1, clear_env.yml \
+ansible-playbook --connection=local --inventory 127.0.0.1, clear_env.yml \
   || exception "Failed to clear enviroment"
 
 # remove previous mess for root
 for f in $trash; do
-  sudo rm -rf "/root/$f"
+  rm -rf "/root/$f"
 done

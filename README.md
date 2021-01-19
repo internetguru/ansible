@@ -110,7 +110,7 @@ git clone https://github.com/InternetGuru/ansible.git || git -C ansible pull
 3. Apply ansible for all users
 ```
 cd ansible
-./install_pc.sh
+sudo ./install_pc.sh
 sudo reboot
 ```
 
