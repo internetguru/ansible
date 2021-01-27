@@ -3,7 +3,6 @@
  # Checks
 
  # Commands
- #
 
   - name: Register lsb_release
     local_action: command lsb_release -cs
