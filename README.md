@@ -65,6 +65,7 @@ sudo apt install git
 <!-- break -->
  - [google-chrome](https://www.google.com/chrome/)
    - chrome-remote-desktop
+ - [keepass](https://keepass.info/)
  - [mpv](https://mpv.io/)
  - [pinta](https://www.pinta-project.com/) (alternative to MS Paint)
  - [popcorn time](https://popcorntime.app/)

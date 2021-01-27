@@ -59,6 +59,7 @@
       - mpv
       - wmctrl
       - variety
+      - keepass2
     tags:
       - global
   - name: Symbolic link pip3 to pip
