@@ -1,0 +1,23 @@
+ # Dependency
+
+ # Checks
+
+ # Commands
+
+  - name: Register lsb_release
+    local_action: command lsb_release -cs
+    register: lsb_release
+
+  - name: Add GH key
+    apt_key:
+      keyserver: keyserver.ubuntu.com
+      id: C99B11DEB97541F0
+
+  - name: Add GH repository
+    apt_repository:
+      repo: deb https://cli.github.com/packages {{ lsb_release.stdout }} main
+
+  - name: Install GH
+    apt:
+      name: gh
+      update_cache: yes

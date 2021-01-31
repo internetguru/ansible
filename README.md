@@ -87,6 +87,7 @@ sudo apt install git
 <!-- break -->
  - [butt](https://github.com/InternetGuru/butt)
  - [docker](https://www.docker.com/products/docker-app)
+ - [gh](https://github.com/cli/cli#github-cli)(GitHub cli)
  - [omgf](https://github.com/InternetGuru/omgf)
  - [slack](https://slack.com/)
  - [sublime-text](https://www.sublimetext.com/3) with [shared settings](https://gist.github.com/petrzpav/abf3fa8890a04fd5dedb0dd20711f042)
