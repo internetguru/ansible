@@ -31,9 +31,6 @@
   - name: Install butt
     import_tasks: tasks/butt.yml
     tags: global
-  - name: Install gh
-    import_tasks: tasks/gh.yml
-    tags: global
   - name: Create workspace
     import_tasks: tasks/work.yml
     tags: user
