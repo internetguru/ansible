@@ -6,7 +6,6 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
 ### Added
- - GitHub cli tool `gh`
  - Initialize `~/work` dir with sample files for current user
  - Install `ubuntu-dev` only for current user
  - Popcorn Time
