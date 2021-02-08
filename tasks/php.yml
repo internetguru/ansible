@@ -17,4 +17,5 @@
   - name: Install PHP 7.4
     apt:
       pkg:
-      - php7.4
+      - php7.4-fpm
+
