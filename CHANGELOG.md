@@ -6,6 +6,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
 ### Added
+ - Add bashcfg also into .bashrc
  - Initialize `~/work` dir with sample files for current user
  - Install `ubuntu-dev` only for current user
  - Popcorn Time
