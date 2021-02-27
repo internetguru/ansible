@@ -52,7 +52,7 @@
     shell: 'echo "{{ item }}" >> /home/{{ username.stdout }}/.bashrc'
     changed_when: False
     with_items:
-    - 'echo \"Internet Guru config, version $(cat /usr/local/share/bashcfg/VERSION)\"'
+    - 'echo \"Internet Guru config, version $(< /usr/local/share/bashcfg/VERSION)\"'
     - 'source /usr/local/share/bashcfg/common'
     - 'source /usr/local/share/bashcfg/git_functions'
     when: checkigcfgbash.found == 0
