@@ -15,6 +15,9 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
  - Set favorite apps only if not set
  - MPV player instead of VLC
 
+### Removed
+ - Remove fish
+
 ## [1.3.0] - 2020-12-11
 ### Added
  - Add tags to distinguish user and global installation
