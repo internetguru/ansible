@@ -17,3 +17,8 @@
     apt:
       pkg: vlc
       state: absent
+
+  - name: Uninstall fish
+    apt:
+      pkg: fish
+      state: absent

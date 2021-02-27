@@ -45,7 +45,7 @@ for user in $(getent passwd {1000..2000} | cut -d: -f1); do
   sudo -H -u "$user" bash -c "$EXC; $RUN; run_playbooks ubuntu.yml user" \
     || exit 1
   # set default shell
-  usermod -s /usr/bin/fish "$user" \
+  usermod -s /usr/bin/bash "$user" \
     || exit 1
   # remove previous mess
   for f in $trash; do

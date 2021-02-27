@@ -8,16 +8,6 @@
 
  # Checks
 
-  - name: Check if IG bashcfg is already in config.fish
-    lineinfile:
-      state: absent
-      path: '/home/{{ username.stdout }}/.config/fish/config.fish'
-      regexp: '^echo "Internet Guru config'
-    check_mode: true
-    changed_when: false
-    register: checkigcfg
-    tags: user
-
   - name: Check if IG bashcfg is already in bashrc
     lineinfile:
       state: absent
@@ -27,26 +17,8 @@
     changed_when: false
     register: checkigcfgbash
     tags: user
- 
+
  # Commands
-
-  - name: Clone bashcfg
-    git:
-     repo: 'https://bitbucket.org/igwr/bashcfg'
-     dest: '/usr/local/share/bashcfg'
-    tags: global
-
-  - name: Add settings into config.fish
-    shell: 'echo "{{ item }}" >> /home/{{ username.stdout }}/.config/fish/config.fish'
-    changed_when: False
-    with_items:
-    - 'echo \"Internet Guru config, version \"(cat /usr/local/share/bashcfg/VERSION)'
-    - 'source /usr/local/share/bashcfg/common.fish'
-    - 'source /usr/local/share/bashcfg/git_functions.fish'
-    when: checkigcfg.found == 0
-    become: yes
-    become_user: '{{ username.stdout }}'
-    tags: user
 
   - name: Add settings into bashrc
     shell: 'echo "{{ item }}" >> /home/{{ username.stdout }}/.bashrc'
@@ -59,4 +31,3 @@
     become: yes
     become_user: '{{ username.stdout }}'
     tags: user
-
