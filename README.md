@@ -40,7 +40,6 @@ sudo apt install git
  - vim
 <!-- break -->
  - [bashcfg](https://bitbucket.org/igwr/bashcfg)
- - [fish shell](https://fishshell.com/)
  - [fonts-firacode](https://github.com/tonsky/FiraCode)
  - [starship prompt](https://starship.rs/)
  - [vimrc](https://github.com/petrzpav/vimrc)

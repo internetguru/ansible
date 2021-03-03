@@ -6,6 +6,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
 ### Added
+ - Add bashcfg also into .bashrc
  - Initialize `~/work` dir with sample files for current user
  - Install `ubuntu-dev` only for current user
  - Popcorn Time
@@ -13,6 +14,9 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 ### Changed
  - Set favorite apps only if not set
  - MPV player instead of VLC
+
+### Removed
+ - Use bash instead of fish
 
 ## [1.3.0] - 2020-12-11
 ### Added
