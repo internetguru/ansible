@@ -20,11 +20,24 @@
 
  # Commands
 
+  - name: Remove old version
+    shell: |
+      git -C /usr/local/share/bashcfg config --get remote.origin.url | grep -q bitbucket \
+        && rm -rf /usr/local/share/bashcfg \
+        || exit 0
+    tags: global
+
+  - name: Clone bashcfg
+    git:
+     repo: 'https://github.com/InternetGuru/bashcfg.git'
+     dest: '/usr/local/share/bashcfg'
+    tags: global
+
   - name: Add settings into bashrc
     shell: 'echo "{{ item }}" >> /home/{{ username.stdout }}/.bashrc'
     changed_when: False
     with_items:
-    - 'echo \"Internet Guru config, version $(< /usr/local/share/bashcfg/VERSION)\"'
+    - "echo \"Internet Guru config, version \"'$(< /usr/local/share/bashcfg/VERSION)'"
     - 'source /usr/local/share/bashcfg/common'
     - 'source /usr/local/share/bashcfg/git_functions'
     when: checkigcfgbash.found == 0
