@@ -1,0 +1,10 @@
+
+ # Dependency
+
+ # Checks
+
+ # Commands
+
+  - name: Install current version of teamviewer
+    apt:
+     deb: 'https://download.teamviewer.com/download/linux/teamviewer_amd64.deb'

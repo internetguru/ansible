@@ -139,3 +139,7 @@
     import_tasks: tasks/popcorntime.yml
     tags:
       - global
+  - name: Install teamviewer
+    import_tasks: tasks/teamviewer.yml
+    tags:
+      - global
