@@ -1,4 +1,4 @@
-# IG Ansible Source Available License (ASAL)
+# IG Ansible Source Available License
 
  - Author: George J. Pavelka <george@internetguru.io>, Pavel Petrzela <paulo@internetguru.io>
  - Source Code: https://github.com/InternetGuru/ansible
