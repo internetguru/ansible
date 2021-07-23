@@ -62,20 +62,6 @@
       - keepass2
     tags:
       - global
-  - name: Symbolic link pip3 to pip
-    file:
-      src: '/usr/bin/pip3'
-      dest: '/usr/bin/pip'
-      state: link
-    tags:
-      - global
-  - name: Symbolic link python3 to python
-    file:
-      src: '/usr/bin/python3'
-      dest: '/usr/bin/python'
-      state: link
-    tags:
-      - global
   - name: Install we-get and psutil
     pip:
       name:
