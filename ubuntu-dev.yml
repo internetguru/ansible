@@ -8,11 +8,14 @@
       - user
       - global
   roles:
-  - role: avnes.ansible-role-slack
-    tags: global
   - role: geerlingguy.java
     tags: global
   tasks:
+  - name: Install slack
+    snap:
+      name: slack
+      classic: yes
+    tags: global
   - name: Install virtualbox
     apt:
       name: virtualbox
