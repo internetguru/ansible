@@ -15,6 +15,11 @@
       path: '/opt/popcorn-time/Popcorn-Time-Ru'
     register: popcorntime
 
+  - name: Check if old pocorntime is installed
+    stat:
+      path: '/opt/popcorn-time/Popcorn-Time'
+    register: popcorntimeold
+
  # Commands
 
   - name: Create global directory
@@ -28,6 +33,12 @@
       dest: /opt/popcorn-time
       remote_src: yes
     when: not popcorntime.stat.exists
+
+  - name: Delete old popcorntime
+    file:
+      state: absent
+      path: /opt/popcorn-time/
+    when: popcorntimeold.stat.exists
 
   - name: Create a symbolic link
     file:
