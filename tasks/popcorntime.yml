@@ -24,7 +24,7 @@
 
   - name: Download popcorntime 0.4.4
     unarchive:
-      src: https://get.popcorntime.app/build/Popcorn-Time-0.4.4-linux64.zip
+      src: https://github.com/popcorn-time-ru/popcorn-desktop/releases/download/v0.4.5/Popcorn-Time-Ru-0.4.5-linux64.zip
       dest: /opt/popcorn-time
       remote_src: yes
     when: not popcorntime.stat.exists
