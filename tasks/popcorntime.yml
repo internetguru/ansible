@@ -12,7 +12,7 @@
 
   - name: Check if pocorntime is installed
     stat:
-      path: '/opt/popcorn-time'
+      path: '/opt/popcorn-time/Popcorn-Time-Ru'
     register: popcorntime
 
  # Commands
@@ -22,7 +22,7 @@
       path: /opt/popcorn-time
       state: directory
 
-  - name: Download popcorntime 0.4.4
+  - name: Download ru version of popcorntime, v0.4.5
     unarchive:
       src: https://github.com/popcorn-time-ru/popcorn-desktop/releases/download/v0.4.5/Popcorn-Time-Ru-0.4.5-linux64.zip
       dest: /opt/popcorn-time
@@ -31,7 +31,7 @@
 
   - name: Create a symbolic link
     file:
-      src: /opt/popcorn-time/Popcorn-Time
+      src: /opt/popcorn-time/Popcorn-Time-Ru
       dest: /usr/bin/popcorn-time
       state: link
 
