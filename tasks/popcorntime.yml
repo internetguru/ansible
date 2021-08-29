@@ -17,11 +17,6 @@
 
  # Commands
 
-  - name: Create global directory
-    file:
-      path: /opt/popcorn-time
-      state: directory
-
   - name: Delete old popcorntime
     file:
       state: absent
@@ -30,8 +25,13 @@
 
   - name: Check if pocorntime is installed
     stat:
-      path: '/opt/popcorn-time'
+      path: '/opt/popcorn-time/'
     register: popcorntime
+
+  - name: Create global directory
+    file:
+      path: /opt/popcorn-time
+      state: directory
 
   - name: Download ru version of popcorntime, v0.4.5
     unarchive:
