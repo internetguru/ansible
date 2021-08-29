@@ -10,11 +10,6 @@
 
  # Checks
 
-  - name: Check if pocorntime is installed
-    stat:
-      path: '/opt/popcorn-time/Popcorn-Time-Ru'
-    register: popcorntime
-
   - name: Check if old pocorntime is installed
     stat:
       path: '/opt/popcorn-time/Popcorn-Time'
@@ -27,18 +22,23 @@
       path: /opt/popcorn-time
       state: directory
 
+  - name: Delete old popcorntime
+    file:
+      state: absent
+      path: /opt/popcorn-time/
+    when: popcorntimeold.stat.exists
+
+  - name: Check if pocorntime is installed
+    stat:
+      path: '/opt/popcorn-time'
+    register: popcorntime
+
   - name: Download ru version of popcorntime, v0.4.5
     unarchive:
       src: https://github.com/popcorn-time-ru/popcorn-desktop/releases/download/v0.4.5/Popcorn-Time-Ru-0.4.5-linux64.zip
       dest: /opt/popcorn-time
       remote_src: yes
     when: not popcorntime.stat.exists
-
-  - name: Delete old popcorntime
-    file:
-      state: absent
-      path: /opt/popcorn-time/
-    when: popcorntimeold.stat.exists
 
   - name: Create a symbolic link
     file:
