@@ -31,8 +31,10 @@
     - json.json
     - markdown.md
     - python.py
-    - sample.bib
+    - bibliography.bib
     - yaml.yml
+    - xml.xml
+    - temp.tmp
     when: not work.stat.exists
 
   - name: Set bash.sh exec permission
@@ -40,3 +42,9 @@
       path: home/{{ username.stdout }}/work/bash.sh
       mode: u+x,g+x
     when: not work.stat.exists
+
+  - name: Move sample.bib to bibliography.bib
+    command: mv /home/{{ username.stdout }}/work/sample.bib /home/{{ username.stdout }}/work/bibliography.bib
+    args:
+      removes: /home/{{ username.stdout }}/work/sample.bib
+      creates: /home/{{ username.stdout }}/work/bibliography.bib
