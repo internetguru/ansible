@@ -33,7 +33,7 @@
 
   - name: Set bash.sh exec permission
     file:
-      path: home/{{ username.stdout }}/work/bash.sh
+      path: /home/{{ username.stdout }}/work/bash.sh
       mode: u+x,g+x
 
   - name: Move sample.bib to bibliography.bib
