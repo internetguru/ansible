@@ -10,6 +10,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
  - Initialize `~/work` dir with sample files for current user
  - Install `ubuntu-dev` only for current user
  - Popcorn Time
+ - diff-so-fancy
 
 ### Changed
  - Set favorite apps only if not set
