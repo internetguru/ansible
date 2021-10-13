@@ -34,6 +34,8 @@
   - name: Install butt
     import_tasks: tasks/butt.yml
     tags: global
+  - name: Install diff-so-fancy
+    import_tasks: tasks/diff-so-fancy.yml
   - name: Create workspace
     import_tasks: tasks/work.yml
     tags: user
