@@ -22,3 +22,8 @@
     apt:
       pkg: fish
       state: absent
+
+  - name: Uninstall pinta
+    apt:
+      pkg: pinta
+      state: absent

@@ -53,7 +53,7 @@
       - gnome-tweaks
       - gnome-shell-extension-dash-to-panel
       - python3-pip
-      - pinta
+      - kolourpaint
       - rtorrent
       - rhythmbox
       - mpv

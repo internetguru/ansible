@@ -66,8 +66,8 @@ sudo apt install git
    - chrome-remote-desktop
  - [keepass](https://keepass.info/)
  - [mpv](https://mpv.io/)
- - [pinta](https://www.pinta-project.com/) (alternative to MS Paint)
- - [popcorn time](https://popcorntime.app/)
+ - [kolourpaint](https://apps.kde.org/kolourpaint/) (alternative to MS Paint)
+ - [popcorn time](https://github.com/popcorn-time-ru/popcorn-desktop)
  - [rhythmbox](https://wiki.gnome.org/Apps/Rhythmbox)
  - [rtorrent](https://github.com/rakshasa/rtorrent/wiki) ([cheet sheet](https://devhints.io/rtorrent))
  - [variety](https://peterlevi.com/variety)
@@ -90,6 +90,7 @@ sudo apt install git
  - [slack](https://slack.com/)
  - [sublime-text](https://www.sublimetext.com/3) with [shared settings](https://gist.github.com/petrzpav/abf3fa8890a04fd5dedb0dd20711f042)
  - [virtualbox](https://www.virtualbox.org/)
+ - [diff-so-fancy](https://github.com/so-fancy/diff-so-fancy)
 
 ## Complete Ubuntu Setup with Ansible
 
