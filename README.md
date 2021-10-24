@@ -91,6 +91,8 @@ sudo apt install git
  - [sublime-text](https://www.sublimetext.com/3) with [shared settings](https://gist.github.com/petrzpav/abf3fa8890a04fd5dedb0dd20711f042)
  - [virtualbox](https://www.virtualbox.org/)
  - [diff-so-fancy](https://github.com/so-fancy/diff-so-fancy)
+<!-- break -->
+ - `~/work` folder with various format file names touched
 
 ## Complete Ubuntu Setup with Ansible
 
