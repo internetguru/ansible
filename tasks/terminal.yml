@@ -12,8 +12,15 @@
 
  # Commands
 
+  - name: Download starship prompt
+    get_url:
+      url: https://starship.rs/install.sh
+      dest: /tmp/starship.sh
+      mode: 0755
+    tags: global
+
   - name: Install starship prompt
-    shell: curl -fsSL https://starship.rs/install.sh | bash -s -- --yes
+    shell: /tmp/starship.sh --yes
     args:
       warn: false
     tags: global
