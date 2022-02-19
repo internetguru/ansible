@@ -149,6 +149,9 @@ sudo reboot
  - Favorites are replaced with defaults.
  - Keyboard switching mismatch, similar to [a 18.04 bug](https://launchpad.net/bugs/1890875).
    - Solution: Reboot or re-login or restart gnome-shell with `killall -3 gnome-shell` or `Alt+F2`, type `r` and hit `Enter`.
+ - Error like `This task (name) has extra params, which is only allowed`.
+   1. Update your Ansible to the latest version, it's a bug.
+   1. E.g. `sudo rm -rf /usr/lib/python3/dist-packages/ansible/ && sudo pip install -U "ansible"`
 
 ## Howtos
 
