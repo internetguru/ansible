@@ -75,6 +75,7 @@ sudo apt install git
  - [zoom](https://zoom.us/)
 <!-- break -->
  - [system configuration](https://github.com/InternetGuru/ansible/blob/master/tasks/ubuntucfg.yml)
+   - Note: for reseting favorites for current user run following commad before ansible `dconf reset /org/gnome/shell/favorite-apps`.
  - [system keyboard shortcuts](https://github.com/InternetGuru/ansible/blob/master/tasks/ubuntukeys.yml)
 
 ### `ubuntu-dev.yml`

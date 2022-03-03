@@ -88,7 +88,7 @@
   - name: Set favorite apps iff not set
     community.general.dconf:
       key: '/org/gnome/shell/favorite-apps'
-      value: "['google-chrome.desktop', 'org.gnome.Nautilus.desktop', 'org.gnome.Terminal.desktop', 'sublime_text.desktop', 'discord.desktop']"
+      value: "['google-chrome.desktop', 'org.gnome.Nautilus.desktop', 'org.gnome.Terminal.desktop', 'sublime_text.desktop', 'discord_discord.desktop']"
     when: not favorites.value
 
   - name: Clock override format
