@@ -85,6 +85,7 @@ sudo apt install git
  - php 7.4
 <!-- break -->
  - [butt](https://github.com/InternetGuru/butt)
+ - [discord](https://discord.com/)
  - [docker](https://www.docker.com/products/docker-app)
  - [omgf](https://github.com/InternetGuru/omgf)
  - [slack](https://slack.com/)
