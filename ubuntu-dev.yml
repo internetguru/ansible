@@ -16,6 +16,11 @@
       name: slack
       classic: yes
     tags: global
+  - name: Install discord
+    snap:
+      name: discord
+      classic: yes
+    tags: global
   - name: Install virtualbox
     apt:
       name: virtualbox
