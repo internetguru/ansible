@@ -15,9 +15,11 @@
  - Ubuntu 20.04+ (minimal installation)
    - tested on 20.04.1 LTS ([download iso](https://releases.ubuntu.com/20.04/ubuntu-20.04.1-desktop-amd64.iso))
    - [create a bootable USB stick on Ubuntu](https://ubuntu.com/tutorials/create-a-usb-stick-on-ubuntu#1-overview)
+ - python and pip
  - ansible and git
 ```
-sudo apt install ansible
+sudo apt install python3-pip
+sudo pip install -U "ansible"
 sudo apt install git
 ```
 
