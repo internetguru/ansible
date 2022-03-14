@@ -32,6 +32,7 @@
       src: '/usr/local/src/vimrc/vimrc'
       dest: '/etc/vim/vimrc'
       state: link
+      force: yes
     when: not vimrc.stat.exists
     tags:
     - global
@@ -41,6 +42,7 @@
       src: '/usr/local/src/vimrc/vimrc.local'
       dest: '/etc/vim/vimrc.local'
       state: link
+      force: yes
     when: not vimrc.stat.exists
     tags:
     - global
