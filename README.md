@@ -122,7 +122,8 @@ sudo apt install git
    ```
 1. Install ansible for all users
    ```
-   sudo ~/ansible/install_pc.sh
+   cd ~/ansible
+   sudo ./install_pc.sh
    sudo reboot
    ```
 
