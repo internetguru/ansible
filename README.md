@@ -5,8 +5,8 @@
  - [Requirements](#requirements)
  - [Environments](#environments)
  - [Complete Ubuntu Setup with Ansible](#complete-ubuntu-setup-with-ansible)
- - [Default Shortcuts](#default-shortcuts)
- - [Known Issues](#known-issues)
+ - [Shortcuts](#shortcuts)
+ - [Troubleshooting](#troubleshooting)
  - [Howtos](#howtos)
  - [Suggestions](#suggestions)
 
@@ -126,7 +126,7 @@ sudo apt install git
    sudo reboot
    ```
 
-## Default Shortcuts
+## Shortcuts
 
  - `Ctrl+Alt+h` display README of installed version
  - `Ctrl+Alt+s` lock and sleep (suspend)
@@ -143,8 +143,16 @@ sudo apt install git
 <!-- break -->
  - `Pause`, `Menu` compose keys
 
-## Known Issues
+## Troubleshooting
 
+ - *"Unknown error when attempting to call Galaxy"*
+   - Check your internet connection and run ansible again.
+ - *"already installed"* warnings
+   - *Ignore.*
+ - *"This task (name) has extra params, which is only allowed"* error
+   1. Make sure you installed Ansible using pip (see Requirements above).
+   1. You may need to remove the old Ansible version.
+      `sudo rm -rf /usr/lib/python3/dist-packages/ansible/`
  - Sublime Text not downloading shared settings after installation.
    1. Open Sublime Text.
    1. Run Tools / Command Pallette… (`ctrl+shift+p`) / Install Package Control (or just type `ip` and press enter).
@@ -157,11 +165,7 @@ sudo apt install git
  - Wireless mouse wakes up the computer.
    - *No sw solution found. Turn off your mouse physically if possible.*
  - Keyboard switching mismatch, similar to [a 18.04 bug](https://launchpad.net/bugs/1890875).
-   - Solution: Reboot or re-login or restart gnome-shell with `killall -3 gnome-shell` or `Alt+F2`, type `r` and hit `Enter`.
- - Error *This task (name) has extra params, which is only allowed*
-   1. Make sure you installed Ansible using pip (see Requirements above).
-   1. You may need to remove the old Ansible version.
-      `sudo rm -rf /usr/lib/python3/dist-packages/ansible/`
+   - Reboot or re-login or restart gnome-shell with `killall -3 gnome-shell` or `Alt+F2`, type `r` and hit `Enter`.
 
 ## Howtos
 
@@ -179,11 +183,9 @@ sudo apt install git
  - [Grant And Remove Sudo Privileges](https://ostechnix.com/how-to-grant-and-remove-sudo-privileges-to-users-on-ubuntu/)
  - [Internal Microphone Not Working](https://askubuntu.com/questions/6993/internal-microphone-not-working)
  - [MPV keyboard shortcuts](https://mpv.io/manual/master/#keyboard-control)
- - Restore Ansible default Variety configuration<br />
-   `cp ~/ansible/res/variety/variety.conf ~/.config/variety/`
 
 ## Suggestions
 
  - [x] Shortcut to turn off the screen with no lock and no suspend.
  - [x] Do nothing when lid is closed.
- - [x] Set configuration override as optional, e.g. favorites, variety.
+ - [ ] Configuration override option, e.g. favorites, variety.
