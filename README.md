@@ -17,6 +17,7 @@
    - [create a bootable USB stick on Ubuntu](https://ubuntu.com/tutorials/create-a-usb-stick-on-ubuntu#1-overview)
  - python and pip
  - ansible and git
+
 ```
 sudo apt install python3-pip
 sudo pip install -U "ansible"
@@ -77,7 +78,6 @@ sudo apt install git
  - [zoom](https://zoom.us/)
 <!-- break -->
  - [system configuration](https://github.com/InternetGuru/ansible/blob/master/tasks/ubuntucfg.yml)
-   - Note: for reseting favorites for current user run following commad before ansible `dconf reset /org/gnome/shell/favorite-apps`.
  - [system keyboard shortcuts](https://github.com/InternetGuru/ansible/blob/master/tasks/ubuntukeys.yml)
 
 ### `ubuntu-dev.yml`
@@ -103,23 +103,28 @@ sudo apt install git
 > This is a complete simple use-case on how to install basic environments on a fresh *Ubuntu* installation, optionally including developer environment. To update, repeat the very same process on an updated repository.
 
 1. Install updates or existing packages
-```
-sudo apt update
-sudo apt upgrade
-sudo reboot
-```
-
-2. Clone or update ansible project
-```
-git clone https://github.com/InternetGuru/ansible.git || git -C ansible pull
-```
-
-3. Apply ansible for all users
-```
-cd ansible
-sudo ./install_pc.sh
-sudo reboot
-```
+   ```
+   sudo apt update
+   sudo apt upgrade -y
+   sudo reboot
+   ```
+1. Clone or update ansible project
+   ```
+   git clone https://github.com/InternetGuru/ansible.git || git -C ansible pull
+   ```
+1. Force default favorites for current user *(optional)*
+   ```
+   dconf reset /org/gnome/shell/favorite-apps
+   ```
+1. Force default Variety configuration for current user *(optional)*
+   ```
+   mv ~/.config/variety ~/.config/variety.bak
+   ```
+1. Install ansible for all users
+   ```
+   sudo ~/ansible/install_pc.sh
+   sudo reboot
+   ```
 
 ## Default Shortcuts
 
@@ -145,17 +150,18 @@ sudo reboot
    1. Run Tools / Command Pallette… (`ctrl+shift+p`) / Install Package Control (or just type `ip` and press enter).
    1. Restart (close and run) Sublime Text, wait until Sync Settings plugin is installed.
    1. Run Tools / Command Palette… (`ctrl+shift+p`) / Sync Settings: Download (or just type `download` and press enter).
- - Global vim plugins are not installed
+ - Global Vim plugins are not installed
    1. `sudo vim`
    1. Hit enter as many times as requested until plugins are installed.
    1. Exit vim using `:q` (maybe two times).
- - Remote mouse wakes up the computer.
- - Favorites are replaced with defaults.
+ - Wireless mouse wakes up the computer.
+   - *No sw solution found. Turn off your mouse physically if possible.*
  - Keyboard switching mismatch, similar to [a 18.04 bug](https://launchpad.net/bugs/1890875).
    - Solution: Reboot or re-login or restart gnome-shell with `killall -3 gnome-shell` or `Alt+F2`, type `r` and hit `Enter`.
- - Error like `This task (name) has extra params, which is only allowed`.
-   1. Update your Ansible to the latest version, it's a bug.
-   1. E.g. `sudo rm -rf /usr/lib/python3/dist-packages/ansible/ && sudo pip install -U "ansible"`
+ - Error *This task (name) has extra params, which is only allowed*
+   1. Make sure you installed Ansible using pip (see Requirements above).
+   1. You may need to remove the old Ansible version.
+      `sudo rm -rf /usr/lib/python3/dist-packages/ansible/`
 
 ## Howtos
 
@@ -180,4 +186,4 @@ sudo reboot
 
  - [x] Shortcut to turn off the screen with no lock and no suspend.
  - [x] Do nothing when lid is closed.
- - [ ] Set configuration override as optional, e.g. favorites, variety.
+ - [x] Set configuration override as optional, e.g. favorites, variety.
