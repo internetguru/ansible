@@ -156,9 +156,10 @@ sudo apt install git
       `sudo rm -rf /usr/lib/python3/dist-packages/ansible/`
  - Sublime Text not downloading shared settings after installation.
    1. Open Sublime Text.
-   1. Run Tools / Command Pallette… (`ctrl+shift+p`) / Install Package Control (or just type `ip` and press enter).
-   1. Restart (close and run) Sublime Text, wait until Sync Settings plugin is installed.
-   1. Run Tools / Command Palette… (`ctrl+shift+p`) / Sync Settings: Download (or just type `download` and press enter).
+   1. Run Tools / Command Pallette… (`ctrl+shift+p`) / Install Package Control (or just type `ipc` and press `Enter`).
+   1. Restart (close and run) Sublime, wait until Sync Settings plugin is installed.
+   1. Run Tools / Command Palette… (`ctrl+shift+p`) / Sync Settings: Download (or just type `download` and press `Enter`). Ignore warning message(s).
+   1. Note: You may need to run the Download command again for theme to take effect.
  - Global Vim plugins are not installed
    1. `sudo vim`
    1. Hit enter as many times as requested until plugins are installed.
