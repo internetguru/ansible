@@ -12,3 +12,18 @@
     apt:
       pkg: code
       state: absent
+
+  - name: Uninstall VLC
+    apt:
+      pkg: vlc
+      state: absent
+
+  - name: Uninstall fish
+    apt:
+      pkg: fish
+      state: absent
+
+  - name: Uninstall pinta
+    apt:
+      pkg: pinta
+      state: absent

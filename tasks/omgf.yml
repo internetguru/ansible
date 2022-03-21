@@ -7,8 +7,6 @@
       - gawk
       - git
       - python3-docutils
-    tags:
-    - global
 
  # Checks
 
@@ -18,12 +16,8 @@
     git:
      repo: 'https://github.com/InternetGuru/omgf.git'
      dest: '/usr/local/src/omgf'
-    tags:
-    - global
 
   - name: Make and install omgf
     shell: ./configure && make && compiled/install
     args:
       chdir: '/usr/local/src/omgf'
-    tags:
-    - global

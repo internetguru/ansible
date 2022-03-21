@@ -11,11 +11,11 @@
 
  # Checks
 
-  - name: Check if ~/vimrc exists
+  - name: Check if global vimrc exists
     stat:
       path: '/usr/local/src/vimrc'
     register: vimrc
-    tags:      
+    tags:
     - global
 
  # Commands
@@ -46,4 +46,3 @@
     when: not vimrc.stat.exists
     tags:
     - global
-

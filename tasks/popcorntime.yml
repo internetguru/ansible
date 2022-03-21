@@ -1,0 +1,57 @@
+
+ # Dependency
+
+  - name: Install dependencies
+    apt:
+      pkg:
+      - libcanberra-gtk-module
+      - libgconf-2-4
+      - libatomic1
+
+ # Checks
+
+  - name: Check if old pocorntime is installed
+    stat:
+      path: '/opt/popcorn-time/Popcorn-Time'
+    register: popcorntimeold
+
+ # Commands
+
+  - name: Delete old popcorntime
+    file:
+      state: absent
+      path: /opt/popcorn-time/
+    when: popcorntimeold.stat.exists
+
+  - name: Check if pocorntime is installed
+    stat:
+      path: '/opt/popcorn-time/'
+    register: popcorntime
+
+  - name: Create global directory
+    file:
+      path: /opt/popcorn-time
+      state: directory
+
+  - name: Download ru version of popcorntime, v0.4.5
+    unarchive:
+      src: https://github.com/popcorn-time-ru/popcorn-desktop/releases/download/v0.4.5/Popcorn-Time-Ru-0.4.5-linux64.zip
+      dest: /opt/popcorn-time
+      remote_src: yes
+    when: not popcorntime.stat.exists
+
+  - name: Create a symbolic link
+    file:
+      src: /opt/popcorn-time/Popcorn-Time-Ru
+      dest: /usr/bin/popcorn-time
+      state: link
+
+  - name: Install popcorntime.desktop
+    ansible.builtin.copy:
+      src: ../res/popcorntime.desktop
+      dest: /usr/share/applications/
+
+  - name: Download popcorntime icon
+    get_url:
+      url: https://goo.gl/wz8ifr
+      dest: /opt/popcorn-time/popcorntime.png

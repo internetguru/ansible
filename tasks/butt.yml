@@ -6,8 +6,6 @@
       pkg:
       - git
       - python3-docutils
-    tags:
-    - global
 
  # Checks
 
@@ -17,12 +15,8 @@
     git:
      repo: 'https://github.com/InternetGuru/butt.git'
      dest: '/usr/local/src/butt'
-    tags:
-    - global
 
   - name: Make and install butt
     shell: ./configure && make && compiled/install
     args:
       chdir: '/usr/local/src/butt'
-    tags:
-    - global

@@ -4,61 +4,40 @@
   - name: Install dependencies
     apt:
       pkg:
-      - fish
       - curl
       - fonts-firacode
-    tags:
-    - global
+    tags: global
 
  # Checks
 
-  - name: Check if ~/.config/starship.toml exists
-    stat:
-      path: '/home/{{ username.stdout }}/.config/starship.toml'
-    register: starshiptoml
-    tags:
-    - user
-
  # Commands
 
-  - name: Set Fish as default shell
-    user:
-      name: '{{ username.stdout }}'
-      shell: /usr/bin/fish
-    tags:
-    - skip
-
-  - name: Disable fish greeting
-    lineinfile:
-      path: '/home/{{ username.stdout }}/.config/fish/config.fish'
-      line: 'set fish_greeting'
-      create: yes
-      state: present
-    become: yes
-    become_user: '{{ username.stdout }}'
-    tags:
-    - user
+  - name: Download starship prompt
+    get_url:
+      url: https://starship.rs/install.sh
+      dest: /tmp/starship.sh
+      mode: 0755
+    tags: global
 
   - name: Install starship prompt
-    shell: curl -fsSL https://starship.rs/install.sh | bash -s -- --yes
-    tags:
-    - global
+    shell: /tmp/starship.sh --yes
+    args:
+      warn: false
+    tags: global
 
   - name: Set starship prompt as default
     lineinfile:
-      path: '/home/{{ username.stdout }}/.config/fish/config.fish'
-      line: 'starship init fish | source'
+      path: '/home/{{ username.stdout }}/.bashrc'
+      line: 'eval "$(starship init bash)"'
       create: yes
       state: present
     become: yes
     become_user: '{{ username.stdout }}'
-    tags:
-    - user
+    tags: user
 
   - name: Copy starship.toml iff not exists
     copy:
       src: '../res/starship.toml'
-      dest: '/home/{{ username.stdout }}/.config/starship.toml'
-    when: not starshiptoml.stat.exists
-    tags:
-    - user
+      dest: '/home/{{ username.stdout }}/.config/'
+      force: no
+    tags: user
