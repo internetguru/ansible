@@ -21,6 +21,9 @@
           name: 'clock-override@gnomeshell.kryogenix.org'
     tags:
       - global
+  - role: geerlingguy.java
+    tags:
+      - global
   tasks:
   - name: Set default browser
     shell: xdg-settings set default-web-browser google-chrome.desktop
@@ -129,3 +132,36 @@
     import_tasks: tasks/teamviewer.yml
     tags:
       - global
+  - name: Install slack
+    snap:
+      name: slack
+      classic: yes
+    tags: global
+  - name: Install discord
+    snap:
+      name: discord
+      classic: yes
+    tags: global
+  - name: Install virtualbox
+    apt:
+      name: virtualbox
+    tags: global
+  - name: Install sublime
+    import_tasks: tasks/sublime.yml
+  - name: Install docker
+    import_tasks: tasks/docker.yml
+    tags: global
+  - name: Install PHP
+    import_tasks: tasks/php.yml
+    tags: global
+  - name: Install omgf
+    import_tasks: tasks/omgf.yml
+    tags: global
+  - name: Install butt
+    import_tasks: tasks/butt.yml
+    tags: global
+  - name: Install diff-so-fancy
+    import_tasks: tasks/diff-so-fancy.yml
+  - name: Create workspace
+    import_tasks: tasks/work.yml
+    tags: user
