@@ -16,8 +16,8 @@ main() {
   # shellcheck disable=SC2155
   declare -r RUN_DEF=$(declare -f run_playbooks)
   # shellcheck disable=SC2155
-  declare -r DIR="$(dirname "$0")"
-  declare -r SHELL="/usr/bin/bash"
+  declare -r WORKDIR="$(dirname "$0")"
+  declare -r USE_SHELL="/usr/bin/bash"
   declare FORCE=0
   ## option preprocessing
   if ! LINE=$(getopt -n "$0" -o f -l force -- "$@"); then
@@ -42,7 +42,7 @@ main() {
   [[ $(id -u) != 0 ]] \
     && exception "Script must be run as root"
   # force config location for ansible
-  export ANSIBLE_CONFIG="${DIR}/ansible.cfg"
+  export ANSIBLE_CONFIG="${WORKDIR}/ansible.cfg"
   eval "$(tail --lines=+2 "${ANSIBLE_CONFIG}")"
   # shellcheck disable=SC2154
   mkdir -p "${fact_caching_connection}"
@@ -52,7 +52,7 @@ main() {
     || exit 1
   # install specific roles
   for config in "$@"; do
-    roles_file="${DIR}/roles.$(basename "${config}")"
+    roles_file="${WORKDIR}/roles.$(basename "${config}")"
     [[ ! -f  "${roles_file}" ]] \
       && continue
     ansible-galaxy install -r "${roles_file}" \
@@ -75,8 +75,8 @@ main() {
         || exit 1
     done
     # set default shell
-    [[ "$(grep "${user}" /etc/passwd | cut -d: -f7)" != "${SHELL}" ]] \
-      || usermod -s "${SHELL}" "${user}" \
+    [[ "$(grep "^${user}:" /etc/passwd | cut -d: -f7)" == "${USE_SHELL}" ]] \
+      || usermod -s "${USE_SHELL}" "${user}" \
       || exit 1
   done
 }
