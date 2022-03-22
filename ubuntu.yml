@@ -166,4 +166,3 @@
     import_tasks: tasks/diff-so-fancy.yml
   - name: Create workspace
     import_tasks: tasks/work.yml
-    tags: user
