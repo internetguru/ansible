@@ -9,6 +9,7 @@
     register: workdir
     tags:
       - user
+      - force
 
  # Commands
 
