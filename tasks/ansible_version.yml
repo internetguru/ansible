@@ -1,0 +1,6 @@
+- name: Check ansible version
+  shell: echo
+  failed_when: ansible_version.full < "2.12.0"
+  tags:
+    - global
+    - user

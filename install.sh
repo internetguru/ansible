@@ -54,13 +54,18 @@ main() {
   # shellcheck disable=SC2154
   mkdir -p "${fact_caching_connection}"
   chmod 777 "${fact_caching_connection}"
-  # install ansible requirements
+  # install general collection
   ansible-galaxy collection install community.general \
     || exit 1
-  ansible-galaxy install -r "${DIR}/requirements.ubuntu.yml" \
-    || exit 1
-  chmod -R 755 /usr/share/ansible \
-    || exception "Failed to set permissions to /usr/share/ansible"
+  # install specific roles
+  for config in "$@"; do
+    roles_file="${DIR}/roles.$(basename "${config}")"
+    [[ ! -f  "${roles_file}" ]] \
+      && continue
+    ansible-galaxy install -r "${roles_file}" \
+      || exit 1
+  done
+  chmod -R 755 /usr/share/ansible
   # install global tasks
   for config in "$@"; do
     bash -c "${EXC_DEF}; ${RUN_DEF}; run_playbooks ${config} global" \

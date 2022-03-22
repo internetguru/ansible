@@ -1,5 +1,7 @@
 - hosts: all
   pre_tasks:
+  - name: Check version
+    import_tasks: tasks/ansible_version.yml
   - name: Register current user name
     import_tasks: tasks/user_name.yml
   - name: Check version
