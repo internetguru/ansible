@@ -6,9 +6,10 @@ exception() {
   exit ${2:-1}
 }
 run_playbooks() {
-  echo "Installing ${1} [${2}] as $(whoami)"
+  echo "Installing ${1} [${2}] as $(whoami)..."
   ansible-playbook --connection=local --inventory 127.0.0.1, --tags "${2}" "${1}" \
     || exception "Failed to install ${1} [${2}] as $(whoami)"
+  echo "Installing ${1} [${2}] as $(whoami) SUCCESSFULLY FINISHED"
 }
 main() {
   # shellcheck disable=SC2155
