@@ -67,11 +67,11 @@ main() {
   for user in $(getent passwd {1000..2000} | cut -d: -f1); do
     # install user files and settings
     for config in "$@"; do
+      if [[ ${FORCE} == 1 ]]; then
+        sudo -H -u "${user}" bash -c "${EXC_DEF}; ${RUN_DEF}; run_playbooks ${config} force" \
+          || exit 1
+      fi
       sudo -H -u "${user}" bash -c "${EXC_DEF}; ${RUN_DEF}; run_playbooks ${config} user" \
-        || exit 1
-      [[ ${FORCE} != 1 ]] \
-        && continue
-      sudo -H -u "${user}" bash -c "${EXC_DEF}; ${RUN_DEF}; run_playbooks ${config} force" \
         || exit 1
     done
     # set default shell
