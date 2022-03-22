@@ -26,7 +26,7 @@ sudo apt install git
 
 ## Options
 
- - `-f|--force` Install `force` tag.
+ - `-f|--force` Installs `force` tag before the `user` tag for all existing users.
 
 ## Environments
 
