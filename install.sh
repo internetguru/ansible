@@ -28,7 +28,7 @@ main() {
     case $1 in
       -f|--force) FORCE=1; shift ;;
       --) shift; break ;;
-      *-) echo "$0: Unrecognized option '$1'" >&2; exit 2 ;;
+      *-) exception "Unrecognized option '$1'" 2 ;;
        *) break ;;
     esac
   done
@@ -61,10 +61,6 @@ main() {
   # install global tasks
   for config in "$@"; do
     bash -c "${EXC_DEF}; ${RUN_DEF}; run_playbooks ${config} global" \
-      || exit 1
-    [[ ${FORCE} != 1 ]] \
-      && continue
-    bash -c "${EXC_DEF}; ${RUN_DEF}; run_playbooks ${config} force" \
       || exit 1
   done
   # install user tasks for all users

@@ -107,7 +107,7 @@
     become: yes
     become_user: '{{ username.stdout }}'
     tags:
-      force
+      - force
   - name: Load ubuntu shortcuts
     import_tasks: tasks/ubuntukeys.yml
     become: yes
