@@ -125,6 +125,12 @@
     become_user: '{{ username.stdout }}'
     tags:
       - force
+  - name: Ubuntu config
+    import_tasks: tasks/ubuntucfg.yml
+    become: yes
+    become_user: '{{ username.stdout }}'
+    tags:
+      user
   - name: Load ubuntu shortcuts
     import_tasks: tasks/ubuntukeys.yml
     become: yes
