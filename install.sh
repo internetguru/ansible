@@ -17,6 +17,7 @@ main() {
   declare -r RUN_DEF=$(declare -f run_playbooks)
   # shellcheck disable=SC2155
   declare -r DIR="$(dirname "$0")"
+  declare -r SHELL="/usr/bin/bash"
   declare FORCE=0
   ## option preprocessing
   if ! LINE=$(getopt -n "$0" -o f -l force -- "$@"); then
@@ -74,7 +75,8 @@ main() {
         || exit 1
     done
     # set default shell
-    usermod -s /usr/bin/bash "${user}" \
+    [[ "$(grep "${user}" /etc/passwd | cut -d: -f7)" != "${SHELL}" ]] \
+      || usermod -s "${SHELL}" "${user}" \
       || exit 1
   done
 }
