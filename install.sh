@@ -67,7 +67,7 @@ main() {
   for user in $(getent passwd {1000..2000} | cut -d: -f1); do
     # install user files and settings
     for config in "$@"; do
-      [[ ${FORCE} == 1 ]] \
+      [[ ${FORCE} == 0 ]] \
         || sudo -H -u "${user}" bash -c "${EXC_DEF}; ${RUN_DEF}; run_playbooks ${config} force" \
         || exit 1
       sudo -H -u "${user}" bash -c "${EXC_DEF}; ${RUN_DEF}; run_playbooks ${config} user" \
