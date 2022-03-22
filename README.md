@@ -1,6 +1,6 @@
 # Internet Guru Ansible
 
-> This project contains handy ansible playbooks divided into several environments (below). It installs them globally (general tag) and for all accounts individually (user tag).
+> This project contains handy ansible playbooks divided into several environments (below). It installs them globally (general tag) and for all accounts individually (user tag). Roles are installed for each playbook if the same filename with `roles.` prefix exists, e.g. `roles.ubuntu.yml` for `ubuntu.yml`.
 
  - [Requirements](#requirements)
  - [Environments](#environments)
