@@ -9,8 +9,6 @@
     file:
       path: '/home/{{ username.stdout }}/work'
       state: directory
-    tags:
-      - user
 
   - name: Touch work files
     file:
@@ -32,22 +30,14 @@
     - yaml.yml
     - xml.xml
     - temp.tmp
-    when: not work.stat.exists or "force" in ansible_run_tags
-    tags:
-      - user
-      - force
 
   - name: Set bash.sh exec permission
     file:
       path: /home/{{ username.stdout }}/work/bash.sh
       mode: u+x,g+x
-    tags:
-      - user
 
   - name: Move sample.bib to bibliography.bib
     command: mv /home/{{ username.stdout }}/work/sample.bib /home/{{ username.stdout }}/work/bibliography.bib
     args:
       removes: /home/{{ username.stdout }}/work/sample.bib
       creates: /home/{{ username.stdout }}/work/bibliography.bib
-    tags:
-      - user
