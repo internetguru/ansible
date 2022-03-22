@@ -1,6 +1,6 @@
 # Internet Guru Ansible
 
-> This project contains handy ansible playbooks divided into several environments. To Install selected environments, simply follow instructions below. Same for any additional account. Make sure, each account has `sudo` permissions (see [Howtos](#howtos) section).
+> This project contains handy ansible playbooks divided into several environments (below). It installs them globally (general tag) and for all accounts individually (user tag). Roles are installed for each playbook if the same filename with `roles.` prefix exists, e.g. `roles.ubuntu.yml` for `ubuntu.yml`.
 
  - [Requirements](#requirements)
  - [Environments](#environments)
@@ -23,6 +23,10 @@ sudo apt install python3-pip
 sudo pip install -U "ansible"
 sudo apt install git
 ```
+
+## Options
+
+ - `-f|--force` Force default configurations.
 
 ## Environments
 
@@ -57,7 +61,7 @@ sudo apt install git
 
 ### `ubuntu.yml`
 
-> Enables Windows-like panel and adds practical programs, scripts and adjustments for *Ubuntu*.
+> Enables Windows-like panel and adds practical programs, scripts and adjustments for *Ubuntu*. It also adds basic developer programs and tools.
 
  - gnome-screensaver
  - gnome-session
@@ -77,16 +81,6 @@ sudo apt install git
  - [we-get](https://github.com/rachmadaniHaryono/we-get)
  - [zoom](https://zoom.us/)
 <!-- break -->
- - [system configuration](https://github.com/InternetGuru/ansible/blob/master/tasks/ubuntucfg.yml)
- - [system keyboard shortcuts](https://github.com/InternetGuru/ansible/blob/master/tasks/ubuntukeys.yml)
-
-### `ubuntu-dev.yml`
-
-> Installs developer environment *for Ubuntu*.
-
- - java
- - php 7.4
-<!-- break -->
  - [butt](https://github.com/InternetGuru/butt)
  - [discord](https://discord.com/)
  - [docker](https://www.docker.com/products/docker-app)
@@ -96,11 +90,36 @@ sudo apt install git
  - [virtualbox](https://www.virtualbox.org/)
  - [diff-so-fancy](https://github.com/so-fancy/diff-so-fancy)
 <!-- break -->
+ - java
+ - php 7.4
  - `~/work` folder with various format file names touched
+ - [system configuration](https://github.com/InternetGuru/ansible/blob/master/tasks/ubuntucfg.yml)
+ - [system keyboard shortcuts](https://github.com/InternetGuru/ansible/blob/master/tasks/ubuntukeys.yml)
+
+### `clear.yml`
+
+> Clears previously installed applications and configuration that has been withdrawn.
+
+- [code](https://code.visualstudio.com/)
+- [fish](https://fishshell.com/)
+- [pinta](https://www.pinta-project.com/)
+- [vlc](https://www.videolan.org/vlc/)
+<!-- break -->
+- /usr/local/share/.oh-my-zsh
+<!-- break -->
+- ~/.ansible
+- ~/bashcfg
+- ~/butt
+- ~/omgf
+- ~/vimrc
+- ~/zshrc
+- ~/.zsh_history
+- ~/.zshrc
+- ~/.zshrc.local
 
 ## Complete Ubuntu Setup with Ansible
 
-> This is a complete simple use-case on how to install basic environments on a fresh *Ubuntu* installation, optionally including developer environment. To update, repeat the very same process on an updated repository.
+> This is a complete simple use-case on how to install basic environments on a fresh *Ubuntu* installation. To update, repeat the very same process on an updated repository.
 
 1. Install updates or existing packages
    ```
@@ -112,18 +131,10 @@ sudo apt install git
    ```
    git clone https://github.com/InternetGuru/ansible.git || git -C ansible pull
    ```
-1. Force default favorites for current user *(optional)*
-   ```
-   dconf reset /org/gnome/shell/favorite-apps
-   ```
-1. Force default Variety configuration for current user *(optional)*
-   ```
-   mv ~/.config/variety ~/.config/variety.bak
-   ```
-1. Install ansible for all users
+1. Install ansible for all users forcing defaults
    ```
    cd ~/ansible
-   sudo ./install.sh fresh.yml ubuntu.yml
+   sudo ./install.sh --force fresh.yml ubuntu.yml
    sudo reboot
    ```
 
@@ -190,4 +201,4 @@ sudo apt install git
 
  - [x] Shortcut to turn off the screen with no lock and no suspend.
  - [x] Do nothing when lid is closed.
- - [ ] Configuration override option, e.g. favorites, variety.
+ - [x] Configuration override option, e.g. favorites, variety.
