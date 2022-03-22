@@ -26,7 +26,7 @@ sudo apt install git
 
 ## Environments
 
-### `fresh-env.yml`
+### `fresh.yml`
 
 > Installs essential commands and CLI environment for Debian/Ubuntu.
 
@@ -123,7 +123,7 @@ sudo apt install git
 1. Install ansible for all users
    ```
    cd ~/ansible
-   sudo ./install_pc.sh
+   sudo ./install.sh fresh.yml ubuntu.yml
    sudo reboot
    ```
 
