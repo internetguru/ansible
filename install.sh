@@ -49,11 +49,12 @@ main() {
   done
   [[ $(id -u) != 0 ]] \
     && exception "Script must be run as root"
-  # create global cache folder
-  mkdir -p /tmp/facts_cache
-  chmod 777 /tmp/facts_cache
-  # force config location
+  # force config location for ansible
   export ANSIBLE_CONFIG="${DIR}/ansible.cfg"
+  eval "$(tail --lines=+2 "${ANSIBLE_CONFIG}")"
+  # shellcheck disable=SC2154
+  mkdir -p "${fact_caching_connection}"
+  chmod 777 "${fact_caching_connection}"
   # install ansible requirements
   ansible-galaxy collection install community.general \
     || exit 1
