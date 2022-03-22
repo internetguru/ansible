@@ -161,10 +161,6 @@ sudo apt install git
    - Check your internet connection and run ansible again.
  - *"already installed"* warnings
    - *Ignore.*
- - *"This task (name) has extra params, which is only allowed"* error
-   1. Make sure you installed Ansible using pip (see Requirements above).
-   1. You may need to remove the old Ansible version.
-      `sudo rm -rf /usr/lib/python3/dist-packages/ansible/`
  - Sublime Text not downloading shared settings after installation.
    1. Open Sublime Text.
    1. Run Tools / Command Pallette… (`ctrl+shift+p`) / Install Package Control (or just type `ipc` and press `Enter`).
