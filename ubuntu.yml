@@ -1,4 +1,21 @@
 - hosts: all
+  vars:
+    workfiles:
+      - bash.sh
+      - html.html
+      - java.java
+      - latex.tex
+      - php.php
+      - text.txt
+      - data.dat
+      - email.md
+      - json.json
+      - markdown.md
+      - python.py
+      - bibliography.bib
+      - yaml.yml
+      - xml.xml
+      - temp.tmp
   pre_tasks:
   - name: Check version
     import_tasks: tasks/ansible_version.yml
@@ -166,4 +183,3 @@
     import_tasks: tasks/diff-so-fancy.yml
   - name: Create workspace
     import_tasks: tasks/work.yml
-    tags: user
