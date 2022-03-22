@@ -10,14 +10,6 @@ run_playbooks() {
   ansible-playbook --connection=local --inventory 127.0.0.1, --tags "${2}" "${1}" \
     || exception "Failed to install ${1} [${2}] as $(whoami)"
 }
-force_defaults() {
-  sudo -H -u "${1}" bash <<-EOF
-   exec dbus-run-session -- bash -c "dconf reset /org/gnome/shell/favorite-apps"
-EOF
-  sudo -H -u "${1}" bash -c "mv -f ~/.config/variety{,.bak} 2>/dev/null"
-  sudo -H -u "${1}" bash -c "mv -f ~/.config/sublime-text-3{,.bak} 2>/dev/null"
-  sudo -H -u "${1}" bash -c "mv -f ~/.cache/sublime-text-3{,.bak} 2>/dev/null"
-}
 main() {
   # shellcheck disable=SC2155
   declare -r EXC_DEF=$(declare -f exception)
@@ -70,15 +62,20 @@ main() {
   for config in "$@"; do
     bash -c "${EXC_DEF}; ${RUN_DEF}; run_playbooks ${config} global" \
       || exit 1
+    [[ ${FORCE} != 1 ]] \
+      && continue
+    bash -c "${EXC_DEF}; ${RUN_DEF}; run_playbooks ${config} force" \
+      || exit 1
   done
   # install user tasks for all users
   for user in $(getent passwd {1000..2000} | cut -d: -f1); do
-    # force defaults
-    [[ ${FORCE} == 1 ]] \
-      && force_defaults "${user}"
     # install user files and settings
     for config in "$@"; do
       sudo -H -u "${user}" bash -c "${EXC_DEF}; ${RUN_DEF}; run_playbooks ${config} user" \
+        || exit 1
+      [[ ${FORCE} != 1 ]] \
+        && continue
+      sudo -H -u "${user}" bash -c "${EXC_DEF}; ${RUN_DEF}; run_playbooks ${config} force" \
         || exit 1
     done
     # set default shell

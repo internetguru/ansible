@@ -100,12 +100,14 @@
       mode: '0777'
     tags:
       - global
-  - name: Load ubuntu settings
-    import_tasks: tasks/ubuntucfg.yml
+  - name: Force favorites
+    community.general.dconf:
+      key: '/org/gnome/shell/favorite-apps'
+      state: absent
     become: yes
     become_user: '{{ username.stdout }}'
     tags:
-      user
+      force
   - name: Load ubuntu shortcuts
     import_tasks: tasks/ubuntukeys.yml
     become: yes
@@ -124,8 +126,6 @@
     import_tasks: tasks/variety.yml
     become: yes
     become_user: '{{ username.stdout }}'
-    tags:
-      - user
   - name: Install popcorntime
     import_tasks: tasks/popcorntime.yml
     tags:
