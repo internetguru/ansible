@@ -8,20 +8,42 @@
     stat:
       path: '/home/{{ username.stdout }}/.config/autostart/variety.desktop'
     register: varietyautostart
+    tags:
+      - user
 
  # Commands
+
+  - name: Force defaults (rm .bak)
+    file:
+      path: /home/{{ username.stdout }}/.config/variety.bak
+      state: absent
+    tags:
+      - force
+
+  - name: Force defaults (move current config to .bak)
+    command: mv /home/{{ username.stdout }}/.config/variety /home/{{ username.stdout }}/.config/variety.bak
+    args:
+      removes: /home/{{ username.stdout }}/.config/variety
+    tags:
+      - force
 
   - name: Create /home/{{ username.stdout }}/.config/autostart
     file:
       path: '/home/{{ username.stdout }}/.config/autostart'
       state: directory
+    tags:
+      - user
 
   - name: Copy variety settings iff not exists
     copy:
       src: '../res/variety/'
       dest: '/home/{{ username.stdout }}/.config/variety/'
       force: no
+    tags:
+      - user
 
   - name: Create variety autostart iff not exists
     shell: 'printf "$(cat "{{ playbook_dir }}/res/variety.desktop")" "{{ username.stdout }}" > "/home/{{ username.stdout }}/.config/autostart/variety.desktop"'
     when: not varietyautostart.stat.exists
+    tags:
+      - user

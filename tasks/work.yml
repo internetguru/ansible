@@ -3,41 +3,52 @@
 
  # Checks
 
+  - name: Check if work directory exists
+    stat:
+      path: '/home/{{ username.stdout }}/work'
+    register: workdir
+    tags:
+      - user
+      - force
+
  # Commands
 
   - name: Create ~/work dir
     file:
       path: '/home/{{ username.stdout }}/work'
       state: directory
+    tags:
+      - user
 
   - name: Touch work files
     file:
       path: '/home/{{ username.stdout }}/work/{{ item }}'
       state: touch
-    with_items:
-    - bash.sh
-    - html.html
-    - java.java
-    - latex.tex
-    - php.php
-    - text.txt
-    - data.dat
-    - email.md
-    - json.json
-    - markdown.md
-    - python.py
-    - bibliography.bib
-    - yaml.yml
-    - xml.xml
-    - temp.tmp
+    with_items: '{{ workfiles }}'
+    when: not workdir.stat.exists
+    tags:
+      - user
+
+  - name: Touch work files force
+    file:
+      path: '/home/{{ username.stdout }}/work/{{ item }}'
+      state: touch
+    with_items: '{{ workfiles }}'
+    when: workdir.stat.exists
+    tags:
+      - force
 
   - name: Set bash.sh exec permission
     file:
       path: /home/{{ username.stdout }}/work/bash.sh
       mode: u+x,g+x
+    tags:
+      - user
 
   - name: Move sample.bib to bibliography.bib
     command: mv /home/{{ username.stdout }}/work/sample.bib /home/{{ username.stdout }}/work/bibliography.bib
     args:
       removes: /home/{{ username.stdout }}/work/sample.bib
       creates: /home/{{ username.stdout }}/work/bibliography.bib
+    tags:
+      - user
