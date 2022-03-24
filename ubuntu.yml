@@ -27,7 +27,7 @@
       - user
       - global
   roles:
-  - role: cmprescott.chrome
+  - role: internetguru.chrome
     tags:
       - global
   - role: PeterMosmans.customize-gnome
