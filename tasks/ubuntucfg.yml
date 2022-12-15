@@ -29,11 +29,6 @@
       key: '/org/gnome/desktop/session/idle-delay'
       value: 'uint32 900'
 
-  - name: Hide appmenu
-    community.general.dconf:
-      key: '/org/gnome/shell/extensions/dash-to-panel/show-appmenu'
-      value: 'false'
-
   - name: Disable lock screen notifications
     community.general.dconf:
       key: '/org/gnome/desktop/notifications/show-in-lock-screen'
@@ -93,7 +88,7 @@
   - name: Set favorite apps iff not set
     community.general.dconf:
       key: '/org/gnome/shell/favorite-apps'
-      value: "['google-chrome.desktop', 'org.gnome.Nautilus.desktop', 'org.gnome.Terminal.desktop', 'sublime_text.desktop', 'discord_discord.desktop']"
+      value: "['google-chrome.desktop', 'org.gnome.Nautilus.desktop', 'org.gnome.Terminal.desktop', 'sublime_text.desktop', 'slack_slack.desktop']"
     when: not favorites.value
 
   - name: Clock override format
@@ -196,7 +191,7 @@
   - name: Dash-to-panel settings
     community.general.dconf:
       key: '/org/gnome/shell/extensions/dash-to-panel/show-appmenu'
-      value: 'true'
+      value: 'false'
   - name: Dash-to-panel settings
     community.general.dconf:
       key: '/org/gnome/shell/extensions/dash-to-panel/show-apps-icon-file'
