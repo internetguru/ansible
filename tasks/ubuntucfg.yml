@@ -29,6 +29,11 @@
       key: '/org/gnome/desktop/session/idle-delay'
       value: 'uint32 900'
 
+  - name: Hide appmenu
+    community.general.dconf:
+      key: '/org/gnome/shell/extensions/dash-to-panel/show-appmenu'
+      value: 'false'
+
   - name: Disable lock screen notifications
     community.general.dconf:
       key: '/org/gnome/desktop/notifications/show-in-lock-screen'

@@ -14,8 +14,20 @@
     apt_repository:
       repo: 'ppa:ondrej/php'
 
-  - name: Install PHP 7.4
+  - name: Install PHP 8.1
     apt:
       pkg:
-      - php7.4-fpm
+      - php8.1-fpm
+
+  - name: Install php extensions
+    apt:
+      pkg:
+      - php-common
+      - php-mysql
+      - php-gd
+      - php-bcmath
+      - php-json
+      - php-xml
+      - php-curl
+      - php-mbstring
 
