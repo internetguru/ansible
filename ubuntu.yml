@@ -43,6 +43,7 @@
   - role: geerlingguy.java
     tags:
       - global
+    ignore_errors: yes
   tasks:
   - name: Set default browser
     shell: xdg-settings set default-web-browser google-chrome.desktop
@@ -73,7 +74,6 @@
       - gnome-session
       - gnome-settings-daemon
       - gnome-tweaks
-      - gnome-shell-extension-dash-to-panel
       - python3-pip
       - kolourpaint
       - rtorrent
@@ -82,16 +82,26 @@
       - wmctrl
       - variety
       - keepass2
+      update_cache: yes
     tags:
       - global
-  - name: Install we-get and psutil
-    pip:
-      name:
-      - prompt_toolkit==1.0.14
-      - git+https://github.com/rachmadaniHaryono/we-get
-      - psutil
+  - name: Download dash to panel extension
+    git:
+      repo: 'https://github.com/home-sweet-gnome/dash-to-panel.git'
+      dest: '/home/{{ username.stdout }}/dash-to-panel'
+    tags:
+      - user
+  - name: Install dash to panel extension
+    make:
+      chdir: '/home/{{ username.stdout }}/dash-to-panel'
+      target: install
+    tags:
+      - user
+  - name: Enable dash to panel extension
+    shell: gnome-extensions enable "dash-to-panel@jderose9.github.com"
     tags:
       - global
+      - user
   - name: Install google remote desktop
     apt:
       deb: https://dl.google.com/linux/direct/chrome-remote-desktop_current_amd64.deb
@@ -149,27 +159,27 @@
     import_tasks: tasks/variety.yml
     become: yes
     become_user: '{{ username.stdout }}'
-  - name: Install popcorntime
-    import_tasks: tasks/popcorntime.yml
-    tags:
-      - global
   - name: Install teamviewer
     import_tasks: tasks/teamviewer.yml
     tags:
       - global
+    ignore_errors: yes
   - name: Install slack
     snap:
       name: slack
       classic: yes
     tags: global
+    ignore_errors: yes
   - name: Install discord
     snap:
       name: discord
       classic: yes
     tags: global
+    ignore_errors: yes
   - name: Install virtualbox
     apt:
       name: virtualbox
+    ignore_errors: yes
     tags: global
   - name: Install sublime
     import_tasks: tasks/sublime.yml
