@@ -57,3 +57,15 @@
     tags:
       - user
       - global
+  - name: Remove omgf src
+    file:
+      state: absent
+      path: /usr/local/src/omgf
+  - name: Remove omgf share
+    file:
+      state: absent
+      path: /usr/local/share/omgf
+  - name: Remove omgf bin
+    file:
+      state: absent
+      path: /usr/local/bin/omgf
