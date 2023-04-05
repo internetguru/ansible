@@ -62,7 +62,7 @@ main() {
       || exit 1
   done
   chmod -R 755 /usr/share/ansible
-  if [[ $SKIP_GLOBAL == 1 ]]; then
+  if [[ $SKIP_GLOBAL == 0 ]]; then
     # install global tasks
     for config in "$@"; do
       bash -c "${EXC_DEF}; ${RUN_DEF}; run_playbooks ${config} global" \
