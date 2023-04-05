@@ -22,7 +22,7 @@ main() {
   declare FORCE=0
   declare SKIP_GLOBAL=0
   ## option preprocessing
-  if ! LINE=$(getopt -n "$0" -o f -l force -- "$@"); then
+  if ! LINE=$(getopt -n "$0" -o fs -l force,skip-global -- "$@"); then
     exit 1
   fi
   eval set -- "$LINE"
