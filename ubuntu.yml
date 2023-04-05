@@ -30,16 +30,16 @@
   - role: internetguru.chrome
     tags:
       - global
-  - role: PeterMosmans.customize-gnome
-    vars:
-      gnome_user: '{{ username.stdout }}'
-      gnome_extensions:
-        - url: https://extensions.gnome.org/extension-data/disable-screenshield%40lgpasquale.com.v7.shell-extension.zip
-          name: 'disable-screenshield@lgpasquale.com'
-        - url: https://extensions.gnome.org/extension-data/clock-overridegnomeshell.kryogenix.org.v12.shell-extension.zip
-          name: 'clock-override@gnomeshell.kryogenix.org'
-    tags:
-      - global
+  # - role: PeterMosmans.customize-gnome
+  #   vars:
+  #     gnome_user: '{{ username.stdout }}'
+  #     gnome_extensions:
+  #       - url: https://extensions.gnome.org/extension-data/disable-screenshield%40lgpasquale.com.v7.shell-extension.zip
+  #         name: 'disable-screenshield@lgpasquale.com'
+  #       - url: https://extensions.gnome.org/extension-data/clock-overridegnomeshell.kryogenix.org.v12.shell-extension.zip
+  #         name: 'clock-override@gnomeshell.kryogenix.org'
+  #   tags:
+  #     - global
   - role: geerlingguy.java
     tags:
       - global
@@ -189,8 +189,8 @@
   - name: Install PHP
     import_tasks: tasks/php.yml
     tags: global
-  - name: Install omgf
-    import_tasks: tasks/omgf.yml
+  - name: Install flow
+    import_tasks: tasks/flow.yml
     tags: global
   - name: Install butt
     import_tasks: tasks/butt.yml

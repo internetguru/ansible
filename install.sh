@@ -20,6 +20,7 @@ main() {
   declare -r WORKDIR="$(dirname "$0")"
   declare -r USE_SHELL="/usr/bin/bash"
   declare FORCE=0
+  declare SKIP_GLOBAL=0
   ## option preprocessing
   if ! LINE=$(getopt -n "$0" -o f -l force -- "$@"); then
     exit 1
@@ -29,6 +30,7 @@ main() {
   while [ $# -gt 0 ]; do
     case $1 in
       -f|--force) FORCE=1; shift ;;
+      -s|--skip-global) SKIP_GLOBAL=1; shift ;;
       --) shift; break ;;
       *-) exception "Unrecognized option '$1'" 2 ;;
        *) break ;;
@@ -60,11 +62,13 @@ main() {
       || exit 1
   done
   chmod -R 755 /usr/share/ansible
-  # install global tasks
-  for config in "$@"; do
-    bash -c "${EXC_DEF}; ${RUN_DEF}; run_playbooks ${config} global" \
-      || exit 1
-  done
+  if [[ $SKIP_GLOBAL == 1 ]]; then
+    # install global tasks
+    for config in "$@"; do
+      bash -c "${EXC_DEF}; ${RUN_DEF}; run_playbooks ${config} global" \
+        || exit 1
+    done
+  fi
   # install user tasks for all users
   for user in $(getent passwd {1000..2000} | cut -d: -f1); do
     # install user files and settings
