@@ -51,7 +51,8 @@ main() {
   mkdir -p "${fact_caching_connection}"
   chmod 777 "${fact_caching_connection}"
   # install general collection
-  ansible-galaxy collection install community.general \
+  # downgrade because of bug, see https://github.com/ansible-collections/community.general/issues/6271
+  ansible-galaxy collection install community.general:6.4.0 \
     || exit 1
   # install specific roles
   for config in "$@"; do
