@@ -27,12 +27,16 @@
     import_tasks: tasks/bashcfg.yml
   - name: Install vimrc
     import_tasks: tasks/vimrc.yml
+  - name: Create .ssh dir
+    file:
+      path: '/home/{{ username.stdout }}/.ssh'
+      state: directory
   - name: Keep alive ssh
     blockinfile:
       path: '/home/{{ username.stdout }}/.ssh/config'
+      create: true
       block: |
         Host *
         ServerAliveInterval 240
     tags:
       - user
- 
