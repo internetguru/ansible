@@ -79,6 +79,11 @@
       key: '/org/gnome/shell/enabled-extensions'
       value: "['dash-to-panel@jderose9.github.com', 'date-menu-formatter@marcinjakubowski.github.com']"
 
+  - name: Set dark theme
+    community.general.dconf:
+      key: '/org/gnome/desktop/interface/gtk-theme'
+      value: "'Yaru-dark'"
+
   - name: Read favorite apps
     community.general.dconf:
       key: "/org/gnome/shell/favorite-apps"
