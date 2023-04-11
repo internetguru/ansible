@@ -1,14 +1,20 @@
 # Internet Guru Ansible
 
-> This project contains handy ansible playbooks divided into several environments (below). It installs the `general` tag globally and `user` tag for all accounts individually. Roles are installed for each playbook if the same playbook file exists with `roles.` prefix, e.g. `roles.ubuntu.yml` for `ubuntu.yml`.
+> This project contains handy ansible playbooks divided into several environments (below). It installs 'global' tag globally and 'user' tag for all accounts individually. Roles are installed for each playbook if the same playbook file exists with a `roles.` prefix, e.g. `roles.ubuntu.yml` for `ubuntu.yml`.
 
+ - [Options](#options)
  - [Requirements](#requirements)
+ - [Setup Guide](#setup-guide)
  - [Environments](#environments)
- - [Complete Ubuntu Setup with Ansible](#complete-ubuntu-setup-with-ansible)
  - [Shortcuts](#shortcuts)
  - [Troubleshooting](#troubleshooting)
  - [Howtos](#howtos)
  - [Suggestions](#suggestions)
+
+## Options
+
+ - `-s|--skip-global` Skip tasks with 'global' tag.
+ - `-f|--force` Install tasks with 'force' tag.
 
 ## Requirements
 
@@ -19,14 +25,33 @@
  - ansible and git
 
 ```
+sudo apt update
+sudo apt upgrade -y
 sudo apt install python3-pip
-sudo pip install -U "ansible"
+sudo pip install -U ansible
 sudo apt install git
 ```
 
-## Options
+## Setup Guide
 
- - `-f|--force` Installs `force` tag before the `user` tag for all existing users.
+> This is a complete simple use-case on how to install basic environments on a fresh *Ubuntu* installation. To update, repeat the very same process on an updated repository.
+
+1. Install updates or existing packages
+   ```
+   sudo apt update
+   sudo apt upgrade -y
+   sudo reboot
+   ```
+1. Clone or update ansible project
+   ```
+   git clone https://github.com/internetguru/ansible.git || git -C ansible pull
+   ```
+1. Install ansible for all users forcing defaults
+   ```
+   cd ~/ansible
+   sudo ./install.sh fresh.yml ubuntu.yml
+   sudo reboot
+   ```
 
 ## Environments
 
@@ -56,7 +81,7 @@ sudo apt install git
 > Sets up Internet Guru server environment.
 
  - 2 GB swapfile in `/root/swapfile`
- - [Internet Guru MOTD](https://github.com/InternetGuru/ansible/blob/master/res/20-ig)
+ - [Internet Guru MOTD](https://github.com/internetguru/ansible/blob/master/res/20-ig)
  - ufw with basic rules
 
 ### `ubuntu.yml`
@@ -81,10 +106,10 @@ sudo apt install git
  - [we-get](https://github.com/rachmadaniHaryono/we-get)
  - [zoom](https://zoom.us/)
 <!-- break -->
- - [butt](https://github.com/InternetGuru/butt)
+ - [butt](https://github.com/internetguru/butt)
  - [discord](https://discord.com/)
  - [docker](https://www.docker.com/products/docker-app)
- - [omgf](https://github.com/InternetGuru/omgf)
+ - [omgf](https://github.com/internetguru/omgf)
  - [slack](https://slack.com/)
  - [sublime-text](https://www.sublimetext.com/3) with [shared settings](https://gist.github.com/petrzpav/abf3fa8890a04fd5dedb0dd20711f042)
  - [virtualbox](https://www.virtualbox.org/)
@@ -93,8 +118,8 @@ sudo apt install git
  - java
  - php 7.4
  - `~/work` folder with various format file names touched
- - [system configuration](https://github.com/InternetGuru/ansible/blob/master/tasks/ubuntucfg.yml)
- - [system keyboard shortcuts](https://github.com/InternetGuru/ansible/blob/master/tasks/ubuntukeys.yml)
+ - [system configuration](https://github.com/internetguru/ansible/blob/master/tasks/ubuntucfg.yml)
+ - [system keyboard shortcuts](https://github.com/internetguru/ansible/blob/master/tasks/ubuntukeys.yml)
 
 ### `clear.yml`
 
@@ -116,27 +141,6 @@ sudo apt install git
 - ~/.zsh_history
 - ~/.zshrc
 - ~/.zshrc.local
-
-## Complete Ubuntu Setup with Ansible
-
-> This is a complete simple use-case on how to install basic environments on a fresh *Ubuntu* installation. To update, repeat the very same process on an updated repository.
-
-1. Install updates or existing packages
-   ```
-   sudo apt update
-   sudo apt upgrade -y
-   sudo reboot
-   ```
-1. Clone or update ansible project
-   ```
-   git clone https://github.com/InternetGuru/ansible.git || git -C ansible pull
-   ```
-1. Install ansible for all users forcing defaults
-   ```
-   cd ~/ansible
-   sudo ./install.sh --force fresh.yml ubuntu.yml
-   sudo reboot
-   ```
 
 ## Shortcuts
 
