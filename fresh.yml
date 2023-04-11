@@ -31,6 +31,8 @@
     file:
       path: '/home/{{ username.stdout }}/.ssh'
       state: directory
+    tags:
+      - user
   - name: Keep alive ssh
     blockinfile:
       path: '/home/{{ username.stdout }}/.ssh/config'
