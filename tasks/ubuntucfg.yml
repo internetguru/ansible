@@ -83,6 +83,10 @@
     community.general.dconf:
       key: '/org/gnome/desktop/interface/gtk-theme'
       value: "'Yaru-dark'"
+  - name: Set dark theme
+    community.general.dconf:
+      key: '/org/gnome/desktop/interface/color-scheme'
+      value: "'prefer-dark'"
 
   - name: Read favorite apps
     community.general.dconf:
