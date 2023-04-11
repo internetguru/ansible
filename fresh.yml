@@ -21,6 +21,14 @@
     become: yes
     become_user: '{{ username.stdout }}'
     tags: user
+  - name: Copy htop settings
+    copy:
+      src: './res/htoprc'
+      dest: '/home/{{ username.stdout }}/.config/htop/htoprc'
+      force: no
+    become: yes
+    become_user: '{{ username.stdout }}'
+    tags: user
   - name: Install and configure shell and prompt
     import_tasks: tasks/terminal.yml
   - name: Install bashcfg
