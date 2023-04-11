@@ -23,8 +23,8 @@
     tags: user
   - name: Copy htop settings
     copy:
-      src: './res/htoprc'
-      dest: '/home/{{ username.stdout }}/.config/htop/htoprc'
+      src: './res/htop/htoprc'
+      dest: '/home/{{ username.stdout }}/.config/htop/'
       force: no
     become: yes
     become_user: '{{ username.stdout }}'
