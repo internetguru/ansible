@@ -102,20 +102,37 @@
     tags:
       - global
       - user
+
+  - name: Check date-menu-formatter is installed
+    stat:
+      path: '/home/{{ username.stdout }}/.local/share/gnome-shell/extensions/date-menu-formatter@marcinjakubowski.github.com'
+    check_mode: true
+    changed_when: false
+    register: date_menu
+    tags:
+      - user
+      - force
   - name: Download date-menu-formatter
     get_url:
       url: https://extensions.gnome.org/extension-data/date-menu-formattermarcinjakubowski.github.com.v10.shell-extension.zip
       dest: /tmp/date-menu-formatter.zip
+    when: not date_menu.stat.exists or 'force' in ansible_run_tags
     tags:
       - user
+      - force
   - name: Install date-menu-formatter
-    shell: gnome-extensions install "/tmp/date-menu-formatter.zip"
+    shell: gnome-extensions install -f "/tmp/date-menu-formatter.zip"
+    when: not date_menu.stat.exists or 'force' in ansible_run_tags
     tags:
       - user
+      - force
   - name: Enable date-menu-formatter
     shell: gnome-extensions enable "date-menu-formatter@marcinjakubowski.github.com"
+    when: not date_menu.stat.exists or 'force' in ansible_run_tags
     tags:
       - user
+      - force
+
   - name: Install google remote desktop
     apt:
       deb: https://dl.google.com/linux/direct/chrome-remote-desktop_current_amd64.deb
