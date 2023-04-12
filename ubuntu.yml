@@ -70,6 +70,8 @@
   - name: Add variety ppa
     apt_repository:
       name: ppa:variety/stable
+    tags:
+      - global
   - name: Install packages
     apt:
       pkg:
