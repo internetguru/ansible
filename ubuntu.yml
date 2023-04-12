@@ -69,7 +69,7 @@
       - user
   - name: Add variety ppa
     apt_repository:
-      name: ppa:variety/stable
+      repo: ppa:variety/stable
     tags:
       - global
   - name: Install packages
