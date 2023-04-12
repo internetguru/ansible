@@ -67,6 +67,9 @@
     become_user: '{{ username.stdout }}'
     tags:
       - user
+  - name: Add variety ppa
+    apt_repository:
+      name: ppa:variety/stable
   - name: Install packages
     apt:
       pkg:
