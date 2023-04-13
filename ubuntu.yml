@@ -238,8 +238,6 @@
   - name: Download and execute NodeSource setup script for Node.js 18
     shell:
       cmd: "curl -fsSL https://deb.nodesource.com/setup_18.x | sudo -E bash -"
-      args:
-        warn: no
     tags: global
   - name: Install Node.js 18 and npm
     apt:
