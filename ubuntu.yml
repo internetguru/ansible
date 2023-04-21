@@ -87,6 +87,7 @@
       - wmctrl
       - variety
       - keepass2
+      - shellcheck
       update_cache: yes
     tags:
       - global
