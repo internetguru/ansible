@@ -1,6 +1,6 @@
 # Internet Guru Ansible
 
-> This project contains handy ansible playbooks divided into several environments (below). It installs 'global' tag globally and 'user' tag for all accounts individually. Roles are installed for each playbook if the same playbook file exists with a `roles.` prefix, e.g. `roles.ubuntu.yml` for `ubuntu.yml`.
+This project contains handy ansible playbooks divided into several environments. It installs 'global' tag globally and 'user' tag for all accounts individually. Roles are installed for each playbook if the same playbook file exists with a `roles.` prefix, e.g. `roles.ubuntu.yml` for `ubuntu.yml`.
 
  - [Options](#options)
  - [Requirements](#requirements)
@@ -9,7 +9,6 @@
  - [Shortcuts](#shortcuts)
  - [Troubleshooting](#troubleshooting)
  - [Howtos](#howtos)
- - [Suggestions](#suggestions)
 
 ## Options
 
@@ -34,19 +33,27 @@ sudo apt install git
 
 ## Setup Guide
 
-> This is a complete simple use-case on how to install basic environments on a fresh *Ubuntu* installation. To update, repeat the very same process on an updated repository.
+This is a complete simple use-case on how to install basic environments on a fresh *Ubuntu* installation. To update or sync after adding a new user account, repeat the very same process.
 
-1. Install updates or existing packages
+1. Install updates or existing packages \
+The third command will reboot the computer which may or may not be necessary.
+
    ```
    sudo apt update
    sudo apt upgrade -y
    sudo reboot
    ```
-1. Clone or update ansible project
+
+1. Clone or update ansible project \
+This command either creates (clones) or updates the existing `ansible` repository.
+
    ```
    git clone https://github.com/internetguru/ansible.git || git -C ansible pull
    ```
-1. Install ansible for all users forcing defaults
+
+1. Install ansible for all users
+See options below and notice another reboot command.
+
    ```
    cd ~/ansible
    sudo ./install.sh fresh.yml ubuntu.yml
@@ -57,24 +64,27 @@ sudo apt install git
 
 ### `fresh.yml`
 
-> Installs essential commands and CLI environment for Debian/Ubuntu.
+Installs essential commands and CLI environment for Debian/Ubuntu.
 
- - avahi-daemon
- - build-essential
- - curl
- - gettext
- - git
- - htop
- - mc
- - net-tools
- - tldr
- - tree
  - vim
+ - curl
+ - htop
+ - git
+ - mc
+ - build-essential
+ - net-tools
+ - gettext
+ - tree
+ - tldr
+ - avahi-daemon
 <!-- break -->
  - [bashcfg](https://bitbucket.org/igwr/bashcfg)
  - [fonts-firacode](https://github.com/tonsky/FiraCode)
  - [starship prompt](https://starship.rs/)
  - [vimrc](https://github.com/petrzpav/vimrc)
+<!-- break -->
+ - Set keep alive SSH
+ - Disable wayland
 
 ### `server.yml`
 
@@ -86,48 +96,58 @@ sudo apt install git
 
 ### `ubuntu.yml`
 
-> Enables Windows-like panel and adds practical programs, scripts and adjustments for *Ubuntu*. It also adds basic developer programs and tools.
+Enables Windows-like panel and adds practical programs, scripts and adjustments for *Ubuntu*. It also adds basic developer programs and tools.
 
  - gnome-screensaver
  - gnome-session
  - gnome-settings-daemon
- - gnome-shell-extension-dash-to-panel
  - gnome-tweaks
 <!-- break -->
+ - [kolourpaint](https://apps.kde.org/kolourpaint/) (alternative to MS Paint)
+ - [rtorrent](https://github.com/rakshasa/rtorrent/wiki) ([cheet sheet](https://devhints.io/rtorrent))
+ - [rhythmbox](https://wiki.gnome.org/Apps/Rhythmbox)
+ - [mpv](https://mpv.io/)
+ - [wmctrl](https://linux.die.net/man/1/wmctrl)
+ - [variety](https://peterlevi.com/variety) with awesome background sources!
+ - [keepass](https://keepass.info/)
+ - [shellcheck](https://www.shellcheck.net/)
+<!-- break -->
+ - [dash-to-panel](https://github.com/home-sweet-gnome/dash-to-panel.git)
  - [google-chrome](https://www.google.com/chrome/)
    - chrome-remote-desktop
- - [keepass](https://keepass.info/)
- - [mpv](https://mpv.io/)
- - [kolourpaint](https://apps.kde.org/kolourpaint/) (alternative to MS Paint)
+   - set as default browser
  - [popcorn time](https://github.com/popcorn-time-ru/popcorn-desktop)
- - [rhythmbox](https://wiki.gnome.org/Apps/Rhythmbox)
- - [rtorrent](https://github.com/rakshasa/rtorrent/wiki) ([cheet sheet](https://devhints.io/rtorrent))
- - [variety](https://peterlevi.com/variety)
  - [we-get](https://github.com/rachmadaniHaryono/we-get)
  - [zoom](https://zoom.us/)
 <!-- break -->
- - [butt](https://github.com/internetguru/butt)
- - [discord](https://discord.com/)
- - [docker](https://www.docker.com/products/docker-app)
- - [omgf](https://github.com/internetguru/omgf)
+ - [teamviewer](https://www.teamviewer.com/en-us)
  - [slack](https://slack.com/)
- - [sublime-text](https://www.sublimetext.com/3) with [shared settings](https://gist.github.com/petrzpav/abf3fa8890a04fd5dedb0dd20711f042)
+ - [discord](https://discord.com/)
  - [virtualbox](https://www.virtualbox.org/)
+ - [sublime-text](https://www.sublimetext.com/3) with [shared settings](https://gist.github.com/petrzpav/abf3fa8890a04fd5dedb0dd20711f042)
+ - [docker](https://www.docker.com/products/docker-app)
+ - [flow](https://github.com/internetguru/flow)
+ - [butt](https://github.com/internetguru/butt)
  - [diff-so-fancy](https://github.com/so-fancy/diff-so-fancy)
 <!-- break -->
  - java
- - php 7.4
+ - php
+ - nodejs
+ - python3
  - `~/work` folder with various format file names touched
  - [system configuration](https://github.com/internetguru/ansible/blob/master/tasks/ubuntucfg.yml)
  - [system keyboard shortcuts](https://github.com/internetguru/ansible/blob/master/tasks/ubuntukeys.yml)
+ - date-menu-formatter
+ - night light control script
+ - default favorites
+ - ubuntu-drivers autoinstall
 
 ### `clear.yml`
 
-> Clears previously installed applications and configuration that has been withdrawn.
+Clears previously installed applications and configuration that has been withdrawn.
 
 - [code](https://code.visualstudio.com/)
 - [fish](https://fishshell.com/)
-- [pinta](https://www.pinta-project.com/)
 - [vlc](https://www.videolan.org/vlc/)
 <!-- break -->
 - /usr/local/share/.oh-my-zsh
@@ -196,9 +216,3 @@ sudo apt install git
  - [Grant And Remove Sudo Privileges](https://ostechnix.com/how-to-grant-and-remove-sudo-privileges-to-users-on-ubuntu/)
  - [Internal Microphone Not Working](https://askubuntu.com/questions/6993/internal-microphone-not-working)
  - [MPV keyboard shortcuts](https://mpv.io/manual/master/#keyboard-control)
-
-## Suggestions
-
- - [x] Shortcut to turn off the screen with no lock and no suspend.
- - [x] Do nothing when lid is closed.
- - [x] Configuration override option, e.g. favorites, variety.
