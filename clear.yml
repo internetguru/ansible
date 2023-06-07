@@ -1,0 +1,71 @@
+- hosts: all
+  pre_tasks:
+  - name: Register current user name
+    import_tasks: tasks/user_name.yml
+  - name: Check version
+    import_tasks: tasks/version.yml
+    tags:
+      - user
+      - global
+  tasks:
+  - name: Remove old global config
+    file:
+      path: '{{ item }}'
+      state: absent
+    with_items:
+    - '/usr/local/share/.oh-my-zsh'
+    tags:
+      - global
+  - name: Uninstall VSC
+    apt:
+      pkg: code
+      state: absent
+    tags:
+      - global
+  - name: Uninstall VLC
+    apt:
+      pkg: vlc
+      state: absent
+    tags:
+      - global
+  - name: Uninstall fish
+    apt:
+      pkg: fish
+      state: absent
+    tags:
+      - global
+  - name: Uninstall pinta
+    apt:
+      pkg: pinta
+      state: absent
+    tags:
+      - global
+  - name: Remove old home files
+    file:
+      path: "/home/{{ username.stdout }}/{{ item }}"
+      state: absent
+    with_items:
+      - .zsh_history
+      - .zshrc.local
+      - .zshrc
+      - zshrc
+      - vimrc
+      - bashcfg
+      - omgf
+      - butt
+      - .ansible
+    tags:
+      - user
+      - global
+  - name: Remove omgf src
+    file:
+      state: absent
+      path: /usr/local/src/omgf
+  - name: Remove omgf share
+    file:
+      state: absent
+      path: /usr/local/share/omgf
+  - name: Remove omgf bin
+    file:
+      state: absent
+      path: /usr/local/bin/omgf

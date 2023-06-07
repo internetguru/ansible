@@ -12,12 +12,12 @@
 
  # Commands
 
-  - name: Clone omgf
+  - name: Clone flow
     git:
-     repo: 'https://github.com/InternetGuru/omgf.git'
-     dest: '/usr/local/src/omgf'
+     repo: 'https://github.com/InternetGuru/flow.git'
+     dest: '/usr/local/src/flow'
 
-  - name: Make and install omgf
+  - name: Make and install flow
     shell: ./configure && make && compiled/install
     args:
-      chdir: '/usr/local/src/omgf'
+      chdir: '/usr/local/src/flow'

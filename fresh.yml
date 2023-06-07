@@ -1,0 +1,56 @@
+- hosts: all
+  pre_tasks:
+  - name: Check version
+    import_tasks: tasks/ansible_version.yml
+  - name: Register current user name
+    import_tasks: tasks/user_name.yml
+  - name: Check version
+    import_tasks: tasks/version.yml
+    tags:
+      - user
+      - global
+  tasks:
+  - name: Install basic enviroment
+    import_tasks: tasks/basic_enviroment.yml
+    tags: global
+  - name: Copy mc settings
+    copy:
+      src: './res/mc/ini'
+      dest: '/home/{{ username.stdout }}/.config/mc/'
+      force: no
+    become: yes
+    become_user: '{{ username.stdout }}'
+    tags: user
+  - name: Copy htop settings
+    copy:
+      src: './res/htop/htoprc'
+      dest: '/home/{{ username.stdout }}/.config/htop/'
+      force: no
+    become: yes
+    become_user: '{{ username.stdout }}'
+    tags: user
+  - name: Install and configure shell and prompt
+    import_tasks: tasks/terminal.yml
+  - name: Install bashcfg
+    import_tasks: tasks/bashcfg.yml
+  - name: Install vimrc
+    import_tasks: tasks/vimrc.yml
+  - name: Create .ssh dir
+    file:
+      path: '/home/{{ username.stdout }}/.ssh'
+      state: directory
+    tags:
+      - user
+  - name: Keep alive ssh
+    blockinfile:
+      path: '/home/{{ username.stdout }}/.ssh/config'
+      create: true
+      block: |
+        Host *
+        ServerAliveInterval 240
+    tags:
+      - user
+  - name: Disbale wayland
+    shell: sed -i 's/^#.*WaylandEnable=.*/WaylandEnable=false/' /etc/gdm3/custom.conf
+    tags:
+      - global

@@ -1,5 +1,24 @@
 - hosts: all
+  vars:
+    workfiles:
+      - bash.sh
+      - html.html
+      - java.java
+      - latex.tex
+      - php.php
+      - text.txt
+      - data.dat
+      - email.md
+      - json.json
+      - markdown.md
+      - python.py
+      - bibliography.bib
+      - yaml.yml
+      - xml.xml
+      - temp.tmp
   pre_tasks:
+  - name: Check version
+    import_tasks: tasks/ansible_version.yml
   - name: Register current user name
     import_tasks: tasks/user_name.yml
   - name: Check version
@@ -8,19 +27,23 @@
       - user
       - global
   roles:
-  - role: cmprescott.chrome
+  - role: internetguru.chrome
     tags:
       - global
-  - role: PeterMosmans.customize-gnome
-    vars:
-      gnome_user: '{{ username.stdout }}'
-      gnome_extensions:
-        - url: https://extensions.gnome.org/extension-data/disable-screenshield%40lgpasquale.com.v7.shell-extension.zip
-          name: 'disable-screenshield@lgpasquale.com'
-        - url: https://extensions.gnome.org/extension-data/clock-overridegnomeshell.kryogenix.org.v12.shell-extension.zip
-          name: 'clock-override@gnomeshell.kryogenix.org'
+  # - role: PeterMosmans.customize-gnome
+  #   vars:
+  #     gnome_user: '{{ username.stdout }}'
+  #     gnome_extensions:
+  #       - url: https://extensions.gnome.org/extension-data/disable-screenshield%40lgpasquale.com.v7.shell-extension.zip
+  #         name: 'disable-screenshield@lgpasquale.com'
+  #       - url: https://extensions.gnome.org/extension-data/clock-overridegnomeshell.kryogenix.org.v12.shell-extension.zip
+  #         name: 'clock-override@gnomeshell.kryogenix.org'
+  #   tags:
+  #     - global
+  - role: geerlingguy.java
     tags:
       - global
+    ignore_errors: yes
   tasks:
   - name: Set default browser
     shell: xdg-settings set default-web-browser google-chrome.desktop
@@ -44,6 +67,11 @@
     become_user: '{{ username.stdout }}'
     tags:
       - user
+  - name: Add variety ppa
+    apt_repository:
+      repo: ppa:variety/stable
+    tags:
+      - global
   - name: Install packages
     apt:
       pkg:
@@ -51,7 +79,6 @@
       - gnome-session
       - gnome-settings-daemon
       - gnome-tweaks
-      - gnome-shell-extension-dash-to-panel
       - python3-pip
       - kolourpaint
       - rtorrent
@@ -60,16 +87,58 @@
       - wmctrl
       - variety
       - keepass2
+      - shellcheck
+      update_cache: yes
     tags:
       - global
-  - name: Install we-get and psutil
-    pip:
-      name:
-      - prompt_toolkit==1.0.14
-      - git+https://github.com/rachmadaniHaryono/we-get
-      - psutil
+  - name: Download dash to panel extension
+    git:
+      repo: 'https://github.com/home-sweet-gnome/dash-to-panel.git'
+      dest: '/home/{{ username.stdout }}/dash-to-panel'
+    tags:
+      - user
+  - name: Install dash to panel extension
+    make:
+      chdir: '/home/{{ username.stdout }}/dash-to-panel'
+      target: install
+    tags:
+      - user
+  - name: Enable dash to panel extension
+    shell: gnome-extensions enable "dash-to-panel@jderose9.github.com"
     tags:
       - global
+      - user
+
+  - name: Check date-menu-formatter is installed
+    stat:
+      path: '/home/{{ username.stdout }}/.local/share/gnome-shell/extensions/date-menu-formatter@marcinjakubowski.github.com'
+    check_mode: true
+    changed_when: false
+    register: date_menu
+    tags:
+      - user
+      - force
+  - name: Download date-menu-formatter
+    get_url:
+      url: https://extensions.gnome.org/extension-data/date-menu-formattermarcinjakubowski.github.com.v10.shell-extension.zip
+      dest: /tmp/date-menu-formatter.zip
+    when: not date_menu.stat.exists or 'force' in ansible_run_tags
+    tags:
+      - user
+      - force
+  - name: Install date-menu-formatter
+    shell: gnome-extensions install -f "/tmp/date-menu-formatter.zip"
+    when: not date_menu.stat.exists or 'force' in ansible_run_tags
+    tags:
+      - user
+      - force
+  - name: Enable date-menu-formatter
+    shell: gnome-extensions enable "date-menu-formatter@marcinjakubowski.github.com"
+    when: not date_menu.stat.exists or 'force' in ansible_run_tags
+    tags:
+      - user
+      - force
+
   - name: Install google remote desktop
     apt:
       deb: https://dl.google.com/linux/direct/chrome-remote-desktop_current_amd64.deb
@@ -95,7 +164,15 @@
       mode: '0777'
     tags:
       - global
-  - name: Load ubuntu settings
+  - name: Force favorites
+    community.general.dconf:
+      key: '/org/gnome/shell/favorite-apps'
+      state: absent
+    become: yes
+    become_user: '{{ username.stdout }}'
+    tags:
+      - force
+  - name: Ubuntu config
     import_tasks: tasks/ubuntucfg.yml
     become: yes
     become_user: '{{ username.stdout }}'
@@ -119,13 +196,54 @@
     import_tasks: tasks/variety.yml
     become: yes
     become_user: '{{ username.stdout }}'
-    tags:
-      - user
-  - name: Install popcorntime
-    import_tasks: tasks/popcorntime.yml
-    tags:
-      - global
   - name: Install teamviewer
     import_tasks: tasks/teamviewer.yml
     tags:
       - global
+    ignore_errors: yes
+  - name: Install slack
+    snap:
+      name: slack
+      classic: yes
+    tags: global
+    ignore_errors: yes
+  - name: Install discord
+    snap:
+      name: discord
+      classic: yes
+    tags: global
+    ignore_errors: yes
+  - name: Install virtualbox
+    apt:
+      name: virtualbox
+    ignore_errors: yes
+    tags: global
+  - name: Install sublime
+    import_tasks: tasks/sublime.yml
+  - name: Install docker
+    import_tasks: tasks/docker.yml
+    tags: global
+  - name: Install PHP
+    import_tasks: tasks/php.yml
+    tags: global
+  - name: Install flow
+    import_tasks: tasks/flow.yml
+    tags: global
+  - name: Install butt
+    import_tasks: tasks/butt.yml
+    tags: global
+  - name: Install diff-so-fancy
+    import_tasks: tasks/diff-so-fancy.yml
+  - name: Create workspace
+    import_tasks: tasks/work.yml
+  - name: Download and execute NodeSource setup script for Node.js 18
+    shell:
+      cmd: "curl -fsSL https://deb.nodesource.com/setup_18.x | sudo -E bash -"
+    tags: global
+  - name: Install Node.js 18 and npm
+    apt:
+      name:
+        - nodejs
+      update_cache: yes
+      state: present
+    tags: global
