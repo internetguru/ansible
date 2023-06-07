@@ -17,8 +17,8 @@ This project contains handy ansible playbooks divided into several environments.
 
 ## Requirements
 
- - Ubuntu 20.04+ (minimal installation)
-   - tested on 20.04.1 LTS ([download iso](https://releases.ubuntu.com/20.04/ubuntu-20.04.1-desktop-amd64.iso))
+ - Ubuntu 22.04.2 LTS (minimal installation)
+   - [download iso](https://releases.ubuntu.com/jammy/ubuntu-22.04.2-desktop-amd64.iso)
    - [create a bootable USB stick on Ubuntu](https://ubuntu.com/tutorials/create-a-usb-stick-on-ubuntu#1-overview)
  - python and pip
  - ansible and git
@@ -45,17 +45,18 @@ The third command will reboot the computer which may or may not be necessary.
    ```
 
 1. Clone or update ansible project \
-This command either creates (clones) or updates the existing `ansible` repository.
+This command either creates (clones) or updates the existing global `ansible` repository.
 
    ```
-   git clone https://github.com/internetguru/ansible.git || git -C ansible pull
+   sudo git clone https://github.com/internetguru/ansible.git /usr/local/share/ansible \
+     || sudo git -C /usr/local/share/ansible pull
    ```
 
 1. Install ansible for all users
 See options below and notice another reboot command.
 
    ```
-   cd ~/ansible
+   cd /usr/local/share/ansible
    sudo ./install.sh fresh.yml ubuntu.yml
    sudo reboot
    ```
@@ -116,8 +117,6 @@ Enables Windows-like panel and adds practical programs, scripts and adjustments 
  - [google-chrome](https://www.google.com/chrome/)
    - chrome-remote-desktop
    - set as default browser
- - [popcorn time](https://github.com/popcorn-time-ru/popcorn-desktop)
- - [we-get](https://github.com/rachmadaniHaryono/we-get)
  - [zoom](https://zoom.us/)
 <!-- break -->
  - [teamviewer](https://www.teamviewer.com/en-us)
@@ -216,3 +215,13 @@ Clears previously installed applications and configuration that has been withdra
  - [Grant And Remove Sudo Privileges](https://ostechnix.com/how-to-grant-and-remove-sudo-privileges-to-users-on-ubuntu/)
  - [Internal Microphone Not Working](https://askubuntu.com/questions/6993/internal-microphone-not-working)
  - [MPV keyboard shortcuts](https://mpv.io/manual/master/#keyboard-control)
+
+ ## Copyright
+
+ Copyright © [Internet Guru](https://www.internetguru.io)
+
+ This software is licensed under the CC BY-NC-SA license. There is NO WARRANTY, to the extent permitted by law. See the [LICENSE](LICENSE) file.
+
+ For commercial use, a nominal fee may be applicable based on the company size and the nature of their product. In many instances, this could result in no fees being charged at all. Please contact us at info@internetguru.io for further information.
+
+ Please do not hesitate to reach out to us for inquiries related to seminars, workshops, training, integration, support, custom development, and additional services. We are more than happy to assist you.
