@@ -4,6 +4,8 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
+## [Unreleased]
+
 ## [1.4.0] - 2022-03-21
 ### Added
  - Add discord
@@ -51,6 +53,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 ### Fixed
  - Ansible forces VirtualBox version to 6.0
 
+[Unreleased]: https://https://github.com/internetguru/ansible/compare/staging...dev
 [1.4.0]: https://github.com/InternetGuru/ansible/compare/v1.3.0...v1.4.0
 [1.3.0]: https://github.com/InternetGuru/ansible/compare/v1.2.0...v1.3.0
 [1.2.0]: https://github.com/InternetGuru/ansible/compare/v1.1.0...v1.2.0
