@@ -1,0 +1,4 @@
+- src: git+https://github.com/internetguru/ansible-role-chrome.git
+  name: internetguru.chrome
+- src: PeterMosmans.customize-gnome
+- src: geerlingguy.java

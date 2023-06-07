@@ -21,8 +21,6 @@
 
   - name: Install starship prompt
     shell: /tmp/starship.sh --yes
-    args:
-      warn: false
     tags: global
 
   - name: Set starship prompt as default

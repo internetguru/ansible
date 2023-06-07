@@ -77,7 +77,16 @@
   - name: Enable extensions
     community.general.dconf:
       key: '/org/gnome/shell/enabled-extensions'
-      value: "['disable-screenshield@lgpasquale.com', 'dash-to-panel@jderose9.github.com', 'clock-override@gnomeshell.kryogenix.org']"
+      value: "['dash-to-panel@jderose9.github.com', 'date-menu-formatter@marcinjakubowski.github.com']"
+
+  - name: Set dark theme
+    community.general.dconf:
+      key: '/org/gnome/desktop/interface/gtk-theme'
+      value: "'Yaru-dark'"
+  - name: Set dark theme
+    community.general.dconf:
+      key: '/org/gnome/desktop/interface/color-scheme'
+      value: "'prefer-dark'"
 
   - name: Read favorite apps
     community.general.dconf:
@@ -88,13 +97,25 @@
   - name: Set favorite apps iff not set
     community.general.dconf:
       key: '/org/gnome/shell/favorite-apps'
-      value: "['google-chrome.desktop', 'org.gnome.Nautilus.desktop', 'org.gnome.Terminal.desktop', 'sublime_text.desktop', 'discord_discord.desktop']"
+      value: "['google-chrome.desktop', 'org.gnome.Nautilus.desktop', 'org.gnome.Terminal.desktop', 'sublime_text.desktop', 'slack_slack.desktop']"
     when: not favorites.value
 
-  - name: Clock override format
+  - name: Clock settings
     community.general.dconf:
-      key: '/org/gnome/shell/extensions/clock_override/override-string'
-      value: "'%a %e. %b %H:%M'"
+      key: '/org/gnome/shell/extensions/date-menu-formatter/apply-all-panels'
+      value: 'true'
+  - name: Clock settings
+    community.general.dconf:
+      key: '/org/gnome/shell/extensions/date-menu-formatter/font-size'
+      value: '11'
+  - name: Clock settings
+    community.general.dconf:
+      key: '/org/gnome/shell/extensions/date-menu-formatter/pattern'
+      value: "'eee, MMM d  kk:mm'"
+  - name: Clock settings
+    community.general.dconf:
+      key: '/org/gnome/shell/extensions/date-menu-formatter/remove-messages-indicator'
+      value: 'true'
 
   - name: Dash-to-panel settings
     community.general.dconf:
@@ -191,7 +212,7 @@
   - name: Dash-to-panel settings
     community.general.dconf:
       key: '/org/gnome/shell/extensions/dash-to-panel/show-appmenu'
-      value: 'true'
+      value: 'false'
   - name: Dash-to-panel settings
     community.general.dconf:
       key: '/org/gnome/shell/extensions/dash-to-panel/show-apps-icon-file'
