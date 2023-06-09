@@ -4,6 +4,12 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
+## [2.0.1] - 2023-06-09
+
+### Changed
+
+- Change ansible info shortcut to Ctrl+Alt+i
+
 ## [2.0.0] - 2023-06-07
 
 _Stable release based on [2.0.0-rc.1]._
@@ -57,6 +63,7 @@ _Stable release based on [2.0.0-rc.1]._
 ### Fixed
  - Ansible forces VirtualBox version to 6.0
 
+[2.0.1]: https://https://github.com/internetguru/ansible/compare/v2.0.0...v2.0.1
 [2.0.0]: https://https://github.com/internetguru/ansible/compare/v1.4.0...v2.0.0
 [2.0.0-rc.1]: https://github.com/internetguru/ansible/releases/tag/v1.4.0
 [1.4.0]: https://github.com/InternetGuru/ansible/compare/v1.3.0...v1.4.0

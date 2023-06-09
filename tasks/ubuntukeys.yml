@@ -126,7 +126,7 @@
   - name: Ansible info shortcut
     community.general.dconf:
       key: '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom5/binding'
-      value: "'<Primary><Alt>h'"
+      value: "'<Primary><Alt>i'"
 
   - name: Ansible info shortcut command
     community.general.dconf:
