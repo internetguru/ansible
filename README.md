@@ -192,8 +192,9 @@ Clears previously installed applications and configuration that has been withdra
    1. Note: You may need to run the Download command again for theme to take effect.
  - Global Vim plugins are not installed
    1. `sudo vim`
-   1. Hit enter as many times as requested until plugins are installed.
-   1. Exit vim using `:q` (maybe two times).
+   1. Hit Enter repeatedly, until insallation starts.
+   1. After installation finishes, hit Enter again.
+   1. Exit vim using `:q` two times.
  - Wireless mouse wakes up the computer.
    - *No sw solution found. Turn off your mouse physically if possible.*
  - Keyboard switching mismatch, similar to [a 18.04 bug](https://launchpad.net/bugs/1890875).
