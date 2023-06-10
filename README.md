@@ -48,8 +48,10 @@ The third command will reboot the computer which may or may not be necessary.
 This command either creates (clones) or updates the existing global `ansible` repository.
 
    ```
-   sudo git clone https://github.com/internetguru/ansible.git /usr/local/share/ansible \
-     || sudo git -C /usr/local/share/ansible pull
+   sudo mkdir -p /usr/local/share/ansible/
+   cd /usr/local/share/ansible
+   sudo git clone https://github.com/internetguru/ansible.git \
+     || sudo git pull
    ```
 
 1. Install ansible for all users
