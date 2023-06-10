@@ -6,6 +6,12 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
 
+## [2.0.3] - 2023-06-10
+
+### Fixed
+
+- Improve clone instructions readability
+
 ## [2.0.2] - 2023-06-10
 
 ### Fixed
@@ -72,6 +78,7 @@ _Stable release based on [2.0.0-rc.1]._
  - Ansible forces VirtualBox version to 6.0
 
 [Unreleased]: https://https://github.com/internetguru/ansible/compare/staging...dev
+[2.0.3]: https://https://github.com/InternetGuru/ansible/compare/v2.0.2...v2.0.3
 [2.0.2]: https://https://github.com/InternetGuru/ansible/compare/v2.0.1...v2.0.2
 [2.0.1]: https://https://github.com/internetguru/ansible/compare/v2.0.0...v2.0.1
 [2.0.0]: https://https://github.com/internetguru/ansible/compare/v1.4.0...v2.0.0
