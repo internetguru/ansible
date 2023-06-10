@@ -4,6 +4,12 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
+## [2.0.2] - 2023-06-10
+
+### Fixed
+
+- Review Vim troubleshooting instructions
+
 ## [2.0.1] - 2023-06-09
 
 ### Changed
@@ -63,6 +69,7 @@ _Stable release based on [2.0.0-rc.1]._
 ### Fixed
  - Ansible forces VirtualBox version to 6.0
 
+[2.0.2]: https://https://github.com/InternetGuru/ansible/compare/v2.0.1...v2.0.2
 [2.0.1]: https://https://github.com/internetguru/ansible/compare/v2.0.0...v2.0.1
 [2.0.0]: https://https://github.com/internetguru/ansible/compare/v1.4.0...v2.0.0
 [2.0.0-rc.1]: https://github.com/internetguru/ansible/releases/tag/v1.4.0
