@@ -31,7 +31,7 @@
   - name: Predefine slots for custom bindings
     community.general.dconf:
       key: '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings'
-      value: "['/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/', '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1/', '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom2/', '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom3/', '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom4/', '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom5/']"
+      value: "['/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/', '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1/', '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom2/', '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom3/', '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom4/', '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom5/', '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom6/']"
 
   - name: Volume down shortcut
     community.general.dconf:
@@ -131,9 +131,24 @@
   - name: Ansible info shortcut command
     community.general.dconf:
       key: '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom5/command'
-      value: "'/home/{{ username.stdout }}/ansible-info'"
+      value: "'/usr/local/share/ansible-info'"
 
   - name: Ansible info shortcut name
     community.general.dconf:
       key: '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom5/name'
       value: "'ansible info'"
+
+  - name: Restart
+    community.general.dconf:
+      key: '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom6/binding'
+      value: "'<Shift><Alt>End'"
+
+  - name: Restart command
+    community.general.dconf:
+      key: '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom6/command'
+      value: "'reboot'"
+
+  - name: Restart name
+    community.general.dconf:
+      key: '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom6/name'
+      value: "'restart'"
