@@ -6,6 +6,12 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
 
+## [2.0.7] - 2023-06-12
+
+### Fixed
+
+- Add reboot shrtcut dialog
+
 ## [2.0.6] - 2023-06-12
 
 ### Fixed
@@ -95,6 +101,7 @@ _Stable release based on [2.0.0-rc.1]._
  - Ansible forces VirtualBox version to 6.0
 
 [Unreleased]: https://https://github.com/internetguru/ansible/compare/staging...dev
+[2.0.7]: https://https://github.com/internetguru/ansible/compare/v2.0.6...v2.0.7
 [2.0.6]: https://https://github.com/internetguru/ansible/compare/v2.0.5...v2.0.6
 [2.0.5]: https://https://github.com/internetguru/ansible/compare/v2.0.4...v2.0.5
 [2.0.4]: https://https://github.com/internetguru/ansible/compare/v2.0.3...v2.0.4
