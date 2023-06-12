@@ -188,8 +188,26 @@
     shell: 'ubuntu-drivers autoinstall'
     tags:
       - global
-  - name: Create link to current ansible readme
-    import_tasks: tasks/ansible_info.yml
+  - name: Generate ansible-info file
+    shell: '{{ playbook_dir }}/res/ansible-info-generate "{{ playbook_dir }}"'
+    become: yes
+    tags:
+      - global
+  - name: Create Desktop folder
+    file:
+      dest: '/home/{{ username.stdout }}/Desktop/'
+      state: directory
+    become: yes
+    become_user: '{{ username.stdout }}'
+    tags:
+      - user
+  - name: Create ansible-info link to Desktop
+    file:
+      src: '/usr/local/share/ansible-info'
+      dest: '/home/{{ username.stdout }}/Desktop/ansible-info'
+      state: link
+    become: yes
+    become_user: '{{ username.stdout }}'
     tags:
       - user
   - name: Install variety
