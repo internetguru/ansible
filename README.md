@@ -165,11 +165,12 @@ Clears previously installed applications and configuration that has been withdra
 
 ## Shortcuts
 
- - `Ctrl+Alt+h` display README of installed version
+ - `Ctrl+Alt+i` display README of installed version
  - `Ctrl+Alt+s` lock and sleep (suspend)
  - `Ctrl+Alt+f` screen off
  - `Ctrl+Alt+l` toggle night-light (on/off/auto)
  - `Ctrl+Alt+End` power off dialog
+ - `Alt+Shift+End` restart dialog
 <!-- break -->
  - `Ctrl+Shift+PgUp` volume up
  - `Ctrl+Shift+PgDown` volume down
