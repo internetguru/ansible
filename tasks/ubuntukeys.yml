@@ -31,7 +31,7 @@
   - name: Predefine slots for custom bindings
     community.general.dconf:
       key: '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings'
-      value: "['/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/', '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1/', '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom2/', '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom3/', '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom4/', '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom5/']"
+      value: "['/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/', '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1/', '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom2/', '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom3/', '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom4/', '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom5/', '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom6/']"
 
   - name: Volume down shortcut
     community.general.dconf:
@@ -141,7 +141,7 @@
   - name: Restart
     community.general.dconf:
       key: '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom6/binding'
-      value: "'<Shift><Alt>i'"
+      value: "'<Shift><Alt>End'"
 
   - name: Restart command
     community.general.dconf:
