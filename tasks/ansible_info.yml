@@ -8,7 +8,6 @@
   - name: Generate ansible-info file
     shell: '{{ playbook_dir }}/res/ansible-info-generate "{{ playbook_dir }}" "{{ username.stdout }}"'
     become: yes
-    become_user: '{{ username.stdout }}'
 
   - name: Create Desktop folder
     file:
