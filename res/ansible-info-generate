@@ -1,7 +1,7 @@
 #!/bin/bash
 
 commit="$(git -C "$1" rev-parse HEAD)"
-dest="/home/$2/ansible-info"
+dest="/usr/local/share/ansible-info"
 
 printf "%s\n%s\n" \
   "#!/bin/bash" \
