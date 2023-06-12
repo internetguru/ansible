@@ -119,6 +119,10 @@
 
   - name: Dash-to-panel settings
     community.general.dconf:
+      key: '/org/gnome/shell/extensions/dash-to-panel/hide-overview-on-startup'
+      value: 'true'
+  - name: Dash-to-panel settings
+    community.general.dconf:
       key: '/org/gnome/shell/extensions/dash-to-panel/animate-app-switch'
       value: 'false'
   - name: Dash-to-panel settings
