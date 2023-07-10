@@ -1,0 +1,7 @@
+[Desktop Entry]
+Type=Application
+Terminal=true
+Name=Ansible info
+Icon=help-about
+Exec=/usr/local/share/ansible-info
+Categories=Application;
