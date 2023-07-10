@@ -201,10 +201,14 @@
     become_user: '{{ username.stdout }}'
     tags:
       - user
-  - name: Create ansible-info link to Desktop
+  # - name: Set ansible-info.desktop gio permissions
+  #   shell: gio set '{{ playbook_dir }}/res/ansible-info.desktop' metadata::trusted true
+  #   tags:
+  #     - global
+  - name: Create ansible-info.desktop link
     file:
-      src: '/usr/local/share/ansible-info'
-      dest: '/home/{{ username.stdout }}/Desktop/ansible-info'
+      src: '{{ playbook_dir }}/res/ansible-info.desktop'
+      dest: '/home/{{ username.stdout }}/Desktop/ansible-info.desktop'
       state: link
     become: yes
     become_user: '{{ username.stdout }}'
