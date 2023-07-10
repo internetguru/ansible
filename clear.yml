@@ -61,11 +61,23 @@
     file:
       state: absent
       path: /usr/local/src/omgf
+    tags:
+      - global
   - name: Remove omgf share
     file:
       state: absent
       path: /usr/local/share/omgf
+    tags:
+      - global
   - name: Remove omgf bin
     file:
       state: absent
       path: /usr/local/bin/omgf
+    tags:
+      - global
+  - name: Remove ansible-info link from dekstop
+    file:
+      state: absent
+      path: /home/{{ username.stdout }}/Desktop/ansible-info
+    tags:
+      - user
