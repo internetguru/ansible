@@ -4,6 +4,12 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
+## [2.0.9] - 2023-07-13
+
+### Fixed
+
+- Add ansible info launching into readme.
+
 ## [2.0.8] - 2023-07-10
 
 ### Fixed
@@ -104,6 +110,7 @@ _Stable release based on [2.0.0-rc.1]._
 ### Fixed
  - Ansible forces VirtualBox version to 6.0
 
+[2.0.9]: https://https://github.com/internetguru/ansible/compare/v2.0.8...v2.0.9
 [2.0.8]: https://https://github.com/internetguru/ansible/compare/v2.0.7...v2.0.8
 [2.0.7]: https://https://github.com/internetguru/ansible/compare/v2.0.6...v2.0.7
 [2.0.6]: https://https://github.com/internetguru/ansible/compare/v2.0.5...v2.0.6

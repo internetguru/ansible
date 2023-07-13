@@ -202,6 +202,8 @@ Clears previously installed applications and configuration that has been withdra
    - *No sw solution found. Turn off your mouse physically if possible.*
  - Keyboard switching mismatch, similar to [a 18.04 bug](https://launchpad.net/bugs/1890875).
    - Reboot or re-login or restart gnome-shell with `killall -3 gnome-shell` or `Alt+F2`, type `r` and hit `Enter`.
+ - Unable to launch Ansible info desktop icon
+   - Right click on the icon and click on *Allow Launching*.
 
 ## Howtos
 
