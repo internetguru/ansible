@@ -12,8 +12,8 @@
  # Commands
 
   - name: Add diff-so-fancy repository
-    apt_repository:
-      repo: 'ppa:aos1/diff-so-fancy'
+    shell:
+      cmd: add-apt-repository ppa:aos1/diff-so-fancy
     tags: global
 
   - name: Install diff-so-fancy
