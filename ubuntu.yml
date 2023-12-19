@@ -68,8 +68,8 @@
     tags:
       - user
   - name: Add variety ppa
-    apt_repository:
-      repo: ppa:variety/stable
+    shell:
+      cmd: add-apt-repository ppa:variety/stable
     tags:
       - global
   - name: Install packages
