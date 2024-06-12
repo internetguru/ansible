@@ -30,16 +30,16 @@
   - role: internetguru.chrome
     tags:
       - global
-  # - role: PeterMosmans.customize-gnome
-  #   vars:
-  #     gnome_user: '{{ username.stdout }}'
-  #     gnome_extensions:
-  #       - url: https://extensions.gnome.org/extension-data/disable-screenshield%40lgpasquale.com.v7.shell-extension.zip
-  #         name: 'disable-screenshield@lgpasquale.com'
-  #       - url: https://extensions.gnome.org/extension-data/clock-overridegnomeshell.kryogenix.org.v12.shell-extension.zip
-  #         name: 'clock-override@gnomeshell.kryogenix.org'
-  #   tags:
-  #     - global
+  - role: PeterMosmans.customize-gnome
+    vars:
+      gnome_user: '{{ username.stdout }}'
+      gnome_extensions:
+        - id: 1160
+          enable: yes
+        - id: 4655
+          enable: yes
+    tags:
+      - user
   - role: geerlingguy.java
     tags:
       - global
@@ -91,54 +91,6 @@
       update_cache: yes
     tags:
       - global
-  - name: Download dash to panel extension
-    git:
-      repo: 'https://github.com/home-sweet-gnome/dash-to-panel.git'
-      dest: '/home/{{ username.stdout }}/dash-to-panel'
-    tags:
-      - user
-  - name: Install dash to panel extension
-    make:
-      chdir: '/home/{{ username.stdout }}/dash-to-panel'
-      target: install
-    tags:
-      - user
-  - name: Enable dash to panel extension
-    shell: gnome-extensions enable "dash-to-panel@jderose9.github.com"
-    tags:
-      - global
-      - user
-
-  - name: Check date-menu-formatter is installed
-    stat:
-      path: '/home/{{ username.stdout }}/.local/share/gnome-shell/extensions/date-menu-formatter@marcinjakubowski.github.com'
-    check_mode: true
-    changed_when: false
-    register: date_menu
-    tags:
-      - user
-      - force
-  - name: Download date-menu-formatter
-    get_url:
-      url: https://extensions.gnome.org/extension-data/date-menu-formattermarcinjakubowski.github.com.v10.shell-extension.zip
-      dest: /tmp/date-menu-formatter.zip
-    when: not date_menu.stat.exists or 'force' in ansible_run_tags
-    tags:
-      - user
-      - force
-  - name: Install date-menu-formatter
-    shell: gnome-extensions install -f "/tmp/date-menu-formatter.zip"
-    when: not date_menu.stat.exists or 'force' in ansible_run_tags
-    tags:
-      - user
-      - force
-  - name: Enable date-menu-formatter
-    shell: gnome-extensions enable "date-menu-formatter@marcinjakubowski.github.com"
-    when: not date_menu.stat.exists or 'force' in ansible_run_tags
-    tags:
-      - user
-      - force
-
   - name: Install google remote desktop
     apt:
       deb: https://dl.google.com/linux/direct/chrome-remote-desktop_current_amd64.deb
