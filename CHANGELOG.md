@@ -6,6 +6,12 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
 
+## [2.0.11] - 2024-06-12
+
+### Fixed
+
+- Fix gnome extension installation.
+
 ## [2.0.10] - 2023-12-19
 
 ### Fixed
@@ -119,6 +125,7 @@ _Stable release based on [2.0.0-rc.1]._
  - Ansible forces VirtualBox version to 6.0
 
 [Unreleased]: https://https://github.com/internetguru/ansible/compare/staging...dev
+[2.0.11]: https://https://github.com/internetguru/ansible/compare/v2.0.10...v2.0.11
 [2.0.10]: https://https://github.com/internetguru/ansible/compare/v2.0.9...v2.0.10
 [2.0.9]: https://https://github.com/internetguru/ansible/compare/v2.0.8...v2.0.9
 [2.0.8]: https://https://github.com/internetguru/ansible/compare/v2.0.7...v2.0.8
