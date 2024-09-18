@@ -28,6 +28,16 @@
       key: '/org/gnome/mutter/overlay-key'
       value: "''"
 
+  - name: Disable tile groups
+    community.general.dconf:
+      key: '/org/gnome/shell/extensions/tiling-assistant/disable-tile-groups'
+      value: "true"
+
+  - name: Disable tiling popup
+    community.general.dconf:
+      key: '/org/gnome/shell/extensions/tiling-assistant/enable-tiling-popup'
+      value: "false"
+
   - name: Show all applications
     community.general.dconf:
       key: '/org/gnome/shell/keybindings/toggle-application-view'
