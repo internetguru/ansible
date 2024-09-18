@@ -217,7 +217,6 @@ Clears previously installed applications and configuration that has been withdra
  - [Compose key cheet sheet](https://tuttle.github.io/python-useful/compose-key-cheat-sheet.html)
  - [Change compose key](https://askubuntu.com/questions/70784/how-can-i-enable-compose-key)
  - [Change font size](https://help.ubuntu.com/stable/ubuntu-help/a11y.html.en)
- - [Chrome streamkeys extension](https://chrome.google.com/webstore/detail/streamkeys/ekpipjofdicppbepocohdlgenahaneen)
  - [Grant And Remove Sudo Privileges](https://ostechnix.com/how-to-grant-and-remove-sudo-privileges-to-users-on-ubuntu/)
  - [Internal Microphone Not Working](https://askubuntu.com/questions/6993/internal-microphone-not-working)
  - [MPV keyboard shortcuts](https://mpv.io/manual/master/#keyboard-control)

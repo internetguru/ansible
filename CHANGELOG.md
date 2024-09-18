@@ -12,8 +12,14 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ### Changed
 
+- Install slack using apt instead of snap.
+- Install gnome-boxes instead of virtualbox.
 - Install Node.js and npm using apt instead of NodeSource.
 - Disable variety flickr sources and add wallhaven.
+
+### Removed
+
+- Remove streamkeys link from readme.
 
 ## [2.0.11] - 2024-06-12
 

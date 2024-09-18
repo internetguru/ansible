@@ -88,6 +88,8 @@
       - variety
       - keepass2
       - shellcheck
+      - gnome-boxes
+      - slack-desktop
       update_cache: yes
     tags:
       - global
@@ -175,26 +177,8 @@
     tags:
       - global
     ignore_errors: yes
-  - name: Install slack
-    snap:
-      name: slack
-      classic: yes
-    tags: global
-    ignore_errors: yes
-  - name: Install discord
-    snap:
-      name: discord
-      classic: yes
-    tags: global
-    ignore_errors: yes
-  - name: Install virtualbox
-    apt:
-      name: virtualbox
-    ignore_errors: yes
-    tags: global
   - name: Install sublime
     import_tasks: tasks/sublime.yml
-
   - name: Install docker
     import_tasks: tasks/docker.yml
     tags: global
