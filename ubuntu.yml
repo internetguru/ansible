@@ -204,9 +204,6 @@
   - name: Install docker
     import_tasks: tasks/docker.yml
     tags: global
-  - name: Add user to docker group
-    shell: usermod -aG docker '{{ username.stdout }}'
-    tags: user
   - name: Create docker home directory
     file:
       path: /home/{{ username.stdout }}/docker
