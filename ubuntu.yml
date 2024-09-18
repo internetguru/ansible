@@ -35,27 +35,28 @@
       - global
     ignore_errors: yes
 
-  - name: Install GNOME Shell Extensions
-    block:
-      - name: Install GNOME Shell Extensions CLI
-        apt:
-          name: gnome-shell-extensions
-          state: present
-        become: yes
+  - name: Install GNOME Shell Extensions CLI
+    apt:
+      name: gnome-shell-extensions
+      state: present
+    tags:
+      - global
 
-      - name: Install GNOME Extensions (Dash to Panel)
-        shell: |
-          gnome-extensions install --force https://extensions.gnome.org/extension-data/dash-to-paneljderose9.github.com.v45.shell-extension.zip
-          gnome-extensions enable dash-to-panel@jderose9.github.com
-        become: yes
-        become_user: '{{ username.stdout }}'
+  - name: Install GNOME Extensions (Dash to Panel)
+    shell: |
+      gnome-extensions install --force https://extensions.gnome.org/extension-data/dash-to-paneljderose9.github.com.v45.shell-extension.zip
+      gnome-extensions enable dash-to-panel@jderose9.github.com
+    become: yes
+    become_user: '{{ username.stdout }}'
+    tags:
+      - user
 
-      - name: Install GNOME Extensions (Date Menu Formatter)
-        shell: |
-          gnome-extensions install --force https://extensions.gnome.org/extension-data/date-menu-formattermarcinjak.pl.v15.shell-extension.zip
-          gnome-extensions enable date-menu-formatter@marcinjak.pl
-        become: yes
-        become_user: '{{ username.stdout }}'
+  - name: Install GNOME Extensions (Date Menu Formatter)
+    shell: |
+      gnome-extensions install --force https://extensions.gnome.org/extension-data/date-menu-formattermarcinjak.pl.v15.shell-extension.zip
+      gnome-extensions enable date-menu-formatter@marcinjak.pl
+    become: yes
+    become_user: '{{ username.stdout }}'
     tags:
       - user
 
