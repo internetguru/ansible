@@ -1,6 +1,6 @@
 - name: Download Cursor AppImage
   get_url:
-    url: "https://download.cursor.sh/linux/appImage/x64"
+    url: "https://dl.todesktop.com/230313mzl4w4u92/linux/appImage/x64"
     dest: "/tmp/cursor.AppImage"
     mode: '0755'
 
