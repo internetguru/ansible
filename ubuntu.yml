@@ -221,14 +221,11 @@
     import_tasks: tasks/diff-so-fancy.yml
   - name: Create workspace
     import_tasks: tasks/work.yml
-  - name: Download and execute NodeSource setup script for Node.js 18
-    shell:
-      cmd: "curl -fsSL https://deb.nodesource.com/setup_18.x | sudo -E bash -"
-    tags: global
-  - name: Install Node.js 18 and npm
+  - name: Install Node.js and npm
     apt:
       name:
         - nodejs
+        - npm
       update_cache: yes
       state: present
     tags: global

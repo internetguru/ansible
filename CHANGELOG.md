@@ -12,6 +12,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ### Changed
 
+- Install Node.js and npm using apt instead of NodeSource.
 - Disable variety flickr sources and add wallhaven.
 
 ## [2.0.11] - 2024-06-12
