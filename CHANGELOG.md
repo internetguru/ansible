@@ -6,6 +6,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
 
+### Changed
+
+- Disable variety flickr sources and add wallhaven.
+
 ## [2.0.11] - 2024-06-12
 
 ### Fixed
