@@ -8,6 +8,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ### Added
 
+- Add global media keys shortcuts.
 - Configure docker to store images in home directory.
 - Add user to docker group.
 

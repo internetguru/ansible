@@ -33,20 +33,35 @@
       key: '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings'
       value: "['/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/', '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1/', '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom2/', '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom3/', '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom4/', '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom5/', '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom6/']"
 
-  - name: Volume down shortcut
-    community.general.dconf:
-      key: '/org/gnome/settings-daemon/plugins/media-keys/volume-down'
-      value: "['<Primary><Shift>Page_Down']"
-
   - name: Mute shortcut
     community.general.dconf:
       key: '/org/gnome/settings-daemon/plugins/media-keys/volume-mute'
       value: "['<Primary><Shift>Delete']"
 
+  - name: Volume down shortcut
+    community.general.dconf:
+      key: '/org/gnome/settings-daemon/plugins/media-keys/volume-down'
+      value: "['<Primary><Shift>Page_Down']"
+
   - name: Volume up shortcut
     community.general.dconf:
       key: '/org/gnome/settings-daemon/plugins/media-keys/volume-up'
       value: "['<Primary><Shift>Page_Up']"
+
+  - name: Play/pause shortcut
+    community.general.dconf:
+      key: '/org/gnome/settings-daemon/plugins/media-keys/play'
+      value: "'<Shift><Control>Insert'"
+
+  - name: Next track shortcut
+    community.general.dconf:
+      key: '/org/gnome/settings-daemon/plugins/media-keys/next'
+      value: "'<Shift><Control>End'"
+
+  - name: Previous track shortcut
+    community.general.dconf:
+      key: '/org/gnome/settings-daemon/plugins/media-keys/previous'
+      value: "'<Shift><Control>Home'"
 
   - name: Night-light shortcut
     community.general.dconf:
