@@ -242,7 +242,7 @@
   - name: Install Node.js and npm
     apt:
       name:
-        - node
+        - nodejs
         # - npm
       update_cache: yes
       state: present
