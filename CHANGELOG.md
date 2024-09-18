@@ -15,6 +15,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ### Changed
 
+- Disable tiling assistant.
 - Install slack using apt instead of snap.
 - Install gnome-boxes instead of virtualbox.
 - Install Node.js and npm using apt instead of NodeSource.
