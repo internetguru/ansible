@@ -111,7 +111,7 @@
   - name: Clock settings
     community.general.dconf:
       key: '/org/gnome/shell/extensions/date-menu-formatter/pattern'
-      value: "'eee, MMM d  kk:mm'"
+      value: "'y, MMM d  H:mm'"
   - name: Clock settings
     community.general.dconf:
       key: '/org/gnome/shell/extensions/date-menu-formatter/remove-messages-indicator'
