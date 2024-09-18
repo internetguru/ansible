@@ -242,3 +242,6 @@
   - name: Install vscode
     import_tasks: tasks/vscode.yml
     tags: global
+  - name: Install cursor
+    import_tasks: tasks/cursor.yml
+    tags: global

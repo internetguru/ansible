@@ -8,6 +8,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ### Added
 
+- Add Cursor.
 - Add Visual Studio Code.
 - Add explicit show all applications shortcut.
 - Add global media keys shortcuts.
