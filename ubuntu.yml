@@ -211,17 +211,6 @@
     tags: user
     become: yes
     become_user: '{{ username.stdout }}'
-  - name: Configure docker to store images in home directory
-    lineinfile:
-      path: /etc/docker/daemon.json
-      line: '{"data-root": "/home/{{ username.stdout }}/docker"}'
-      create: yes
-      mode: 0644
-      owner: root
-      group: root
-    tags: user
-    become: yes
-    become_user: '{{ username.stdout }}'
 
   - name: Install PHP
     import_tasks: tasks/php.yml
