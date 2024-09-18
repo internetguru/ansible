@@ -66,17 +66,17 @@
   - name: Play/pause shortcut
     community.general.dconf:
       key: '/org/gnome/settings-daemon/plugins/media-keys/play'
-      value: "'<Shift><Control>Insert'"
+      value: "'<Primary><Shift>Insert'"
 
   - name: Next track shortcut
     community.general.dconf:
       key: '/org/gnome/settings-daemon/plugins/media-keys/next'
-      value: "'<Shift><Control>End'"
+      value: "'<Primary><Shift>End'"
 
   - name: Previous track shortcut
     community.general.dconf:
       key: '/org/gnome/settings-daemon/plugins/media-keys/previous'
-      value: "'<Shift><Control>Home'"
+      value: "'<Primary><Shift>Home'"
 
   - name: Night-light shortcut
     community.general.dconf:
