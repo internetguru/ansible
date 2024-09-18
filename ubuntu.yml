@@ -239,3 +239,6 @@
       state: absent
       autoremove: yes
     tags: global
+  - name: Install vscode
+    import_tasks: tasks/vscode.yml
+    tags: global
