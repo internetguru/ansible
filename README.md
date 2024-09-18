@@ -22,6 +22,12 @@ This project contains handy ansible playbooks divided into several environments.
    - [create a bootable USB stick on Ubuntu](https://ubuntu.com/tutorials/create-a-usb-stick-on-ubuntu#1-overview)
  - ansible and git
 
+## Ubuntu Installation Notes
+
+It is recommended to install Ubuntu root filesystem `/` on separate partition from home directory `/home`.
+
+For more informations about installation process see [this article](https://ubuntuhandbook.org/index.php/2024/04/install-ubuntu-24-04-desktop/).
+
 ## Setup Guide
 
 This is a complete simple use-case on how to install basic environments on a fresh *Ubuntu* installation. To update or sync after adding a new user account, repeat the very same process.
