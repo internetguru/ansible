@@ -8,6 +8,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ### Added
 
+- Configure docker to store images in home directory.
 - Add user to docker group.
 
 ### Changed

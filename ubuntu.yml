@@ -179,6 +179,7 @@
     ignore_errors: yes
   - name: Install sublime
     import_tasks: tasks/sublime.yml
+
   - name: Install docker
     import_tasks: tasks/docker.yml
     tags: global
@@ -188,6 +189,24 @@
       state: present
       append: true
       groups: "{{ groups['docker'] + [username.stdout] }}"
+    tags: user
+    become: yes
+    become_user: '{{ username.stdout }}'
+  - name: Create docker home directory
+    file:
+      path: /home/{{ username.stdout }}/docker
+      state: directory
+    tags: user
+    become: yes
+    become_user: '{{ username.stdout }}'
+  - name: Configure docker to store images in home directory
+    lineinfile:
+      path: /etc/docker/daemon.json
+      line: '{"data-root": "/home/{{ username.stdout }}/docker"}'
+      create: yes
+      mode: 0644
+      owner: root
+      group: root
     tags: user
     become: yes
     become_user: '{{ username.stdout }}'
