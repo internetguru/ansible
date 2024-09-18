@@ -27,8 +27,9 @@
 
 - name: Download Cursor icon
   get_url:
-    url: "https://raw.githubusercontent.com/getcursor/cursor/main/packages/renderer/src/assets/cursor-256.png"
+    url: "https://www.cursor.com/_next/image?url=%2Fassets%2Fimages%2Flogo.png&w=128&q=75"
     dest: "/opt/cursor.png"
+    mode: '0644'
   become: yes
 
 - name: Create Cursor desktop entry

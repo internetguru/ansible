@@ -10,18 +10,11 @@
 
  # Commands
 
-  - name: Add the PHP APT repository
-    apt_repository:
-      repo: 'ppa:ondrej/php'
-
-  - name: Install PHP 8.1
-    apt:
-      pkg:
-      - php8.1-fpm
-
   - name: Install php extensions
     apt:
       pkg:
+      - php
+      - php-fpm
       - php-common
       - php-mysql
       - php-gd
