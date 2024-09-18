@@ -204,13 +204,6 @@
   - name: Install docker
     import_tasks: tasks/docker.yml
     tags: global
-  - name: Create docker home directory
-    file:
-      path: /home/{{ username.stdout }}/docker
-      state: directory
-    tags: user
-    become: yes
-    become_user: '{{ username.stdout }}'
 
   - name: Install PHP
     import_tasks: tasks/php.yml
