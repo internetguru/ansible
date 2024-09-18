@@ -35,6 +35,8 @@
       - global
     ignore_errors: yes
 
+  tasks:
+
   - name: Install GNOME Shell Extensions CLI
     apt:
       name: gnome-shell-extensions
@@ -60,7 +62,6 @@
     tags:
       - user
 
-  tasks:
   - name: Set default browser
     shell: xdg-settings set default-web-browser google-chrome.desktop
     become: yes
