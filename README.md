@@ -50,7 +50,7 @@ This command either creates (clones) or updates the existing global `ansible` re
    ```
    sudo mkdir -p /usr/local/share/ansible/
    cd /usr/local/share/ansible
-   sudo git clone https://github.com/internetguru/ansible.git \
+   sudo git clone https://github.com/internetguru/ansible.git . \
      || sudo git pull
    ```
 

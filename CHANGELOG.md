@@ -6,6 +6,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
 
+### Added
+
+- Add user to docker group.
+
 ### Changed
 
 - Disable variety flickr sources and add wallhaven.
