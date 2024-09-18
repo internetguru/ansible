@@ -136,19 +136,19 @@
   - name: Dash-to-panel settings
     community.general.dconf:
       key: '/org/gnome/shell/extensions/dash-to-panel/dot-color-1'
-      value: "'#5294e2'"
+      value: "'#ff7800'"
   - name: Dash-to-panel settings
     community.general.dconf:
       key: '/org/gnome/shell/extensions/dash-to-panel/dot-color-2'
-      value: "'#5294e2'"
+      value: "'#ff7800'"
   - name: Dash-to-panel settings
     community.general.dconf:
       key: '/org/gnome/shell/extensions/dash-to-panel/dot-color-3'
-      value: "'#5294e2'"
+      value: "'#ff7800'"
   - name: Dash-to-panel settings
     community.general.dconf:
       key: '/org/gnome/shell/extensions/dash-to-panel/dot-color-4'
-      value: "'#5294e2'"
+      value: "'#ff7800'"
   - name: Dash-to-panel settings
     community.general.dconf:
       key: '/org/gnome/shell/extensions/dash-to-panel/dot-color-unfocused-1'
@@ -180,7 +180,7 @@
   - name: Dash-to-panel settings
     community.general.dconf:
       key: '/org/gnome/shell/extensions/dash-to-panel/focus-highlight-color'
-      value: "'#eeeeee'"
+      value: "'#f6f5f4'"
   - name: Dash-to-panel settings
     community.general.dconf:
       key: '/org/gnome/shell/extensions/dash-to-panel/force-check-update'
@@ -269,6 +269,81 @@
     community.general.dconf:
       key: '/org/gnome/shell/extensions/dash-to-panel/window-preview-title-font-color'
       value: "'#dddddd'"
+
+  - name: Dash-to-panel settings
+    community.general.dconf:
+      key: '/org/gnome/shell/extensions/dash-to-panel/animate-appicon-hover-animation-extent'
+      value: "{'RIPPLE': 4, 'PLANK': 4, 'SIMPLE': 1}"
+
+  - name: Dash-to-panel settings
+    community.general.dconf:
+      key: '/org/gnome/shell/extensions/dash-to-panel/appicon-margin'
+      value: '8'
+
+  - name: Dash-to-panel settings
+    community.general.dconf:
+      key: '/org/gnome/shell/extensions/dash-to-panel/appicon-padding'
+      value: '4'
+
+  - name: Dash-to-panel settings
+    community.general.dconf:
+      key: '/org/gnome/shell/extensions/dash-to-panel/available-monitors'
+      value: '[0]'
+
+  - name: Dash-to-panel settings
+    community.general.dconf:
+      key: '/org/gnome/shell/extensions/dash-to-panel/dot-color-dominant'
+      value: 'false'
+
+  - name: Dash-to-panel settings
+    community.general.dconf:
+      key: '/org/gnome/shell/extensions/dash-to-panel/dot-color-override'
+      value: 'true'
+
+  - name: Dash-to-panel settings
+    community.general.dconf:
+      key: '/org/gnome/shell/extensions/dash-to-panel/dot-color-unfocused-different'
+      value: 'false'
+
+  - name: Dash-to-panel settings
+    community.general.dconf:
+      key: '/org/gnome/shell/extensions/dash-to-panel/dot-position'
+      value: "'BOTTOM'"
+
+  - name: Dash-to-panel settings
+    community.general.dconf:
+      key: '/org/gnome/shell/extensions/dash-to-panel/focus-highlight-dominant'
+      value: 'false'
+
+  - name: Dash-to-panel settings
+    community.general.dconf:
+      key: '/org/gnome/shell/extensions/dash-to-panel/panel-anchors'
+      value: "{'0':'MIDDLE','1':'MIDDLE'}"
+
+  - name: Dash-to-panel settings
+    community.general.dconf:
+      key: '/org/gnome/shell/extensions/dash-to-panel/panel-lengths'
+      value: "{'0':100,'1':100}"
+
+  - name: Dash-to-panel settings
+    community.general.dconf:
+      key: '/org/gnome/shell/extensions/dash-to-panel/panel-positions'
+      value: "{'0':'BOTTOM','1':'BOTTOM'}"
+
+  - name: Dash-to-panel settings
+    community.general.dconf:
+      key: '/org/gnome/shell/extensions/dash-to-panel/panel-sizes'
+      value: "{'0':48,'1':48}"
+
+  - name: Dash-to-panel settings
+    community.general.dconf:
+      key: '/org/gnome/shell/extensions/dash-to-panel/primary-monitor'
+      value: '0'
+
+  - name: Dash-to-panel settings
+    community.general.dconf:
+      key: '/org/gnome/shell/extensions/dash-to-panel/window-preview-title-position'
+      value: "'TOP'"
 
   - name: Set filechooser sort
     community.general.dconf:
