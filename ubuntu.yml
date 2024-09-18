@@ -242,8 +242,8 @@
   - name: Install Node.js and npm
     apt:
       name:
-        - nodejs
-        - npm
+        - node
+        # - npm
       update_cache: yes
       state: present
     tags: global
