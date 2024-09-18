@@ -188,11 +188,7 @@
     import_tasks: tasks/docker.yml
     tags: global
   - name: Add user to docker group
-    group:
-      name: docker
-      state: present
-      append: true
-      groups: "{{ groups['docker'] + [username.stdout] }}"
+    shell: usermod -aG docker '{{ username.stdout }}'
     tags: user
     become: yes
     become_user: '{{ username.stdout }}'
