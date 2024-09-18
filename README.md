@@ -51,6 +51,8 @@ See options below and notice another reboot command.
 
    ```
    cd /usr/local/share/ansible
+   # Optional: Checkout another branch, e.g. dev
+   # sudo git checkout dev
    sudo ./install.sh fresh.yml ubuntu.yml
    sudo reboot
    ```
