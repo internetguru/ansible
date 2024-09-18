@@ -37,7 +37,7 @@
     content: |
       [Desktop Entry]
       Name=Cursor
-      Exec=/opt/cursor.AppImage
+      Exec=/opt/cursor.AppImage --no-sandbox
       Icon=/opt/cursor.png
       Type=Application
       Categories=Development;
