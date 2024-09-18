@@ -50,7 +50,7 @@
         ServerAliveInterval 240
     tags:
       - user
-  - name: Disbale wayland
-    shell: sed -i 's/^#.*WaylandEnable=.*/WaylandEnable=false/' /etc/gdm3/custom.conf
-    tags:
-      - global
+  # - name: Disbale wayland
+  #   shell: sed -i 's/^#.*WaylandEnable=.*/WaylandEnable=false/' /etc/gdm3/custom.conf
+  #   tags:
+  #     - global
