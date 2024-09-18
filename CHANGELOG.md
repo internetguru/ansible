@@ -23,6 +23,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ### Removed
 
+- Remove snap.
 - Remove streamkeys link from readme.
 
 ## [2.0.11] - 2024-06-12

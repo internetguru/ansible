@@ -232,3 +232,10 @@
       update_cache: yes
       state: present
     tags: global
+  - name: Remove snap
+    apt:
+      pkg:
+        - snapd
+      state: absent
+      autoremove: yes
+    tags: global
