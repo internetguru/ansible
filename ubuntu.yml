@@ -72,6 +72,19 @@
       cmd: add-apt-repository ppa:variety/stable
     tags:
       - global
+  - name: Add Slack repository
+    apt_repository:
+      repo: deb https://packagecloud.io/slacktechnologies/slack/debian/ jessie main
+      state: present
+      filename: slack
+    tags:
+      - global
+  - name: Add Slack repository key
+    apt_key:
+      url: https://packagecloud.io/slacktechnologies/slack/gpgkey
+      state: present
+    tags:
+      - global
   - name: Install packages
     apt:
       pkg:
