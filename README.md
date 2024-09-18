@@ -17,30 +17,22 @@ This project contains handy ansible playbooks divided into several environments.
 
 ## Requirements
 
- - Ubuntu 22.04.2 LTS (minimal installation)
-   - [download iso](https://releases.ubuntu.com/jammy/ubuntu-22.04.2-desktop-amd64.iso)
+ - Ubuntu 24.04.1 LTS
+   - [download iso](https://cz.releases.ubuntu.com/24.04.1/ubuntu-24.04.1-desktop-amd64.iso)
    - [create a bootable USB stick on Ubuntu](https://ubuntu.com/tutorials/create-a-usb-stick-on-ubuntu#1-overview)
- - python and pip
  - ansible and git
-
-```
-sudo apt update
-sudo apt upgrade -y
-sudo apt install python3-pip
-sudo pip install -U ansible
-sudo apt install git
-```
 
 ## Setup Guide
 
 This is a complete simple use-case on how to install basic environments on a fresh *Ubuntu* installation. To update or sync after adding a new user account, repeat the very same process.
 
-1. Install updates or existing packages \
-The third command will reboot the computer which may or may not be necessary.
+1. Install updates and required packages \
+The last command will reboot the computer which may or may not be necessary.
 
    ```
    sudo apt update
    sudo apt upgrade -y
+   sudo apt install ansible git -y
    sudo reboot
    ```
 
@@ -106,14 +98,14 @@ Enables Windows-like panel and adds practical programs, scripts and adjustments 
  - gnome-settings-daemon
  - gnome-tweaks
 <!-- break -->
- - [kolourpaint](https://apps.kde.org/kolourpaint/) (alternative to MS Paint)
- - [rtorrent](https://github.com/rakshasa/rtorrent/wiki) ([cheet sheet](https://devhints.io/rtorrent))
- - [rhythmbox](https://wiki.gnome.org/Apps/Rhythmbox)
- - [mpv](https://mpv.io/)
- - [wmctrl](https://linux.die.net/man/1/wmctrl)
- - [variety](https://peterlevi.com/variety) with awesome background sources!
  - [keepass](https://keepass.info/)
+ - [kolourpaint](https://apps.kde.org/kolourpaint/) (alternative to MS Paint)
+ - [mpv](https://mpv.io/)
+ - [rhythmbox](https://wiki.gnome.org/Apps/Rhythmbox)
+ - [rtorrent](https://github.com/rakshasa/rtorrent/wiki) ([cheet sheet](https://devhints.io/rtorrent))
  - [shellcheck](https://www.shellcheck.net/)
+ - [variety](https://peterlevi.com/variety) with awesome background sources!
+ - [wmctrl](https://linux.die.net/man/1/wmctrl)
 <!-- break -->
  - [dash-to-panel](https://github.com/home-sweet-gnome/dash-to-panel.git)
  - [google-chrome](https://www.google.com/chrome/)
@@ -121,24 +113,26 @@ Enables Windows-like panel and adds practical programs, scripts and adjustments 
    - set as default browser
  - [zoom](https://zoom.us/)
 <!-- break -->
- - [teamviewer](https://www.teamviewer.com/en-us)
- - [slack](https://slack.com/)
- - [discord](https://discord.com/)
- - [virtualbox](https://www.virtualbox.org/)
- - [sublime-text](https://www.sublimetext.com/3) with [shared settings](https://gist.github.com/petrzpav/abf3fa8890a04fd5dedb0dd20711f042)
+ - [butt](https://github.com/internetguru/butt)
+ - [cursor](https://cursor.sh/)
+ - [diff-so-fancy](https://github.com/so-fancy/diff-so-fancy)
  - [docker](https://www.docker.com/products/docker-app)
  - [flow](https://github.com/internetguru/flow)
- - [butt](https://github.com/internetguru/butt)
- - [diff-so-fancy](https://github.com/so-fancy/diff-so-fancy)
+ - [gnome-boxes](https://apps.gnome.org/en-GB/app/org.gnome.Boxes/)
+ - [slack](https://slack.com/)
+ - [sublime-text](https://www.sublimetext.com/3) with [shared settings](https://gist.github.com/petrzpav/abf3fa8890a04fd5dedb0dd20711f042)
+ - [teamviewer](https://www.teamviewer.com/en-us)
+ - [vscode](https://code.visualstudio.com/)
 <!-- break -->
  - java
  - php
  - nodejs
  - python3
+ - docker
  - `~/work` folder with various format file names touched
  - [system configuration](https://github.com/internetguru/ansible/blob/master/tasks/ubuntucfg.yml)
  - [system keyboard shortcuts](https://github.com/internetguru/ansible/blob/master/tasks/ubuntukeys.yml)
- - date-menu-formatter
+ - [date-menu-formatter
  - night light control script
  - default favorites
  - ubuntu-drivers autoinstall
@@ -172,9 +166,12 @@ Clears previously installed applications and configuration that has been withdra
  - `Ctrl+Alt+End` power off dialog
  - `Alt+Shift+End` restart dialog
 <!-- break -->
- - `Ctrl+Shift+PgUp` volume up
- - `Ctrl+Shift+PgDown` volume down
- - `Ctrl+Shift+Del` mute volume
+ - `Ctrl+Shift+PageUp` volume up
+ - `Ctrl+Shift+PageDown` volume down
+ - `Ctrl+Shift+Delete` mute volume
+ - `Ctrl+Shift+Insert` play/pause media
+ - `Ctrl+Shift+End` next track
+ - `Ctrl+Shift+Home` previous track
 <!-- break -->
  - `Win+s` application overview
  - `Win+c` calculator
