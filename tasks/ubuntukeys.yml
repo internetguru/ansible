@@ -38,11 +38,6 @@
       key: '/org/gnome/shell/extensions/tiling-assistant/enable-tiling-popup'
       value: "false"
 
-  - name: Show all applications
-    community.general.dconf:
-      key: '/org/gnome/shell/keybindings/toggle-application-view'
-      value: "['<Super>s']"
-
   - name: Predefine slots for custom bindings
     community.general.dconf:
       key: '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings'

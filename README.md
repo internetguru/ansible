@@ -181,7 +181,7 @@ Clears previously installed applications and configuration that has been withdra
  - `Ctrl+Shift+End` next track
  - `Ctrl+Shift+Home` previous track
 <!-- break -->
- - `Win+s` application overview
+ - `Win+a` application overview
  - `Win+c` calculator
 <!-- break -->
  - `Pause`, `Menu` compose keys
