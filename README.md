@@ -225,6 +225,10 @@ Clears previously installed applications and configuration that has been withdra
    - Reboot or re-login or restart gnome-shell with `killall -3 gnome-shell` or `Alt+F2`, type `r` and hit `Enter`.
  - Unable to launch Ansible info desktop icon
    - Right click on the icon and click on *Allow Launching*.
+ - How to add user to docker group.
+   - `sudo usermod -aG docker $USER`
+ - How to configure docker to store images in user directory.
+   - See [Saving Docker Container Image to a Different Directory Than Root](https://stackoverflow.com/questions/56964447/saving-docker-container-image-to-a-different-directory-than-root).
 
 ## Howtos
 
