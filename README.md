@@ -198,6 +198,22 @@ Clears previously installed applications and configuration that has been withdra
    1. Restart (close and run) Sublime, wait until Sync Settings plugin is installed.
    1. Run Tools / Command Palette… (`ctrl+shift+p`) / Sync Settings: Download (or just type `download` and press `Enter`). Ignore warning message(s).
    1. Note: You may need to run the Download command again for theme to take effect.
+ - Visual Studio Code setup shared settings after installation.
+   1. Install [Sync Settings](https://marketplace.visualstudio.com/items?itemName=zokugun.sync-settings) extension.
+   1. Open Command Palette (`ctrl+shift+p`) and type `Sync Settings: Open the repository settings`.
+   1. Update settings to match following:
+      ```yaml
+      hostname: "" # add your hostname here
+      profile: main
+      repository:
+        type: git
+        url: git@github.com:petrzpav/vscode-settings.git
+        branch: master
+      ```
+    1. Save the file and close it.
+    1. Open Command Palette (`ctrl+shift+p`) and type `Sync Settings: Download (repository -> user)`.
+    1. Restart Visual Studio Code.
+    1. To upload new settings, run `Sync Settings: Upload (user -> repository)`.
  - Global Vim plugins are not installed
    1. `sudo vim`
    1. Hit Enter repeatedly, until insallation starts.
