@@ -1,6 +1,17 @@
 # Internet Guru Ansible
 
-This project contains handy ansible playbooks divided into several environments. It installs 'global' tag globally and 'user' tag for all accounts individually. Roles are installed for each playbook if the same playbook file exists with a `roles.` prefix, e.g. `roles.ubuntu.yml` for `ubuntu.yml`.
+Internet Guru Ansible is a comprehensive set of Ansible playbooks designed to streamline the setup and configuration of Ubuntu systems. Whether you're setting up a fresh installation or managing existing systems, these playbooks automate the installation of essential tools, developer environments, and user-friendly configurations.
+
+Key features:
+- Quick setup of fresh Ubuntu installations
+- Customized environments for different use cases (desktop, server, etc.)
+- Automated installation of popular development tools and productivity software
+- System tweaks and shortcuts for improved usability
+- Flexible options to skip global tasks or force specific installations
+
+This project aims to save time and ensure consistency across multiple Ubuntu installations, making it ideal for both individual users and teams managing multiple workstations or servers.
+
+This project contains handy ansible playbooks divided into several environments. It installs 'global' tag globally and 'user' tag for all existing user accounts individually. Roles are installed for each playbook if the same playbook file exists with a `roles.` prefix, e.g. `roles.ubuntu.yml` for `ubuntu.yml`.
 
  - [Options](#options)
  - [Requirements](#requirements)
@@ -93,7 +104,7 @@ Installs essential commands and CLI environment for Debian/Ubuntu.
 
 ### `ubuntu.yml`
 
-Enables Windows-like panel and adds practical programs, scripts and adjustments for *Ubuntu*. It also adds basic developer programs and tools.
+Enables Windows-like panel and adds practical programs, scripts and adjustments specifically for *Ubuntu Desktop*. It also adds basic developer programs and tools.
 
  - gnome-screensaver
  - gnome-session
