@@ -193,6 +193,8 @@ Clears previously installed applications and configuration that has been withdra
 
 ## Troubleshooting
 
+ - Terminal in Ubuntu 24 kills Win+Num shortcuts (except Win+1) when focused
+   - No known solution or workaround
  - *"Unknown error when attempting to call Galaxy"*
    - Check your internet connection and run Ansible again.
  - *"already installed"* warnings
