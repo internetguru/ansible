@@ -18,22 +18,17 @@ This project contains handy ansible playbooks divided into several environments.
 ## Requirements
 
  - Ubuntu 24.04.1 LTS
-   - [download iso](https://cz.releases.ubuntu.com/24.04.1/ubuntu-24.04.1-desktop-amd64.iso)
-   - [create a bootable USB stick on Ubuntu](https://ubuntu.com/tutorials/create-a-usb-stick-on-ubuntu#1-overview)
- - ansible and git
-
-## Ubuntu Installation Notes
-
-It is recommended to install Ubuntu root filesystem `/` on separate partition from home directory `/home`.
-
-For more informations about installation process see [this article](https://ubuntuhandbook.org/index.php/2024/04/install-ubuntu-24-04-desktop/).
+   - [Download ISO](https://cz.releases.ubuntu.com/24.04.1/ubuntu-24.04.1-desktop-amd64.iso)
+   - [Create a bootable USB stick on Ubuntu](https://ubuntu.com/tutorials/create-a-usb-stick-on-ubuntu#1-overview)
+ - Ansible
+ - Git
 
 ## Setup Guide
 
-This is a complete simple use-case on how to install basic environments on a fresh *Ubuntu* installation. To update or sync after adding a new user account, repeat the very same process.
+This is a complete simple use-case on how to install basic environments on a *fresh Ubuntu 24 installation*. To update or sync after adding a new user account, repeat the very same process.
 
-1. Install updates and required packages \
-The last command will reboot the computer which may or may not be necessary.
+1. Install updates and required packages. \
+Note: The last command will reboot the computer, which may or may not be necessary.
 
    ```
    sudo apt update
@@ -42,8 +37,8 @@ The last command will reboot the computer which may or may not be necessary.
    sudo reboot
    ```
 
-1. Clone or update ansible project \
-This command either creates (clones) or updates the existing global `ansible` repository.
+2. Clone or update Ansible project. \
+This command either creates a new global repository or updates the existing one.
 
    ```
    sudo mkdir -p /usr/local/share/ansible/
@@ -52,12 +47,11 @@ This command either creates (clones) or updates the existing global `ansible` re
      || sudo git pull
    ```
 
-1. Install ansible for all users
-See options below and notice another reboot command.
+3. Install Ansible for all users. \
+See the commented optional command and notice another reboot command.
 
    ```
    cd /usr/local/share/ansible
-   # Optional: Checkout another branch, e.g. dev
    # sudo git checkout dev
    sudo ./install.sh fresh.yml ubuntu.yml
    sudo reboot
@@ -189,7 +183,7 @@ Clears previously installed applications and configuration that has been withdra
 ## Troubleshooting
 
  - *"Unknown error when attempting to call Galaxy"*
-   - Check your internet connection and run ansible again.
+   - Check your internet connection and run Ansible again.
  - *"already installed"* warnings
    - *Ignore.*
  - Sublime Text not downloading shared settings after installation.
@@ -232,6 +226,7 @@ Clears previously installed applications and configuration that has been withdra
  - [Compose key cheet sheet](https://tuttle.github.io/python-useful/compose-key-cheat-sheet.html)
  - [Enable SSH server](https://linuxize.com/post/how-to-enable-ssh-on-ubuntu-18-04/)
  - [Grant And Remove Sudo Privileges](https://ostechnix.com/how-to-grant-and-remove-sudo-privileges-to-users-on-ubuntu/)
+ - [How to Install Ubuntu 24.04 Desktop](https://ubuntuhandbook.org/index.php/2024/04/install-ubuntu-24-04-desktop/).
  - [Internal Microphone Not Working](https://askubuntu.com/questions/6993/internal-microphone-not-working)
  - [Make login screen appear in external display](https://askubuntu.com/questions/1043337/is-there-to-make-the-login-screen-appear-on-the-external-display-in-18-04)
  - [Manual partitioning during Ubuntu installation](https://askubuntu.com/questions/343268/how-to-use-manual-partitioning-during-installation)
