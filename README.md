@@ -210,41 +210,36 @@ Clears previously installed applications and configuration that has been withdra
         url: git@github.com:petrzpav/vscode-settings.git
         branch: master
       ```
-    1. Save the file and close it.
-    1. Open Command Palette (`ctrl+shift+p`) and type `Sync Settings: Download (repository -> user)`.
-    1. Restart Visual Studio Code.
-    1. To upload new settings, run `Sync Settings: Upload (user -> repository)`.
+   1. Save the file and close it.
+   1. Open Command Palette (`ctrl+shift+p`) and type `Sync Settings: Download (repository -> user)`.
+   1. Restart Visual Studio Code.
+   1. To upload new settings, run `Sync Settings: Upload (user -> repository)`.
  - Global Vim plugins are not installed
    1. `sudo vim`
    1. Hit Enter repeatedly, until insallation starts.
    1. After installation finishes, hit Enter again.
    1. Exit vim using `:q` two times.
- - Wireless mouse wakes up the computer.
-   - *No sw solution found. Turn off your mouse physically if possible.*
- - Keyboard switching mismatch, similar to [a 18.04 bug](https://launchpad.net/bugs/1890875).
-   - Reboot or re-login or restart gnome-shell with `killall -3 gnome-shell` or `Alt+F2`, type `r` and hit `Enter`.
- - Unable to launch Ansible info desktop icon
+ - Unable to launch Ansible info desktop icon.
    - Right click on the icon and click on *Allow Launching*.
- - How to add user to docker group.
-   - `sudo usermod -aG docker $USER`
- - How to configure docker to store images in user directory.
-   - See [Saving Docker Container Image to a Different Directory Than Root](https://stackoverflow.com/questions/56964447/saving-docker-container-image-to-a-different-directory-than-root).
+ - Docker is not runing error.
+   - If works for `sudo`, try adding user to docker group with `sudo usermod -aG docker $USER`.
 
 ## Howtos
 
- - [Manual partitioning during Ubuntu installation](https://askubuntu.com/questions/343268/how-to-use-manual-partitioning-during-installation)
- - [Change swap size](https://bogdancornianu.com/change-swap-size-in-ubuntu/)
- - [Move home to external partition](https://www.tecmint.com/move-home-directory-to-new-partition-disk-in-linux/)
- - [Set default audio device](https://askubuntu.com/questions/1038490/how-do-you-set-a-default-audio-output-device-in-ubuntu-18-04)
- - [Make login screen appear in external display](https://askubuntu.com/questions/1043337/is-there-to-make-the-login-screen-appear-on-the-external-display-in-18-04)
- - [Transfer audio from PC to iPhone](https://www.groovypost.com/howto/howto/sync-your-iphone-or-ipod-touch-in-ubuntu/)
- - [Enable SSH server](https://linuxize.com/post/how-to-enable-ssh-on-ubuntu-18-04/)
- - [Compose key cheet sheet](https://tuttle.github.io/python-useful/compose-key-cheat-sheet.html)
  - [Change compose key](https://askubuntu.com/questions/70784/how-can-i-enable-compose-key)
  - [Change font size](https://help.ubuntu.com/stable/ubuntu-help/a11y.html.en)
+ - [Change swap size](https://bogdancornianu.com/change-swap-size-in-ubuntu/)
+ - [Compose key cheet sheet](https://tuttle.github.io/python-useful/compose-key-cheat-sheet.html)
+ - [Enable SSH server](https://linuxize.com/post/how-to-enable-ssh-on-ubuntu-18-04/)
  - [Grant And Remove Sudo Privileges](https://ostechnix.com/how-to-grant-and-remove-sudo-privileges-to-users-on-ubuntu/)
  - [Internal Microphone Not Working](https://askubuntu.com/questions/6993/internal-microphone-not-working)
+ - [Make login screen appear in external display](https://askubuntu.com/questions/1043337/is-there-to-make-the-login-screen-appear-on-the-external-display-in-18-04)
+ - [Manual partitioning during Ubuntu installation](https://askubuntu.com/questions/343268/how-to-use-manual-partitioning-during-installation)
+ - [Move home to external partition](https://www.tecmint.com/move-home-directory-to-new-partition-disk-in-linux/)
  - [MPV keyboard shortcuts](https://mpv.io/manual/master/#keyboard-control)
+ - [Saving Docker Container Image to a Different Directory Than Root](https://stackoverflow.com/questions/56964447/saving-docker-container-image-to-a-different-directory-than-root)
+ - [Set default audio device](https://askubuntu.com/questions/1038490/how-do-you-set-a-default-audio-output-device-in-ubuntu-18-04)
+ - [Transfer audio from PC to iPhone](https://www.groovypost.com/howto/howto/sync-your-iphone-or-ipod-touch-in-ubuntu/)
 
  ## Copyright
 
