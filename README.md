@@ -104,7 +104,7 @@ Enables Windows-like panel and adds practical programs, scripts and adjustments 
  - [kolourpaint](https://apps.kde.org/kolourpaint/) (alternative to MS Paint)
  - [mpv](https://mpv.io/)
  - [rhythmbox](https://wiki.gnome.org/Apps/Rhythmbox)
- - [rtorrent](https://github.com/rakshasa/rtorrent/wiki) ([cheet sheet](https://devhints.io/rtorrent))
+ - [rtorrent](https://github.com/rakshasa/rtorrent/wiki) ([cheat sheet](https://devhints.io/rtorrent))
  - [shellcheck](https://www.shellcheck.net/)
  - [variety](https://peterlevi.com/variety) with awesome background sources!
  - [wmctrl](https://linux.die.net/man/1/wmctrl)
@@ -210,12 +210,12 @@ Clears previously installed applications and configuration that has been withdra
    1. To upload new settings, run `Sync Settings: Upload (user -> repository)`.
  - Global Vim plugins are not installed
    1. `sudo vim`
-   1. Hit Enter repeatedly, until insallation starts.
+   1. Hit Enter repeatedly, until installation starts.
    1. After installation finishes, hit Enter again.
    1. Exit vim using `:q` two times.
  - Unable to launch Ansible info desktop icon.
    - Right click on the icon and click on *Allow Launching*.
- - Docker is not runing error.
+ - Docker is not running error.
    - If works for `sudo`, try adding user to docker group with `sudo usermod -aG docker $USER`.
 
 ## Howtos
@@ -223,7 +223,7 @@ Clears previously installed applications and configuration that has been withdra
  - [Change compose key](https://askubuntu.com/questions/70784/how-can-i-enable-compose-key)
  - [Change font size](https://help.ubuntu.com/stable/ubuntu-help/a11y.html.en)
  - [Change swap size](https://bogdancornianu.com/change-swap-size-in-ubuntu/)
- - [Compose key cheet sheet](https://tuttle.github.io/python-useful/compose-key-cheat-sheet.html)
+ - [Compose key cheat sheet](https://tuttle.github.io/python-useful/compose-key-cheat-sheet.html)
  - [Enable SSH server](https://linuxize.com/post/how-to-enable-ssh-on-ubuntu-18-04/)
  - [Grant And Remove Sudo Privileges](https://ostechnix.com/how-to-grant-and-remove-sudo-privileges-to-users-on-ubuntu/)
  - [How to Install Ubuntu 24.04 Desktop](https://ubuntuhandbook.org/index.php/2024/04/install-ubuntu-24-04-desktop/).
