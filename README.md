@@ -29,7 +29,7 @@ This project contains handy ansible playbooks divided into several environments.
 ## Requirements
 
  - Ubuntu 24.04.1 LTS
-   - [Download ISO](https://cz.releases.ubuntu.com/24.04.1/ubuntu-24.04.1-desktop-amd64.iso)
+   - [Download ISO](https://releases.ubuntu.com/24.04.1/ubuntu-24.04.1-desktop-amd64.iso)
    - [Create a bootable USB stick on Ubuntu](https://ubuntu.com/tutorials/create-a-usb-stick-on-ubuntu#1-overview)
  - Ansible
  - Git
@@ -104,7 +104,7 @@ Installs essential commands and CLI environment for Debian/Ubuntu.
 
 ### `ubuntu.yml`
 
-Enables Windows-like panel and adds practical programs, scripts and adjustments specifically for *Ubuntu Desktop*. It also adds basic developer programs and tools.
+Enables Windows-like panel and adds practical programs, scripts, and adjustments specifically for *Ubuntu Desktop*. It also adds basic developer programs and tools.
 
  - gnome-screensaver
  - gnome-session
@@ -193,8 +193,13 @@ Clears previously installed applications and configuration that has been withdra
 
 ## Troubleshooting
 
- - Terminal in Ubuntu 24 kills Win+Num shortcuts (except Win+1) when focused
-   - No known solution or workaround
+ - Calculator in all modes except for basic shows a collapsed input field.
+   - No known solution.
+ - Win+Num shortcuts not working (except Win+1) from certain apps.
+   - Known apps causing the issue: Terminal, Terminator, Calculator.
+   - Note: This only occurs with Czech keyboard layout.
+   - No known solution.
+   - Workaround: Instead of Win+Num, use Win+Shift+Num, or numpad.
  - *"Unknown error when attempting to call Galaxy"*
    - Check your internet connection and run Ansible again.
  - *"already installed"* warnings
