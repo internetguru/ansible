@@ -17,6 +17,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ### Changed
 
+- Do not set dark theme by default.
 - Do not disable wayland.
 - Disable tiling assistant.
 - Install slack using apt instead of snap.
