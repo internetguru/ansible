@@ -62,6 +62,14 @@
     tags:
       - user
 
+  - name: Remove GNOME Extensions (Ubuntu Dock)
+    apt:
+      pkg:
+        - gnome-shell-extension-ubuntu-dock
+      state: absent
+    tags:
+      - global
+
   - name: Set default browser
     shell: xdg-settings set default-web-browser google-chrome.desktop
     become: yes
