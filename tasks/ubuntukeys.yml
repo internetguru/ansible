@@ -141,7 +141,7 @@
   - name: Disable screen shortcut command
     community.general.dconf:
       key: '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom4/command'
-      value: "'gnome-screensaver-command -a && xset dpms force off'"
+      value: "'gnome-screensaver-command -a'"
 
   - name: Disable screen shortcut name
     community.general.dconf:
