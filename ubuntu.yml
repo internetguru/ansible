@@ -92,11 +92,11 @@
     become_user: '{{ username.stdout }}'
     tags:
       - user
-  - name: Add variety ppa
-    shell:
-      cmd: add-apt-repository ppa:variety/stable
-    tags:
-      - global
+  # - name: Add variety ppa
+  #   shell:
+  #     cmd: add-apt-repository ppa:variety/stable
+  #   tags:
+  #     - global
   - name: Install slack
     apt:
       deb: https://downloads.slack-edge.com/desktop-releases/linux/x64/4.39.95/slack-desktop-4.39.95-amd64.deb
@@ -115,7 +115,7 @@
       - rhythmbox
       - mpv
       - wmctrl
-      - variety
+      # - variety
       - keepass2
       - shellcheck
       - gnome-boxes
@@ -197,10 +197,10 @@
     become_user: '{{ username.stdout }}'
     tags:
       - user
-  - name: Install variety
-    import_tasks: tasks/variety.yml
-    become: yes
-    become_user: '{{ username.stdout }}'
+  # - name: Install variety
+  #   import_tasks: tasks/variety.yml
+  #   become: yes
+  #   become_user: '{{ username.stdout }}'
   - name: Install teamviewer
     import_tasks: tasks/teamviewer.yml
     tags:
@@ -222,8 +222,8 @@
   - name: Install butt
     import_tasks: tasks/butt.yml
     tags: global
-  - name: Install diff-so-fancy
-    import_tasks: tasks/diff-so-fancy.yml
+  # - name: Install diff-so-fancy
+  #   import_tasks: tasks/diff-so-fancy.yml
   - name: Create workspace
     import_tasks: tasks/work.yml
   - name: Install Node.js and npm
