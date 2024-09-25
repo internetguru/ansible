@@ -226,6 +226,9 @@ Clears previously installed applications and configuration that has been withdra
    1. Open Command Palette (`ctrl+shift+p`) and type `Sync Settings: Download (repository -> user)`.
    1. Restart Visual Studio Code.
    1. To upload new settings, run `Sync Settings: Upload (user -> repository)`.
+ - Sync Settings: Error: ENOENT: no such file or directory…
+   - *Ignore and restart the editor manually.*
+   - If some changes would not apply, open the run (`ctrl+shift+p`) *Sync Settings: Reveal the profile* and `git pull` manually.
  - Global Vim plugins are not installed
    1. `sudo vim`
    1. Hit Enter repeatedly, until installation starts.
