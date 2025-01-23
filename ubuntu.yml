@@ -247,3 +247,9 @@
   - name: Install cursor
     import_tasks: tasks/cursor.yml
     tags: global
+  - name: Remove apache2
+    apt:
+      pkg:
+        - apache2
+      state: absent
+    tags: global
