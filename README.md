@@ -235,6 +235,11 @@ Clears previously installed applications and configuration that has been withdra
    - Right click on the icon and click on *Allow Launching*.
  - Docker is not running error.
    - If works for `sudo`, try adding user to docker group with `sudo usermod -aG docker $USER`.
+ - Could not set upstream of HEAD to origin/origin when it does not point to any branch
+   - Run `git remote -v`, then `git remote remove origin`, and finally `git remote add origin [UPSTREAM]` where `[UPSTREAM]` is the upstream url from the first command.
+ - Right Alt (AltGr) does not work for keyboard shortcuts on the Czech keyboard layout.
+   - No known solution.
+
 
 ## Howtos
 
