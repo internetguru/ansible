@@ -4,6 +4,8 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
+## [Unreleased]
+
 ## [3.0.0-rc.1] - 2025-02-10
 
 ### Added
@@ -148,6 +150,7 @@ _Stable release based on [2.0.0-rc.1]._
 ### Fixed
  - Ansible forces VirtualBox version to 6.0
 
+[Unreleased]: https://https://github.com/internetguru/ansible/compare/staging...dev
 [3.0.0-rc.1]: https://github.com/internetguru/ansible/releases/tag/v2.0.11
 [2.0.11]: https://https://github.com/internetguru/ansible/compare/v2.0.10...v2.0.11
 [2.0.10]: https://https://github.com/internetguru/ansible/compare/v2.0.9...v2.0.10
