@@ -45,7 +45,7 @@ main() {
   [[ $(id -u) != 0 ]] \
     && exception "Script must be run as root"
   # check for supported ubuntu version
-  [[ $(lsb_release -cs) != "noble" ]] \
+  [[ $(lsb_release -cs) == "noble" ]] \
     || exception "Unsupported Ubuntu version, please use Ubuntu 24.04"
   # force config location for ansible
   export ANSIBLE_CONFIG="${WORKDIR}/ansible.cfg"
