@@ -10,6 +10,12 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 - New feature 'u24-10'.
 
+## [3.0.1] - 2025-02-10
+
+### Fixed
+
+- Fix ubuntu version check.
+
 ## [3.0.0] - 2025-02-10
 
 _Stable release based on [3.0.0-rc.1]._
@@ -159,6 +165,7 @@ _Stable release based on [2.0.0-rc.1]._
  - Ansible forces VirtualBox version to 6.0
 
 [Unreleased]: https://https://github.com/internetguru/ansible/compare/staging...dev
+[3.0.1]: https://https://github.com/internetguru/ansible/compare/v3.0.0...v3.0.1
 [3.0.0]: https://https://github.com/internetguru/ansible/compare/v2.0.11...v3.0.0
 [3.0.0-rc.1]: https://github.com/internetguru/ansible/releases/tag/v2.0.11
 [2.0.11]: https://https://github.com/internetguru/ansible/compare/v2.0.10...v2.0.11
