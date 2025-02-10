@@ -1,0 +1,51 @@
+- name: Download Cursor AppImage
+  get_url:
+    url: "https://dl.todesktop.com/230313mzl4w4u92/linux/appImage/x64"
+    dest: "/tmp/cursor.AppImage"
+    mode: '0755'
+
+- name: Install libfuse2
+  apt:
+    name: libfuse2
+    state: present
+  become: yes
+
+- name: Create /opt directory if it doesn't exist
+  file:
+    path: /opt
+    state: directory
+    mode: '0755'
+  become: yes
+
+- name: Move Cursor AppImage to /opt
+  copy:
+    src: "/tmp/cursor.AppImage"
+    dest: "/opt/cursor.AppImage"
+    mode: '0755'
+    remote_src: yes
+  become: yes
+
+- name: Download Cursor icon
+  get_url:
+    url: "https://www.cursor.com/_next/image?url=%2Fassets%2Fimages%2Flogo.png&w=128&q=75"
+    dest: "/opt/cursor.png"
+    mode: '0644'
+  become: yes
+
+- name: Create Cursor desktop entry
+  copy:
+    content: |
+      [Desktop Entry]
+      Name=Cursor
+      Exec=/opt/cursor.AppImage --no-sandbox
+      Icon=/opt/cursor.png
+      Type=Application
+      Categories=Development;
+    dest: "/usr/share/applications/cursor.desktop"
+    mode: '0644'
+  become: yes
+
+- name: Clean up temporary files
+  file:
+    path: "/tmp/cursor.AppImage"
+    state: absent

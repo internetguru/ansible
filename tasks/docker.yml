@@ -51,3 +51,8 @@
     file:
       dest: /usr/local/bin/docker-compose
       mode: +x
+
+  - name: Create docker group if not exists
+    group:
+      name: docker
+      state: present
