@@ -28,25 +28,50 @@
       key: '/org/gnome/mutter/overlay-key'
       value: "''"
 
+  - name: Disable tile groups
+    community.general.dconf:
+      key: '/org/gnome/shell/extensions/tiling-assistant/disable-tile-groups'
+      value: "true"
+
+  - name: Disable tiling popup
+    community.general.dconf:
+      key: '/org/gnome/shell/extensions/tiling-assistant/enable-tiling-popup'
+      value: "false"
+
   - name: Predefine slots for custom bindings
     community.general.dconf:
       key: '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings'
       value: "['/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/', '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1/', '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom2/', '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom3/', '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom4/', '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom5/', '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom6/']"
-
-  - name: Volume down shortcut
-    community.general.dconf:
-      key: '/org/gnome/settings-daemon/plugins/media-keys/volume-down'
-      value: "['<Primary><Shift>Page_Down']"
 
   - name: Mute shortcut
     community.general.dconf:
       key: '/org/gnome/settings-daemon/plugins/media-keys/volume-mute'
       value: "['<Primary><Shift>Delete']"
 
+  - name: Volume down shortcut
+    community.general.dconf:
+      key: '/org/gnome/settings-daemon/plugins/media-keys/volume-down'
+      value: "['<Primary><Shift>Page_Down']"
+
   - name: Volume up shortcut
     community.general.dconf:
       key: '/org/gnome/settings-daemon/plugins/media-keys/volume-up'
       value: "['<Primary><Shift>Page_Up']"
+
+  - name: Play/pause shortcut
+    community.general.dconf:
+      key: '/org/gnome/settings-daemon/plugins/media-keys/play'
+      value: "'<Primary><Shift>Insert'"
+
+  - name: Next track shortcut
+    community.general.dconf:
+      key: '/org/gnome/settings-daemon/plugins/media-keys/next'
+      value: "'<Primary><Shift>End'"
+
+  - name: Previous track shortcut
+    community.general.dconf:
+      key: '/org/gnome/settings-daemon/plugins/media-keys/previous'
+      value: "'<Primary><Shift>Home'"
 
   - name: Night-light shortcut
     community.general.dconf:
@@ -116,7 +141,7 @@
   - name: Disable screen shortcut command
     community.general.dconf:
       key: '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom4/command'
-      value: "'gnome-screensaver-command -a && xset dpms force off'"
+      value: "'gnome-screensaver-command -a'"
 
   - name: Disable screen shortcut name
     community.general.dconf:

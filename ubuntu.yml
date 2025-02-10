@@ -30,21 +30,46 @@
   - role: internetguru.chrome
     tags:
       - global
-  - role: PeterMosmans.customize-gnome
-    vars:
-      gnome_user: '{{ username.stdout }}'
-      gnome_extensions:
-        - id: 1160
-          enable: yes
-        - id: 4655
-          enable: yes
-    tags:
-      - user
   - role: geerlingguy.java
     tags:
       - global
     ignore_errors: yes
+
   tasks:
+
+  - name: Install GNOME Shell Extensions CLI
+    apt:
+      name: gnome-shell-extensions
+      state: present
+    tags:
+      - global
+
+  - name: Install GNOME Extensions (Dash to Panel)
+    shell: |
+      gnome-extensions install --force https://extensions.gnome.org/extension-data/dash-to-paneljderose9.github.com.v45.shell-extension.zip
+      gnome-extensions enable dash-to-panel@jderose9.github.com
+    become: yes
+    become_user: '{{ username.stdout }}'
+    tags:
+      - user
+
+  - name: Install GNOME Extensions (Date Menu Formatter)
+    shell: |
+      gnome-extensions install --force https://extensions.gnome.org/extension-data/date-menu-formattermarcinjak.pl.v15.shell-extension.zip
+      gnome-extensions enable date-menu-formatter@marcinjak.pl
+    become: yes
+    become_user: '{{ username.stdout }}'
+    tags:
+      - user
+
+  - name: Remove GNOME Extensions (Ubuntu Dock)
+    apt:
+      pkg:
+        - gnome-shell-extension-ubuntu-dock
+      state: absent
+    tags:
+      - global
+
   - name: Set default browser
     shell: xdg-settings set default-web-browser google-chrome.desktop
     become: yes
@@ -72,6 +97,11 @@
       cmd: add-apt-repository ppa:variety/stable
     tags:
       - global
+  - name: Install slack
+    apt:
+      deb: https://downloads.slack-edge.com/desktop-releases/linux/x64/4.39.95/slack-desktop-4.39.95-amd64.deb
+    tags:
+      - global
   - name: Install packages
     apt:
       pkg:
@@ -88,6 +118,7 @@
       - variety
       - keepass2
       - shellcheck
+      - gnome-boxes
       update_cache: yes
     tags:
       - global
@@ -175,28 +206,13 @@
     tags:
       - global
     ignore_errors: yes
-  - name: Install slack
-    snap:
-      name: slack
-      classic: yes
-    tags: global
-    ignore_errors: yes
-  - name: Install discord
-    snap:
-      name: discord
-      classic: yes
-    tags: global
-    ignore_errors: yes
-  - name: Install virtualbox
-    apt:
-      name: virtualbox
-    ignore_errors: yes
-    tags: global
   - name: Install sublime
     import_tasks: tasks/sublime.yml
+
   - name: Install docker
     import_tasks: tasks/docker.yml
     tags: global
+
   - name: Install PHP
     import_tasks: tasks/php.yml
     tags: global
@@ -210,14 +226,24 @@
     import_tasks: tasks/diff-so-fancy.yml
   - name: Create workspace
     import_tasks: tasks/work.yml
-  - name: Download and execute NodeSource setup script for Node.js 18
-    shell:
-      cmd: "curl -fsSL https://deb.nodesource.com/setup_18.x | sudo -E bash -"
-    tags: global
-  - name: Install Node.js 18 and npm
+  - name: Install Node.js and npm
     apt:
       name:
         - nodejs
+        # - npm
       update_cache: yes
       state: present
+    tags: global
+  - name: Remove snap
+    apt:
+      pkg:
+        - snapd
+      state: absent
+      autoremove: yes
+    tags: global
+  - name: Install vscode
+    import_tasks: tasks/vscode.yml
+    tags: global
+  - name: Install cursor
+    import_tasks: tasks/cursor.yml
     tags: global

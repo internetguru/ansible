@@ -1,6 +1,17 @@
 # Internet Guru Ansible
 
-This project contains handy ansible playbooks divided into several environments. It installs 'global' tag globally and 'user' tag for all accounts individually. Roles are installed for each playbook if the same playbook file exists with a `roles.` prefix, e.g. `roles.ubuntu.yml` for `ubuntu.yml`.
+Internet Guru Ansible is a comprehensive set of Ansible playbooks designed to streamline the setup and configuration of Ubuntu systems. Whether you're setting up a fresh installation or managing existing systems, these playbooks automate the installation of essential tools, developer environments, and user-friendly configurations.
+
+Key features:
+- Quick setup of fresh Ubuntu installations
+- Customized environments for different use cases (desktop, server, etc.)
+- Automated installation of popular development tools and productivity software
+- System tweaks and shortcuts for improved usability
+- Flexible options to skip global tasks or force specific installations
+
+This project aims to save time and ensure consistency across multiple Ubuntu installations, making it ideal for both individual users and teams managing multiple workstations or servers.
+
+This project contains handy ansible playbooks divided into several environments. It installs 'global' tag globally and 'user' tag for all existing user accounts individually. Roles are installed for each playbook if the same playbook file exists with a `roles.` prefix, e.g. `roles.ubuntu.yml` for `ubuntu.yml`.
 
  - [Options](#options)
  - [Requirements](#requirements)
@@ -17,48 +28,42 @@ This project contains handy ansible playbooks divided into several environments.
 
 ## Requirements
 
- - Ubuntu 22.04.2 LTS (minimal installation)
-   - [download iso](https://releases.ubuntu.com/jammy/ubuntu-22.04.2-desktop-amd64.iso)
-   - [create a bootable USB stick on Ubuntu](https://ubuntu.com/tutorials/create-a-usb-stick-on-ubuntu#1-overview)
- - python and pip
- - ansible and git
-
-```
-sudo apt update
-sudo apt upgrade -y
-sudo apt install python3-pip
-sudo pip install -U ansible
-sudo apt install git
-```
+ - Ubuntu 24.04.1 LTS
+   - [Download ISO](https://releases.ubuntu.com/24.04.1/ubuntu-24.04.1-desktop-amd64.iso)
+   - [Create a bootable USB stick on Ubuntu](https://ubuntu.com/tutorials/create-a-usb-stick-on-ubuntu#1-overview)
+ - Ansible
+ - Git
 
 ## Setup Guide
 
-This is a complete simple use-case on how to install basic environments on a fresh *Ubuntu* installation. To update or sync after adding a new user account, repeat the very same process.
+This is a complete simple use-case on how to install basic environments on a *fresh Ubuntu 24 installation*. To update or sync after adding a new user account, repeat the very same process.
 
-1. Install updates or existing packages \
-The third command will reboot the computer which may or may not be necessary.
+1. Install updates and required packages. \
+Note: The last command will reboot the computer, which may or may not be necessary.
 
    ```
    sudo apt update
    sudo apt upgrade -y
+   sudo apt install ansible git -y
    sudo reboot
    ```
 
-1. Clone or update ansible project \
-This command either creates (clones) or updates the existing global `ansible` repository.
+2. Clone or update Ansible project. \
+This command either creates a new global repository or updates the existing one.
 
    ```
    sudo mkdir -p /usr/local/share/ansible/
    cd /usr/local/share/ansible
-   sudo git clone https://github.com/internetguru/ansible.git \
+   sudo git clone https://github.com/internetguru/ansible.git . \
      || sudo git pull
    ```
 
-1. Install ansible for all users
-See options below and notice another reboot command.
+3. Install Ansible for all users. \
+See the commented optional command and notice another reboot command.
 
    ```
    cd /usr/local/share/ansible
+   # sudo git checkout dev
    sudo ./install.sh fresh.yml ubuntu.yml
    sudo reboot
    ```
@@ -99,21 +104,21 @@ Installs essential commands and CLI environment for Debian/Ubuntu.
 
 ### `ubuntu.yml`
 
-Enables Windows-like panel and adds practical programs, scripts and adjustments for *Ubuntu*. It also adds basic developer programs and tools.
+Enables Windows-like panel and adds practical programs, scripts, and adjustments specifically for *Ubuntu Desktop*. It also adds basic developer programs and tools.
 
  - gnome-screensaver
  - gnome-session
  - gnome-settings-daemon
  - gnome-tweaks
 <!-- break -->
- - [kolourpaint](https://apps.kde.org/kolourpaint/) (alternative to MS Paint)
- - [rtorrent](https://github.com/rakshasa/rtorrent/wiki) ([cheet sheet](https://devhints.io/rtorrent))
- - [rhythmbox](https://wiki.gnome.org/Apps/Rhythmbox)
- - [mpv](https://mpv.io/)
- - [wmctrl](https://linux.die.net/man/1/wmctrl)
- - [variety](https://peterlevi.com/variety) with awesome background sources!
  - [keepass](https://keepass.info/)
+ - [kolourpaint](https://apps.kde.org/kolourpaint/) (alternative to MS Paint)
+ - [mpv](https://mpv.io/)
+ - [rhythmbox](https://wiki.gnome.org/Apps/Rhythmbox)
+ - [rtorrent](https://github.com/rakshasa/rtorrent/wiki) ([cheat sheet](https://devhints.io/rtorrent))
  - [shellcheck](https://www.shellcheck.net/)
+ - [variety](https://peterlevi.com/variety) with awesome background sources!
+ - [wmctrl](https://linux.die.net/man/1/wmctrl)
 <!-- break -->
  - [dash-to-panel](https://github.com/home-sweet-gnome/dash-to-panel.git)
  - [google-chrome](https://www.google.com/chrome/)
@@ -121,24 +126,26 @@ Enables Windows-like panel and adds practical programs, scripts and adjustments 
    - set as default browser
  - [zoom](https://zoom.us/)
 <!-- break -->
- - [teamviewer](https://www.teamviewer.com/en-us)
- - [slack](https://slack.com/)
- - [discord](https://discord.com/)
- - [virtualbox](https://www.virtualbox.org/)
- - [sublime-text](https://www.sublimetext.com/3) with [shared settings](https://gist.github.com/petrzpav/abf3fa8890a04fd5dedb0dd20711f042)
+ - [butt](https://github.com/internetguru/butt)
+ - [cursor](https://cursor.sh/)
+ - [diff-so-fancy](https://github.com/so-fancy/diff-so-fancy)
  - [docker](https://www.docker.com/products/docker-app)
  - [flow](https://github.com/internetguru/flow)
- - [butt](https://github.com/internetguru/butt)
- - [diff-so-fancy](https://github.com/so-fancy/diff-so-fancy)
+ - [gnome-boxes](https://apps.gnome.org/en-GB/app/org.gnome.Boxes/)
+ - [slack](https://slack.com/)
+ - [sublime-text](https://www.sublimetext.com/3) with [shared settings](https://gist.github.com/petrzpav/abf3fa8890a04fd5dedb0dd20711f042)
+ - [teamviewer](https://www.teamviewer.com/en-us)
+ - [vscode](https://code.visualstudio.com/)
 <!-- break -->
  - java
  - php
  - nodejs
  - python3
+ - docker
  - `~/work` folder with various format file names touched
  - [system configuration](https://github.com/internetguru/ansible/blob/master/tasks/ubuntucfg.yml)
  - [system keyboard shortcuts](https://github.com/internetguru/ansible/blob/master/tasks/ubuntukeys.yml)
- - date-menu-formatter
+ - [date-menu-formatter
  - night light control script
  - default favorites
  - ubuntu-drivers autoinstall
@@ -172,19 +179,29 @@ Clears previously installed applications and configuration that has been withdra
  - `Ctrl+Alt+End` power off dialog
  - `Alt+Shift+End` restart dialog
 <!-- break -->
- - `Ctrl+Shift+PgUp` volume up
- - `Ctrl+Shift+PgDown` volume down
- - `Ctrl+Shift+Del` mute volume
+ - `Ctrl+Shift+PageUp` volume up
+ - `Ctrl+Shift+PageDown` volume down
+ - `Ctrl+Shift+Delete` mute volume
+ - `Ctrl+Shift+Insert` play/pause media
+ - `Ctrl+Shift+End` next track
+ - `Ctrl+Shift+Home` previous track
 <!-- break -->
- - `Win+s` application overview
+ - `Win+a` application overview
  - `Win+c` calculator
 <!-- break -->
  - `Pause`, `Menu` compose keys
 
 ## Troubleshooting
 
+ - Calculator in all modes except for basic shows a collapsed input field.
+   - No known solution.
+ - Win+Num shortcuts not working (except Win+1) from certain apps.
+   - Known apps causing the issue: Terminal, Terminator, Calculator.
+   - Note: This only occurs with Czech keyboard layout.
+   - No known solution.
+   - Workaround: Instead of Win+Num, use Win+Shift+Num, or numpad.
  - *"Unknown error when attempting to call Galaxy"*
-   - Check your internet connection and run ansible again.
+   - Check your internet connection and run Ansible again.
  - *"already installed"* warnings
    - *Ignore.*
  - Sublime Text not downloading shared settings after installation.
@@ -193,34 +210,49 @@ Clears previously installed applications and configuration that has been withdra
    1. Restart (close and run) Sublime, wait until Sync Settings plugin is installed.
    1. Run Tools / Command Palette… (`ctrl+shift+p`) / Sync Settings: Download (or just type `download` and press `Enter`). Ignore warning message(s).
    1. Note: You may need to run the Download command again for theme to take effect.
+ - Visual Studio Code setup shared settings after installation.
+   1. Install [Sync Settings](https://marketplace.visualstudio.com/items?itemName=zokugun.sync-settings) extension.
+   1. Open Command Palette (`ctrl+shift+p`) and type `Sync Settings: Open the repository settings`.
+   1. Update settings to match following:
+      ```yaml
+      hostname: "" # add your hostname here
+      profile: main
+      repository:
+        type: git
+        url: git@github.com:petrzpav/vscode-settings.git
+        branch: master
+      ```
+   1. Save the file and close it.
+   1. Open Command Palette (`ctrl+shift+p`) and type `Sync Settings: Download (repository -> user)`.
+   1. Restart Visual Studio Code.
+   1. To upload new settings, run `Sync Settings: Upload (user -> repository)`.
  - Global Vim plugins are not installed
    1. `sudo vim`
-   1. Hit Enter repeatedly, until insallation starts.
+   1. Hit Enter repeatedly, until installation starts.
    1. After installation finishes, hit Enter again.
    1. Exit vim using `:q` two times.
- - Wireless mouse wakes up the computer.
-   - *No sw solution found. Turn off your mouse physically if possible.*
- - Keyboard switching mismatch, similar to [a 18.04 bug](https://launchpad.net/bugs/1890875).
-   - Reboot or re-login or restart gnome-shell with `killall -3 gnome-shell` or `Alt+F2`, type `r` and hit `Enter`.
- - Unable to launch Ansible info desktop icon
+ - Unable to launch Ansible info desktop icon.
    - Right click on the icon and click on *Allow Launching*.
+ - Docker is not running error.
+   - If works for `sudo`, try adding user to docker group with `sudo usermod -aG docker $USER`.
 
 ## Howtos
 
- - [Manual partitioning during Ubuntu installation](https://askubuntu.com/questions/343268/how-to-use-manual-partitioning-during-installation)
- - [Change swap size](https://bogdancornianu.com/change-swap-size-in-ubuntu/)
- - [Move home to external partition](https://www.tecmint.com/move-home-directory-to-new-partition-disk-in-linux/)
- - [Set default audio device](https://askubuntu.com/questions/1038490/how-do-you-set-a-default-audio-output-device-in-ubuntu-18-04)
- - [Make login screen appear in external display](https://askubuntu.com/questions/1043337/is-there-to-make-the-login-screen-appear-on-the-external-display-in-18-04)
- - [Transfer audio from PC to iPhone](https://www.groovypost.com/howto/howto/sync-your-iphone-or-ipod-touch-in-ubuntu/)
- - [Enable SSH server](https://linuxize.com/post/how-to-enable-ssh-on-ubuntu-18-04/)
- - [Compose key cheet sheet](https://tuttle.github.io/python-useful/compose-key-cheat-sheet.html)
  - [Change compose key](https://askubuntu.com/questions/70784/how-can-i-enable-compose-key)
  - [Change font size](https://help.ubuntu.com/stable/ubuntu-help/a11y.html.en)
- - [Chrome streamkeys extension](https://chrome.google.com/webstore/detail/streamkeys/ekpipjofdicppbepocohdlgenahaneen)
+ - [Change swap size](https://bogdancornianu.com/change-swap-size-in-ubuntu/)
+ - [Compose key cheat sheet](https://tuttle.github.io/python-useful/compose-key-cheat-sheet.html)
+ - [Enable SSH server](https://linuxize.com/post/how-to-enable-ssh-on-ubuntu-18-04/)
  - [Grant And Remove Sudo Privileges](https://ostechnix.com/how-to-grant-and-remove-sudo-privileges-to-users-on-ubuntu/)
+ - [How to Install Ubuntu 24.04 Desktop](https://ubuntuhandbook.org/index.php/2024/04/install-ubuntu-24-04-desktop/).
  - [Internal Microphone Not Working](https://askubuntu.com/questions/6993/internal-microphone-not-working)
+ - [Make login screen appear in external display](https://askubuntu.com/questions/1043337/is-there-to-make-the-login-screen-appear-on-the-external-display-in-18-04)
+ - [Manual partitioning during Ubuntu installation](https://askubuntu.com/questions/343268/how-to-use-manual-partitioning-during-installation)
+ - [Move home to external partition](https://www.tecmint.com/move-home-directory-to-new-partition-disk-in-linux/)
  - [MPV keyboard shortcuts](https://mpv.io/manual/master/#keyboard-control)
+ - [Saving Docker Container Image to a Different Directory Than Root](https://stackoverflow.com/questions/56964447/saving-docker-container-image-to-a-different-directory-than-root)
+ - [Set default audio device](https://askubuntu.com/questions/1038490/how-do-you-set-a-default-audio-output-device-in-ubuntu-18-04)
+ - [Transfer audio from PC to iPhone](https://www.groovypost.com/howto/howto/sync-your-iphone-or-ipod-touch-in-ubuntu/)
 
  ## Copyright
 

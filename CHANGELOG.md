@@ -4,6 +4,36 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
+## [3.0.0] - 2025-02-10
+
+_Stable release based on [3.0.0-rc.1]._
+
+## [3.0.0-rc.1] - 2025-02-10
+
+### Added
+
+- Add Cursor.
+- Add Visual Studio Code.
+- Add explicit show all applications shortcut.
+- Add global media keys shortcuts.
+- Configure docker to store images in home directory.
+- Add user to docker group.
+
+### Changed
+
+- Do not set dark theme by default.
+- Do not disable wayland.
+- Disable tiling assistant.
+- Install slack using apt instead of snap.
+- Install gnome-boxes instead of virtualbox.
+- Install Node.js and npm using apt instead of NodeSource.
+- Disable variety flickr sources and add wallhaven.
+
+### Removed
+
+- Remove snap.
+- Remove streamkeys link from readme.
+
 ## [2.0.11] - 2024-06-12
 
 ### Fixed
@@ -122,6 +152,8 @@ _Stable release based on [2.0.0-rc.1]._
 ### Fixed
  - Ansible forces VirtualBox version to 6.0
 
+[3.0.0]: https://https://github.com/internetguru/ansible/compare/v2.0.11...v3.0.0
+[3.0.0-rc.1]: https://github.com/internetguru/ansible/releases/tag/v2.0.11
 [2.0.11]: https://https://github.com/internetguru/ansible/compare/v2.0.10...v2.0.11
 [2.0.10]: https://https://github.com/internetguru/ansible/compare/v2.0.9...v2.0.10
 [2.0.9]: https://https://github.com/internetguru/ansible/compare/v2.0.8...v2.0.9
