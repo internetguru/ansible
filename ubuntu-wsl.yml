@@ -1,0 +1,39 @@
+- hosts: all
+  pre_tasks:
+  - name: Check version
+    import_tasks: tasks/ansible_version.yml
+  - name: Register current user name
+    import_tasks: tasks/user_name.yml
+  - name: Check version
+    import_tasks: tasks/version.yml
+    tags:
+      - user
+      - global
+  tasks:
+  - name: Install packages
+    apt:
+      pkg:
+      - shellcheck
+      update_cache: yes
+    tags:
+      - global
+  - name: Install docker
+    import_tasks: tasks/docker.yml
+    tags: global
+  - name: Install PHP
+    import_tasks: tasks/php.yml
+    tags: global
+  - name: Install flow
+    import_tasks: tasks/flow.yml
+    tags: global
+  - name: Install butt
+    import_tasks: tasks/butt.yml
+    tags: global
+  - name: Install diff-so-fancy
+    import_tasks: tasks/diff-so-fancy.yml
+  - name: Remove apache2
+    apt:
+      pkg:
+        - apache2
+      state: absent
+    tags: global
