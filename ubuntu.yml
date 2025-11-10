@@ -26,14 +26,14 @@
     tags:
       - user
       - global
-  roles:
-  - role: internetguru.chrome
-    tags:
-      - global
-  - role: geerlingguy.java
-    tags:
-      - global
-    ignore_errors: yes
+  # roles:
+  # - role: internetguru.chrome
+  #   tags:
+  #     - global
+  # - role: geerlingguy.java
+  #   tags:
+  #     - global
+  #   ignore_errors: yes
 
   tasks:
 
@@ -76,57 +76,57 @@
     become_user: '{{ username.stdout }}'
     tags:
       - user
-  - name: Create ~/.config/google-chrome/
-    file:
-      path: '/home/{{ username.stdout }}/.config/google-chrome/'
-      state: directory
-    become: yes
-    become_user: '{{ username.stdout }}'
-    tags:
-      - user
-  - name: Touch google-chrome first run file
-    file:
-      path: '/home/{{ username.stdout }}/.config/google-chrome/First Run'
-      state: touch
-    become: yes
-    become_user: '{{ username.stdout }}'
-    tags:
-      - user
+  # - name: Create ~/.config/google-chrome/
+  #   file:
+  #     path: '/home/{{ username.stdout }}/.config/google-chrome/'
+  #     state: directory
+  #   become: yes
+  #   become_user: '{{ username.stdout }}'
+  #   tags:
+  #     - user
+  # - name: Touch google-chrome first run file
+  #   file:
+  #     path: '/home/{{ username.stdout }}/.config/google-chrome/First Run'
+  #     state: touch
+  #   become: yes
+  #   become_user: '{{ username.stdout }}'
+  #   tags:
+  #     - user
   # - name: Add variety ppa
   #   shell:
   #     cmd: add-apt-repository ppa:variety/stable
   #   tags:
   #     - global
-  - name: Install slack
-    apt:
-      deb: https://downloads.slack-edge.com/desktop-releases/linux/x64/4.39.95/slack-desktop-4.39.95-amd64.deb
-    tags:
-      - global
+  # - name: Install slack
+  #   apt:
+  #     deb: https://downloads.slack-edge.com/desktop-releases/linux/x64/4.39.95/slack-desktop-4.39.95-amd64.deb
+  #   tags:
+  #     - global
   - name: Install packages
     apt:
       pkg:
-      - gnome-screensaver
-      - gnome-session
-      - gnome-settings-daemon
-      - gnome-tweaks
+      # - gnome-screensaver
+      # - gnome-session
+      # - gnome-settings-daemon
+      # - gnome-tweaks
       - python3-pip
-      - kolourpaint
+      # - kolourpaint
       - rtorrent
-      - rhythmbox
+      # - rhythmbox
       - mpv
-      - wmctrl
+      # - wmctrl
       # - variety
-      - keepass2
+      # - keepass2
       - shellcheck
       - gnome-boxes
       update_cache: yes
     tags:
       - global
-  - name: Install google remote desktop
-    apt:
-      deb: https://dl.google.com/linux/direct/chrome-remote-desktop_current_amd64.deb
-    tags:
-      - global
+  # - name: Install google remote desktop
+  #   apt:
+  #     deb: https://dl.google.com/linux/direct/chrome-remote-desktop_current_amd64.deb
+  #   tags:
+  #     - global
   - name: Set lid close behavior to ignore
     lineinfile:
       path: /etc/systemd/logind.conf
@@ -134,12 +134,12 @@
       line: HandleLidSwitch=ignore
     tags:
       - global
-  - name: Install zoom
-    apt:
-      deb: https://zoom.us/client/latest/zoom_amd64.deb
-    ignore_errors: yes
-    tags:
-      - global
+  # - name: Install zoom
+  #   apt:
+  #     deb: https://zoom.us/client/latest/zoom_amd64.deb
+  #   ignore_errors: yes
+  #   tags:
+  #     - global
   - name: Install night-light control script
     copy:
       src: './res/night-light'
@@ -147,14 +147,14 @@
       mode: '0777'
     tags:
       - global
-  - name: Force favorites
-    community.general.dconf:
-      key: '/org/gnome/shell/favorite-apps'
-      state: absent
-    become: yes
-    become_user: '{{ username.stdout }}'
-    tags:
-      - force
+  # - name: Force favorites
+  #   community.general.dconf:
+  #     key: '/org/gnome/shell/favorite-apps'
+  #     state: absent
+  #   become: yes
+  #   become_user: '{{ username.stdout }}'
+  #   tags:
+  #     - force
   - name: Ubuntu config
     import_tasks: tasks/ubuntucfg.yml
     become: yes
@@ -201,13 +201,13 @@
   #   import_tasks: tasks/variety.yml
   #   become: yes
   #   become_user: '{{ username.stdout }}'
-  - name: Install teamviewer
-    import_tasks: tasks/teamviewer.yml
-    tags:
-      - global
-    ignore_errors: yes
-  - name: Install sublime
-    import_tasks: tasks/sublime.yml
+  # - name: Install teamviewer
+  #   import_tasks: tasks/teamviewer.yml
+  #   tags:
+  #     - global
+  #   ignore_errors: yes
+  # - name: Install sublime
+  #   import_tasks: tasks/sublime.yml
 
   - name: Install docker
     import_tasks: tasks/docker.yml
@@ -234,19 +234,19 @@
       update_cache: yes
       state: present
     tags: global
-  - name: Remove snap
-    apt:
-      pkg:
-        - snapd
-      state: absent
-      autoremove: yes
-    tags: global
-  - name: Install vscode
-    import_tasks: tasks/vscode.yml
-    tags: global
-  - name: Install cursor
-    import_tasks: tasks/cursor.yml
-    tags: global
+  # - name: Remove snap
+  #   apt:
+  #     pkg:
+  #       - snapd
+  #     state: absent
+  #     autoremove: yes
+  #   tags: global
+  # - name: Install vscode
+  #   import_tasks: tasks/vscode.yml
+  #   tags: global
+  # - name: Install cursor
+  #   import_tasks: tasks/cursor.yml
+  #   tags: global
   - name: Remove apache2
     apt:
       pkg:
