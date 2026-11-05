@@ -70,6 +70,18 @@
     tags:
       - global
 
+  - name: Disable GNOME Extensions (Ubuntu Dock)
+    shell: gnome-extensions disable ubuntu-dock@ubuntu.com
+    environment:
+      LC_ALL: C.UTF-8
+    register: ubuntu_dock
+    changed_when: ubuntu_dock.rc == 0
+    failed_when: ubuntu_dock.rc != 0 and 'does not exist' not in ubuntu_dock.stderr
+    become: yes
+    become_user: '{{ username.stdout }}'
+    tags:
+      - user
+
   - name: Set default browser
     shell: xdg-settings set default-web-browser google-chrome.desktop
     become: yes
