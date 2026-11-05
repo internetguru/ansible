@@ -44,19 +44,22 @@
     tags:
       - global
 
-  - name: Install GNOME Extensions (Dash to Panel)
-    shell: |
-      gnome-extensions install --force https://extensions.gnome.org/extension-data/dash-to-paneljderose9.github.com.v45.shell-extension.zip
-      gnome-extensions enable dash-to-panel@jderose9.github.com
+  - name: Download GNOME Extensions (Dash to Panel, Date Menu Formatter)
+    get_url:
+      url: 'https://extensions.gnome.org/extension-data/{{ item.uuid | replace("@", "") }}.v{{ item.version }}.shell-extension.zip'
+      dest: '/tmp/{{ item.uuid }}.v{{ item.version }}.zip'
+    loop: &gnome_extensions
+      - { uuid: dash-to-panel@jderose9.github.com, version: 74 }
+      - { uuid: date-menu-formatter@marcinjakubowski.github.com, version: 19 }
     become: yes
     become_user: '{{ username.stdout }}'
     tags:
       - user
 
-  - name: Install GNOME Extensions (Date Menu Formatter)
+  - name: Install GNOME Extensions (Dash to Panel, Date Menu Formatter)
     shell: |
-      gnome-extensions install --force https://extensions.gnome.org/extension-data/date-menu-formattermarcinjak.pl.v15.shell-extension.zip
-      gnome-extensions enable date-menu-formatter@marcinjak.pl
+      gnome-extensions install --force /tmp/{{ item.uuid }}.v{{ item.version }}.zip
+    loop: *gnome_extensions
     become: yes
     become_user: '{{ username.stdout }}'
     tags:
