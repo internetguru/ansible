@@ -10,6 +10,11 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 - New feature 'u24-10'.
 
+### Removed
+
+- Ansible info icon on the desktop.
+- Ansible info shortcut Ctrl+Alt+I.
+
 ## [3.0.5] - 2026-11-06
 
 ### Fixed

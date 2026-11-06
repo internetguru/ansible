@@ -81,3 +81,9 @@
       path: /home/{{ username.stdout }}/Desktop/ansible-info
     tags:
       - user
+  - name: Remove ansible-info.desktop link from desktop
+    file:
+      state: absent
+      path: /home/{{ username.stdout }}/Desktop/ansible-info.desktop
+    tags:
+      - user

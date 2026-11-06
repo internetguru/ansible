@@ -179,27 +179,6 @@
     become: yes
     tags:
       - global
-  - name: Create Desktop folder
-    file:
-      dest: '/home/{{ username.stdout }}/Desktop/'
-      state: directory
-    become: yes
-    become_user: '{{ username.stdout }}'
-    tags:
-      - user
-  # - name: Set ansible-info.desktop gio permissions
-  #   shell: gio set '{{ playbook_dir }}/res/ansible-info.desktop' metadata::trusted true
-  #   tags:
-  #     - global
-  - name: Create ansible-info.desktop link
-    file:
-      src: '{{ playbook_dir }}/res/ansible-info.desktop'
-      dest: '/home/{{ username.stdout }}/Desktop/ansible-info.desktop'
-      state: link
-    become: yes
-    become_user: '{{ username.stdout }}'
-    tags:
-      - user
   # - name: Install variety
   #   import_tasks: tasks/variety.yml
   #   become: yes
