@@ -21,12 +21,15 @@
 
   - name: Install starship prompt
     shell: /tmp/starship.sh --yes
+    args:
+      creates: /usr/local/bin/starship
     tags: global
 
   - name: Set starship prompt as default
     lineinfile:
       path: '/home/{{ username.stdout }}/.bashrc'
-      line: 'eval "$(starship init bash)"'
+      regexp: 'starship init bash'
+      line: 'command -v starship >/dev/null && eval "$(starship init bash)"'
       create: yes
       state: present
     become: yes

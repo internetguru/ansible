@@ -4,6 +4,12 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
+## [3.0.5] - 2026-11-06
+
+### Fixed
+
+- Starship prompt is initialized only when installed.
+
 ## [3.0.4] - 2026-11-06
 
 ### Fixed
@@ -179,6 +185,7 @@ _Stable release based on [2.0.0-rc.1]._
 ### Fixed
  - Ansible forces VirtualBox version to 6.0
 
+[3.0.5]: https://github.com/internetguru/ansible/compare/v3.0.4...v3.0.5
 [3.0.4]: https://github.com/internetguru/ansible/compare/v3.0.3...v3.0.4
 [3.0.3]: https://github.com/internetguru/ansible/compare/v3.0.2...v3.0.3
 [3.0.2]: https://https://github.com/internetguru/ansible/compare/v3.0.1...v3.0.2
