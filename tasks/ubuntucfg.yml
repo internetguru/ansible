@@ -390,14 +390,24 @@
       key: '/org/gnome/terminal/legacy/profiles:/:b1dcc9dd-5262-4d8d-a863-c897e6d979b9/scrollbar-policy'
       value: "'never'"
 
-  - name: Set terminal font to firacode
+  - name: Set terminal font to JetBrains Mono
     community.general.dconf:
       key: '/org/gnome/terminal/legacy/profiles:/:b1dcc9dd-5262-4d8d-a863-c897e6d979b9/font'
-      value: "'Fira Code weight=453 12'"
+      value: "'JetBrains Mono 12'"
 
-  - name: Set terminal font to firacode
+  - name: Set terminal font to JetBrains Mono
     community.general.dconf:
       key: '/org/gnome/terminal/legacy/profiles:/:b1dcc9dd-5262-4d8d-a863-c897e6d979b9/use-system-font'
+      value: 'false'
+
+  - name: Set Ptyxis font to JetBrains Mono
+    community.general.dconf:
+      key: '/org/gnome/Ptyxis/font-name'
+      value: "'JetBrains Mono 12'"
+
+  - name: Disable Ptyxis system font
+    community.general.dconf:
+      key: '/org/gnome/Ptyxis/use-system-font'
       value: 'false'
 
   - name: Set terminal color palette to Solarized

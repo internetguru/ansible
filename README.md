@@ -87,7 +87,7 @@ Installs essential commands and CLI environment for Debian/Ubuntu.
  - avahi-daemon
 <!-- break -->
  - [bashcfg](https://bitbucket.org/igwr/bashcfg)
- - [fonts-firacode](https://github.com/tonsky/FiraCode)
+ - [fonts-jetbrains-mono](https://www.jetbrains.com/lp/mono/)
  - [starship prompt](https://starship.rs/)
  - [vimrc](https://github.com/petrzpav/vimrc)
 <!-- break -->
