@@ -14,6 +14,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 - Ansible info icon on the desktop.
 - Ansible info shortcut Ctrl+Alt+I.
+- Home icon on the desktop.
 
 ## [3.0.5] - 2026-11-06
 

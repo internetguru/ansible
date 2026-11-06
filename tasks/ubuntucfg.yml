@@ -24,6 +24,11 @@
       key: '/org/gnome/desktop/peripherals/keyboard/repeat-interval'
       value: 'uint32 34'
 
+  - name: Hide home icon on desktop
+    community.general.dconf:
+      key: '/org/gnome/shell/extensions/ding/show-home'
+      value: 'false'
+
   - name: Lock screen after 15 min
     community.general.dconf:
       key: '/org/gnome/desktop/session/idle-delay'
