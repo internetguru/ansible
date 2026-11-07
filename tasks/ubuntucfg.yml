@@ -29,10 +29,41 @@
       key: '/org/gnome/shell/extensions/ding/show-home'
       value: 'false'
 
-  - name: Lock screen after 15 min
+  - name: Disable GNOME screen blank (handled by screen-idle)
     community.general.dconf:
       key: '/org/gnome/desktop/session/idle-delay'
-      value: 'uint32 900'
+      value: 'uint32 0'
+
+  - name: Disable GNOME idle dim (handled by screen-idle)
+    community.general.dconf:
+      key: '/org/gnome/settings-daemon/plugins/power/idle-dim'
+      value: 'false'
+
+  - name: Create ~/.local/bin and ~/.config/autostart
+    file:
+      path: '/home/{{ username.stdout }}/{{ item }}'
+      state: directory
+    loop:
+      - .local/bin
+      - .config/autostart
+
+  - name: Install screen-idle (dim, then screen off after 15 min idle)
+    copy:
+      src: '../res/screen-idle.py'
+      dest: '/home/{{ username.stdout }}/.local/bin/screen-idle'
+      mode: '0755'
+
+  - name: Autostart screen-idle
+    copy:
+      dest: '/home/{{ username.stdout }}/.config/autostart/screen-idle.desktop'
+      content: |
+        [Desktop Entry]
+        Type=Application
+        Name=Screen idle
+        Comment=Dim, then turn off the screen when idle
+        Exec=/home/{{ username.stdout }}/.local/bin/screen-idle --idle 900
+        NoDisplay=true
+        X-GNOME-Autostart-enabled=true
 
   - name: Disable lock screen notifications
     community.general.dconf:
