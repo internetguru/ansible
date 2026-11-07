@@ -51,12 +51,12 @@
   - name: Volume down shortcut
     community.general.dconf:
       key: '/org/gnome/settings-daemon/plugins/media-keys/volume-down'
-      value: "['<Primary><Super>Page_Down']"
+      value: "['<Primary><Super>Down']"
 
   - name: Volume up shortcut
     community.general.dconf:
       key: '/org/gnome/settings-daemon/plugins/media-keys/volume-up'
-      value: "['<Primary><Super>Page_Up']"
+      value: "['<Primary><Super>Up']"
 
   - name: Play/pause shortcut
     community.general.dconf:
@@ -66,12 +66,12 @@
   - name: Next track shortcut
     community.general.dconf:
       key: '/org/gnome/settings-daemon/plugins/media-keys/next'
-      value: "'<Primary><Super>End'"
+      value: "'<Primary><Super>Right'"
 
   - name: Previous track shortcut
     community.general.dconf:
       key: '/org/gnome/settings-daemon/plugins/media-keys/previous'
-      value: "'<Primary><Super>Home'"
+      value: "'<Primary><Super>Left'"
 
   - name: Night-light shortcut
     community.general.dconf:
